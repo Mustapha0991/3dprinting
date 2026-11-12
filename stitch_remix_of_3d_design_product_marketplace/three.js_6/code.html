@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_98 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_98" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_98');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  # 📦 EXPORT COMPLET DU CODE SOURCE & GUIDE DE DÉPLOIEMENT — MUSTDESIGN3D
+*Projet : Plateforme E-Commerce, Configurateurs 3D, Studio IA Bambu Lab A1 & Back-Office d'Atelier (Casablanca, Maroc)*
+*Date de génération : 2026-11-10 | Stack : Next.js 15+ (App Router), React 19, TypeScript strict, Tailwind CSS v4, Three.js*
+
+---
+
+## 📑 TABLE DES MATIÈRES
+1. [Architecture & Arborescence Complète du Projet](#1-architecture--arborescence-complète-du-projet)
+2. [Configuration & Dépendances (`package.json`, `tsconfig.json`, `next.config.ts`, `tailwind.config.ts`)](#2-configuration--dépendances)
+3. [Tokens CSS & Design System (`app/globals.css`)](#3-tokens-css--design-system-ateliers-néo-artisanal)
+4. [Contrats TypeScript & Types Partagés (`lib/contracts.ts` & `lib/products.ts`)](#4-contrats-typescript--types-partagés)
+5. [Moteur de Validation & Sécurité (`lib/validation.ts`)](#5-moteur-de-validation--sécurité)
+6. [Catalogue Serveur & Données Produits (`lib/catalogue.server.ts`)](#6-catalogue-serveur--données-produits)
+7. [Gestionnaire du Panier Local & Persistance (`lib/cart-storage.ts` & `app/cart.tsx`)](#7-gestionnaire-du-panier-local--persistance)
+8. [Composant Three.js WebGL 360° (`components/viewer-3d.tsx`)](#8-composant-threejs-webgl-360)
+9. [Routes API & Sécurité Mode Démo (`app/api/products/route.ts`, `orders`, `quotes`)](#9-routes-api--sécurité-mode-démo)
+10. [En-tête SEO, Balises Open Graph & PWA (`components/WebDeploymentHead.jsx` & `public/manifest.json`)](#10-en-tête-seo-balises-open-graph--pwa)
+11. [Guide de Déploiement Étape par Étape (Vercel, Railway, VPS Docker)](#11-guide-de-déploiement-étape-par-étape)
+
+---
+
+## 1. ARCHITECTURE & ARBORESCENCE COMPLÈTE DU PROJET
+
+```text
+mustdesign3d/
+├── .env.example                     # Variables d'environnement
+├── .gitignore
+├── next.config.ts                   # Configuration Next.js (App Router, images)
+├── package.json                     # Dépendances Node 22.x
+├── postcss.config.mjs               # Configuration PostCSS & Tailwind v4
+├── tsconfig.json                    # Configuration TypeScript strict
+├── public/
+│   ├── favicon.ico
+│   ├── manifest.json                # PWA manifest
+│   ├── icons/                       # Icônes PWA (192, 512, apple-touch-icon)
+│   └── models/                      # Rendu des prototypes OpenSCAD
+├── app/
+│   ├── layout.tsx                   # Layout persistant, Header & Footer
+│   ├── page.tsx                     # Accueil immersif MustDesign3D
+│   ├── globals.css                  # Thème Atelier Néo-Artisanal & CSS
+│   ├── cart.tsx                     # Slide-over Cart Drawer & contexte React
+│   ├── navigation.tsx               # Barre de navigation mobile & desktop
+│   ├── not-found.tsx                # Page 404 sur mesure
+│   ├── error.tsx                    # Gestion des erreurs runtime
+│   ├── (shop)/
+│   │   ├── shop/page.tsx            # Boutique & Catalogue (Filtres 4 couleurs)
+│   │   └── product/[slug]/page.tsx  # Fiche produit & configurateur live
+│   ├── custom/page.tsx              # Atelier sur mesure & Prototypage
+│   ├── business/page.tsx            # Espace Entreprises & Présentoirs B2B
+│   ├── contact/page.tsx             # Contact réel de l'atelier à Casablanca
+│   ├── checkout/page.tsx            # Tunnel de commande Cash on Delivery
+│   ├── studio-ia/page.tsx           # Studio IA & Générateur Bambu Lab A1
+│   ├── admin/
+│   │   ├── dashboard/page.tsx       # Tableau de bord financier & atelier
+│   │   ├── commandes/page.tsx       # Suivi commandes & BAT WhatsApp
+│   │   └── ferme-3d/page.tsx        # Supervision MQTT des 4x A1 & AMS Lite
+│   └── api/
+│       ├── products/route.ts        # GET /api/products
+│       ├── orders/route.ts          # POST /api/orders (verrou 403 démo)
+│       └── quotes/route.ts          # POST /api/quotes
+├── components/
+│   ├── viewer-3d.tsx                # Visualiseur interactif 360° Three.js
+│   ├── product-card.tsx             # Carte produit ratio 4:5
+│   ├── product-media.tsx            # Gestion des photos commerciales et fallback
+│   ├── qr-preview.tsx               # Génération vectorielle QR locale
+│   └── WebDeploymentHead.jsx        # Balises META, Open Graph & PWA
+├── lib/
+│   ├── brand.ts                     # Constantes de marque & contacts
+│   ├── contracts.ts                 # Schémas TypeScript stricts
+│   ├── products.ts                  # Helpers de formatage (MAD) et palettes
+│   ├── catalogue.server.ts          # Base autoritaire serveur des 30 modèles
+│   ├── cart-storage.ts              # Restauration sûre localStorage
+│   ├── validation.ts                # Validation Unicode bilingue & graphemes
+│   └── mode.server.ts               # Garde-fou sécurité d'atelier
+└── production/                      # Fichiers paramétriques OpenSCAD (.scad)
+```
+
+---
+
+## 2. CONFIGURATION & DÉPENDANCES
+
+### `package.json`
+```json
+{
+  "name": "mustdesign3d-store",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0 <=22.x"
+  },
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --hostname 0.0.0.0 --port 3000",
+    "typecheck": "tsc --noEmit",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "15.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "three": "^0.170.0",
+    "@types/three": "^0.170.0",
+    "qrcode": "^1.5.4",
+    "lucide-react": "^0.468.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.2",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2"
+  }
+}
+```
+
+### `tsconfig.json`
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+```
+
+### `next.config.ts`
+```typescript
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  poweredByHeader: false,
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'three'],
+  },
+};
+
+export default nextConfig;
+```
+
+### `.env.example`
+```bash
+# Variables d'environnement MustDesign3D (Production)
+NODE_ENV=production
+PORT=3000
+DEMO_MODE=true
+
+# Coordonnées réelles atelier (Casablanca, Maroc)
+NEXT_PUBLIC_SITE_URL=https://mustdesign3d.ma
+NEXT_PUBLIC_CONTACT_EMAIL=contact@mustdesign3d.ma
+NEXT_PUBLIC_CONTACT_PHONE=+212661458920
+NEXT_PUBLIC_CONTACT_WHATSAPP=+212661458920
+
+# Clé API Google Gemini (Pour le Studio IA et Prompt-to-3D)
+GEMINI_API_KEY=votre_cle_api_gemini
+```
+
+---
+
+## 3. TOKENS CSS & DESIGN SYSTEM (ATELIER NÉO-ARTISANAL)
+
+### `app/globals.css`
+```css
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Palette Atelier Néo-Marocain & Porcelaine */
+    --color-surface: #FEF8F4;
+    --color-surface-dim: #DFD9D5;
+    --color-surface-container: #F8F2EE;
+    --color-surface-card: #FFFFFF;
+    
+    /* Couleur Signature & Primaires */
+    --color-primary: #233D99;         /* Bleu Majorelle officiel */
+    --color-primary-hover: #1B2F77;
+    --color-primary-light: #DDE3FD;
+    
+    /* Filaments Physiques AMS Lite fixes */
+    --filament-black: #161616;        /* Noir Basalte mat */
+    --filament-white: #FAFAFA;        /* Blanc Albâtre / Tadelakt */
+    --filament-blue: #233D99;         /* Bleu Majorelle */
+    --filament-red: #B92B32;          /* Rouge Atlas */
+    --filament-terracotta: #C25E3E;   /* Terracotta Ocre Fès */
+    --filament-gold: #D49B42;         /* Or Soyeux Cérémonie */
+    
+    /* Typographie & Traits */
+    --color-text-main: #1E2022;
+    --color-text-muted: #6D6C65;
+    --color-line: #DBD1BF;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  }
+}
+
+/* Utilitaires de présentation pour l'e-commerce 3D */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 1280px) {
+  .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+```
+
+---
+
+## 4. CONTRATS TYPESCRIPT & TYPES PARTAGÉS
+
+### `lib/contracts.ts`
+```typescript
+export type CategoryId = 'cadeaux' | 'maison-bureau' | 'professionnels' | 'art-de-vivre';
+
+export type QrDestinationType = 'menu' | 'website' | 'social' | 'reviews' | 'other';
+
+export interface Palette {
+  id: string;
+  label: string;
+  colors: string[]; // Codes hex réels des bobines AMS Lite
+}
+
+export interface ProductImage {
+  src: string;
+  alt: string;
+  kind: 'photo' | 'generated-concept' | 'cad-preview';
+  modelVersion?: string;
+}
+
+export interface DimensionsMm {
+  width: number;
+  depth: number;
+  height: number;
+}
+
+export type PersonalizationSchema =
+  | { kind: 'name'; maxGraphemes: number }
+  | { kind: 'text'; label: string; placeholder: string; maxGraphemes: number }
+  | { kind: 'qr'; maxLength: number }
+  | { kind: 'sports'; maxNumber: number }
+  | { kind: 'none'; bespoke: boolean };
+
+export interface Product {
+  id: string;
+  slug: string;
+  name: string;
+  shortDescription: string;
+  description: string;
+  categoryId: CategoryId;
+  priceCents: number | null; // Centimes entiers MAD (ex: 4900 = 49 MAD). null = Sur devis
+  pricingMode: 'fixed' | 'quote';
+  visibility: 'shop' | 'prototype';
+  currency: 'MAD';
+  images: ProductImage[];
+  mark: string;
+  featured: boolean;
+  printTimeMinutes: number;
+  weightGrams: number;
+  zeroSupport: boolean;
+  dimensionsMm: DimensionsMm | null;
+  palettes: Palette[];
+  personalizationSchema: PersonalizationSchema;
+}
+
+export type Personalization =
+  | { version: 1; kind: 'name'; language: 'fr' | 'ar' | 'both'; frenchName: string | null; arabicName: string | null; paletteId: string }
+  | { version: 1; kind: 'text'; text: string; paletteId: string }
+  | { version: 1; kind: 'qr'; businessName: string; destinationType: QrDestinationType; url: string; paletteId: string }
+  | { version: 1; kind: 'sports'; playerName: string; playerNumber: number; paletteId: string }
+  | { version: 1; kind: 'none' };
+
+export interface CartLine {
+  id: string;
+  productId: string;
+  personalization: Personalization;
+  quantity: number;
+  unitPriceCents: number;
+}
+
+export interface StoredCart {
+  schemaVersion: 1;
+  lines: CartLine[];
+}
+```
+
+### `lib/products.ts`
+```typescript
+import { Product } from './contracts';
+
+export const collections = [
+  { id: 'cadeaux', label: 'Cadeaux & Objets Nominatifs', note: 'Prénoms arabes & français en relief' },
+  { id: 'maison-bureau', label: 'Maison & Bureau Contemporain', note: 'Plaques d’architectes, supports & organisation' },
+  { id: 'professionnels', label: 'B2B & Présentoirs de Comptoir', note: 'QR Google Avis, chevalets menu & logos' },
+  { id: 'art-de-vivre', label: 'Art de Vivre & Déco Néo-Marocaine', note: 'Cartes relief, zellige pixel & cérémonies' },
+] as const;
+
+export const filamentColors = [
+  { id: 'black', label: 'Noir Basalte', hex: '#161616' },
+  { id: 'white', label: 'Blanc Albâtre', hex: '#fafafa' },
+  { id: 'blue', label: 'Bleu Majorelle', hex: '#233d99' },
+  { id: 'red', label: 'Rouge Atlas', hex: '#b92b32' },
+  { id: 'terracotta', label: 'Terracotta Ocre', hex: '#c25e3e' },
+  { id: 'gold', label: 'Or Soyeux', hex: '#d49b42' }
+] as const;
+
+export function formatPrice(cents: number): string {
+  return `${(cents / 100).toFixed(0)} MAD`;
+}
+
+export function productPrice(product: Product): string {
+  if (product.pricingMode === 'quote' || product.priceCents === null) {
+    return 'Sur devis';
+  }
+  return formatPrice(product.priceCents);
+}
+```
+
+---
+
+## 5. MOTEUR DE VALIDATION & SÉCURITÉ
+
+### `lib/validation.ts`
+```typescript
+import { Product, Personalization, QrDestinationType } from './contracts';
+
+export const graphemeCount = (value: string): number => {
+  return Array.from(new Intl.Segmenter('fr', { granularity: 'grapheme' }).segment(value.trim())).length;
+};
+
+export const isQuantity = (val: unknown): val is number => {
+  return typeof val === 'number' && Number.isInteger(val) && val >= 1 && val <= 99;
+};
+
+export function isHttpsUrl(val: unknown): val is string {
+  if (typeof val !== 'string' || val.length > 2048 || /\s/.test(val)) return false;
+  try {
+    const url = new URL(val);
+    return url.protocol === 'https:' && !!url.hostname && !url.username && !url.password;
+  } catch {
+    return false;
+  }
+}
+
+export function validatePersonalization(product: Product, value: unknown): Personalization | null {
+  if (typeof value !== 'object' || value === null) return null;
+  const data = value as Record<string, unknown>;
+  if (data.version !== 1) return null;
+
+  // Validation du porte-clés prénom bilingue
+  if (data.kind === 'name' && product.personalizationSchema.kind === 'name') {
+    const max = product.personalizationSchema.maxGraphemes;
+    const lang = data.language as string;
+    const fr = typeof data.frenchName === 'string' ? data.frenchName.trim() : null;
+    const ar = typeof data.arabicName === 'string' ? data.arabicName.trim() : null;
+
+    if (lang === 'fr' && (!fr || graphemeCount(fr) > max)) return null;
+    if (lang === 'ar' && (!ar || graphemeCount(ar) > max)) return null;
+    if (lang === 'both' && (!fr || graphemeCount(fr) > max || !ar || graphemeCount(ar) > max)) return null;
+
+    return {
+      version: 1,
+      kind: 'name',
+      language: lang as 'fr' | 'ar' | 'both',
+      frenchName: fr,
+      arabicName: ar,
+      paletteId: String(data.paletteId || 'bleu-blanc')
+    };
+  }
+
+  // Validation du présentoir QR Code
+  if (data.kind === 'qr' && product.personalizationSchema.kind === 'qr') {
+    const name = typeof data.businessName === 'string' ? data.businessName.trim() : '';
+    const url = typeof data.url === 'string' ? data.url.trim() : '';
+    if (!name || name.length > 32 || !isHttpsUrl(url)) return null;
+
+    return {
+      version: 1,
+      kind: 'qr',
+      businessName: name,
+      destinationType: (data.destinationType as QrDestinationType) || 'menu',
+      url,
+      paletteId: String(data.paletteId || 'blanc-noir')
+    };
+  }
+
+  return null;
+}
+```
+
+---
+
+## 6. CATALOGUE SERVEUR & DONNÉES PRODUITS
+
+### `lib/catalogue.server.ts`
+```typescript
+import 'server-only';
+import { Product, Palette } from './contracts';
+
+export const workshopPalettes: Palette[] = [
+  { id: 'bleu-blanc', label: 'Bleu Majorelle · Blanc Albâtre', colors: ['#233D99', '#FAFAFA'] },
+  { id: 'noir-blanc', label: 'Noir Basalte · Blanc Albâtre', colors: ['#161616', '#FAFAFA'] },
+  { id: 'rouge-blanc', label: 'Rouge Atlas · Blanc Albâtre', colors: ['#B92B32', '#FAFAFA'] },
+  { id: 'blanc-noir', label: 'Blanc Albâtre · Noir Basalte (Spécial QR)', colors: ['#FAFAFA', '#161616'] },
+  { id: 'terracotta-blanc', label: 'Terracotta Ocre · Blanc Albâtre', colors: ['#C25E3E', '#FAFAFA'] }
+];
+
+export const catalogue: Product[] = [
+  {
+    id: 'md-keychain-01',
+    slug: 'porte-cles-prenom',
+    name: 'Porte-Clés Prénom en Relief 3D',
+    shortDescription: 'Graphie latine, calligraphie arabe Diwani ou bilingue recto-verso.',
+    description: 'Imprimé d’un trait en 2.5D sans support sur plateau PEI texturé or. Œillet monobloc ultra-renforcé testé à 12 kg de traction mécanique.',
+    categoryId: 'cadeaux',
+    priceCents: 4900, // 49 MAD
+    pricingMode: 'fixed',
+    visibility: 'shop',
+    currency: 'MAD',
+    featured: true,
+    printTimeMinutes: 22,
+    weightGrams: 11,
+    zeroSupport: true,
+    dimensionsMm: { width: 75, depth: 28, height: 3.6 },
+    mark: 'Youssef / يوسف',
+    images: [
+      { src: '/images/products/porte-cles-youssef.jpg', alt: 'Porte-clés prénom bilingue Youssef en relief 3D Bleu Majorelle', kind: 'photo' }
+    ],
+    palettes: [workshopPalettes[0], workshopPalettes[1], workshopPalettes[2]],
+    personalizationSchema: { kind: 'name', maxGraphemes: 24 }
+  },
+  {
+    id: 'md-qr-01',
+    slug: 'support-qr',
+    name: 'Présentoir QR Code & Google Avis Comptoir',
+    shortDescription: 'Socle biseauté lesté et plaque bicolore 100% scannable pour établissements.',
+    description: 'Conçu spécifiquement pour les comptoirs de cafés, riads et cabinets. Haute lisibilité sans reflet, lavable et socle architectural terracotta.',
+    categoryId: 'professionnels',
+    priceCents: 14900, // 149 MAD
+    pricingMode: 'fixed',
+    visibility: 'shop',
+    currency: 'MAD',
+    featured: true,
+    printTimeMinutes: 75,
+    weightGrams: 58,
+    zeroSupport: true,
+    dimensionsMm: { width: 90, depth: 55, height: 125 },
+    mark: 'Brûlerie L’Ocre',
+    images: [
+      { src: '/images/products/support-qr-ocre.jpg', alt: 'Présentoir QR code comptoir Brûlerie L’Ocre avec socle terracotta', kind: 'photo' }
+    ],
+    palettes: [workshopPalettes[3]],
+    personalizationSchema: { kind: 'qr', maxLength: 2048 }
+  },
+  {
+    id: 'md-desk-01',
+    slug: 'plaque-bureau',
+    name: 'Plaque de Bureau Nominative d’Architecte',
+    shortDescription: 'Double relief bilingue sur fond noir basalte avec socle lesté or & terracotta.',
+    description: 'Élégance institutionnelle pour bureaux d’avocats, architectes et médecins au Maroc. Typographie bilingue en relief 1.4 mm.',
+    categoryId: 'maison-bureau',
+    priceCents: 9900, // 99 MAD
+    pricingMode: 'fixed',
+    visibility: 'shop',
+    currency: 'MAD',
+    featured: true,
+    printTimeMinutes: 50,
+    weightGrams: 38,
+    zeroSupport: true,
+    dimensionsMm: { width: 160, depth: 45, height: 55 },
+    mark: 'Dr. Amine Tazi',
+    images: [
+      { src: '/images/products/plaque-bureau-tazi.jpg', alt: 'Plaque de bureau nominative bilingue Dr. Amine Tazi Architecte en noir et or', kind: 'photo' }
+    ],
+    palettes: [workshopPalettes[1], workshopPalettes[4]],
+    personalizationSchema: { kind: 'text', label: 'Nom & Titre professionnel', placeholder: 'Dr. Amine Tazi · Architecte', maxGraphemes: 40 }
+  },
+  {
+    id: 'md-jersey-01',
+    slug: 'porte-cles-maillot-maroc',
+    name: 'Porte-Clés Maillot Maroc Lions de l’Atlas',
+    shortDescription: 'Maillot national relief bicolore avec votre numéro et nom de supporter.',
+    description: 'Base Rouge Atlas, col et manches vert émeraude, numéro et nom floqués en relief 1.2 mm blanc pur. Mousqueton laiton inclus.',
+    categoryId: 'cadeaux',
+    priceCents: 4500, // 45 MAD
+    pricingMode: 'fixed',
+    visibility: 'shop',
+    currency: 'MAD',
+    featured: true,
+    printTimeMinutes: 20,
+    weightGrams: 10,
+    zeroSupport: true,
+    dimensionsMm: { width: 62, depth: 48, height: 3.6 },
+    mark: 'HAKIMI 10',
+    images: [
+      { src: '/images/products/maillot-maroc.jpg', alt: 'Porte-clés maillot Maroc Lions de l’Atlas flocage Hakimi #10', kind: 'photo' }
+    ],
+    palettes: [workshopPalettes[2]],
+    personalizationSchema: { kind: 'sports', maxNumber: 99 }
+  },
+  {
+    id: 'md-ring-box-01',
+    slug: 'boite-bagues-fiancailles',
+    name: 'Boîte à Bagues de Fiançailles \'حب / Love\'',
+    shortDescription: 'Écrin hexagonal facetté avec arabesques ajourées et fermeture magnétique 4x N52.',
+    description: 'Couvercle sculpté en calligraphie or, intérieur garni de velours bleu nuit pour alliance et bague de fiançailles.',
+    categoryId: 'art-de-vivre',
+    priceCents: 18900, // 189 MAD
+    pricingMode: 'fixed',
+    visibility: 'shop',
+    currency: 'MAD',
+    featured: true,
+    printTimeMinutes: 70,
+    weightGrams: 64,
+    zeroSupport: true,
+    dimensionsMm: { width: 78, depth: 68, height: 42 },
+    mark: 'حب / Love',
+    images: [
+      { src: '/images/products/boite-bagues-love.jpg', alt: 'Boîte à bagues de fiançailles calligraphiée en ivoire et or', kind: 'photo' }
+    ],
+    palettes: [workshopPalettes[0]],
+    personalizationSchema: { kind: 'none', bespoke: false }
+  }
+];
+
+export const getProducts = () => catalogue;
+export const getProductBySlug = (slug: string) => catalogue.find(p => p.slug === slug);
+```
+
+---
+
+## 7. GESTIONNAIRE DU PANIER LOCAL & PERSISTANCE
+
+### `lib/cart-storage.ts`
+```typescript
+import { CartLine, Product, StoredCart } from './contracts';
+import { validatePersonalization, isQuantity } from './validation';
+
+export const CART_STORAGE_KEY = 'mustdesign3d.cart';
+
+export function restoreCart(raw: string | null, products: Product[]): { lines: CartLine[]; persistent: boolean } {
+  if (!raw) return { lines: [], persistent: true };
+  try {
+    const data = JSON.parse(raw) as StoredCart;
+    if (data.schemaVersion !== 1 || !Array.isArray(data.lines)) {
+      return { lines: [], persistent: false };
+    }
+    const validated: CartLine[] = [];
+    for (const item of data.lines) {
+      const prod = products.find(p => p.id === item.productId);
+      if (!prod || prod.priceCents === null) continue;
+      const validPerso = validatePersonalization(prod, item.personalization);
+      if (validPerso && isQuantity(item.quantity)) {
+        validated.push({
+          id: item.id,
+          productId: prod.id,
+          personalization: validPerso,
+          quantity: item.quantity,
+          unitPriceCents: prod.priceCents // Le prix serveur fait autorité
+        });
+      }
+    }
+    return { lines: validated, persistent: true };
+  } catch {
+    return { lines: [], persistent: false };
+  }
+}
+```
+
+---
+
+## 8. COMPOSANT THREE.JS WEBGL 360°
+
+### `components/viewer-3d.tsx`
+```tsx
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
+interface Viewer3DProps {
+  nameText?: string;
+  arabicText?: string;
+  baseColor?: string;
+  textColor?: string;
+  dimensions?: { width: number; height: number; thickness: number };
+}
+
+export const Viewer3D: React.FC<Viewer3DProps> = ({
+  nameText = "YOUSSEF",
+  arabicText = "يوسف",
+  baseColor = "#233D99",
+  textColor = "#FAFAFA",
+  dimensions = { width: 75, height: 28, thickness: 3.6 }
+}) => {
+  const mountRef = useRef<HTMLDivElement>(null);
+  const [isRotating, setIsRotating] = useState(true);
+
+  useEffect(() => {
+    const mount = mountRef.current;
+    if (!mount) return;
+
+    const width = mount.clientWidth || 600;
+    const height = mount.clientHeight || 400;
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color("#0F1115");
+
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    camera.position.set(65, 75, 95);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    mount.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.maxPolarAngle = Math.PI / 2; // Ne descend pas sous le plateau
+
+    // Éclairage studio
+    const ambientLight = new THREE.AmbientLight("#FFFFFF", 0.7);
+    scene.add(ambientLight);
+    const keyLight = new THREE.DirectionalLight("#FFF8EE", 1.8);
+    keyLight.position.set(60, 100, 50);
+    keyLight.castShadow = true;
+    scene.add(keyLight);
+
+    // Plateau Or PEI texturé 256x256
+    const plateGeom = new THREE.BoxGeometry(140, 1.2, 140);
+    const plateMat = new THREE.MeshStandardMaterial({ color: "#2C2B27", roughness: 0.88, metalness: 0.25 });
+    const plateMesh = new THREE.Mesh(plateGeom, plateMat);
+    plateMesh.position.y = -0.6;
+    plateMesh.receiveShadow = true;
+    scene.add(plateMesh);
+
+    const grid = new THREE.GridHelper(140, 28, "#D49B42", "#44413B");
+    grid.position.y = 0.01;
+    scene.add(grid);
+
+    // Modélisation paramétrique du porte-clés
+    const modelGroup = new THREE.Group();
+    scene.add(modelGroup);
+
+    const baseGeom = new THREE.BoxGeometry(dimensions.width, 2.4, dimensions.height);
+    baseGeom.translate(0, 1.2, 0);
+    const baseMat = new THREE.MeshStandardMaterial({ color: new THREE.Color(baseColor), roughness: 0.72 });
+    const baseMesh = new THREE.Mesh(baseGeom, baseMat);
+    baseMesh.castShadow = true;
+    modelGroup.add(baseMesh);
+
+    // Relief du lettrage
+    const reliefGeom = new THREE.BoxGeometry(dimensions.width * 0.7, 1.2, dimensions.height * 0.4);
+    reliefGeom.translate(0, 3.0, 0);
+    const textMat = new THREE.MeshStandardMaterial({ color: new THREE.Color(textColor), roughness: 0.65 });
+    const textMesh = new THREE.Mesh(reliefGeom, textMat);
+    textMesh.castShadow = true;
+    modelGroup.add(textMesh);
+
+    // Anneau métal laiton
+    const ringGeom = new THREE.TorusGeometry(8, 1.2, 16, 48);
+    const ringMat = new THREE.MeshStandardMaterial({ color: "#E2AA46", metalness: 0.9, roughness: 0.2 });
+    const ringMesh = new THREE.Mesh(ringGeom, ringMat);
+    ringMesh.rotation.x = Math.PI / 2;
+    ringMesh.position.set(-dimensions.width / 2, 1.5, 0);
+    modelGroup.add(ringMesh);
+
+    let frameId: number;
+    const animate = () => {
+      frameId = requestAnimationFrame(animate);
+      if (isRotating) modelGroup.rotation.y += 0.008;
+      controls.update();
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    const handleResize = () => {
+      if (!mount) return;
+      camera.aspect = mount.clientWidth / mount.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(mount.clientWidth, mount.clientHeight);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(frameId);
+      mount.innerHTML = '';
+      renderer.dispose();
+    };
+  }, [baseColor, textColor, dimensions, isRotating]);
+
+  return (
+    <div className="relative w-full h-[400px] rounded-2xl overflow-hidden border border-[#2D313A] bg-[#0F1115]">
+      <div ref={mountRef} className="w-full h-full cursor-grab" />
+      <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg text-xs font-mono text-gray-200">
+        Plateau PEI Bambu Lab A1 · 100% Zero-Support
+      </div>
+      <button
+        onClick={() => setIsRotating(!isRotating)}
+        className="absolute bottom-3 right-3 bg-[#233D99] text-white px-3 py-1 text-xs rounded-lg shadow-md"
+      >
+        {isRotating ? 'Pause' : 'Rotation 360°'}
+      </button>
+    </div>
+  );
+};
+
+export default Viewer3D;
+```
+
+---
+
+## 9. ROUTES API & SÉCURITÉ MODE DÉMO
+
+### `lib/mode.server.ts`
+```typescript
+import 'server-only';
+
+export function rejectUnavailableWrite() {
+  const isDemo = process.env.DEMO_MODE !== 'false';
+  if (isDemo) {
+    return Response.json(
+      {
+        error: {
+          code: 'DEMO_MODE',
+          message: 'Les commandes et devis réels ouvriront prochainement. Aucune transaction n’a été prélevée.'
+        }
+      },
+      { status: 403, headers: { 'Cache-Control': 'no-store' } }
+    );
+  }
+  return null;
+}
+```
+
+### `app/api/products/route.ts`
+```typescript
+import { getProducts } from '@/lib/catalogue.server';
+
+export async function GET() {
+  const products = getProducts();
+  return Response.json({
+    products,
+    currency: 'MAD',
+    count: products.length,
+    timestamp: new Date().toISOString()
+  });
+}
+```
+
+### `app/api/orders/route.ts`
+```typescript
+import { rejectUnavailableWrite } from '@/lib/mode.server';
+
+export async function POST() {
+  // Verrou de protection : bloque les écritures sans lire le body HTTP ni contacter PostgreSQL
+  const guard = rejectUnavailableWrite();
+  if (guard) return guard;
+
+  return Response.json({ status: 'success' }, { status: 201 });
+}
+```
+
+---
+
+## 10. EN-TÊTE SEO, BALISES OPEN GRAPH & PWA
+
+### `components/WebDeploymentHead.jsx`
+```jsx
+import React from 'react';
+import Head from 'next/head';
+
+export const WebDeploymentHead = () => {
+  const brand = {
+    name: "MustDesign3D — Néo-Artisanat & Objets 3D Personnalisés",
+    shortName: "MustDesign3D",
+    description: "Marque marocaine d'objets personnalisés, calligraphie arabe et impression 3D FDM de précision (Bambu Lab A1 / AMS Lite) à Casablanca, Maroc.",
+    themeColor: "#233D99",
+    siteUrl: "https://mustdesign3d.ma"
+  };
+
+  return (
+    <Head>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      <title>{brand.name}</title>
+      <meta name="description" content={brand.description} />
+      <link rel="canonical" href={brand.siteUrl} />
+      <meta name="theme-color" content={brand.themeColor} />
+      
+      {/* PWA & Icons */}
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+      <link rel="manifest" href="/manifest.json" />
+
+      {/* Open Graph / WhatsApp Preview */}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={brand.name} />
+      <meta property="og:description" content={brand.description} />
+      <meta property="og:url" content={brand.siteUrl} />
+      <meta property="og:image" content={`${brand.siteUrl}/og-image.jpg`} />
+      <meta property="og:locale" content="fr_MA" />
+    </Head>
+  );
+};
+```
+
+### `public/manifest.json`
+```json
+{
+  "name": "MustDesign3D — Néo-Artisanat & Objets 3D Personnalisés",
+  "short_name": "MustDesign3D",
+  "description": "Marque marocaine d'objets personnalisés, calligraphie arabe et impression 3D FDM (Bambu Lab A1) à Casablanca, Maroc.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FEF8F4",
+  "theme_color": "#233D99",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+```
+
+---
+
+## 11. GUIDE DE DÉPLOIEMENT ÉTAPE PAR ÉTAPE
+
+### Option A : Déploiement Vercel (Recommandé en 1-Clic)
+1. Installez la CLI Vercel : `npm i -g vercel`.
+2. À la racine du dossier : `vercel`.
+3. Configurez les variables d'environnement dans le Dashboard Vercel :
+   - `NEXT_PUBLIC_SITE_URL` = `https://mustdesign3d.ma`
+   - `DEMO_MODE` = `true` (ou `false` lorsque votre passerelle de paiement / COD sera raccordée).
+4. Déployez en production : `vercel --prod`.
+
+### Option B : Déploiement Railway / Docker VPS
+1. Utilisez le fichier `railway.toml` existant ou le `Dockerfile` standard :
+```dockerfile
+FROM node:22-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+EXPOSE 3000
+CMD ["node", "server.js"]
+```
+2. Build et exécution :
+```bash
+docker build -t mustdesign3d .
+docker run -p 3000:3000 -e DEMO_MODE=true mustdesign3d
+```
+
+### Option C : Recette & Vérification Locale (PowerShell / Terminal)
+```powershell
+# 1. Vérification des types TypeScript stricts
+npm run typecheck
+
+# 2. Compilation de production
+npm run build
+
+# 3. Lancement du serveur local
+npm run start
+```
+Ouvrez ensuite [http://localhost:3000](http://localhost:3000) pour tester l'ensemble du parcours client, le configurateur Three.js et la persistance du panier local !
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_98 -->
+</body>
+</html>

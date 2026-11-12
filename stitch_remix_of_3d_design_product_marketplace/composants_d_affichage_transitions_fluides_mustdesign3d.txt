@@ -1,0 +1,391 @@
+// ==============================================================================
+// MustDesign3D — Suite Complète des Composants d'Affichage & Animations de Transition
+// Next.js 15+ App Router, TypeScript Strict, Tailwind CSS & Framer Motion Ready
+// ==============================================================================
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+
+// ------------------------------------------------------------------------------
+// 1. Toast & Notification Center (Animations de Transition Fluides)
+// ------------------------------------------------------------------------------
+export interface ToastMessage {
+  id: string;
+  type: 'success' | 'info' | 'warning' | 'error';
+  title: string;
+  message?: string;
+  duration?: number;
+}
+
+export const ToastNotificationCenter: React.FC<{
+  toasts: ToastMessage[];
+  onDismiss: (id: string) => void;
+}> = ({ toasts, onDismiss }) => {
+  return (
+    <aside
+      aria-live="polite"
+      className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 max-w-sm w-full pointer-events-none"
+    >
+      {toasts.map((toast) => (
+        <div
+          key={toast.id}
+          className={`pointer-events-auto flex items-start gap-3 p-4 rounded-2xl border shadow-lg backdrop-blur-md transition-all duration-300 transform translate-y-0 opacity-100 animate-slide-up ${
+            toast.type === 'success'
+              ? 'bg-[#fef8f4]/95 border-emerald-500/40 text-[#1e2022]'
+              : toast.type === 'warning'
+              ? 'bg-amber-50/95 border-amber-500/40 text-amber-950'
+              : toast.type === 'error'
+              ? 'bg-red-50/95 border-red-500/40 text-red-950'
+              : 'bg-[#1e2022]/95 border-[#dfd9d5]/30 text-[#fef8f4]'
+          }`}
+        >
+          <div className="flex-shrink-0 mt-0.5">
+            {toast.type === 'success' && (
+              <span className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">
+                ✓
+              </span>
+            )}
+            {toast.type === 'warning' && <span className="text-amber-600 text-base">⚠️</span>}
+            {toast.type === 'error' && <span className="text-red-600 text-base">✕</span>}
+            {toast.type === 'info' && <span className="text-amber-400 text-base">ℹ️</span>}
+          </div>
+          <div className="flex-1 min-w-0">
+            <h4 className="text-xs font-bold leading-tight font-serif">{toast.title}</h4>
+            {toast.message && (
+              <p className="text-[11px] opacity-80 mt-1 leading-relaxed">{toast.message}</p>
+            )}
+          </div>
+          <button
+            onClick={() => onDismiss(toast.id)}
+            className="text-xs opacity-50 hover:opacity-100 transition p-1"
+            aria-label="Fermer la notification"
+          >
+            ✕
+          </button>
+        </div>
+      ))}
+    </aside>
+  );
+};
+
+// ------------------------------------------------------------------------------
+// 2. Visualiseur Bilingue 2.5D en Temps Réel (RTL Arabe & Latin avec AMS Preview)
+// ------------------------------------------------------------------------------
+interface LivePreviewBadgeProps {
+  frenchName: string;
+  arabicName: string;
+  paletteColors: string[];
+  dimensions?: { width: number; depth: number; height: number };
+}
+
+export const LiveBilingual25DPreview: React.FC<LivePreviewBadgeProps> = ({
+  frenchName,
+  arabicName,
+  paletteColors = ['#1e2022', '#233d99', '#fafafa'],
+  dimensions = { width: 80, depth: 80, height: 12 },
+}) => {
+  const [baseColor, textColor, accentColor = textColor] = paletteColors;
+
+  return (
+    <div className="relative w-full aspect-square max-w-md mx-auto bg-gradient-to-b from-[#f8f2ee] to-[#ece7dc] rounded-3xl p-6 border border-[#dfd9d5] flex flex-col items-center justify-between shadow-inner overflow-hidden group">
+      {/* Texture de fond PEI Texturé en filigrane */}
+      <div
+        className="absolute inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#1e2022 0.75px, transparent 0.75px)',
+          backgroundSize: '8px 8px',
+        }}
+      />
+
+      {/* En-tête de calibration DFM */}
+      <div className="w-full flex items-center justify-between text-[10px] font-mono text-[#5a5f63] z-10 border-b border-[#dfd9d5]/60 pb-2">
+        <span className="flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          BAMBU LAB A1 • AMS LITE
+        </span>
+        <span>{dimensions.width}×{dimensions.depth}×{dimensions.height} mm</span>
+      </div>
+
+      {/* Rendu 2.5D du Modèle Imprimé avec Effet de Relief Extrudé */}
+      <div className="relative my-auto transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-rotate-1">
+        {/* Ombre portée réaliste au plateau */}
+        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 h-8 bg-[#1e2022]/20 rounded-full blur-md" />
+
+        {/* Base du bloc carré / plaque */}
+        <div
+          className="relative w-52 h-52 rounded-2xl shadow-xl flex flex-col items-center justify-center p-4 transition-colors duration-300 border-b-4 border-black/20"
+          style={{ backgroundColor: baseColor }}
+        >
+          {/* Liseré géométrique d'arête en accent AMS */}
+          <div
+            className="absolute inset-2 rounded-xl border border-dashed pointer-events-none opacity-40"
+            style={{ borderColor: accentColor }}
+          />
+
+          {/* Calligraphie Arabe Extrudée en 2.5D */}
+          <div
+            dir="auto"
+            lang="ar"
+            className="font-serif font-black text-3xl tracking-wide select-none drop-shadow-sm transition-colors text-center px-2"
+            style={{
+              color: textColor,
+              textShadow: `1px 1px 0px ${baseColor}, 2px 2px 0px rgba(0,0,0,0.35)`,
+            }}
+          >
+            {arabicName || 'الدار البيضاء'}
+          </div>
+
+          {/* Séparateur géométrique zellige 8 branches */}
+          <div className="flex items-center gap-2 my-2 opacity-70">
+            <span className="w-6 h-0.5 rounded" style={{ backgroundColor: accentColor }} />
+            <span className="text-[10px]" style={{ color: accentColor }}>✦</span>
+            <span className="w-6 h-0.5 rounded" style={{ backgroundColor: accentColor }} />
+          </div>
+
+          {/* Nom en alphabet Latin / Français */}
+          <div
+            className="font-sans font-bold text-sm tracking-widest uppercase select-none text-center px-2"
+            style={{
+              color: textColor,
+              textShadow: `1px 1px 0px rgba(0,0,0,0.25)`,
+            }}
+          >
+            {frenchName || 'MUSTDESIGN 3D'}
+          </div>
+        </div>
+      </div>
+
+      {/* Légende interactive de bas de plateau */}
+      <div className="w-full flex items-center justify-between text-[10px] text-[#5a5f63] z-10 pt-2 border-t border-[#dfd9d5]/60">
+        <span>Aperçu de couche (0.20 mm)</span>
+        <span className="font-semibold text-emerald-800">100% Sans Support</span>
+      </div>
+    </div>
+  );
+};
+
+// ------------------------------------------------------------------------------
+// 3. Tiroir Panier d'Achats Interactif (Cart Drawer avec Persistance & Déduplication)
+// ------------------------------------------------------------------------------
+export interface CartDrawerProps {
+  isOpen: boolean;
+  onClose: () => void;
+  items: Array<{
+    id: string;
+    productId: string;
+    name: string;
+    priceMad: number;
+    quantity: number;
+    personalizationLabel?: string;
+    colors: string[];
+    imageSrc?: string;
+  }>;
+  onUpdateQuantity: (id: string, newQty: number) => void;
+  onRemoveItem: (id: string) => void;
+}
+
+export const InteractiveCartDrawer: React.FC<CartDrawerProps> = ({
+  isOpen,
+  onClose,
+  items,
+  onUpdateQuantity,
+  onRemoveItem,
+}) => {
+  const subtotalMad = items.reduce((sum, item) => sum + item.priceMad * item.quantity, 0);
+  const freeShippingThreshold = 200;
+  const progressPercent = Math.min(100, (subtotalMad / freeShippingThreshold) * 100);
+  const diffToFreeShipping = Math.max(0, freeShippingThreshold - subtotalMad);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 overflow-hidden">
+      {/* Backdrop sombre avec flou */}
+      <div
+        className="absolute inset-0 bg-[#1e2022]/60 backdrop-blur-sm transition-opacity duration-300"
+        onClick={onClose}
+      />
+
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+        <aside className="w-screen max-w-md bg-[#fef8f4] border-l border-[#dfd9d5] shadow-2xl flex flex-col justify-between">
+          {/* Header */}
+          <div className="p-6 border-b border-[#dfd9d5] flex items-center justify-between">
+            <div>
+              <span className="text-[10px] font-mono tracking-widest uppercase text-[#5a5f63]">
+                Atelier Casablanca
+              </span>
+              <h2 className="font-serif text-xl font-bold text-[#1e2022]">
+                Mon Panier ({items.reduce((s, i) => s + i.quantity, 0)})
+              </h2>
+            </div>
+            <button
+              onClick={onClose}
+              className="w-9 h-9 rounded-full bg-[#f8f2ee] hover:bg-[#dfd9d5] text-[#1e2022] flex items-center justify-center font-bold text-sm transition"
+              aria-label="Fermer le panier"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Jauge de gratuité de livraison Amana Maroc (200 MAD) */}
+          <div className="bg-[#f8f2ee] px-6 py-3 border-b border-[#dfd9d5]/60 text-xs">
+            <div className="flex justify-between font-semibold text-[#1e2022] mb-1.5 text-[11px]">
+              {diffToFreeShipping === 0 ? (
+                <span className="text-emerald-700 font-bold flex items-center gap-1">
+                  <span>🎉</span> Livraison Amana Offerte partout au Maroc !
+                </span>
+              ) : (
+                <span>
+                  Plus que <strong>{diffToFreeShipping.toFixed(0)} MAD</strong> pour la livraison offerte
+                </span>
+              )}
+              <span className="font-mono text-[#5a5f63]">{progressPercent.toFixed(0)}%</span>
+            </div>
+            <div className="w-full h-1.5 bg-[#dfd9d5] rounded-full overflow-hidden">
+              <div
+                className="h-full bg-emerald-600 transition-all duration-500 rounded-full"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Liste des articles avec défilement */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-[#dfd9d5]/50">
+            {items.length === 0 ? (
+              <div className="h-full flex flex-col items-center justify-center text-center p-8">
+                <span className="text-4xl font-serif text-amber-700 mb-2">∅</span>
+                <p className="font-serif font-bold text-[#1e2022] mb-1">Votre panier est encore vide</p>
+                <p className="text-xs text-[#5a5f63] mb-6 max-w-xs">
+                  Sélectionnez un modèle carré ou un porte-clés et personnalisez-le en 2 minutes.
+                </p>
+                <Link
+                  href="/shop"
+                  onClick={onClose}
+                  className="px-6 py-2.5 rounded-full bg-[#1e2022] text-white text-xs font-bold hover:bg-black transition"
+                >
+                  Explorer la boutique
+                </Link>
+              </div>
+            ) : (
+              items.map((item) => (
+                <div key={item.id} className="pt-4 flex items-start gap-4">
+                  <div className="w-16 h-16 rounded-xl bg-white border border-[#dfd9d5] overflow-hidden flex-shrink-0 relative">
+                    {item.imageSrc ? (
+                      <Image
+                        src={item.imageSrc}
+                        alt={item.name}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center font-bold text-xs text-amber-800 bg-[#f8f2ee]">
+                        3D
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex justify-between items-start gap-2">
+                      <h3 className="font-serif font-bold text-xs text-[#1e2022] truncate">
+                        {item.name}
+                      </h3>
+                      <span className="text-xs font-bold text-[#1e2022] whitespace-nowrap">
+                        {item.priceMad * item.quantity} MAD
+                      </span>
+                    </div>
+
+                    {item.personalizationLabel && (
+                      <p className="text-[11px] text-[#5a5f63] mt-0.5 truncate">
+                        • {item.personalizationLabel}
+                      </p>
+                    )}
+
+                    {/* Pastilles AMS */}
+                    <div className="flex items-center gap-1 my-1.5">
+                      {item.colors.map((c, i) => (
+                        <span
+                          key={i}
+                          className="w-2.5 h-2.5 rounded-full border border-black/10 inline-block"
+                          style={{ backgroundColor: c }}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Actions Quantité & Retrait */}
+                    <div className="flex items-center justify-between mt-2 text-xs">
+                      <div className="flex items-center border border-[#dfd9d5] rounded-lg bg-white overflow-hidden">
+                        <button
+                          type="button"
+                          onClick={() => onUpdateQuantity(item.id, Math.max(1, item.quantity - 1))}
+                          className="px-2 py-0.5 text-xs hover:bg-[#f8f2ee] text-[#1e2022] font-bold"
+                        >
+                          -
+                        </button>
+                        <span className="px-2 font-mono text-[11px] font-semibold">{item.quantity}</span>
+                        <button
+                          type="button"
+                          onClick={() => onUpdateQuantity(item.id, Math.min(99, item.quantity + 1))}
+                          className="px-2 py-0.5 text-xs hover:bg-[#f8f2ee] text-[#1e2022] font-bold"
+                        >
+                          +
+                        </button>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => onRemoveItem(item.id)}
+                        className="text-[11px] text-red-600 hover:underline"
+                      >
+                        Retirer
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+
+          {/* Footer & Bouton Passer la Commande */}
+          {items.length > 0 && (
+            <div className="p-6 bg-white border-t border-[#dfd9d5] space-y-3">
+              <div className="space-y-1.5 text-xs">
+                <div className="flex justify-between text-[#5a5f63]">
+                  <span>Sous-total articles :</span>
+                  <span>{subtotalMad.toFixed(2)} MAD</span>
+                </div>
+                <div className="flex justify-between text-[#5a5f63]">
+                  <span>Livraison estimée :</span>
+                  <span>{diffToFreeShipping === 0 ? 'Gratuite' : '35.00 MAD'}</span>
+                </div>
+                <div className="flex justify-between font-bold text-sm text-[#1e2022] pt-2 border-t border-[#dfd9d5]">
+                  <span>Total indicatif (COD) :</span>
+                  <span className="text-amber-800 font-serif text-base">
+                    {(subtotalMad + (diffToFreeShipping === 0 ? 0 : 35)).toFixed(2)} MAD
+                  </span>
+                </div>
+              </div>
+
+              <Link
+                href="/checkout"
+                onClick={onClose}
+                className="w-full py-3.5 px-6 rounded-full bg-[#1e2022] hover:bg-black text-[#fef8f4] font-bold text-xs flex items-center justify-center gap-2 shadow-md transition transform active:scale-95"
+              >
+                <span>Commander (Paiement à la livraison)</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  );
+};

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_105 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_105" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_105');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const container = document.getElementById('threejs-container') || document.body;
+const width = container.clientWidth || 400;
+const height = container.clientHeight || 400;
+
+// Scene setup
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+camera.position.set(18, 14, 22);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xfef8f4, 1.2);
+scene.add(ambientLight);
+
+const dirLight = new THREE.DirectionalLight(0xfff3e0, 2.2);
+dirLight.position.set(15, 25, 15);
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.width = 1024;
+dirLight.shadow.mapSize.height = 1024;
+scene.add(dirLight);
+
+const fillLight = new THREE.DirectionalLight(0x233d99, 0.6);
+fillLight.position.set(-15, 10, -10);
+scene.add(fillLight);
+
+const group = new THREE.Group();
+scene.add(group);
+
+// Material definitions (PLA Bioplastic Matte + Silk Gold)
+const darkKnightMaterial = new THREE.MeshStandardMaterial({
+  color: 0x1e2022,
+  roughness: 0.75,
+  metalness: 0.15,
+});
+
+const ashTrayMaterial = new THREE.MeshStandardMaterial({
+  color: 0xdfd9d5,
+  roughness: 0.85,
+  metalness: 0.05,
+});
+
+const goldAccentMaterial = new THREE.MeshStandardMaterial({
+  color: 0xd49b42,
+  roughness: 0.35,
+  metalness: 0.75,
+});
+
+const smokeMaterial = new THREE.MeshBasicMaterial({
+  color: 0xffffff,
+  transparent: true,
+  opacity: 0.35,
+});
+
+// 1. Incense Holder Basin (Elongated hexagonal ornate tray)
+const trayGroup = new THREE.Group();
+
+// Tray base
+const trayLength = 16;
+const trayWidth = 4.2;
+const trayDepth = 0.8;
+
+const trayShape = new THREE.Shape();
+trayShape.moveTo(-trayLength / 2 + 1, -trayWidth / 2);
+trayShape.lineTo(trayLength / 2 - 1, -trayWidth / 2);
+trayShape.lineTo(trayLength / 2, -trayWidth / 2 + 1);
+trayShape.lineTo(trayLength / 2, trayWidth / 2 - 1);
+trayShape.lineTo(trayLength / 2 - 1, trayWidth / 2);
+trayShape.lineTo(-trayLength / 2 + 1, trayWidth / 2);
+trayShape.lineTo(-trayLength / 2, trayWidth / 2 - 1);
+trayShape.lineTo(-trayLength / 2, -trayWidth / 2 + 1);
+trayShape.closePath();
+
+const extrudeSettings = {
+  depth: 0.9,
+  bevelEnabled: true,
+  bevelSegments: 3,
+  steps: 1,
+  bevelSize: 0.25,
+  bevelThickness: 0.25,
+};
+
+const trayBaseGeom = new THREE.ExtrudeGeometry(trayShape, extrudeSettings);
+trayBaseGeom.rotateX(Math.PI / 2);
+const trayMesh = new THREE.Mesh(trayBaseGeom, ashTrayMaterial);
+trayMesh.position.set(-1.5, 0.4, 0);
+trayMesh.castShadow = true;
+trayMesh.receiveShadow = true;
+trayGroup.add(trayMesh);
+
+// Tray Hollow (Cavity for incense ash)
+const cavityGeom = new THREE.BoxGeometry(11.5, 0.6, 2.8);
+const cavityMat = new THREE.MeshStandardMaterial({ color: 0xc8c2be, roughness: 0.9 });
+const cavityMesh = new THREE.Mesh(cavityGeom, cavityMat);
+cavityMesh.position.set(-3.5, 0.55, 0);
+cavityMesh.receiveShadow = true;
+trayGroup.add(cavityMesh);
+
+// Gold trim borders along the tray
+const trimGeom = new THREE.BoxGeometry(11.8, 0.15, 0.2);
+const trim1 = new THREE.Mesh(trimGeom, goldAccentMaterial);
+trim1.position.set(-3.5, 0.85, 1.45);
+trayGroup.add(trim1);
+const trim2 = trim1.clone();
+trim2.position.set(-3.5, 0.85, -1.45);
+trayGroup.add(trim2);
+
+group.add(trayGroup);
+
+// 2. Knight Figurine (Shadow Knight standing at the end holding the incense stick)
+const knightGroup = new THREE.Group();
+knightGroup.position.set(5.2, 0, 0);
+
+// Pedestal
+const pedGeom = new THREE.BoxGeometry(3.2, 0.9, 3.2);
+const pedestal = new THREE.Mesh(pedGeom, darkKnightMaterial);
+pedestal.position.set(0, 0.45, 0);
+pedestal.castShadow = true;
+pedestal.receiveShadow = true;
+knightGroup.add(pedestal);
+
+// Knight Feet & Greaves
+const legGeom = new THREE.BoxGeometry(0.7, 2.2, 0.8);
+const leftLeg = new THREE.Mesh(legGeom, darkKnightMaterial);
+leftLeg.position.set(-0.55, 1.9, 0.2);
+leftLeg.castShadow = true;
+knightGroup.add(leftLeg);
+
+const rightLeg = new THREE.Mesh(legGeom, darkKnightMaterial);
+rightLeg.position.set(0.55, 1.9, -0.2);
+rightLeg.castShadow = true;
+knightGroup.add(rightLeg);
+
+// Knight Body / Cuirass (Armored torso)
+const torsoGeom = new THREE.CylinderGeometry(1.0, 0.85, 2.6, 6);
+const torso = new THREE.Mesh(torsoGeom, darkKnightMaterial);
+torso.position.set(0, 4.0, 0);
+torso.castShadow = true;
+knightGroup.add(torso);
+
+// Knight Cloak (Flowing cape)
+const capeGeom = new THREE.BoxGeometry(2.4, 4.2, 0.35);
+const cape = new THREE.Mesh(capeGeom, darkKnightMaterial);
+cape.position.set(0, 3.2, 0.9);
+cape.rotation.x = 0.15;
+cape.castShadow = true;
+knightGroup.add(cape);
+
+// Pauldrons (Shoulder armor)
+const pauldronGeom = new THREE.SphereGeometry(0.65, 8, 8);
+const leftPauldron = new THREE.Mesh(pauldronGeom, goldAccentMaterial);
+leftPauldron.position.set(-1.3, 4.8, 0);
+leftPauldron.scale.set(1.2, 0.9, 1);
+knightGroup.add(leftPauldron);
+
+const rightPauldron = new THREE.Mesh(pauldronGeom, goldAccentMaterial);
+rightPauldron.position.set(1.3, 4.8, 0);
+rightPauldron.scale.set(1.2, 0.9, 1);
+knightGroup.add(rightPauldron);
+
+// Knight Helmet with visor & crest
+const helmGeom = new THREE.BoxGeometry(1.1, 1.3, 1.1);
+const helm = new THREE.Mesh(helmGeom, darkKnightMaterial);
+helm.position.set(0, 5.7, 0);
+helm.castShadow = true;
+knightGroup.add(helm);
+
+const crestGeom = new THREE.ConeGeometry(0.3, 0.9, 4);
+const crest = new THREE.Mesh(crestGeom, goldAccentMaterial);
+crest.position.set(0, 6.6, -0.1);
+crest.rotation.x = -0.3;
+knightGroup.add(crest);
+
+// Arm extended forward holding the incense stick
+const armGeom = new THREE.CylinderGeometry(0.32, 0.28, 2.2, 6);
+const arm = new THREE.Mesh(armGeom, darkKnightMaterial);
+arm.position.set(-1.1, 4.5, -0.8);
+arm.rotation.x = Math.PI / 2.2;
+arm.rotation.z = 0.2;
+arm.castShadow = true;
+knightGroup.add(arm);
+
+// Knight Gauntlet Hand
+const handGeom = new THREE.SphereGeometry(0.35, 6, 6);
+const hand = new THREE.Mesh(handGeom, goldAccentMaterial);
+hand.position.set(-0.95, 4.5, -1.9);
+knightGroup.add(hand);
+
+// Incense Stick (Extending horizontally across the basin)
+const stickGeom = new THREE.CylinderGeometry(0.06, 0.06, 12, 6);
+const stickMat = new THREE.MeshStandardMaterial({ color: 0x6e5038, roughness: 0.9 });
+const stick = new THREE.Mesh(stickGeom, stickMat);
+stick.position.set(-6.8, 4.5, -1.9);
+stick.rotation.z = Math.PI / 2;
+stick.castShadow = true;
+knightGroup.add(stick);
+
+// Glowing ember tip
+const emberGeom = new THREE.SphereGeometry(0.12, 6, 6);
+const emberMat = new THREE.MeshBasicMaterial({ color: 0xff4500 });
+const ember = new THREE.Mesh(emberGeom, emberMat);
+ember.position.set(-12.8, 4.5, -1.9);
+knightGroup.add(ember);
+
+// Smoke Particle Trail
+const smokeParticles = [];
+const smokeCount = 18;
+for (let i = 0; i < smokeCount; i++) {
+  const pGeom = new THREE.SphereGeometry(0.15 + i * 0.05, 6, 6);
+  const pMesh = new THREE.Mesh(pGeom, smokeMaterial);
+  pMesh.position.set(-12.8 + (Math.random() - 0.5) * 0.4, 4.6 + i * 0.35, -1.9 + (Math.random() - 0.5) * 0.4);
+  knightGroup.add(pMesh);
+  smokeParticles.push({
+    mesh: pMesh,
+    baseY: 4.6 + i * 0.35,
+    speed: 0.02 + Math.random() * 0.02,
+    offset: Math.random() * Math.PI * 2
+  });
+}
+
+group.add(knightGroup);
+
+// Center the whole composition
+group.position.set(0, -2.5, 0);
+
+// Controls / Interaction
+let isDragging = false;
+let prevMousePos = { x: 0, y: 0 };
+
+container.addEventListener('pointerdown', (e) => {
+  isDragging = true;
+  prevMousePos = { x: e.clientX, y: e.clientY };
+});
+
+window.addEventListener('pointerup', () => {
+  isDragging = false;
+});
+
+window.addEventListener('pointermove', (e) => {
+  if (!isDragging) return;
+  const deltaX = e.clientX - prevMousePos.x;
+  const deltaY = e.clientY - prevMousePos.y;
+  group.rotation.y += deltaX * 0.008;
+  group.rotation.x = Math.max(-0.4, Math.min(0.6, group.rotation.x + deltaY * 0.008));
+  prevMousePos = { x: e.clientX, y: e.clientY };
+});
+
+// Window resize
+window.addEventListener('resize', () => {
+  const newW = container.clientWidth || window.innerWidth;
+  const newH = container.clientHeight || window.innerHeight;
+  camera.aspect = newW / newH;
+  camera.updateProjectionMatrix();
+  renderer.setSize(newW, newH);
+});
+
+// Render Loop
+let clock = 0;
+function animate() {
+  requestAnimationFrame(animate);
+  clock += 0.03;
+
+  if (!isDragging) {
+    group.rotation.y += 0.004;
+  }
+
+  // Animate smoke curling
+  for (let i = 0; i < smokeParticles.length; i++) {
+    const p = smokeParticles[i];
+    p.mesh.position.y += p.speed;
+    p.mesh.position.x += Math.sin(clock + p.offset) * 0.015;
+    p.mesh.position.z += Math.cos(clock + p.offset) * 0.015;
+    if (p.mesh.position.y > 11.0) {
+      p.mesh.position.y = 4.6;
+      p.mesh.position.x = -12.8;
+      p.mesh.position.z = -1.9;
+    }
+  }
+
+  renderer.render(scene, camera);
+}
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_105 -->
+</body>
+</html>

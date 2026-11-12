@@ -1,0 +1,57 @@
+{
+  "name": "MustDesign3D — Néo-Artisanat & Objets 3D Personnalisés",
+  "short_name": "MustDesign3D",
+  "description": "Marque marocaine d'objets personnalisés, calligraphie arabe et impression 3D FDM de précision (Bambu Lab A1 / AMS Lite) à Casablanca, Maroc.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FEF8F4",
+  "theme_color": "#233D99",
+  "orientation": "portrait-primary",
+  "lang": "fr-MA",
+  "dir": "ltr",
+  "categories": ["shopping", "lifestyle", "business"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Boutique & Catalogue",
+      "short_name": "Boutique",
+      "description": "Explorer les objets personnalisés et créations 3D",
+      "url": "/shop",
+      "icons": [{ "src": "/icons/shop-shortcut.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Atelier Sur Mesure",
+      "short_name": "Sur Mesure",
+      "description": "Prototypage 3D & cahier des charges",
+      "url": "/custom",
+      "icons": [{ "src": "/icons/custom-shortcut.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Suivi de Commande",
+      "short_name": "Suivi 3D",
+      "description": "Télémétrie en direct de l'atelier d'impression",
+      "url": "/suivi-commande",
+      "icons": [{ "src": "/icons/track-shortcut.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

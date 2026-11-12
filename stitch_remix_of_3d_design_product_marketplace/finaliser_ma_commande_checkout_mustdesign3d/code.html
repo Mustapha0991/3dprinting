@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&family=Noto+Serif:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"accent-majorelle":"#1E40AF","on-tertiary-fixed-variant":"#5c4300","canvas-cream":"#FDFBF7","filament-black":"#1A1A1A","tertiary-container":"#2c1e00","surface-container-lowest":"#ffffff","secondary-fixed-dim":"#b8c4ff","surface-variant":"#e7e1dd","on-secondary":"#ffffff","background":"#fef8f4","ink-anthracite":"#1E2022","secondary-container":"#708cfd","on-primary-container":"#86878a","on-secondary-fixed":"#001453","surface-container-highest":"#e7e1dd","inverse-surface":"#32302e","on-primary-fixed-variant":"#454749","outline":"#75777a","surface-tint":"#5d5e61","on-surface":"#1d1b19","on-tertiary-fixed":"#261900","on-primary-fixed":"#1a1c1e","surface-container-low":"#f8f2ee","filament-majorelle":"#1E40AF","on-tertiary":"#ffffff","primary":"#06080a","error-container":"#ffdad6","surface-container":"#f3ede9","on-error":"#ffffff","inverse-primary":"#c6c6c9","gold-zellige":"#D9A93C","surface":"#fef8f4","on-secondary-fixed-variant":"#173bab","primary-fixed-dim":"#c6c6c9","filament-white":"#FDFBF7","tertiary-fixed-dim":"#f2bf50","on-primary":"#ffffff","on-secondary-container":"#00217a","accent-majorelle-soft":"#EEF2FF","ink-muted":"#686D76","error":"#ba1a1a","surface-sand-subtle":"#EFE8E0","primary-fixed":"#e2e2e5","on-background":"#1d1b19","on-error-container":"#93000a","surface-sand":"#F5EFEB","surface-dim":"#dfd9d5","surface-bright":"#fef8f4","primary-container":"#1e2022","tertiary-fixed":"#ffdea1","tertiary":"#0e0700","on-tertiary-container":"#ac8111","on-surface-variant":"#44474a","border-warm":"#E6DFD5","secondary-fixed":"#dde1ff","surface-container-high":"#ede7e3","inverse-on-surface":"#f6f0ec","secondary":"#3755c3","filament-terracotta":"#B85D3B","outline-variant":"#c5c6ca"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.5rem","space-md":"1rem","space-2xs":"0.25rem","margin":"2rem","gutter-mobile":"0.75rem","margin-mobile":"1rem","space-lg":"1.5rem","space-xl":"2.5rem","space-sm":"0.75rem","space-2xl":"4rem","gutter":"1.5rem"},fontFamily:{"headline-md":["Noto Serif"],"headline-lg":["Noto Serif"],"title-md":["Manrope"],"arabic-title":["Noto Serif"],"price-lg":["Manrope"],"headline-sm":["Noto Serif"],"label-lg":["Manrope"],"headline-lg-mobile":["Noto Serif"],"display-lg":["Noto Serif"],"body-md":["Manrope"],"display-lg-mobile":["Noto Serif"],"body-lg":["Manrope"],"label-md":["Manrope"]},fontSize:{"headline-md":["24px",{"lineHeight":"32px","fontWeight":"500"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"arabic-title":["18px",{"lineHeight":"28px","fontWeight":"400"}],"price-lg":["20px",{"lineHeight":"24px","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"500"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"0","fontWeight":"500"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"display-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-accent-majorelle-soft selection:text-accent-majorelle"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-primary-container text-on-primary font-label-md text-label-md py-1.5 px-margin-mobile lg:px-margin text-center tracking-wider flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[14px] text-gold-zellige">local_shipping</span><span>Livraison partout au Maroc • Paiement à la livraison COD • Fabrication artisanale 3D (Casablanca)</span></div><div class="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs" data-path="accueil" href="#"><div class="w-9 h-9 bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md rounded-lg shadow-sm">M</div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-semibold">MUST<span class="text-filament-majorelle">DESIGN</span>3D</span><span class="font-label-md text-label-md text-ink-muted uppercase tracking-widest -mt-1">Atelier Marocain</span></div></a></div><div class="hidden md:flex flex-1 max-w-md mx-space-md"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full pl-9 pr-space-md py-2 bg-surface-container-low rounded-full text-body-md font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Rechercher un vase, luminaire, lithophane..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs bg-surface-container-low px-space-xs py-1 rounded-full text-label-md font-label-md text-on-surface-variant"><span class="font-semibold text-primary">FR</span><span class="text-outline">|</span><span class="hover:text-primary transition-colors cursor-pointer">العربية</span><span class="text-outline ml-1">•</span><span class="font-semibold text-on-surface ml-1">MAD</span></div><a class="hidden lg:flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-surface-sand hover:bg-surface-container-high transition-colors text-ink-anthracite font-label-lg text-label-lg" data-path="support-whatsapp" href="#"><span class="material-symbols-outlined text-[18px] text-accent-majorelle">chat</span><span>WhatsApp</span></a><a class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" data-path="panier" href="#"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-filament-majorelle text-on-primary text-[10px] font-bold flex items-center justify-center leading-none shadow-sm">2</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="bg-surface-sand/80 backdrop-blur-sm"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin"><nav class="flex items-center space-x-space-lg overflow-x-auto py-2.5" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="accueil" href="#">Accueil</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="catalogue" href="#">Boutique Complète</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="personnalisation-arabe" href="#">Calligraphie & Prénoms</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="vases-sculpturaux" href="#">Vases & Déco Maison</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="lithophanes-lumineuses" href="#">Lithophanes Lumineuses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="bureau-organiseurs" href="#">Accessoires Bureau</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="atelier-sur-mesure" href="#">Service Sur-Mesure Pro</a></nav></div></div></header><main class="w-full pt-32 bg-surface"><div class="flex flex-col w-full">
+<div class="max-w-7xl mx-auto w-full px-margin-mobile lg:px-margin pb-space-2xl">
+<!-- Fil d'Ariane Minimaliste & Rassurance Rapide -->
+<div class="pt-space-md pb-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<nav aria-label="Progression du paiement" class="flex items-center gap-space-xs text-label-md font-label-md">
+<a class="text-ink-muted hover:text-ink-anthracite transition-colors flex items-center gap-1" data-path="panier" href="#">
+<span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+<span>Panier (2 articles)</span>
+</a>
+<span class="text-outline text-[12px]">•</span>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-filament-majorelle"></span>
+<span>Livraison & Coordonnées</span>
+</span>
+<span class="text-outline text-[12px]">•</span>
+<span class="text-outline">Paiement & Validation</span>
+</nav>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-surface-sand rounded-full text-label-md font-label-md text-ink-anthracite self-start md:self-auto shadow-sm">
+<span class="material-symbols-outlined text-gold-zellige text-[16px]">verified</span>
+<span>Validation préalable par WhatsApp avant impression 3D</span>
+</div>
+</div>
+<!-- Layout 2 Colonnes : 60% Formulaire / 40% Récapitulatif -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Colonne Gauche : Formulaire Fast Checkout Maroc (60% -> 7 cols lg) -->
+<section class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Alerte WhatsApp BAT Proactif -->
+<div class="bg-accent-majorelle-soft rounded-xl p-space-md shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-accent-majorelle text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-title-md text-title-md text-ink-anthracite">Aperçu 3D interactif envoyé sur WhatsApp</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Avant l'extrusion finale sur nos imprimantes haute précision à Casablanca, notre artisan vous transmettra une photo du rendu numérique (BAT) pour confirmation.
+            </p>
+</div>
+</div>
+<!-- Bloc 1: Coordonnées & Adresse de livraison -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center font-bold">1</span>
+<h2 class="font-headline-sm text-headline-sm text-ink-anthracite">Coordonnées & Livraison au Maroc</h2>
+</div>
+<span class="font-label-md text-label-md text-ink-muted uppercase tracking-wider">Étape 1 sur 2</span>
+</div>
+<form class="flex flex-col gap-space-md" id="checkout-form">
+<!-- Nom Complet -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite flex items-center justify-between" for="full-name">
+<span>Nom & Prénom complet <span class="text-filament-majorelle">*</span></span>
+<span class="font-arabic-title text-label-md text-ink-muted">الاسم الكامل</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">person</span>
+<input class="w-full pl-10 pr-space-md py-3 bg-surface-sand rounded-lg font-body-md text-body-md text-ink-anthracite placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm transition-all" id="full-name" placeholder="Ex: Youssef El Amrani" required="" type="text" value="Youssef El Amrani"/>
+</div>
+</div>
+<!-- Téléphone WhatsApp & Ville (Grid 2 cols) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- WhatsApp -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite flex items-center justify-between" for="whatsapp-phone">
+<span>Numéro WhatsApp <span class="text-filament-majorelle">*</span></span>
+<span class="font-arabic-title text-label-md text-ink-muted">واتساب للتأكيد</span>
+</label>
+<div class="relative flex items-center">
+<span class="absolute left-3.5 flex items-center gap-1 font-label-md text-label-md text-ink-muted select-none">
+<span class="w-4 h-3 bg-red-600 rounded-sm inline-block relative overflow-hidden">
+<span class="absolute inset-0 flex items-center justify-center text-[8px] text-green-600 leading-none">★</span>
+</span>
+<span>+212</span>
+</span>
+<input class="w-full pl-20 pr-space-md py-3 bg-surface-sand rounded-lg font-body-md text-body-md text-ink-anthracite placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm transition-all" id="whatsapp-phone" placeholder="06 12 34 56 78" required="" type="tel" value="06 61 88 42 19"/>
+</div>
+<span class="font-label-md text-[10px] text-ink-muted">Nécessaire pour le livreur et l'envoi de la maquette 3D</span>
+</div>
+<!-- Ville -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite flex items-center justify-between" for="delivery-city">
+<span>Ville de destination <span class="text-filament-majorelle">*</span></span>
+<span class="font-arabic-title text-label-md text-ink-muted">المدينة</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">location_city</span>
+<select class="w-full pl-10 pr-space-md py-3 bg-surface-sand rounded-lg font-body-md text-body-md text-ink-anthracite focus:outline-none focus:bg-surface-container-lowest shadow-sm appearance-none transition-all cursor-pointer" id="delivery-city" required="">
+<option selected="" value="casablanca">Casablanca (Livraison en 24h)</option>
+<option value="rabat">Rabat / Salé / Témara</option>
+<option value="marrakech">Marrakech</option>
+<option value="tanger">Tanger / Tétouan</option>
+<option value="fes">Fès / Meknès</option>
+<option value="agadir">Agadir / Taghazout</option>
+<option value="kenitra">Kénitra</option>
+<option value="oujda">Oujda / Nador</option>
+<option value="autre">Autre ville du Royaume (Amana Express)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Adresse Précise -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite flex items-center justify-between" for="street-address">
+<span>Adresse précise & Quartier <span class="text-filament-majorelle">*</span></span>
+<span class="font-arabic-title text-label-md text-ink-muted">عنوان التوصيل</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-[18px]">home</span>
+<textarea class="w-full pl-10 pr-space-md py-2.5 bg-surface-sand rounded-lg font-body-md text-body-md text-ink-anthracite placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm resize-none transition-all" id="street-address" placeholder="Quartier, N° Immeuble, Résidence, Appartement ou repère pour le livreur (ex: À côté de la mosquée Al Qods)" required="" rows="2">Quartier Racine, 24 Rue Abou El Kacem Kotbari, Résidence Anfa Star, Imm B, Appt 4</textarea>
+</div>
+</div>
+<!-- Instructions Livreur / Atelier -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite flex items-center justify-between" for="order-notes">
+<span>Instructions pour l'artisan ou le livreur (Optionnel)</span>
+<span class="font-arabic-title text-label-md text-ink-muted">ملاحظات</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-[18px]">edit_note</span>
+<input class="w-full pl-10 pr-space-md py-3 bg-surface-sand rounded-lg font-body-md text-body-md text-ink-anthracite placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm transition-all" id="order-notes" placeholder="Ex: Appeler avant de passer, ou emballage cadeau discret..." type="text" value="Appeler 30 minutes avant l'arrivée du livreur SVP."/>
+</div>
+</div>
+</form>
+</div>
+<!-- Bloc 2: Mode de Paiement (Adapté Maroc) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center font-bold">2</span>
+<h2 class="font-headline-sm text-headline-sm text-ink-anthracite">Mode de Paiement</h2>
+</div>
+<span class="font-label-md text-label-md text-gold-zellige font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+              Transaction 100% Sûre
+            </span>
+</div>
+<div class="flex flex-col gap-space-sm" id="payment-options-container">
+<!-- Option 1: COD (Sélectionnée par défaut) -->
+<label class="payment-card relative flex flex-col md:flex-row md:items-center justify-between p-space-md rounded-xl cursor-pointer bg-surface-sand transition-all shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="pt-0.5">
+<input checked="" class="w-4 h-4 text-accent-majorelle focus:ring-accent-majorelle accent-accent-majorelle" name="payment_method" type="radio" value="cod"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-title-md text-title-md text-ink-anthracite">Paiement à la livraison (Cash on Delivery)</span>
+<span class="px-2 py-0.5 rounded-full bg-accent-majorelle text-on-primary font-label-md text-[10px] tracking-wide uppercase">Populaire</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                    Réglez en espèces directement auprès du livreur partenaire (Amana Express ou Aramex) après vérification du colis.
+                  </p>
+</div>
+</div>
+<div class="mt-space-xs md:mt-0 shrink-0 self-end md:self-center flex items-center gap-2">
+<span class="material-symbols-outlined text-ink-anthracite text-[24px]">payments</span>
+</div>
+</label>
+<!-- Option 2: Virement Bancaire Instantané -->
+<label class="payment-card relative flex flex-col md:flex-row md:items-center justify-between p-space-md rounded-xl cursor-pointer bg-surface-container-low transition-all">
+<div class="flex items-start gap-space-sm">
+<div class="pt-0.5">
+<input class="w-4 h-4 text-accent-majorelle focus:ring-accent-majorelle accent-accent-majorelle" name="payment_method" type="radio" value="bank_transfer"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-ink-anthracite">Virement bancaire instantané</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-sand text-ink-muted font-label-md text-[10px]">Attijariwafa / CIH / BMCE</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                    Nos coordonnées bancaires (RIB direct) vous seront affichées dès la confirmation. Envoi du récépissé par WhatsApp.
+                  </p>
+</div>
+</div>
+<div class="mt-space-xs md:mt-0 shrink-0 self-end md:self-center flex items-center gap-1.5 text-outline">
+<span class="material-symbols-outlined text-[24px]">account_balance</span>
+</div>
+</label>
+<!-- Option 3: Compte Entreprise / Facture ICE -->
+<label class="payment-card relative flex flex-col md:flex-row md:items-center justify-between p-space-md rounded-xl cursor-pointer bg-surface-container-low transition-all">
+<div class="flex items-start gap-space-sm">
+<div class="pt-0.5">
+<input class="w-4 h-4 text-accent-majorelle focus:ring-accent-majorelle accent-accent-majorelle" name="payment_method" type="radio" value="pro_invoice"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-ink-anthracite">Paiement Professionnel sur Facture avec ICE</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-sand text-ink-muted font-label-md text-[10px]">B2B & Sociétés</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                    Facturation marocaine avec mention ICE, RC, TP et IF pour déduction comptable et justificatif d'entreprise.
+                  </p>
+</div>
+</div>
+<div class="mt-space-xs md:mt-0 shrink-0 self-end md:self-center flex items-center gap-1.5 text-outline">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Rassurance Locale de l'Atelier -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-filament-majorelle text-[22px]">precision_manufacturing</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-ink-anthracite leading-tight">Impression 0.08mm</span>
+<span class="font-label-md text-label-md text-ink-muted">Finition sans bavure</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-gold-zellige text-[22px]">thumb_up</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-ink-anthracite leading-tight">Zéro Risque</span>
+<span class="font-label-md text-label-md text-ink-muted">Paiement au livreur</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-filament-terracotta text-[22px]">timer</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-ink-anthracite leading-tight">Expédition 24h-48h</span>
+<span class="font-label-md text-label-md text-ink-muted">Suivi Amana par SMS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Colonne Droite : Récapitulatif Détaillé Persistant (40% -> 5 cols lg) -->
+<aside class="lg:col-span-5 flex flex-col gap-space-md sticky top-36">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-ink-anthracite">Votre Commande</h3>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-full bg-accent-majorelle-soft text-accent-majorelle font-semibold">2 Articles 3D</span>
+</div>
+<!-- Liste des Pièces 3D Personnalisées -->
+<div class="flex flex-col gap-space-md">
+<!-- Article 1: Porte-clés Calligraphie 'Youssef' x2 -->
+<div class="flex items-start gap-space-sm pb-space-sm">
+<div class="relative w-20 h-24 rounded-lg bg-surface-sand overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Photographie en gros plan d'un porte-clés artisanal personnalisé en calligraphie arabe 3D extruded filament bleu majorelle mat et blanc albâtre, texture fine épurée sur fond de pierre travertin sablé, lumière rasante douce de studio design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMEuhsB4MbpS_3wZbMaJCBQSG1v9MFJywLcUlktC12vt6m4SkpWTd0Kmji8UHv9urtJScAucENbqxjyQxKRFhIh3VvxzgO-G-DN04CZ7JTj2YIpTuKpY0IIM0ZS3at0bikpFzyuzyUsPGpM4DX_4Nq1u3__Qf6aUw6lYPOrhiJ8uT5CgaQN4cvdV3P6WWoZ6A_-nrcqOfn5iKyuIthPJkG1X6K6rYlwLEPQ7dMZQM"/>
+<span class="absolute bottom-1 right-1 bg-ink-anthracite/80 text-on-primary font-label-md text-[10px] px-1.5 py-0.5 rounded backdrop-blur-sm">x2</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-start justify-between gap-2">
+<h4 class="font-headline-sm text-[16px] text-ink-anthracite leading-tight truncate">Porte-Clé Calligraphie Relief</h4>
+<span class="font-price-lg text-[16px] text-ink-anthracite shrink-0">118 MAD</span>
+</div>
+<div class="flex items-center gap-1.5 mt-1 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-sand text-ink-anthracite font-label-md text-[11px] font-medium">Texte: « يوسف » (Youssef)</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-sand text-ink-muted font-label-md text-[11px]">Bleu Majorelle</span>
+</div>
+<span class="font-label-md text-[11px] text-ink-muted mt-1.5">59 MAD / unité • PLA Biosourcé</span>
+</div>
+</div>
+<!-- Article 2: Présentoir QR Code Pro x1 -->
+<div class="flex items-start gap-space-sm pt-space-xs">
+<div class="relative w-20 h-24 rounded-lg bg-surface-sand overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Présentoir de comptoir géométrique moderne imprimé en 3D blanc albâtre mat et noir anthracite intégrant un QR code scannable en relief pour le paiement ou menu, posé élégamment dans un café moderne marocain avec reflets de tadelakt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyWIWTUgDOTFuJgl0Ab4OmdiEhuuc5rTlIRYoxEbKQGZXVqh-Fvlqo3bfIC1d_51ZmjhAMcb2dFwfVwsaNXOCkkN__y71Q4D8fC1RDf7xkmedVRujctaia9wFfh7zoOsZUBvUjDuQNGTGRtyNBVLAvQmk0wTAusuldUeGAi69-0_20HEaNsIGU6ugHf4fCE8ZFgzkOe0F-i2ly2VugpcsMTh875mGS708DQ8sySXs"/>
+<span class="absolute bottom-1 right-1 bg-ink-anthracite/80 text-on-primary font-label-md text-[10px] px-1.5 py-0.5 rounded backdrop-blur-sm">x1</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-start justify-between gap-2">
+<h4 class="font-headline-sm text-[16px] text-ink-anthracite leading-tight truncate">Présentoir QR Code Événementiel</h4>
+<span class="font-price-lg text-[16px] text-ink-anthracite shrink-0">149 MAD</span>
+</div>
+<div class="flex items-center gap-1.5 mt-1 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-sand text-ink-anthracite font-label-md text-[11px] font-medium">Gravure: « Brûlerie L'Ocre »</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-sand text-ink-muted font-label-md text-[11px]">Noir & Blanc</span>
+</div>
+<span class="font-label-md text-[11px] text-ink-muted mt-1.5">Plaque biseautée 15cm • Socle lesté</span>
+</div>
+</div>
+</div>
+<!-- Jauge Livraison Offerte Débloquée -->
+<div class="bg-surface-sand rounded-lg p-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-ink-anthracite font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-filament-majorelle">check_circle</span>
+                Livraison gratuite débloquée !
+              </span>
+<span class="text-filament-majorelle font-bold">100% Offerte</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-full h-full bg-filament-majorelle rounded-full transition-all duration-500"></div>
+</div>
+<span class="font-label-md text-[10px] text-ink-muted">Offre spéciale pour toute commande supérieure à 200 MAD partout au Maroc.</span>
+</div>
+<!-- Lignes de Totaux & Calculs -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<div class="flex items-center justify-between font-body-md text-body-md text-ink-muted">
+<span>Sous-total articles</span>
+<span class="font-title-md text-title-md text-ink-anthracite">267 MAD</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md">
+<span class="text-ink-muted">Frais d'expédition (Maroc Express)</span>
+<span class="font-title-md text-title-md text-filament-majorelle font-bold">GRATUIT</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md text-ink-muted">
+<span>Assurance casse & vérification BAT</span>
+<span class="font-label-md text-label-md text-ink-anthracite font-semibold">Offerte (0 MAD)</span>
+</div>
+<div class="bg-surface-sand p-space-md rounded-xl mt-space-xs flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-ink-muted">Total Net à régler</span>
+<span class="font-label-md text-[11px] text-ink-anthracite font-medium">À payer en main propre au livreur</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-price-lg text-[28px] text-ink-anthracite font-extrabold leading-none">267 <span class="text-[16px] font-normal">MAD</span></span>
+<span class="font-label-md text-[10px] text-ink-muted">TTC • Sans frais cachés</span>
+</div>
+</div>
+</div>
+<!-- Bouton Principal Imposant & Sécurisé -->
+<button class="w-full py-4 px-space-md bg-ink-anthracite hover:bg-filament-majorelle text-on-primary font-title-md text-title-md rounded-lg shadow-md transition-all flex flex-col items-center justify-center gap-0.5 group active:scale-[0.99]" id="btn-confirm-order" type="button">
+<div class="flex items-center gap-2">
+<span>Confirmer ma commande (267 MAD)</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+<span class="font-label-md text-[11px] text-on-primary/80 font-normal">Paiement en espèces lors de la réception</span>
+</button>
+<!-- Badges de Confiance Détaillés -->
+<div class="flex flex-col gap-space-xs pt-space-xs text-label-md text-ink-muted">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-filament-majorelle text-[18px]">photo_camera</span>
+<span>Aperçu photo haute définition envoyé sur WhatsApp sous 2h</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-zellige text-[18px]">verified</span>
+<span>Garantie zéro défaut : Réimpression immédiate en cas de pépin</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-filament-terracotta text-[18px]">support_agent</span>
+<span>Support atelier joignable 7j/7 basé à Casablanca (Racine)</span>
+</div>
+</div>
+</div>
+<!-- Mention de Sécurité Informatique & Respect de la Vie Privée -->
+<div class="p-space-sm bg-surface-container-low rounded-xl text-center">
+<p class="font-label-md text-[11px] text-ink-muted">
+            Données de livraison utilisées exclusivement pour l'expédition Amana Express / Aramex. Aucun démarchage commercial.
+          </p>
+</div>
+</aside>
+</div>
+</div>
+<!-- Modal de confirmation instantanée (Micro-interaction JavaScript) -->
+<div class="fixed inset-0 z-50 bg-ink-anthracite/60 backdrop-blur-sm hidden items-center justify-center p-margin-mobile" id="order-success-modal">
+<div class="bg-surface-container-lowest max-w-lg w-full rounded-xl p-space-xl shadow-2xl flex flex-col items-center text-center gap-space-md animate-in fade-in zoom-in duration-200">
+<div class="w-16 h-16 rounded-full bg-accent-majorelle-soft text-filament-majorelle flex items-center justify-center">
+<span class="material-symbols-outlined text-[36px]">task_alt</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-gold-zellige uppercase tracking-widest font-bold">Commande Enregistrée</span>
+<h3 class="font-headline-md text-headline-md text-ink-anthracite">Merci pour votre commande !</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mt-1">
+          Votre commande n° <strong class="text-ink-anthracite font-bold">MD3D-24098</strong> a été transmise à notre atelier de Casablanca.
+        </p>
+</div>
+<div class="w-full bg-surface-sand rounded-lg p-space-md text-left flex flex-col gap-2 font-body-md text-body-md">
+<div class="flex justify-between">
+<span class="text-ink-muted">Destinataire:</span>
+<span class="font-semibold text-ink-anthracite" id="modal-name-preview">Youssef El Amrani</span>
+</div>
+<div class="flex justify-between">
+<span class="text-ink-muted">Montant à la livraison:</span>
+<span class="font-bold text-accent-majorelle">267 MAD</span>
+</div>
+<div class="flex justify-between">
+<span class="text-ink-muted">Validation BAT WhatsApp:</span>
+<span class="text-ink-anthracite font-medium">Sous 2 heures maximum</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-space-xs w-full pt-space-xs">
+<a class="flex-1 py-3 px-space-md bg-accent-majorelle hover:bg-accent-majorelle/90 text-on-primary font-label-lg text-label-lg rounded-lg transition-colors flex items-center justify-center gap-1.5 shadow-sm" href="https://wa.me/212661884219" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Ouvrir WhatsApp Atelier</span>
+</a>
+<button class="flex-1 py-3 px-space-md bg-surface-sand hover:bg-surface-container-high text-ink-anthracite font-label-lg text-label-lg rounded-lg transition-colors" id="btn-close-modal">
+          Retour à la boutique
+        </button>
+</div>
+</div>
+</div>
+<script>
+    (function() {
+      // Gestion visuelle de sélection des options de paiement
+      const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
+      const paymentCards = document.querySelectorAll('.payment-card');
+
+      paymentRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          paymentCards.forEach(card => {
+            card.classList.remove('bg-surface-sand', 'shadow-sm');
+            card.classList.add('bg-surface-container-low');
+          });
+          const activeCard = radio.closest('.payment-card');
+          if (activeCard) {
+            activeCard.classList.remove('bg-surface-container-low');
+            activeCard.classList.add('bg-surface-sand', 'shadow-sm');
+          }
+        });
+      });
+
+      // Simulation de validation & affichage de la confirmation instantanée
+      const confirmBtn = document.getElementById('btn-confirm-order');
+      const modal = document.getElementById('order-success-modal');
+      const closeModalBtn = document.getElementById('btn-close-modal');
+      const nameInput = document.getElementById('full-name');
+      const modalNamePreview = document.getElementById('modal-name-preview');
+
+      if (confirmBtn && modal) {
+        confirmBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (nameInput && nameInput.value.trim() !== '') {
+            modalNamePreview.textContent = nameInput.value.trim();
+          }
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        });
+      }
+
+      if (closeModalBtn && modal) {
+        closeModalBtn.addEventListener('click', () => {
+          modal.classList.remove('flex');
+          modal.classList.add('hidden');
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface pt-space-2xl pb-space-xl mt-space-2xl"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-3 gap-gutter pb-space-xl mb-space-xl bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-sm"><div class="w-12 h-12 rounded-full bg-surface-sand flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-filament-majorelle">verified</span></div><div><h4 class="font-title-md text-title-md text-ink-anthracite">Fabriqué au Maroc</h4><p class="font-body-md text-body-md text-ink-muted">Impression de précision Bambu Lab dans nos ateliers à Casablanca.</p></div></div><div class="flex items-center gap-space-sm"><div class="w-12 h-12 rounded-full bg-surface-sand flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-gold-zellige">eco</span></div><div><h4 class="font-title-md text-title-md text-ink-anthracite">PLA Écologique Premium</h4><p class="font-body-md text-body-md text-ink-muted">Bioplastique biosourcé à base d'amidon de maïs, robuste et soigné.</p></div></div><div class="flex items-center gap-space-sm"><div class="w-12 h-12 rounded-full bg-surface-sand flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-filament-terracotta">local_shipping</span></div><div><h4 class="font-title-md text-title-md text-ink-anthracite">Expédition Express Amana & Aramex</h4><p class="font-body-md text-body-md text-ink-muted">Livraison rapide 24h-48h à domicile avec paiement COD sécurisé.</p></div></div></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-space-2xl"><div class="lg:col-span-2 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-8 h-8 bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md rounded-lg">M</div><span class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">MUST<span class="text-filament-majorelle">DESIGN</span>3D</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">L'alliance de l'ébénisterie numérique et de la sensibilité marocaine. Créations personnalisables imprimées en 3D haute définition pour sublimer vos intérieurs et célébrer vos moments précieux.</p><div class="flex items-center gap-space-sm pt-space-xs"><span class="font-label-md text-label-md text-ink-muted">Atelier & Showroom: Casablanca, Maroc</span></div></div><div class="flex flex-col gap-space-xs"><span class="font-title-md text-title-md text-on-surface font-semibold mb-space-2xs">Collections</span><nav class="flex flex-col gap-2" data-active-classes="text-primary font-semibold"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="personnalisation-arabe" href="#">Calligraphie Personnalisée</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="vases-sculpturaux" href="#">Vases & Objets d'Art</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="lithophanes-lumineuses" href="#">Lithophanes Photo</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="bureau-organiseurs" href="#">Organiseurs Bureau</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="atelier-sur-mesure" href="#">Commandes Événements</a></nav></div><div class="flex flex-col gap-space-xs"><span class="font-title-md text-title-md text-on-surface font-semibold mb-space-2xs">Service Client</span><nav class="flex flex-col gap-2" data-active-classes="text-primary font-semibold"><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="suivi-commande" href="#">Suivre ma commande</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="livraison-tarifs" href="#">Zones & Délais de Livraison</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">FAQ & Entretien PLA</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Atelier & WhatsApp Direct</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="cgv" href="#">Conditions Générales</a></nav></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface font-semibold">Rejoindre l'Atelier</span><p class="font-body-md text-body-md text-on-surface-variant">Recevez nos séries limitées et inspirations décoratives en avant-première.</p><div class="flex flex-col gap-space-xs"><input class="w-full px-space-sm py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none shadow-sm" placeholder="Votre adresse email..." type="email"/><button class="w-full py-2.5 bg-primary hover:bg-accent-majorelle text-on-primary font-label-lg text-label-lg rounded-lg transition-colors shadow-sm">S'inscrire</button></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-ink-muted"><p>© 2024 MustDesign3D Casablanca. Tous droits réservés. Conçu & fabriqué avec passion au Maroc.</p><div class="flex items-center gap-space-md"><span class="text-ink-anthracite font-semibold">Casablanca • Rabat • Marrakech • Tanger • Fès</span></div></div></div></footer></body></html>

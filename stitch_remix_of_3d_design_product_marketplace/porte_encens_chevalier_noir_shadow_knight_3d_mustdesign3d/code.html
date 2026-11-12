@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"filament-terracotta":"#B85D3B","on-primary":"#ffffff","primary-fixed":"#e2e2e5","filament-majorelle":"#1E40AF","secondary-container":"#708cfd","ink-anthracite":"#1E2022","on-tertiary-fixed":"#261900","on-tertiary-container":"#ac8111","surface-variant":"#e7e1dd","outline":"#75777a","surface-dim":"#dfd9d5","on-secondary-container":"#00217a","on-secondary-fixed-variant":"#173bab","surface-bright":"#fef8f4","tertiary":"#0e0700","secondary-fixed-dim":"#b8c4ff","on-tertiary-fixed-variant":"#5c4300","tertiary-fixed":"#ffdea1","on-tertiary":"#ffffff","inverse-surface":"#32302e","surface-sand":"#F5EFEB","filament-white":"#FDFBF7","error":"#ba1a1a","surface":"#fef8f4","on-secondary":"#ffffff","surface-sand-subtle":"#EFE8E0","on-primary-fixed-variant":"#454749","on-primary-fixed":"#1a1c1e","surface-container-highest":"#e7e1dd","tertiary-container":"#2c1e00","on-surface-variant":"#44474a","secondary":"#3755c3","secondary-fixed":"#dde1ff","on-surface":"#1d1b19","tertiary-fixed-dim":"#f2bf50","on-secondary-fixed":"#001453","primary-container":"#1e2022","on-primary-container":"#86878a","outline-variant":"#c5c6ca","surface-tint":"#5d5e61","primary-fixed-dim":"#c6c6c9","inverse-on-surface":"#f6f0ec","border-warm":"#E6DFD5","accent-majorelle-soft":"#EEF2FF","surface-container-lowest":"#ffffff","on-error-container":"#93000a","inverse-primary":"#c6c6c9","primary":"#06080a","surface-container":"#f3ede9","gold-zellige":"#D9A93C","canvas-cream":"#FDFBF7","surface-container-high":"#ede7e3","filament-black":"#1A1A1A","accent-majorelle":"#1E40AF","error-container":"#ffdad6","surface-container-low":"#f8f2ee","on-background":"#1d1b19","ink-muted":"#686D76","background":"#fef8f4","on-error":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-sm":"0.75rem","space-xl":"2.5rem","space-2xl":"4rem","margin-mobile":"1rem","space-lg":"1.5rem","space-md":"1rem",gutter:"1.5rem","gutter-mobile":"0.75rem","space-xs":"0.5rem",margin:"2rem","space-2xs":"0.25rem"},fontFamily:{"headline-sm":["Noto Serif"],"body-lg":["Manrope"],"headline-lg":["Noto Serif"],"price-lg":["Manrope"],"display-lg-mobile":["Noto Serif"],"title-md":["Manrope"],"label-md":["Manrope"],"headline-md":["Noto Serif"],"body-md":["Manrope"],"label-lg":["Manrope"],"arabic-title":["Noto Serif"],"display-lg":["Noto Serif"],"headline-lg-mobile":["Noto Serif"]},fontSize:{"headline-sm":["20px",{lineHeight:"28px",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"headline-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"400"}],"price-lg":["20px",{lineHeight:"24px",fontWeight:"700"}],"display-lg-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"400"}],"title-md":["16px",{lineHeight:"24px",letterSpacing:"0.01em",fontWeight:"600"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",fontWeight:"500"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.04em",fontWeight:"600"}],"arabic-title":["18px",{lineHeight:"28px",fontWeight:"400"}],"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"400"}],"headline-lg-mobile":["26px",{lineHeight:"34px",letterSpacing:"0",fontWeight:"500"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full max-w-[1440px] mx-auto px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs shrink-0" data-path="product-catalog" href="#"><span class="font-headline-sm text-headline-sm tracking-tight text-ink-anthracite">MustDesign<span class="text-filament-majorelle">3D</span></span></a><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-ink-anthracite font-title-md"><a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors" data-path="product-catalog" href="#">Collections</a><a aria-current="page" class="transition-colors text-ink-anthracite font-title-md" data-path="product-details" href="#">Personnalisation</a><a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors" data-path="bespoke-order" href="#">Sur Mesure</a><a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors" data-path="workshop" href="#">L Atelier</a></nav></div><div class="hidden md:flex flex-1 max-w-md mx-space-md"><div class="w-full flex items-center bg-surface-sand rounded-xl px-space-md py-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[20px] text-ink-muted mr-space-xs">search</span><input class="w-full bg-transparent border-0 outline-none text-on-surface placeholder:text-ink-muted font-body-md text-body-md" placeholder="Rechercher un modèle, vase, calligraphie..." type="search"/></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center bg-surface-sand rounded-lg p-space-2xs text-on-surface"><button class="px-space-xs py-space-2xs rounded bg-surface-container-lowest font-label-md text-label-md shadow-[0_1px_4px_rgba(0,0,0,0.05)]" type="button">FR</button><button class="px-space-xs py-space-2xs rounded font-label-md text-label-md text-ink-muted hover:text-on-surface transition-colors" type="button">العربية</button></div><a class="inline-flex items-center gap-space-2xs bg-surface-sand hover:bg-surface-container-high text-on-surface px-space-sm py-space-xs rounded-lg transition-colors" href="#"><span class="material-symbols-outlined text-[18px] text-filament-terracotta">chat</span><span class="hidden xl:inline font-label-lg text-label-lg">WhatsApp</span></a><button aria-label="Panier d achat" class="relative flex items-center justify-center p-space-xs rounded-lg bg-surface-sand hover:bg-surface-container-high text-ink-anthracite transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute -top-1 -right-1 flex items-center justify-center min-w-[20px] h-5 px-1 bg-filament-majorelle text-on-primary font-label-md text-label-md rounded-full">2</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Breadcrumb Navigation Bar -->
+<div class="w-full bg-surface-sand-subtle py-space-xs">
+<div class="max-w-[1440px] mx-auto px-gutter flex items-center justify-between">
+<nav aria-label="Fil d'Ariane" class="flex items-center gap-space-2xs text-ink-muted font-label-md text-label-md">
+<a class="hover:text-ink-anthracite transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[15px]">home</span>
+<span>Accueil</span>
+</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-ink-anthracite transition-colors" href="#">Boutique</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-ink-anthracite transition-colors" href="#">Porte-encens (Incense holders)</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-ink-anthracite font-label-lg text-label-lg truncate max-w-[200px] sm:max-w-none">Porte-Encens Chevalier Noir (Shadow Knight) 3D</span>
+</nav>
+<div class="hidden sm:flex items-center gap-space-xs font-label-md text-label-md text-ink-muted">
+<span class="inline-block w-2 h-2 rounded-full bg-filament-majorelle animate-pulse"></span>
+<span>Stock Casablanca: <strong class="text-ink-anthracite font-title-md text-title-md">14 pièces prêtes</strong></span>
+</div>
+</div>
+</div>
+<!-- Main Product Showcase Grid -->
+<section class="w-full py-space-xl lg:py-space-2xl bg-canvas-cream">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: 3D Visualizer & Thumbnail Rail (Matches Inspiration Layout) -->
+<div class="lg:col-span-7 flex flex-col md:flex-row gap-space-md items-start">
+<!-- Vertical Thumbnail Strip & 3D Selector Button -->
+<div class="flex md:flex-col gap-space-xs order-2 md:order-1 overflow-x-auto md:overflow-visible w-full md:w-20 shrink-0 pb-2 md:pb-0" id="mediaThumbnails">
+<!-- Photo Thumbnail 1 -->
+<button aria-label="Photo ambiance salon" class="thumb-btn group relative w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden bg-surface-sand transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-filament-majorelle" onclick="switchMediaView('img1')" type="button">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Artisanal 3D printed knight incense holder resting on a tadelakt surface in a contemporary Moroccan riad. Incense smoke curling smoothly, warm natural sunlight and sand beige ceramics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ6NQsad3fUa3CVNw3648vogd6DY5AzPTGmfXc6-D6TaSiJ-XceuTRe-WcsyZznEzOisBeUO-BLXKODSJY1px6G1a0i7nlEgjBap799ah0HxOc-0nEQ4-HkIUypj30gZnTkvBcc6sv5nKS6X8t3x5c1XCzszraRxp_VLqY1dcsaY_Fzrv-dG2zpQIdWONSHghq0hs3fUueZCYJxTxzm5Rn6rA3Mud16OEnjXsuSw"/>
+<span class="absolute inset-0 bg-ink-anthracite/0 group-hover:bg-ink-anthracite/10 transition-colors"></span>
+</button>
+<!-- Photo Thumbnail 2 -->
+<button aria-label="Vue zénithale réceptacle encens" class="thumb-btn group relative w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden bg-surface-sand transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-filament-majorelle" onclick="switchMediaView('img2')" type="button">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Top-down detailed perspective of a matte black sculpted miniature gothic shadow knight holding a lit oud incense stick over an ash collector canal on a warm oak surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFGjf9_mBkIyTU82rpbOMSXm-EPFx2pm5TFPWgj9BDINEhpsHGG_u5v5qwtlPWXrUYQouxz4ztwSVguwMwUUBwmUZBYILvdmbr2cbro4c8-BnLIrnIoon0ZoOdGVgALZaJ_hLak7IJz6QuKptQx6yMjCuQYwPq0gDDPJg-gE9d82UDSUjxXJwIF_-i7F86e3WUoZXuGzpdOikCmCeCr3mYUArZWH_IcsC8-p6Jbw"/>
+<span class="absolute inset-0 bg-ink-anthracite/0 group-hover:bg-ink-anthracite/10 transition-colors"></span>
+</button>
+<!-- Photo Thumbnail 3 -->
+<button aria-label="Vue rapprochée chevalier et glaive" class="thumb-btn group relative w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden bg-surface-sand transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-filament-majorelle" onclick="switchMediaView('img3')" type="button">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Macro close-up shot of the high-precision 0.16mm layer print lines on the shadow knight helmet and sword holding slot with incense ember glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsEEZl4l-bX2PLFR9BQ2CuOLiizGcvafbwB0PmF7K4ABaJdkaplRZE6NgZhxbTa9oNZgF3vuXQbeLgkGQDDfBMZucuA3qcWO1-cEjKM1epaBcCeB1aYj8Qae0OnoP--Wf6HxnNn_jIZwbSikmIBTN3wTQQFLMrQBEFOPkuAp7yfyMZKyStgZngDj8CMEw_lfsc_LGwx5Tx2OJXA54BP64NcR7PWfYxShBDIj9s1Q"/>
+<span class="absolute inset-0 bg-ink-anthracite/0 group-hover:bg-ink-anthracite/10 transition-colors"></span>
+</button>
+<!-- Photo Thumbnail 4 -->
+<button aria-label="Gravure personnalisée calligraphie" class="thumb-btn group relative w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden bg-surface-sand transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-filament-majorelle" onclick="switchMediaView('img4')" type="button">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Detail of the customized engraved Arabic calligraphy on the matte basalt base of the shadow knight incense tray with golden silk filament reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRZzquOGPBemXF_2okJsrYCAD21XzD1FFprrIq59bVHI98VZywJrZLU-qZAKkSk2LKNvK0CL_zbOyoQpB3c-gFYejTTGmPxxGq6f6OD-cOUNbTf8F321rCC0E61PKQptp6x_HIx4BvouL_9wWNa6asETeKkq5eTqMyivYuDIJQtkgZ3jRT0QHD3ZaDxRGTEj-k3ZJyvIHd8jwjP2zfbzSTFtkJk_Sn47Pf5QKoVQ"/>
+<span class="absolute inset-0 bg-ink-anthracite/0 group-hover:bg-ink-anthracite/10 transition-colors"></span>
+</button>
+<!-- 3D Active Interactive Mode Button (Golden highlighted as in visual) -->
+<button aria-label="Activer le visualiseur 3D interactif" class="thumb-btn active relative w-16 h-16 md:w-20 md:h-20 rounded-xl bg-ink-anthracite flex flex-col items-center justify-center text-gold-zellige shadow-md transition-all shadow-gold-zellige/20 ring-2 ring-gold-zellige" id="btn3D" onclick="switchMediaView('3d')" type="button">
+<span class="material-symbols-outlined text-[24px] animate-spin" style="animation-duration: 9s;">3d_rotation</span>
+<span class="font-title-md text-title-md text-on-primary font-bold mt-1 text-xs tracking-wider">3D</span>
+<span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-zellige opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-gold-zellige"></span>
+</span>
+</button>
+</div>
+<!-- Main Interactive Stage / Viewer Container -->
+<div class="relative w-full order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl bg-ink-anthracite aspect-[4/5] sm:aspect-square flex items-center justify-center">
+<!-- Three.js Scene View -->
+<div class="w-full h-full relative" id="view3D">
+<!-- STITCH_THREEJS_START:ANIMATION_105 class="w-full h-full rounded-2xl bg-ink-anthracite shadow-inner block" -->
+<div class="w-full h-full rounded-2xl bg-ink-anthracite shadow-inner block" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_105" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_105');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const container = document.getElementById('threejs-container') || document.body;
+const width = container.clientWidth || 400;
+const height = container.clientHeight || 400;
+
+// Scene setup
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+camera.position.set(18, 14, 22);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xfef8f4, 1.2);
+scene.add(ambientLight);
+
+const dirLight = new THREE.DirectionalLight(0xfff3e0, 2.2);
+dirLight.position.set(15, 25, 15);
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.width = 1024;
+dirLight.shadow.mapSize.height = 1024;
+scene.add(dirLight);
+
+const fillLight = new THREE.DirectionalLight(0x233d99, 0.6);
+fillLight.position.set(-15, 10, -10);
+scene.add(fillLight);
+
+const group = new THREE.Group();
+scene.add(group);
+
+// Material definitions (PLA Bioplastic Matte + Silk Gold)
+const darkKnightMaterial = new THREE.MeshStandardMaterial({
+  color: 0x1e2022,
+  roughness: 0.75,
+  metalness: 0.15,
+});
+
+const ashTrayMaterial = new THREE.MeshStandardMaterial({
+  color: 0xdfd9d5,
+  roughness: 0.85,
+  metalness: 0.05,
+});
+
+const goldAccentMaterial = new THREE.MeshStandardMaterial({
+  color: 0xd49b42,
+  roughness: 0.35,
+  metalness: 0.75,
+});
+
+const smokeMaterial = new THREE.MeshBasicMaterial({
+  color: 0xffffff,
+  transparent: true,
+  opacity: 0.35,
+});
+
+// 1. Incense Holder Basin (Elongated hexagonal ornate tray)
+const trayGroup = new THREE.Group();
+
+// Tray base
+const trayLength = 16;
+const trayWidth = 4.2;
+const trayDepth = 0.8;
+
+const trayShape = new THREE.Shape();
+trayShape.moveTo(-trayLength / 2 + 1, -trayWidth / 2);
+trayShape.lineTo(trayLength / 2 - 1, -trayWidth / 2);
+trayShape.lineTo(trayLength / 2, -trayWidth / 2 + 1);
+trayShape.lineTo(trayLength / 2, trayWidth / 2 - 1);
+trayShape.lineTo(trayLength / 2 - 1, trayWidth / 2);
+trayShape.lineTo(-trayLength / 2 + 1, trayWidth / 2);
+trayShape.lineTo(-trayLength / 2, trayWidth / 2 - 1);
+trayShape.lineTo(-trayLength / 2, -trayWidth / 2 + 1);
+trayShape.closePath();
+
+const extrudeSettings = {
+  depth: 0.9,
+  bevelEnabled: true,
+  bevelSegments: 3,
+  steps: 1,
+  bevelSize: 0.25,
+  bevelThickness: 0.25,
+};
+
+const trayBaseGeom = new THREE.ExtrudeGeometry(trayShape, extrudeSettings);
+trayBaseGeom.rotateX(Math.PI / 2);
+const trayMesh = new THREE.Mesh(trayBaseGeom, ashTrayMaterial);
+trayMesh.position.set(-1.5, 0.4, 0);
+trayMesh.castShadow = true;
+trayMesh.receiveShadow = true;
+trayGroup.add(trayMesh);
+
+// Tray Hollow (Cavity for incense ash)
+const cavityGeom = new THREE.BoxGeometry(11.5, 0.6, 2.8);
+const cavityMat = new THREE.MeshStandardMaterial({ color: 0xc8c2be, roughness: 0.9 });
+const cavityMesh = new THREE.Mesh(cavityGeom, cavityMat);
+cavityMesh.position.set(-3.5, 0.55, 0);
+cavityMesh.receiveShadow = true;
+trayGroup.add(cavityMesh);
+
+// Gold trim borders along the tray
+const trimGeom = new THREE.BoxGeometry(11.8, 0.15, 0.2);
+const trim1 = new THREE.Mesh(trimGeom, goldAccentMaterial);
+trim1.position.set(-3.5, 0.85, 1.45);
+trayGroup.add(trim1);
+const trim2 = trim1.clone();
+trim2.position.set(-3.5, 0.85, -1.45);
+trayGroup.add(trim2);
+
+group.add(trayGroup);
+
+// 2. Knight Figurine (Shadow Knight standing at the end holding the incense stick)
+const knightGroup = new THREE.Group();
+knightGroup.position.set(5.2, 0, 0);
+
+// Pedestal
+const pedGeom = new THREE.BoxGeometry(3.2, 0.9, 3.2);
+const pedestal = new THREE.Mesh(pedGeom, darkKnightMaterial);
+pedestal.position.set(0, 0.45, 0);
+pedestal.castShadow = true;
+pedestal.receiveShadow = true;
+knightGroup.add(pedestal);
+
+// Knight Feet & Greaves
+const legGeom = new THREE.BoxGeometry(0.7, 2.2, 0.8);
+const leftLeg = new THREE.Mesh(legGeom, darkKnightMaterial);
+leftLeg.position.set(-0.55, 1.9, 0.2);
+leftLeg.castShadow = true;
+knightGroup.add(leftLeg);
+
+const rightLeg = new THREE.Mesh(legGeom, darkKnightMaterial);
+rightLeg.position.set(0.55, 1.9, -0.2);
+rightLeg.castShadow = true;
+knightGroup.add(rightLeg);
+
+// Knight Body / Cuirass (Armored torso)
+const torsoGeom = new THREE.CylinderGeometry(1.0, 0.85, 2.6, 6);
+const torso = new THREE.Mesh(torsoGeom, darkKnightMaterial);
+torso.position.set(0, 4.0, 0);
+torso.castShadow = true;
+knightGroup.add(torso);
+
+// Knight Cloak (Flowing cape)
+const capeGeom = new THREE.BoxGeometry(2.4, 4.2, 0.35);
+const cape = new THREE.Mesh(capeGeom, darkKnightMaterial);
+cape.position.set(0, 3.2, 0.9);
+cape.rotation.x = 0.15;
+cape.castShadow = true;
+knightGroup.add(cape);
+
+// Pauldrons (Shoulder armor)
+const pauldronGeom = new THREE.SphereGeometry(0.65, 8, 8);
+const leftPauldron = new THREE.Mesh(pauldronGeom, goldAccentMaterial);
+leftPauldron.position.set(-1.3, 4.8, 0);
+leftPauldron.scale.set(1.2, 0.9, 1);
+knightGroup.add(leftPauldron);
+
+const rightPauldron = new THREE.Mesh(pauldronGeom, goldAccentMaterial);
+rightPauldron.position.set(1.3, 4.8, 0);
+rightPauldron.scale.set(1.2, 0.9, 1);
+knightGroup.add(rightPauldron);
+
+// Knight Helmet with visor & crest
+const helmGeom = new THREE.BoxGeometry(1.1, 1.3, 1.1);
+const helm = new THREE.Mesh(helmGeom, darkKnightMaterial);
+helm.position.set(0, 5.7, 0);
+helm.castShadow = true;
+knightGroup.add(helm);
+
+const crestGeom = new THREE.ConeGeometry(0.3, 0.9, 4);
+const crest = new THREE.Mesh(crestGeom, goldAccentMaterial);
+crest.position.set(0, 6.6, -0.1);
+crest.rotation.x = -0.3;
+knightGroup.add(crest);
+
+// Arm extended forward holding the incense stick
+const armGeom = new THREE.CylinderGeometry(0.32, 0.28, 2.2, 6);
+const arm = new THREE.Mesh(armGeom, darkKnightMaterial);
+arm.position.set(-1.1, 4.5, -0.8);
+arm.rotation.x = Math.PI / 2.2;
+arm.rotation.z = 0.2;
+arm.castShadow = true;
+knightGroup.add(arm);
+
+// Knight Gauntlet Hand
+const handGeom = new THREE.SphereGeometry(0.35, 6, 6);
+const hand = new THREE.Mesh(handGeom, goldAccentMaterial);
+hand.position.set(-0.95, 4.5, -1.9);
+knightGroup.add(hand);
+
+// Incense Stick (Extending horizontally across the basin)
+const stickGeom = new THREE.CylinderGeometry(0.06, 0.06, 12, 6);
+const stickMat = new THREE.MeshStandardMaterial({ color: 0x6e5038, roughness: 0.9 });
+const stick = new THREE.Mesh(stickGeom, stickMat);
+stick.position.set(-6.8, 4.5, -1.9);
+stick.rotation.z = Math.PI / 2;
+stick.castShadow = true;
+knightGroup.add(stick);
+
+// Glowing ember tip
+const emberGeom = new THREE.SphereGeometry(0.12, 6, 6);
+const emberMat = new THREE.MeshBasicMaterial({ color: 0xff4500 });
+const ember = new THREE.Mesh(emberGeom, emberMat);
+ember.position.set(-12.8, 4.5, -1.9);
+knightGroup.add(ember);
+
+// Smoke Particle Trail
+const smokeParticles = [];
+const smokeCount = 18;
+for (let i = 0; i < smokeCount; i++) {
+  const pGeom = new THREE.SphereGeometry(0.15 + i * 0.05, 6, 6);
+  const pMesh = new THREE.Mesh(pGeom, smokeMaterial);
+  pMesh.position.set(-12.8 + (Math.random() - 0.5) * 0.4, 4.6 + i * 0.35, -1.9 + (Math.random() - 0.5) * 0.4);
+  knightGroup.add(pMesh);
+  smokeParticles.push({
+    mesh: pMesh,
+    baseY: 4.6 + i * 0.35,
+    speed: 0.02 + Math.random() * 0.02,
+    offset: Math.random() * Math.PI * 2
+  });
+}
+
+group.add(knightGroup);
+
+// Center the whole composition
+group.position.set(0, -2.5, 0);
+
+// Controls / Interaction
+let isDragging = false;
+let prevMousePos = { x: 0, y: 0 };
+
+container.addEventListener('pointerdown', (e) => {
+  isDragging = true;
+  prevMousePos = { x: e.clientX, y: e.clientY };
+});
+
+window.addEventListener('pointerup', () => {
+  isDragging = false;
+});
+
+window.addEventListener('pointermove', (e) => {
+  if (!isDragging) return;
+  const deltaX = e.clientX - prevMousePos.x;
+  const deltaY = e.clientY - prevMousePos.y;
+  group.rotation.y += deltaX * 0.008;
+  group.rotation.x = Math.max(-0.4, Math.min(0.6, group.rotation.x + deltaY * 0.008));
+  prevMousePos = { x: e.clientX, y: e.clientY };
+});
+
+// Window resize
+window.addEventListener('resize', () => {
+  const newW = container.clientWidth || window.innerWidth;
+  const newH = container.clientHeight || window.innerHeight;
+  camera.aspect = newW / newH;
+  camera.updateProjectionMatrix();
+  renderer.setSize(newW, newH);
+});
+
+// Render Loop
+let clock = 0;
+function animate() {
+  requestAnimationFrame(animate);
+  clock += 0.03;
+
+  if (!isDragging) {
+    group.rotation.y += 0.004;
+  }
+
+  // Animate smoke curling
+  for (let i = 0; i < smokeParticles.length; i++) {
+    const p = smokeParticles[i];
+    p.mesh.position.y += p.speed;
+    p.mesh.position.x += Math.sin(clock + p.offset) * 0.015;
+    p.mesh.position.z += Math.cos(clock + p.offset) * 0.015;
+    if (p.mesh.position.y > 11.0) {
+      p.mesh.position.y = 4.6;
+      p.mesh.position.x = -12.8;
+      p.mesh.position.z = -1.9;
+    }
+  }
+
+  renderer.render(scene, camera);
+}
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_105 -->
+<!-- Floating UI overlay for 3D interactions -->
+<div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+<div class="flex items-center gap-space-xs bg-ink-anthracite/80 backdrop-blur-md px-space-sm py-1.5 rounded-full pointer-events-auto">
+<span class="material-symbols-outlined text-gold-zellige text-[18px]">view_in_ar</span>
+<span class="font-label-md text-label-md text-canvas-cream tracking-wide">Moteur WebGL • Bambu Multi-Couleur</span>
+</div>
+<div class="flex items-center gap-1.5 bg-ink-anthracite/80 backdrop-blur-md px-space-xs py-1 rounded-full pointer-events-auto">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="font-label-md text-label-md text-canvas-cream">0.16mm High-Res</span>
+</div>
+</div>
+<!-- Bottom 360 Controller Helper -->
+<div class="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+<div class="bg-ink-anthracite/85 backdrop-blur-md px-space-sm py-2 rounded-xl text-canvas-cream flex items-center gap-space-xs pointer-events-auto shadow-lg">
+<span class="material-symbols-outlined text-[20px] text-filament-terracotta">swipe</span>
+<span class="font-body-md text-body-md text-xs sm:text-sm text-canvas-cream">Pivoter à 360° • Zoomer • Vue temps réel</span>
+</div>
+<button class="pointer-events-auto bg-surface-sand/20 hover:bg-surface-sand/40 text-canvas-cream p-2 rounded-xl backdrop-blur-md transition-colors" onclick="reset3DCamera()" title="Recentrer la vue" type="button">
+<span class="material-symbols-outlined text-[20px]">filter_center_focus</span>
+</button>
+</div>
+</div>
+<!-- Alternative Photo Views (Hidden initially, swapped via JS) -->
+<div class="hidden w-full h-full relative" id="viewPhoto">
+<img class="w-full h-full object-cover" data-alt="Full photo portrait of the 3D printed Shadow Knight incense holder on polished marble with incense stick lit" id="mainProductPhoto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhu_KC3Aqt_zTblz-GbZZEHMFZEiR5OrCVZkKN2w1lAkTsIbuBM0LM3a8pYsurQyTQZZtJRC6ebyWLYHXIDj_qFuTZZq59RmMv4lJnqLz_7mOoIeiEDkWvGp77zZKb4N58SnA7getE5xU4f7aQM7dPmQie4mwX6bz4pIY_EgFtI8ySmvKFqhoLC0gOg076nUzbJi3ZbjX7B0zo75Rz6KD6X0zSA3wfF3GD0o64_g"/>
+<button class="absolute bottom-4 right-4 bg-ink-anthracite/90 text-gold-zellige hover:text-on-primary px-space-sm py-space-xs rounded-xl backdrop-blur-md flex items-center gap-space-2xs font-label-md text-label-md transition-colors shadow-lg" onclick="switchMediaView('3d')" type="button">
+<span class="material-symbols-outlined text-[18px]">rotate_90_degrees_ccw</span>
+<span>Revenir à l'interactif 3D</span>
+</button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Commercial Details & Customization Configuration -->
+<div class="lg:col-span-5 flex flex-col space-y-space-md">
+<!-- Category Eyebrow & Badges -->
+<div class="space-y-space-2xs">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded bg-surface-sand text-filament-terracotta font-label-md text-label-md tracking-wider uppercase">Collection Riad &amp; Encens</span>
+<span class="px-2.5 py-1 rounded bg-accent-majorelle-soft text-filament-majorelle font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                Bestseller Casablanca
+              </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-ink-anthracite tracking-tight">
+              Porte-Encens Chevalier Noir <span class="italic font-normal">(Shadow Knight) 3D</span>
+</h1>
+<p class="font-arabic-title text-arabic-title text-ink-muted" dir="rtl">
+              حامل بخور الفارس الأسود • طباعة ثلاثية الأبعاد بدقة فائقة
+            </p>
+</div>
+<!-- Price & COD Guarantee Banner -->
+<div class="p-space-md rounded-xl bg-surface-sand flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-price-lg text-headline-lg text-ink-anthracite font-bold">119 MAD</span>
+<span class="font-body-md text-body-md line-through text-ink-muted">160 MAD</span>
+<span class="px-2 py-0.5 rounded bg-filament-terracotta/10 text-filament-terracotta font-label-md text-label-md font-semibold">-25%</span>
+</div>
+<span class="font-label-md text-label-md px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">inventory_2</span>
+                En stock
+              </span>
+</div>
+<div class="flex items-center gap-space-xs text-ink-anthracite font-body-md text-body-md pt-space-2xs">
+<span class="material-symbols-outlined text-gold-zellige text-[20px]">payments</span>
+<span><strong>Paiement à la livraison (COD)</strong> : Payez en Dirhams après réception et vérification à domicile.</span>
+</div>
+</div>
+<!-- Filament Finish & Multi-Color AMS Configuration -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-ink-anthracite">Finition Filament (Technologie AMS Lite)</span>
+<span class="font-label-md text-label-md text-filament-majorelle font-semibold" id="selectedFilamentLabel">Noir Basalte &amp; Or Soie</span>
+</div>
+<div aria-label="Palette de filaments" class="grid grid-cols-1 sm:grid-cols-3 gap-space-xs" role="radiogroup">
+<!-- Palette 1: Basalt & Silk Gold -->
+<button class="color-option-btn p-space-xs rounded-xl bg-surface-sand text-left flex items-center gap-space-xs ring-2 ring-ink-anthracite shadow-sm transition-all" onclick="selectColor(this, 'Noir Basalte &amp; Or Soie', '#1A1A1A', '#D9A93C')" type="button">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0 flex shadow-inner">
+<div class="w-1/2 h-full bg-filament-black"></div>
+<div class="w-1/2 h-full bg-gold-zellige"></div>
+</div>
+<div class="min-w-0">
+<p class="font-title-md text-title-md text-xs truncate">Noir Basalte</p>
+<p class="font-label-md text-label-md text-ink-muted text-[10px]">Accents Dorés</p>
+</div>
+</button>
+<!-- Palette 2: Majorelle & Alabaster -->
+<button class="color-option-btn p-space-xs rounded-xl bg-surface-sand text-left flex items-center gap-space-xs hover:bg-surface-container transition-all" onclick="selectColor(this, 'Bleu Majorelle &amp; Blanc Albâtre', '#1E40AF', '#FDFBF7')" type="button">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0 flex shadow-inner">
+<div class="w-1/2 h-full bg-filament-majorelle"></div>
+<div class="w-1/2 h-full bg-canvas-cream"></div>
+</div>
+<div class="min-w-0">
+<p class="font-title-md text-title-md text-xs truncate">Majorelle</p>
+<p class="font-label-md text-label-md text-ink-muted text-[10px]">Blanc Albâtre</p>
+</div>
+</button>
+<!-- Palette 3: Terracotta & Bronze -->
+<button class="color-option-btn p-space-xs rounded-xl bg-surface-sand text-left flex items-center gap-space-xs hover:bg-surface-container transition-all" onclick="selectColor(this, 'Terracotta &amp; Bronze Antique', '#B85D3B', '#5c4300')" type="button">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0 flex shadow-inner">
+<div class="w-1/2 h-full bg-filament-terracotta"></div>
+<div class="w-1/2 h-full bg-ink-anthracite"></div>
+</div>
+<div class="min-w-0">
+<p class="font-title-md text-title-md text-xs truncate">Terre Cuite</p>
+<p class="font-label-md text-label-md text-ink-muted text-[10px]">Bronze Antique</p>
+</div>
+</button>
+</div>
+</div>
+<!-- Incense Stick Compatibility Feature Callout -->
+<div class="p-space-sm rounded-xl bg-surface-sand-subtle flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-filament-terracotta text-[24px] shrink-0 mt-0.5">spa</span>
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-ink-anthracite">Compatibilité Encens &amp; Cendres Propres</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-xs leading-relaxed">
+                Le chevalier maintient fermement l'épée/bâtonnet d'encens standard (jusqu'à 25cm). Bac collecteur étanche de 16cm avec nervures ignifugées pour recueillir 100% des cendres sans tacher votre mobilier.
+              </p>
+</div>
+</div>
+<!-- Bilingual Personalization Option Box -->
+<div class="space-y-space-xs p-space-md rounded-xl bg-surface-sand">
+<div class="flex items-center justify-between">
+<label class="font-title-md text-title-md text-ink-anthracite flex items-center gap-1.5" for="customEngraving">
+<span class="material-symbols-outlined text-[18px] text-filament-majorelle">draw</span>
+                Gravure Personnalisée sur le Socle (+20 MAD)
+              </label>
+<div class="flex items-center gap-1 bg-surface-container rounded-lg p-0.5">
+<button class="px-2 py-0.5 text-xs font-semibold rounded bg-canvas-cream text-ink-anthracite shadow-xs" id="btnScriptFR" onclick="setLangScript('fr')" type="button">FR</button>
+<button class="px-2 py-0.5 text-xs font-semibold rounded text-ink-muted hover:text-ink-anthracite" id="btnScriptAR" onclick="setLangScript('ar')" type="button">عربي</button>
+</div>
+</div>
+<div class="relative">
+<input class="w-full bg-canvas-cream rounded-lg px-space-sm py-2.5 text-ink-anthracite font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-filament-majorelle shadow-inner placeholder:text-ink-muted" id="customEngraving" maxlength="28" oninput="updateEngravingLivePreview(this.value)" placeholder="Ex: Maison Benjelloun, الصبر جميل, ou un prénom" type="text"/>
+</div>
+<!-- Live 3D Extrusion Simulation Preview -->
+<div class="flex items-center justify-between text-xs text-ink-muted px-1">
+<span>Rendu gravé en relief dans le filament :</span>
+<span class="font-arabic-title text-arabic-title text-filament-majorelle font-semibold tracking-wide" id="previewTag">« Riad Al Andalous »</span>
+</div>
+</div>
+<!-- Quantity, Add to Cart, WhatsApp Order -->
+<div class="space-y-space-sm pt-space-xs">
+<div class="flex items-center gap-space-sm">
+<!-- Stepper -->
+<div class="flex items-center bg-surface-sand rounded-xl p-1 shrink-0">
+<button aria-label="Diminuer la quantité" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors text-ink-anthracite" onclick="adjustQty(-1)" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<input class="w-10 text-center bg-transparent border-0 font-title-md text-title-md text-ink-anthracite font-bold focus:outline-none" id="productQty" max="10" min="1" readonly="" type="number" value="1"/>
+<button aria-label="Augmenter la quantité" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors text-ink-anthracite" onclick="adjustQty(1)" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<!-- Main CTA -->
+<button class="flex-1 h-12 bg-ink-anthracite hover:bg-filament-majorelle text-on-primary rounded-xl font-title-md text-title-md flex items-center justify-center gap-space-xs transition-colors shadow-md" onclick="handleAddToCart()" type="button">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span id="ctaTotalLabel">Ajouter au Panier • 119 MAD</span>
+</button>
+</div>
+<!-- Secondary Express WhatsApp CTA -->
+<a class="w-full h-12 bg-surface-sand hover:bg-surface-container text-ink-anthracite rounded-xl font-title-md text-title-md flex items-center justify-center gap-space-xs transition-colors" href="https://wa.me/212600000000?text=Bonjour%20MustDesign3D,%20je%20souhaite%20commander%20le%20Porte-Encens%20Chevalier%20Noir%20(119%20MAD)" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px] text-emerald-600">chat</span>
+<span>Commander Express via WhatsApp (Réponse en 5 min)</span>
+</a>
+</div>
+<!-- Trust Badges Grid -->
+<div class="pt-space-xs grid grid-cols-1 sm:grid-cols-3 gap-space-xs text-xs text-ink-muted">
+<div class="flex items-center gap-2 p-2 rounded-lg bg-canvas-cream shadow-xs">
+<span class="material-symbols-outlined text-filament-majorelle text-[20px]">local_shipping</span>
+<span>Amana Express 24/48h dans tout le Maroc</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-canvas-cream shadow-xs">
+<span class="material-symbols-outlined text-filament-terracotta text-[20px]">eco</span>
+<span>Bioplastique PLA Premium Résistant</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-canvas-cream shadow-xs">
+<span class="material-symbols-outlined text-gold-zellige text-[20px]">verified</span>
+<span>Test d'assemblage &amp; contrôle manuel</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specifications & Workshop Craft Section -->
+<section class="w-full py-space-2xl bg-surface-sand">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left: Precision Metrics Grid -->
+<div class="lg:col-span-6 space-y-space-md">
+<div class="space-y-space-2xs">
+<span class="font-label-md text-label-md text-filament-majorelle uppercase tracking-wider">Spécifications de Fabrication</span>
+<h2 class="font-headline-md text-headline-md text-ink-anthracite">Ingénierie de Précision Bambu Lab</h2>
+<p class="font-body-md text-body-md text-ink-muted">Chaque porte-encens est imprimé individuellement sur nos imprimantes A1 équipées de buses en acier trempé de 0.4mm, garantissant une netteté spectaculaire sur les armures et l'étanchéité du canal de cendres.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm">
+<div class="p-space-sm rounded-xl bg-canvas-cream shadow-xs">
+<span class="font-label-md text-label-md text-ink-muted block mb-1">Dimensions</span>
+<span class="font-title-md text-title-md text-ink-anthracite font-bold">180 × 42 × 65 mm</span>
+<span class="text-xs text-ink-muted block mt-0.5">Longueur optimisée encens</span>
+</div>
+<div class="p-space-sm rounded-xl bg-canvas-cream shadow-xs">
+<span class="font-label-md text-label-md text-ink-muted block mb-1">Poids Net</span>
+<span class="font-title-md text-title-md text-ink-anthracite font-bold">68 grammes</span>
+<span class="text-xs text-ink-muted block mt-0.5">Remplissage Gyroïde 20%</span>
+</div>
+<div class="p-space-sm rounded-xl bg-canvas-cream shadow-xs">
+<span class="font-label-md text-label-md text-ink-muted block mb-1">Hauteur de Couche</span>
+<span class="font-title-md text-title-md text-filament-majorelle font-bold">0.16 mm</span>
+<span class="text-xs text-ink-muted block mt-0.5">Finition satinée ultra-lisse</span>
+</div>
+<div class="p-space-sm rounded-xl bg-canvas-cream shadow-xs">
+<span class="font-label-md text-label-md text-ink-muted block mb-1">Matériau</span>
+<span class="font-title-md text-title-md text-ink-anthracite font-bold">PLA+ Biosourcé</span>
+<span class="text-xs text-ink-muted block mt-0.5">Amidon de maïs certifié</span>
+</div>
+<div class="p-space-sm rounded-xl bg-canvas-cream shadow-xs">
+<span class="font-label-md text-label-md text-ink-muted block mb-1">Résistance</span>
+<span class="font-title-md text-title-md text-ink-anthracite font-bold">Jusqu'à 65°C</span>
+<span class="text-xs text-ink-muted block mt-0.5">Ignifugé aux cendres</span>
+</div>
+<div class="p-space-sm rounded-xl bg-canvas-cream shadow-xs">
+<span class="font-label-md text-label-md text-ink-muted block mb-1">Origine</span>
+<span class="font-title-md text-title-md text-filament-terracotta font-bold">Casablanca</span>
+<span class="text-xs text-ink-muted block mt-0.5">Atelier Sidi Maârouf</span>
+</div>
+</div>
+</div>
+<!-- Right: Detail Visual Bento Card -->
+<div class="lg:col-span-6 rounded-2xl bg-canvas-cream p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-filament-majorelle text-[28px]">precision_manufacturing</span>
+<div>
+<h4 class="font-title-md text-title-md text-ink-anthracite">Contrôle Qualité Zéro Défaut</h4>
+<p class="font-body-md text-body-md text-xs text-ink-muted">Ébavurage manuel &amp; calibrage de la fente de l'épée</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-sand text-ink-anthracite font-label-md text-label-md">100% Inspecté</span>
+</div>
+<div class="relative w-full h-56 rounded-xl overflow-hidden bg-surface-sand">
+<img class="w-full h-full object-cover" data-alt="Bambu Lab multi-color 3D printer printing multiple shadow knight incense holders in dark anthracite and gold filament inside Casablanca digital workshop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-MNfn9ChuOW5CnsaW9tcfIXb2foF1pl954z4qAsbykklOQ8xe7Ih9ScPc3Bq0dOL2cJCx6E1IazXHCW4vu5vfPy0Idz957CcAr3d2LKxX4NdDJ1ODuoaQvRgzONmi1dMrbd-arv7544z2yHMGL_A1UE2l-IfFdsSEFS_Oopxi4pzzHi4xDeBajVibudDKXy-ieYZhti8PCuqZ2AqbAGHLoM0UJrWBoHQ8FeVYXw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-ink-anthracite/80 via-transparent to-transparent flex items-end p-space-md">
+<p class="text-canvas-cream font-label-md text-label-md">Banc d'impression Bambu Lab A1 avec AMS 4 couleurs en action</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="text-xs text-ink-muted">Besoin d'une taille personnalisée pour bâtonnets XXL ?</span>
+<a class="font-label-md text-label-md text-filament-majorelle hover:underline flex items-center gap-1" href="#">
+<span>Demande sur mesure</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Products Collection Carousel / Bento -->
+<section class="w-full py-space-2xl bg-canvas-cream">
+<div class="max-w-[1440px] mx-auto px-gutter space-y-space-xl">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs">
+<div>
+<span class="font-label-md text-label-md text-filament-terracotta uppercase tracking-wider">Harmonie Décorative</span>
+<h2 class="font-headline-md text-headline-md text-ink-anthracite">Dans la même collection Riad &amp; Encens</h2>
+</div>
+<a class="font-label-lg text-label-lg text-filament-majorelle hover:text-ink-anthracite flex items-center gap-1 transition-colors" href="#">
+<span>Découvrir toute la sélection</span>
+<span class="material-symbols-outlined text-[18px]">east</span>
+</a>
+</div>
+<!-- 3 Related Product Cards (Aspect 4:5 as required by guidelines) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Card 1: Zen Arches Cascade Burner -->
+<div class="group rounded-2xl bg-surface-sand p-space-sm flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-sand-subtle mb-space-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern sculptural 3D printed zen arches backflow incense burner in desert sand color with fragrant oud smoke cascading like water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoRUhujSOSsOk4x6zT6-NdSrTv0U4LMOfvSG-EqmhaVR0elEjds60ysU5RPc4bVBczb9Sqi1Ic54cptISZjMfeJIg_Fc59aWZn749AsUxpmGn7UidqEUkiAoN-KYPpcaV5SsA1J54HIcW04KUztPb8r6sbYbmMVgjtIFJKkEEPNlRiCeD5WwC0zEhXAkuukw_WNOk4BGPHw3FQZSSi7WSFH1HhHj23znyQCTjB4g"/>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-canvas-cream text-ink-anthracite font-label-md text-label-md shadow-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+              Cascade Backflow
+            </span>
+</div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-ink-anthracite group-hover:text-filament-majorelle transition-colors">Brûleur Cascade Arches Zen 3D</h3>
+<span class="font-price-lg text-headline-sm text-ink-anthracite font-bold">145 MAD</span>
+</div>
+<p class="font-body-md text-body-md text-xs text-ink-muted line-clamp-2">Sculpture paramétrique à étages inspirée des portes mauresques avec écoulement de fumée blanche.</p>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<span class="w-3.5 h-3.5 rounded-full bg-canvas-cream border border-surface-variant"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-filament-terracotta"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-filament-black"></span>
+</div>
+<button aria-label="Aperçu rapide" class="p-2 rounded-lg bg-canvas-cream hover:bg-ink-anthracite hover:text-on-primary transition-colors text-ink-anthracite" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Ribbed Japandi Mood Lamp -->
+<div class="group rounded-2xl bg-surface-sand p-space-sm flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-sand-subtle mb-space-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pleated organic 3D printed ambient mood lamp emitting warm soft 2700k golden light on a dark zellige tiled nightstand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg72QxfNART4xQxGMPRGIKtE7rLBgjcgMcPSbRV9drJPBriy2U-WCjX4CqWSyGwddlUT8WhlFwlfTt0XT3ZnX8PI0SXySjA-ZQvOw1PG5NUsEv2sOcWrY1M_b1Q-RpZOxQupbLqOtr_N_96fvbPe9mRpNB8H0WFdvFGD9XJI_nDzaVBRq7m0Ri3RlCoi2f6RDS1qz3o9EB0roXSIQEFLL8YH2vJMxvvxsIYZZ7FQ"/>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-canvas-cream text-ink-anthracite font-label-md text-label-md shadow-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lightbulb</span>
+              LED Basse Conso
+            </span>
+</div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-ink-anthracite group-hover:text-filament-majorelle transition-colors">Lampe Japandi Côtelée 3D</h3>
+<span class="font-price-lg text-headline-sm text-ink-anthracite font-bold">189 MAD</span>
+</div>
+<p class="font-body-md text-body-md text-xs text-ink-muted line-clamp-2">Diffuseur translucide imprimé en mode spirale continue vase mode, lumière d'ambiance apaisante.</p>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<span class="w-3.5 h-3.5 rounded-full bg-canvas-cream"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-gold-zellige"></span>
+</div>
+<button aria-label="Aperçu rapide" class="p-2 rounded-lg bg-canvas-cream hover:bg-ink-anthracite hover:text-on-primary transition-colors text-ink-anthracite" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Geometric Zellige Arch Incense Plate -->
+<div class="group rounded-2xl bg-surface-sand p-space-sm flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-sand-subtle mb-space-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Plate incense holder with intricately embossed Moroccan zellige geometric star patterns in cobalt Majorelle blue and bone white 3D filament" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4K637-TCJXyOYPLHeJQPtwGXgZ8wtGPkVtPq38YxiNhYGnLqalaJJTU11OI7JbuEvqgz3U-uZg3BdgZD2AmZbgj9Olipt2VsxGxhsnNwB6Xz0WNDZzvQ6XRIEAdtUfZNzN9x87Wo_4tqMLYVAl7m74nXGW2yK6Kc46MuCXLGeKmGEhLZGDIaA0OcyczwL7C-cOAJPcGdLf4pt3BNYOWRtj71nM-6PKwMeRHV6IQ"/>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-canvas-cream text-ink-anthracite font-label-md text-label-md shadow-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span>
+              Motif Zellij
+            </span>
+</div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-ink-anthracite group-hover:text-filament-majorelle transition-colors">Plateau Arche Zellige &amp; Oud</h3>
+<span class="font-price-lg text-headline-sm text-ink-anthracite font-bold">99 MAD</span>
+</div>
+<p class="font-body-md text-body-md text-xs text-ink-muted line-clamp-2">Support double fonction pour cônes de bakhoor et bâtons d'encens à motifs géométriques fassis.</p>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1">
+<span class="w-3.5 h-3.5 rounded-full bg-filament-majorelle"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-canvas-cream"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-filament-terracotta"></span>
+</div>
+<button aria-label="Aperçu rapide" class="p-2 rounded-lg bg-canvas-cream hover:bg-ink-anthracite hover:text-on-primary transition-colors text-ink-anthracite" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript Micro-Interactions -->
+<script>
+    let currentQty = 1;
+    const basePrice = 119;
+    let customFee = 0;
+
+    function adjustQty(delta) {
+      const input = document.getElementById('productQty');
+      let val = parseInt(input.value) + delta;
+      if (val >= 1 && val <= 10) {
+        input.value = val;
+        currentQty = val;
+        updatePriceDisplay();
+      }
+    }
+
+    function updatePriceDisplay() {
+      const total = (basePrice + customFee) * currentQty;
+      const cta = document.getElementById('ctaTotalLabel');
+      if (cta) {
+        cta.textContent = `Ajouter au Panier • ${total} MAD`;
+      }
+    }
+
+    function switchMediaView(viewType) {
+      const view3D = document.getElementById('view3D');
+      const viewPhoto = document.getElementById('viewPhoto');
+      const btn3D = document.getElementById('btn3D');
+      const thumbButtons = document.querySelectorAll('.thumb-btn');
+
+      thumbButtons.forEach(b => {
+        b.classList.remove('ring-2', 'ring-filament-majorelle', 'ring-gold-zellige');
+      });
+
+      if (viewType === '3d') {
+        view3D.classList.remove('hidden');
+        viewPhoto.classList.add('hidden');
+        btn3D.classList.add('ring-2', 'ring-gold-zellige');
+      } else {
+        view3D.classList.add('hidden');
+        viewPhoto.classList.remove('hidden');
+        event.currentTarget.classList.add('ring-2', 'ring-filament-majorelle');
+      }
+    }
+
+    function reset3DCamera() {
+      const scene = document.querySelector('threejs-scene');
+      if (scene) {
+        // Dispatches standard reset event for embedded 3D canvas
+        scene.dispatchEvent(new CustomEvent('resetCamera'));
+      }
+    }
+
+    function selectColor(btn, name, color1, color2) {
+      document.querySelectorAll('.color-option-btn').forEach(b => {
+        b.classList.remove('ring-2', 'ring-ink-anthracite', 'shadow-sm');
+      });
+      btn.classList.add('ring-2', 'ring-ink-anthracite', 'shadow-sm');
+      document.getElementById('selectedFilamentLabel').textContent = name;
+    }
+
+    function setLangScript(lang) {
+      const frBtn = document.getElementById('btnScriptFR');
+      const arBtn = document.getElementById('btnScriptAR');
+      const input = document.getElementById('customEngraving');
+      const preview = document.getElementById('previewTag');
+
+      if (lang === 'ar') {
+        arBtn.classList.add('bg-canvas-cream', 'text-ink-anthracite', 'shadow-xs');
+        arBtn.classList.remove('text-ink-muted');
+        frBtn.classList.remove('bg-canvas-cream', 'text-ink-anthracite', 'shadow-xs');
+        frBtn.classList.add('text-ink-muted');
+        input.setAttribute('dir', 'rtl');
+        input.placeholder = 'مثال: رياض النور، الصبر جميل، كريم';
+        preview.setAttribute('dir', 'rtl');
+        if (!input.value) preview.textContent = '« الصبر مفتاح الفرج »';
+      } else {
+        frBtn.classList.add('bg-canvas-cream', 'text-ink-anthracite', 'shadow-xs');
+        frBtn.classList.remove('text-ink-muted');
+        arBtn.classList.remove('bg-canvas-cream', 'text-ink-anthracite', 'shadow-xs');
+        arBtn.classList.add('text-ink-muted');
+        input.setAttribute('dir', 'ltr');
+        input.placeholder = 'Ex: Maison Benjelloun, Riad Al Andalous...';
+        preview.setAttribute('dir', 'ltr');
+        if (!input.value) preview.textContent = '« Riad Al Andalous »';
+      }
+    }
+
+    function updateEngravingLivePreview(val) {
+      const preview = document.getElementById('previewTag');
+      if (val.trim() !== '') {
+        preview.textContent = `« ${val} »`;
+        customFee = 20;
+      } else {
+        preview.textContent = '« Riad Al Andalous »';
+        customFee = 0;
+      }
+      updatePriceDisplay();
+    }
+
+    function handleAddToCart() {
+      const engraving = document.getElementById('customEngraving').value;
+      const color = document.getElementById('selectedFilamentLabel').textContent;
+      const message = `Ajouté au panier: ${currentQty}x Porte-Encens Chevalier Noir (${color}) ${engraving ? 'avec gravure: ' + engraving : ''}`;
+      
+      // Visual feedback on the CTA
+      const btn = event.currentTarget;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `<span class="material-symbols-outlined text-[20px] text-gold-zellige animate-bounce">check_circle</span> Ajouté avec succès !`;
+      btn.classList.add('bg-filament-majorelle');
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('bg-filament-majorelle');
+      }, 2200);
+    }
+  </script>
+</div></main><footer class="w-full bg-canvas-cream shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-surface-sand py-space-lg"><div class="max-w-[1440px] mx-auto px-gutter grid grid-cols-1 md:grid-cols-3 gap-space-lg"><div class="flex items-start gap-space-md"><span class="material-symbols-outlined text-filament-terracotta text-[32px]">handshake</span><div><h4 class="font-title-md text-title-md text-ink-anthracite mb-space-2xs">Artisanat Digital Marocain</h4><p class="font-body-md text-body-md text-ink-muted">Impression 3D haute précision à Casablanca fusionnée avec l esthétique géométrique zellige.</p></div></div><div class="flex items-start gap-space-md"><span class="material-symbols-outlined text-gold-zellige text-[32px]">payments</span><div><h4 class="font-title-md text-title-md text-ink-anthracite mb-space-2xs">Paiement à la Livraison (COD)</h4><p class="font-body-md text-body-md text-ink-muted">Réglez en espèces à réception partout au Maroc après inspection de votre création personnalisée.</p></div></div><div class="flex items-start gap-space-md"><span class="material-symbols-outlined text-filament-majorelle text-[32px]">verified</span><div><h4 class="font-title-md text-title-md text-ink-anthracite mb-space-2xs">Filaments Éco-Responsables</h4><p class="font-body-md text-body-md text-ink-muted">Matériaux biosourcés PLA certifiés, finitions mates sablées et emballages 100% recyclables.</p></div></div></div></div><div class="max-w-[1440px] mx-auto px-gutter py-space-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl"><div class="space-y-space-md"><span class="font-headline-sm text-headline-sm text-ink-anthracite">MustDesign<span class="text-filament-majorelle">3D</span></span><p class="font-body-md text-body-md text-ink-muted">L atelier de fabrication numérique marocaine. Donnez vie à des objets contemporains sculptés par la lumière et la tradition.</p><p class="font-arabic-title text-arabic-title text-ink-anthracite" dir="rtl">صناعة رقمية مغربية بدقة متناهية</p></div><div class="space-y-space-sm"><h5 class="font-title-md text-title-md text-ink-anthracite">Atelier &amp; Fabrication</h5><p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-ink-muted">precision_manufacturing</span>Bambu Lab Multi-Color Lab</p><p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-ink-muted">location_on</span>Quartier Industriel Sidi Maârouf, Casablanca</p><p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-ink-muted">schedule</span>Lun - Sam: 09h00 - 19h00</p></div><div class="space-y-space-sm"><h5 class="font-title-md text-title-md text-ink-anthracite">Assistance &amp; Commandes</h5><p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-ink-muted">call</span>+212 6 00 00 00 00</p><p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-ink-muted">mail</span>contact@mustdesign3d.ma</p><p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-ink-muted">local_shipping</span>Livraison Amana 48h (Toutes les villes)</p></div><div class="space-y-space-sm"><h5 class="font-title-md text-title-md text-ink-anthracite">Paiement Sécurisé</h5><p class="font-body-md text-body-md text-ink-muted mb-space-xs">Espèces à la livraison ou virement CMI sécurisé pour commandes professionnelles volumineuses.</p><div class="flex flex-wrap gap-space-xs"><span class="px-space-xs py-space-2xs bg-surface-sand text-ink-anthracite font-label-md text-label-md rounded">Espèces (COD)</span><span class="px-space-xs py-space-2xs bg-surface-sand text-ink-anthracite font-label-md text-label-md rounded">Virement CIH / Attijari</span><span class="px-space-xs py-space-2xs bg-surface-sand text-ink-anthracite font-label-md text-label-md rounded">Amana Express</span></div></div></div><div class="bg-surface-sand-subtle py-space-md"><div class="max-w-[1440px] mx-auto px-gutter flex flex-col sm:flex-row items-center justify-between gap-space-xs text-on-surface-variant font-label-lg text-label-lg"><p>© 2025 MustDesign3D SARL. Tous droits réservés.</p><p class="font-arabic-title text-arabic-title text-ink-muted" dir="rtl">صُنع بشغف في المغرب</p></div></div></footer></body></html>

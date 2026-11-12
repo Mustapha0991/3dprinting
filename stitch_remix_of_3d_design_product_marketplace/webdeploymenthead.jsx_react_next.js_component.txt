@@ -1,0 +1,87 @@
+import React from 'react';
+import Head from 'next/head';
+// Ou pour Next.js App Router (app/layout.tsx): export const metadata = { ... }
+
+/**
+ * MustDesign3D - Web Deployment Head & Metadata Component
+ * 
+ * Ce composant regroupe l'ensemble des balises meta, liens d'icônes PWA,
+ * Apple Touch Icon, Web App Manifest, balises Open Graph (SEO) et Twitter Cards
+ * conformément aux standards de production web et PWA moderne.
+ */
+export const WebDeploymentHead = () => {
+  const brand = {
+    name: "MustDesign3D — Néo-Artisanat & Objets 3D Personnalisés",
+    shortName: "MustDesign3D",
+    description: "Marque marocaine d'objets personnalisés, calligraphie arabe et impression 3D FDM de précision (Bambu Lab A1 / AMS Lite) à Casablanca, Maroc.",
+    themeColor: "#233D99", // Bleu Majorelle officiel
+    backgroundColor: "#FEF8F4", // Ivoire porcelaine / papier artisanal
+    siteUrl: "https://mustdesign3d.ma",
+    author: "MustDesign3D Atelier Casablanca",
+    locale: "fr_MA",
+    twitterHandle: "@MustDesign3D"
+  };
+
+  return (
+    <Head>
+      {/* 1. Configuration de base du Viewport & Encodage */}
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+      <title>{brand.name}</title>
+      <meta name="description" content={brand.description} />
+      <meta name="author" content={brand.author} />
+      <link rel="canonical" href={brand.siteUrl} />
+
+      {/* 2. Thématique & Couleurs Système (Chrome, Safari, Android) */}
+      <meta name="theme-color" content={brand.themeColor} />
+      <meta name="msapplication-navbutton-color" content={brand.themeColor} />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="application-name" content={brand.shortName} />
+      <meta name="apple-mobile-web-app-title" content={brand.shortName} />
+
+      {/* 3. Favicon & Icônes Multi-résolutions */}
+      {/* Favicon SVG & Standard */}
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+
+      {/* Apple Touch Icon (iOS Home Screen) */}
+      <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+
+      {/* Safari Pinned Tab Mask Icon */}
+      <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color={brand.themeColor} />
+
+      {/* 4. Web App Manifest (PWA) */}
+      <link rel="manifest" href="/manifest.json" />
+
+      {/* 5. Open Graph Meta Tags (Facebook, WhatsApp, LinkedIn) */}
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content={brand.locale} />
+      <meta property="og:locale:alternate" content="ar_MA" />
+      <meta property="og:site_name" content={brand.shortName} />
+      <meta property="og:title" content={brand.name} />
+      <meta property="og:description" content={brand.description} />
+      <meta property="og:url" content={brand.siteUrl} />
+      <meta property="og:image" content={`${brand.siteUrl}/og-image.jpg`} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="MustDesign3D — Atelier d'impression 3D & artisanat moderne à Casablanca" />
+
+      {/* 6. Twitter Card Meta Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content={brand.twitterHandle} />
+      <meta name="twitter:creator" content={brand.twitterHandle} />
+      <meta name="twitter:title" content={brand.name} />
+      <meta name="twitter:description" content={brand.description} />
+      <meta name="twitter:image" content={`${brand.siteUrl}/og-image.jpg`} />
+
+      {/* 7. Préconnexions DNS pour performances d'atelier */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+    </Head>
+  );
+};
+
+export default WebDeploymentHead;

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&family=Noto+Serif:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"accent-majorelle":"#1E40AF","on-tertiary-fixed-variant":"#5c4300","canvas-cream":"#FDFBF7","filament-black":"#1A1A1A","tertiary-container":"#2c1e00","surface-container-lowest":"#ffffff","secondary-fixed-dim":"#b8c4ff","surface-variant":"#e7e1dd","on-secondary":"#ffffff","background":"#fef8f4","ink-anthracite":"#1E2022","secondary-container":"#708cfd","on-primary-container":"#86878a","on-secondary-fixed":"#001453","surface-container-highest":"#e7e1dd","inverse-surface":"#32302e","on-primary-fixed-variant":"#454749","outline":"#75777a","surface-tint":"#5d5e61","on-surface":"#1d1b19","on-tertiary-fixed":"#261900","on-primary-fixed":"#1a1c1e","surface-container-low":"#f8f2ee","filament-majorelle":"#1E40AF","on-tertiary":"#ffffff","primary":"#06080a","error-container":"#ffdad6","surface-container":"#f3ede9","on-error":"#ffffff","inverse-primary":"#c6c6c9","gold-zellige":"#D9A93C","surface":"#fef8f4","on-secondary-fixed-variant":"#173bab","primary-fixed-dim":"#c6c6c9","filament-white":"#FDFBF7","tertiary-fixed-dim":"#f2bf50","on-primary":"#ffffff","on-secondary-container":"#00217a","accent-majorelle-soft":"#EEF2FF","ink-muted":"#686D76","error":"#ba1a1a","surface-sand-subtle":"#EFE8E0","primary-fixed":"#e2e2e5","on-background":"#1d1b19","on-error-container":"#93000a","surface-sand":"#F5EFEB","surface-dim":"#dfd9d5","surface-bright":"#fef8f4","primary-container":"#1e2022","tertiary-fixed":"#ffdea1","tertiary":"#0e0700","on-tertiary-container":"#ac8111","on-surface-variant":"#44474a","border-warm":"#E6DFD5","secondary-fixed":"#dde1ff","surface-container-high":"#ede7e3","inverse-on-surface":"#f6f0ec","secondary":"#3755c3","filament-terracotta":"#B85D3B","outline-variant":"#c5c6ca"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.5rem","space-md":"1rem","space-2xs":"0.25rem","margin":"2rem","gutter-mobile":"0.75rem","margin-mobile":"1rem","space-lg":"1.5rem","space-xl":"2.5rem","space-sm":"0.75rem","space-2xl":"4rem","gutter":"1.5rem"},fontFamily:{"headline-md":["Noto Serif"],"headline-lg":["Noto Serif"],"title-md":["Manrope"],"arabic-title":["Noto Serif"],"price-lg":["Manrope"],"headline-sm":["Noto Serif"],"label-lg":["Manrope"],"headline-lg-mobile":["Noto Serif"],"display-lg":["Noto Serif"],"body-md":["Manrope"],"display-lg-mobile":["Noto Serif"],"body-lg":["Manrope"],"label-md":["Manrope"]},fontSize:{"headline-md":["24px",{"lineHeight":"32px","fontWeight":"500"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"arabic-title":["18px",{"lineHeight":"28px","fontWeight":"400"}],"price-lg":["20px",{"lineHeight":"24px","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"500"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"0","fontWeight":"500"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"display-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-accent-majorelle-soft selection:text-accent-majorelle"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-primary-container text-on-primary font-label-md text-label-md py-1.5 px-margin-mobile lg:px-margin text-center tracking-wider flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[14px] text-gold-zellige">local_shipping</span><span>Livraison partout au Maroc • Paiement à la livraison COD • Fabrication artisanale 3D (Casablanca)</span></div><div class="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs" data-path="accueil" href="#"><div class="w-9 h-9 bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md rounded-lg shadow-sm">M</div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-semibold">MUST<span class="text-filament-majorelle">DESIGN</span>3D</span><span class="font-label-md text-label-md text-ink-muted uppercase tracking-widest -mt-1">Atelier Marocain</span></div></a></div><div class="hidden md:flex flex-1 max-w-md mx-space-md"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full pl-9 pr-space-md py-2 bg-surface-container-low rounded-full text-body-md font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Rechercher un vase, luminaire, lithophane..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs bg-surface-container-low px-space-xs py-1 rounded-full text-label-md font-label-md text-on-surface-variant"><span class="font-semibold text-primary">FR</span><span class="text-outline">|</span><span class="hover:text-primary transition-colors cursor-pointer">العربية</span><span class="text-outline ml-1">•</span><span class="font-semibold text-on-surface ml-1">MAD</span></div><a class="hidden lg:flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-surface-sand hover:bg-surface-container-high transition-colors text-ink-anthracite font-label-lg text-label-lg" data-path="support-whatsapp" href="#"><span class="material-symbols-outlined text-[18px] text-accent-majorelle">chat</span><span>WhatsApp</span></a><a class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" data-path="panier" href="#"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-filament-majorelle text-on-primary text-[10px] font-bold flex items-center justify-center leading-none shadow-sm">2</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="bg-surface-sand/80 backdrop-blur-sm"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin"><nav class="flex items-center space-x-space-lg overflow-x-auto py-2.5" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="accueil" href="#">Accueil</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="catalogue" href="#">Boutique Complète</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="personnalisation-arabe" href="#">Calligraphie & Prénoms</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="vases-sculpturaux" href="#">Vases & Déco Maison</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="lithophanes-lumineuses" href="#">Lithophanes Lumineuses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="bureau-organiseurs" href="#">Accessoires Bureau</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="atelier-sur-mesure" href="#">Service Sur-Mesure Pro</a></nav></div></div></header><main class="w-full pt-32 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Banner / Editorial Header -->
+<section class="relative w-full bg-surface-sand py-space-2xl px-margin-mobile lg:px-margin overflow-hidden">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-space-lg relative z-10">
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-filament-majorelle animate-pulse"></span>
+<span class="font-label-md text-label-md uppercase tracking-widest text-filament-majorelle font-semibold">Support Artisanal & Fabrication 3D Casablanca</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-ink-anthracite font-normal tracking-tight">
+          Une question ? Un projet spécifique ?<br/>
+<span class="italic font-normal text-on-surface-variant font-headline-lg text-headline-lg">Parlons-en directement.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-space-2xs">
+          Que ce soit pour vérifier un aperçu de calligraphie arabe en relief, configurer un vase architectural en grand format ou lancer une série professionnelle avec facture ICE, notre atelier vous accompagne pas à pas.
+        </p>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="flex items-center gap-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-sm shrink-0">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">< 15 min</span>
+<span class="font-label-md text-label-md text-ink-muted">Délai moyen WhatsApp</span>
+</div>
+<div class="w-px h-8 bg-surface-sand-subtle"></div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-accent-majorelle font-semibold">6j / 7</span>
+<span class="font-label-md text-label-md text-ink-muted">Disponibilité Atelier</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: 3 Contact Fast-Tracks -->
+<section class="w-full max-w-7xl mx-auto px-margin-mobile lg:px-margin -mt-8 relative z-20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: WhatsApp Direct (Highlighted) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 w-24 h-24 bg-accent-majorelle/5 rounded-bl-full pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="w-12 h-12 rounded-xl bg-accent-majorelle-soft text-accent-majorelle flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+</div>
+<span class="font-label-md text-label-md px-space-xs py-0.5 rounded-full bg-surface-container text-ink-anthracite font-semibold">Canal Prioritaire</span>
+</div>
+<h3 class="font-title-md text-title-md text-ink-anthracite mb-space-2xs">WhatsApp Atelier Direct</h3>
+<p class="font-body-md text-body-md text-ink-muted mb-space-sm">
+            Partagez vos croquis, photos pour lithophane ou textes en arabe. Réponse moyenne en 15 minutes par nos ingénieurs fabricants.
+          </p>
+<div class="font-price-lg text-price-lg text-ink-anthracite mb-space-md tracking-tight">
+            +212 6 61 98 42 10
+          </div>
+</div>
+<a class="w-full py-3 px-space-md bg-accent-majorelle hover:bg-ink-anthracite text-on-primary font-label-lg text-label-lg rounded-lg flex items-center justify-center gap-space-xs transition-colors shadow-sm" href="https://wa.me/212661984210" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Démarrer sur WhatsApp</span>
+</a>
+</div>
+<!-- Card 2: Email & Order Tracking -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-sand text-ink-anthracite flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+</div>
+<span class="font-label-md text-label-md px-space-xs py-0.5 rounded-full bg-surface-sand text-ink-muted">Amana & Aramex</span>
+</div>
+<h3 class="font-title-md text-title-md text-ink-anthracite mb-space-2xs">Service Client & Suivi Pro</h3>
+<p class="font-body-md text-body-md text-ink-muted mb-space-sm">
+            Pour le statut de livraison express partout au Maroc, devis entreprise avec mention ICE ou demandes de réimpression.
+          </p>
+<div class="font-title-md text-title-md text-ink-anthracite mb-space-md truncate">
+            contact@mustdesign3d.ma
+          </div>
+</div>
+<a class="w-full py-3 px-space-md bg-surface-container hover:bg-surface-sand text-ink-anthracite font-label-lg text-label-lg rounded-lg flex items-center justify-center gap-space-xs transition-colors" href="mailto:contact@mustdesign3d.ma">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+<span>Envoyer un email</span>
+</a>
+</div>
+<!-- Card 3: Physical Lab Visit -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-sand text-ink-anthracite flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">precision_manufacturing</span>
+</div>
+<span class="font-label-md text-label-md px-space-xs py-0.5 rounded-full bg-surface-sand text-ink-muted">Casablanca</span>
+</div>
+<h3 class="font-title-md text-title-md text-ink-anthracite mb-space-2xs">Visite du 3D Lab & Nuanciers</h3>
+<p class="font-body-md text-body-md text-ink-muted mb-space-sm">
+            Quartier Gauthier / Bourgogne. Prenez rendez-vous pour toucher les finitions mat, soie, marbre et tester les 32 teintes PLA.
+          </p>
+<div class="font-body-md text-body-md text-ink-anthracite mb-space-md font-medium">
+            Sur rendez-vous • Lun - Sam
+          </div>
+</div>
+<button class="w-full py-3 px-space-md bg-surface-sand hover:bg-surface-container-high text-ink-anthracite font-label-lg text-label-lg rounded-lg flex items-center justify-center gap-space-xs transition-colors" id="scroll-form-btn">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+<span>Demander un créneau</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section: Form & Workshop Showcase Split -->
+<section class="w-full max-w-7xl mx-auto px-margin-mobile lg:px-margin pt-space-2xl pb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Interactive Form (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl shadow-sm">
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<span class="font-label-md text-label-md text-filament-majorelle uppercase tracking-wider font-semibold">Formulaire Express</span>
+<h2 class="font-headline-md text-headline-md text-ink-anthracite font-normal">Transmettez les détails de votre projet</h2>
+<p class="font-body-md text-body-md text-ink-muted">Nous générons les prévisualisations 3D et devis sous 24h ouvrées.</p>
+</div>
+<form class="space-y-space-md" id="contact-form" onsubmit="event.preventDefault(); document.getElementById('form-feedback').classList.remove('hidden');">
+<!-- Subject selector tabs -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-lg text-label-lg text-ink-anthracite font-medium">Motif de votre prise de contact</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="topic" type="radio" value="suivi"/>
+<div class="px-2 py-2 text-center rounded-lg bg-surface-container-low peer-checked:bg-ink-anthracite peer-checked:text-on-primary text-ink-muted font-label-md text-label-md transition-colors select-none">
+                  Suivi commande
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="topic" type="radio" value="produit"/>
+<div class="px-2 py-2 text-center rounded-lg bg-surface-container-low peer-checked:bg-ink-anthracite peer-checked:text-on-primary text-ink-muted font-label-md text-label-md transition-colors select-none">
+                  Question produit
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="topic" type="radio" value="devis"/>
+<div class="px-2 py-2 text-center rounded-lg bg-surface-container-low peer-checked:bg-ink-anthracite peer-checked:text-on-primary text-ink-muted font-label-md text-label-md transition-colors select-none">
+                  Devis Pro / ICE
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="topic" type="radio" value="rdv"/>
+<div class="px-2 py-2 text-center rounded-lg bg-surface-container-low peer-checked:bg-ink-anthracite peer-checked:text-on-primary text-ink-muted font-label-md text-label-md transition-colors select-none">
+                  RDV Atelier
+                </div>
+</label>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite">Nom & Prénom *</label>
+<input class="w-full px- space-sm py-2.5 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-colors px-3" placeholder="Ex. Youssef Bennani" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite">Téléphone WhatsApp *</label>
+<input class="w-full px- space-sm py-2.5 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-colors px-3" placeholder="06 XX XX XX XX" required="" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite">Adresse Email</label>
+<input class="w-full px- space-sm py-2.5 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-colors px-3" placeholder="nom@exemple.ma" type="email"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite">Ville de destination</label>
+<select class="w-full px- space-sm py-2.5 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-colors px-3">
+<option value="Casablanca">Casablanca (Livraison 24h)</option>
+<option value="Rabat">Rabat / Salé</option>
+<option value="Marrakech">Marrakech</option>
+<option value="Tanger">Tanger / Tétouan</option>
+<option value="Fes">Fès / Meknès</option>
+<option value="Agadir">Agadir</option>
+<option value="Autre">Autre province du Maroc</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-lg text-label-lg text-ink-anthracite">Votre Message ou Détails de Personnalisation</label>
+<textarea class="w-full p-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Indiquez ici les dimensions souhaitées, le prénom en calligraphie arabe ou la référence de commande..." required="" rows="4"></textarea>
+</div>
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-accent-majorelle focus:ring-0" id="whatsapp-notif" type="checkbox"/>
+<label class="font-label-md text-label-md text-ink-muted cursor-pointer" for="whatsapp-notif">
+              Recevoir la validation du Bon à Tirer (BAT 3D) directement sur WhatsApp
+            </label>
+</div>
+<button class="w-full py-3.5 bg-ink-anthracite hover:bg-accent-majorelle text-on-primary font-label-lg text-label-lg rounded-lg transition-colors shadow-sm flex items-center justify-center gap-2" type="submit">
+<span>Transmettre ma demande à l'équipe</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<div class="hidden p-space-sm bg-accent-majorelle-soft rounded-lg text-accent-majorelle font-body-md text-body-md flex items-center gap-2" id="form-feedback">
+<span class="material-symbols-outlined">check_circle</span>
+<span>Message reçu avec succès. L'artisan en charge de votre secteur vous contacte sous peu.</span>
+</div>
+</form>
+</div>
+<!-- Workshop Context / Visual Bento (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<!-- Atelier Visual Showcase -->
+<div class="relative bg-surface-sand rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="h-64 w-full bg-cover bg-center relative" data-alt="Intimate view inside a modern 3D printing design studio in Casablanca Morocco, Bambu Lab high precision machines operating with spools of terracotta and majorelle blue filament, warm architectural lighting, minimalist concrete bench with sculptured fluted vases and Arabic calligraphy decor items, clean industrial warm atmosphere" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDk1qyCfCPXlGod4e0Zw0QtobC0ktlLJ1e3sDbGPjnv-BXbp0lP78hU0XujkkHFSNO5NY-EWUOFXp1HLfovIJzKGhrbk916CwRcsTvL5Xoo6RsNdEF0z8osS9U9vxemWKvU_GKfwGcpIMHF6gJk3PVCKWzSAZCDIgL0QGgbn2c3ZPgoSnz3YVzE0g8OBohmoNIYUOQZ6jBSPI37P5OUsgM8EliebLvS4BjkCk-Nmkk')">
+<div class="absolute inset-0 bg-gradient-to-t from-ink-anthracite/80 via-transparent to-transparent flex items-end p-space-md">
+<div class="text-on-primary">
+<span class="font-label-md text-label-md uppercase tracking-wider text-gold-zellige font-semibold">Parc Machines Bambu Lab</span>
+<h4 class="font-headline-sm text-headline-sm">Précision au centième de millimètre</h4>
+</div>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-2xs bg-surface-container-lowest">
+<div class="flex items-center justify-between text-ink-anthracite font-label-lg text-label-lg">
+<span>Capacité d'impression</span>
+<span class="font-semibold text-accent-majorelle">18 imprimantes actives</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted">Chaque pièce est découpée numériquement à Casablanca avec un contrôle qualité minutieux avant emballage antichoc.</p>
+</div>
+</div>
+<!-- Schedule & COD Assurance Box -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-ink-anthracite">
+<span class="material-symbols-outlined text-gold-zellige">schedule</span>
+<h4 class="font-title-md text-title-md">Horaires du Support & Expéditions</h4>
+</div>
+<div class="space-y-2 font-body-md text-body-md">
+<div class="flex justify-between py-1 border-b border-surface-sand-subtle">
+<span class="text-ink-muted">Lundi – Vendredi</span>
+<span class="font-medium text-ink-anthracite">09h00 – 19h00</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-sand-subtle">
+<span class="text-ink-muted">Samedi</span>
+<span class="font-medium text-ink-anthracite">09h30 – 16h30</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-ink-muted">Dimanche</span>
+<span class="text-ink-muted italic">Atelier fermé (urgences WhatsApp uniquement)</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-sand flex items-start gap-space-xs mt-space-2xs">
+<span class="material-symbols-outlined text-accent-majorelle shrink-0 text-[20px]">payments</span>
+<div class="font-label-md text-label-md text-on-surface-variant">
+<strong class="text-ink-anthracite">Paiement COD Garanti :</strong> Vérifiez le colis à l'arrivée avec le livreur Amana/Aramex avant d'effectuer le règlement en espèces.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: FAQ Accordion -->
+<section class="w-full bg-surface-container-low py-space-2xl px-margin-mobile lg:px-margin">
+<div class="max-w-4xl mx-auto flex flex-col gap-space-xl">
+<div class="text-center flex flex-col gap-space-2xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-filament-majorelle font-semibold">Réponses Immédiates</span>
+<h2 class="font-headline-lg text-headline-lg text-ink-anthracite">Questions Fréquemment Posées</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+          Tout savoir sur notre procédé d'impression 3D au Maroc, les délais de livraison et la personnalisation de vos commandes.
+        </p>
+</div>
+<!-- Accordion Container -->
+<div class="flex flex-col gap-space-xs" id="faq-accordion">
+<!-- FAQ 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-200">
+<button class="faq-toggle w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-ink-anthracite">Quels sont les délais d'impression et de livraison au Maroc ?</span>
+<span class="material-symbols-outlined text-ink-muted faq-icon transform transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md text-on-surface-variant font-body-md text-body-md hidden">
+<p>Notre délai moyen est articulé en deux temps :</p>
+<ul class="list-disc list-inside mt-2 space-y-1 text-ink-muted">
+<li><strong class="text-ink-anthracite">Fabrication & Finitions :</strong> 24h à 48h ouvrées dans notre atelier à Casablanca (incluant découpe numérique, nettoyage méticuleux des supports et contrôle qualité).</li>
+<li><strong class="text-ink-anthracite">Expédition :</strong> 24h pour l'axe Casablanca-Rabat-Kénitra, et 48h pour Marrakech, Fès, Tanger, Agadir et le reste du Royaume via nos partenaires Amana et Aramex.</li>
+</ul>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-200">
+<button class="faq-toggle w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-ink-anthracite">Comment fonctionne le paiement à la livraison (Cash on Delivery) ?</span>
+<span class="material-symbols-outlined text-ink-muted faq-icon transform transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md text-on-surface-variant font-body-md text-body-md hidden">
+<p>
+              Pour toute commande standard passée sur le site, vous ne payez rien en avance. Le règlement s'effectue en dirhams (MAD) directement auprès de l'agent livreur lors de la réception de votre colis. Pour les commandes sur-mesure de grande envergure (plus de 1 500 MAD ou événements B2B), un acompte de 30% peut être demandé par virement bancaire (CIH, Attijariwafa ou Bank of Africa).
+            </p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-200">
+<button class="faq-toggle w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-ink-anthracite">Puis-je voir un rendu de mon prénom en calligraphie arabe avant la fabrication ?</span>
+<span class="material-symbols-outlined text-ink-muted faq-icon transform transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md text-on-surface-variant font-body-md text-body-md hidden">
+<p>
+              Absolument. C'est l'essence même de notre démarche : dès confirmation de votre commande, notre typographe génère le tracé vectoriel en calligraphie Thuluth ou Diwani. Nous vous transmettons un Bon à Tirer 3D (BAT virtuel) via WhatsApp. Vous validez l'équilibre des lettres et les options de couleur avant que nos machines ne démarrent l'extrusion.
+            </p>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-200">
+<button class="faq-toggle w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-ink-anthracite">Quelle est la résistance du plastique PLA face au soleil marocain et aux chocs ?</span>
+<span class="material-symbols-outlined text-ink-muted faq-icon transform transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md text-on-surface-variant font-body-md text-body-md hidden">
+<p>
+              Nous utilisons exclusivement du PLA+ renforcé et du PETG biosourcé de qualité technique. En usage d'intérieur (salons, bureaux, chambres, réceptions), les pièces conservent leur teinte sans jaunir durant des années. Évitez simplement l'exposition prolongée en plein soleil derrière une vitre de voiture en plein été (> 55°C). Pour le nettoyage, un chiffon doux microfibre légèrement humide suffit amplement.
+            </p>
+</div>
+</div>
+<!-- FAQ 5 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all duration-200">
+<button class="faq-toggle w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-ink-anthracite">Proposez-vous des remises pour les commandes en gros (entreprises, mariages) ?</span>
+<span class="material-symbols-outlined text-ink-muted faq-icon transform transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md text-on-surface-variant font-body-md text-body-md hidden">
+<p>
+              Oui. Nous collaborons régulièrement avec des organisateurs de mariages, des hôtels de luxe à Marrakech et des agences de communication :
+            </p>
+<ul class="list-disc list-inside mt-2 space-y-1 text-ink-muted">
+<li>À partir de 15 unités : remise de 15% appliquée automatiquement.</li>
+<li>À partir de 50 unités : remise de 25% à 35% avec prototypage physique offert.</li>
+<li>Facturation conforme avec identifiant fiscal (ICE) émise par notre entité marocaine.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-sand flex flex-col sm:flex-row items-center justify-between gap-space-md text-center sm:text-left">
+<div>
+<h4 class="font-title-md text-title-md text-ink-anthracite">Votre question ne figure pas ici ?</h4>
+<p class="font-body-md text-body-md text-ink-muted">Nos artisans sont connectés en permanence sur WhatsApp.</p>
+</div>
+<a class="py-2.5 px-space-lg rounded-lg bg-ink-anthracite hover:bg-accent-majorelle text-on-primary font-label-lg text-label-lg whitespace-nowrap transition-colors" href="https://wa.me/212661984210">
+          Poser ma question en direct
+        </a>
+</div>
+</div>
+</section>
+<!-- Section: Map Location & Casablanca Atelier Access -->
+<section class="w-full max-w-7xl mx-auto px-margin-mobile lg:px-margin py-space-2xl">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+<!-- Info Left (5 Cols) -->
+<div class="lg:col-span-5 p-space-lg md:p-space-xl flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-accent-majorelle">pin_drop</span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-semibold text-accent-majorelle">Atelier Physique</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-ink-anthracite font-normal">
+            Venez explorer nos textures à Casablanca
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Notre espace laboratoire vous accueille pour toucher les matières, examiner la finesse des couches (0.12mm) et choisir les coloris exacts pour vos projets d'architecture d'intérieur.
+          </p>
+<div class="mt-space-sm space-y-space-xs font-body-md text-body-md text-ink-anthracite">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-ink-muted text-[20px] shrink-0 mt-0.5">location_on</span>
+<div>
+<strong>MustDesign3D Studio Lab</strong><br/>
+<span class="text-ink-muted">Angle Boulevard d'Anfa & Rue Jean Jaurès, Quartier Gauthier / Bourgogne, Casablanca 20050, Maroc</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-ink-muted text-[20px] shrink-0">directions_car</span>
+<span class="text-ink-muted">Parking surveillé disponible rue Jean Jaurès</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-ink-muted text-[20px] shrink-0">tram</span>
+<span class="text-ink-muted">Tramway T1 – Station Place Mohammed V à 10 min à pied</span>
+</div>
+</div>
+</div>
+<div class="pt-space-lg flex items-center gap-space-sm">
+<a class="py-2.5 px-space-md bg-surface-sand hover:bg-surface-container-high rounded-lg text-ink-anthracite font-label-lg text-label-lg flex items-center gap-2 transition-colors" href="https://maps.google.com/?q=Gauthier+Casablanca+Morocco" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+<span>Ouvrir dans Google Maps</span>
+</a>
+</div>
+</div>
+<!-- Static Map Integration (7 Cols) -->
+<div class="lg:col-span-7 min-h-[360px] relative bg-surface-sand">
+<div class="w-full h-full min-h-[380px] bg-cover bg-center" data-location="Quartier Gauthier, Casablanca, Morocco" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBs3bO6swoSM8gEJ9b5ReR_LuEECD2bjsDgYHiLZ6VfwA1cNfJaIaVl7XgbpPIKLpgHqJD73E-R3e5HM_FgXDGhFFWT5uEIX2C_wmD_fQwfz8XCd3DRWT0FK8ztfjX_yuyp7gEUCMOp6Kjxr281NqcQRaTYQgr9hJqLpN7MsLF9O2a8FmngCXZlTJs9JRuSNyxE0BjJnPnuhu5517o95SViz_i1K5hk_rVGmhKYJfI')"></div>
+<div class="absolute bottom-4 left-4 bg-surface-container-lowest/95 backdrop-blur-md p-space-sm rounded-lg shadow-md max-w-xs flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-filament-majorelle shrink-0"></div>
+<div class="text-xs text-ink-anthracite leading-snug">
+<strong>Laboratoire 3D MustDesign</strong><br/>
+            Casablanca Gauthier
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Client-side Logic (Accordions & Scroll) -->
+<script>
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        const isOpen = !content.classList.contains('hidden');
+
+        // Close all other accordions for clarity
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+
+    // Smooth scroll to form when 'Demander un créneau' is clicked
+    const scrollBtn = document.getElementById('scroll-form-btn');
+    if (scrollBtn) {
+      scrollBtn.addEventListener('click', () => {
+        const formElem = document.getElementById('contact-form');
+        if (formElem) {
+          formElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Preselect RDV Atelier
+          const rdvRadio = document.querySelector('input[name="topic"][value="rdv"]');
+          if (rdvRadio) rdvRadio.checked = true;
+        }
+      });
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface pt-space-2xl pb-space-xl mt-space-2xl"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-3 gap-gutter pb-space-xl mb-space-xl bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-sm"><div class="w-12 h-12 rounded-full bg-surface-sand flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-filament-majorelle">verified</span></div><div><h4 class="font-title-md text-title-md text-ink-anthracite">Fabriqué au Maroc</h4><p class="font-body-md text-body-md text-ink-muted">Impression de précision Bambu Lab dans nos ateliers à Casablanca.</p></div></div><div class="flex items-center gap-space-sm"><div class="w-12 h-12 rounded-full bg-surface-sand flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-gold-zellige">eco</span></div><div><h4 class="font-title-md text-title-md text-ink-anthracite">PLA Écologique Premium</h4><p class="font-body-md text-body-md text-ink-muted">Bioplastique biosourcé à base d'amidon de maïs, robuste et soigné.</p></div></div><div class="flex items-center gap-space-sm"><div class="w-12 h-12 rounded-full bg-surface-sand flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-filament-terracotta">local_shipping</span></div><div><h4 class="font-title-md text-title-md text-ink-anthracite">Expédition Express Amana & Aramex</h4><p class="font-body-md text-body-md text-ink-muted">Livraison rapide 24h-48h à domicile avec paiement COD sécurisé.</p></div></div></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-space-2xl"><div class="lg:col-span-2 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-8 h-8 bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md rounded-lg">M</div><span class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">MUST<span class="text-filament-majorelle">DESIGN</span>3D</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">L'alliance de l'ébénisterie numérique et de la sensibilité marocaine. Créations personnalisables imprimées en 3D haute définition pour sublimer vos intérieurs et célébrer vos moments précieux.</p><div class="flex items-center gap-space-sm pt-space-xs"><span class="font-label-md text-label-md text-ink-muted">Atelier & Showroom: Casablanca, Maroc</span></div></div><div class="flex flex-col gap-space-xs"><span class="font-title-md text-title-md text-on-surface font-semibold mb-space-2xs">Collections</span><nav class="flex flex-col gap-2" data-active-classes="text-primary font-semibold"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="personnalisation-arabe" href="#">Calligraphie Personnalisée</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="vases-sculpturaux" href="#">Vases & Objets d'Art</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="lithophanes-lumineuses" href="#">Lithophanes Photo</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="bureau-organiseurs" href="#">Organiseurs Bureau</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="atelier-sur-mesure" href="#">Commandes Événements</a></nav></div><div class="flex flex-col gap-space-xs"><span class="font-title-md text-title-md text-on-surface font-semibold mb-space-2xs">Service Client</span><nav class="flex flex-col gap-2" data-active-classes="text-primary font-semibold"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="suivi-commande" href="#">Suivre ma commande</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="livraison-tarifs" href="#">Zones & Délais de Livraison</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">FAQ & Entretien PLA</a><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="contact" href="#">Atelier & WhatsApp Direct</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="cgv" href="#">Conditions Générales</a></nav></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface font-semibold">Rejoindre l'Atelier</span><p class="font-body-md text-body-md text-on-surface-variant">Recevez nos séries limitées et inspirations décoratives en avant-première.</p><div class="flex flex-col gap-space-xs"><input class="w-full px-space-sm py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none shadow-sm" placeholder="Votre adresse email..." type="email"/><button class="w-full py-2.5 bg-primary hover:bg-accent-majorelle text-on-primary font-label-lg text-label-lg rounded-lg transition-colors shadow-sm">S'inscrire</button></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-ink-muted"><p>© 2024 MustDesign3D Casablanca. Tous droits réservés. Conçu & fabriqué avec passion au Maroc.</p><div class="flex items-center gap-space-md"><span class="text-ink-anthracite font-semibold">Casablanca • Rabat • Marrakech • Tanger • Fès</span></div></div></div></footer></body></html>

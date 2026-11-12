@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Boutique & Catalogue 3D — Sélection 4 Couleurs Bambu Lab A1 — MustDesign3D</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'surface': '#FEF8F4',
+            'surface-container-low': '#F8F2EE',
+            'surface-container': '#F2ECE7',
+            'surface-container-high': '#ECE6E1',
+            'surface-container-lowest': '#FFFFFF',
+            'primary': '#233D99',
+            'primary-dark': '#1B2F77',
+            'primary-light': '#DDE3FD',
+            'text-main': '#1E2022',
+            'text-muted': '#6D6C65',
+            'border-line': '#E6DFD5',
+            'filament-noir': '#161616',
+            'filament-blanc': '#FAFAFA',
+            'filament-bleu': '#233D99',
+            'filament-rouge': '#B92B32',
+            'filament-terracotta': '#C25E3E',
+            'filament-or': '#D49B42'
+          },
+          fontFamily: {
+            serif: ['Noto Serif', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            arabic: ['Noto Naskh Arabic', 'Amiri', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FEF8F4; color: #1E2022; }
+    .font-serif { font-family: 'Noto Serif', Georgia, serif; }
+    .font-arabic { font-family: 'Noto Naskh Arabic', Amiri, serif; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-surface antialiased text-text-main flex flex-col min-h-screen">
+
+  <!-- Bandeau Supérieur d'Atelier (Maroc & Livraison) -->
+  <header class="w-full bg-[#161616] text-[#FEF8F4] text-xs py-2 px-4 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 truncate">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-medium truncate">Atelier Casablanca Maarif • Impression 3D Bambu Lab A1 & AMS Lite • Paiement à la Livraison (COD)</span>
+      </div>
+      <div class="hidden md:flex items-center gap-4 shrink-0 font-medium text-[11px]">
+        <span class="text-[#D49B42] font-semibold">MAD (DH)</span>
+        <span class="text-white/40">|</span>
+        <span>FR / <span class="font-arabic">العربية</span></span>
+        <span class="text-white/40">|</span>
+        <a href="https://wa.me/212661458920" class="hover:text-[#D49B42] flex items-center gap-1 transition">
+          <span class="material-symbols-outlined text-[14px]">support_agent</span>
+          WhatsApp Atelier : +212 661-458920
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Principale -->
+  <nav class="w-full bg-white/95 backdrop-blur-md border-b border-border-line sticky top-8 z-40">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="#" class="flex items-center gap-2 group">
+          <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+            <span class="material-symbols-outlined text-[24px]">view_in_ar</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-serif font-bold text-xl tracking-tight leading-none text-text-main">
+              MustDesign<span class="text-primary">3D</span>
+            </span>
+            <span class="text-[9px] uppercase tracking-widest text-text-muted font-semibold mt-1">
+              Atelier Néo-Artisanal • Bambu Lab A1
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Liens Menu -->
+      <div class="hidden lg:flex items-center gap-1 text-sm font-semibold">
+        <a href="#" class="px-3.5 py-2 rounded-lg text-text-muted hover:text-text-main hover:bg-surface-container transition">Accueil</a>
+        <a href="#" class="px-3.5 py-2 rounded-lg bg-primary text-white shadow-sm">Boutique & Catalogue</a>
+        <a href="#" class="px-3.5 py-2 rounded-lg text-text-muted hover:text-text-main hover:bg-surface-container transition">Cadeaux Personnalisés</a>
+        <a href="#" class="px-3.5 py-2 rounded-lg text-text-muted hover:text-text-main hover:bg-surface-container transition">Maison & Riad</a>
+        <a href="#" class="px-3.5 py-2 rounded-lg text-text-muted hover:text-text-main hover:bg-surface-container transition">B2B & Professionnels</a>
+        <a href="#" class="px-3.5 py-2 rounded-lg text-text-muted hover:text-text-main hover:bg-surface-container transition flex items-center gap-1 text-[#233D99]">
+          <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+          Studio IA 3D
+        </a>
+      </div>
+
+      <!-- Action Panier & Compte -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="flex items-center gap-2 bg-[#1E2022] hover:bg-primary text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-sm transition">
+          <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+          <span>Panier (2) • 98 MAD</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 py-8">
+
+    <!-- En-tête Éditorial -->
+    <div class="bg-surface-container-low border border-border-line rounded-2xl p-6 md:p-8 mb-8 relative overflow-hidden">
+      <div class="max-w-3xl relative z-10">
+        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary mb-2">
+          <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>
+          Catalogue Prêt-à-Imprimer • Bambu Lab A1 (Buse 0.4mm • 0.16mm PEI)
+        </div>
+        <h1 class="text-3xl md:text-4xl font-serif font-bold text-text-main tracking-tight mb-3">
+          Objets Personnalisés & Créations 3D Multicouleurs
+        </h1>
+        <p class="text-sm md:text-base text-text-muted leading-relaxed mb-6">
+          Explorez 16 créations originales spécialement calibrées pour le système 4 bobines <strong>AMS Lite</strong> : aucun support à retirer, reliefs calligraphiques nets et géométries zellige inspirées du patrimoine marocain.
+        </p>
+
+        <!-- Filtres Rapides par Catégories (Pills) -->
+        <div class="flex flex-wrap items-center gap-2" id="category-pills">
+          <button onclick="filterCategory('all', this)" class="cat-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-primary text-white shadow-sm transition">
+            Toutes les créations (16)
+          </button>
+          <button onclick="filterCategory('cadeaux', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white hover:bg-surface-container text-text-main border border-border-line transition flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[15px] text-[#B92B32]">featured_seasonal_and_gifts</span>
+            Cadeaux & Prénoms 3D (6)
+          </button>
+          <button onclick="filterCategory('riad', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white hover:bg-surface-container text-text-main border border-border-line transition flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[15px] text-[#C25E3E]">villa</span>
+            Maison & Riad (4)
+          </button>
+          <button onclick="filterCategory('bureau', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white hover:bg-surface-container text-text-main border border-border-line transition flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[15px] text-[#233D99]">desk</span>
+            Bureau & Organisation (3)
+          </button>
+          <button onclick="filterCategory('b2b', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white hover:bg-surface-container text-text-main border border-border-line transition flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[15px] text-[#D49B42]">storefront</span>
+            Professionnels & B2B (3)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE CENTRAL : Sélecteur Interactif des 4 Couleurs Physiques d'Atelier (AMS Lite) -->
+    <section class="bg-white border border-border-line rounded-2xl p-6 mb-8 shadow-sm">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-border-line">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[22px]">palette</span>
+            <h2 class="font-serif font-bold text-lg text-text-main">
+              Nuancier 4 Couleurs Physiques AMS Lite (Bambu Lab A1)
+            </h2>
+          </div>
+          <p class="text-xs text-text-muted mt-1">
+            Les 4 bobines de filament PLA haute précision montées en direct sur nos machines à Casablanca. Sélectionnez une couleur pour filtrer les modèles compatibles :
+          </p>
+        </div>
+
+        <!-- Mode de couleurs (Zéro Déchet / 2 Couleurs / 3 ou 4) -->
+        <div class="flex items-center gap-1.5 bg-surface-container-low p-1.5 rounded-xl border border-border-line self-start lg:self-auto text-xs font-semibold">
+          <button onclick="filterColorMode('all', this)" class="color-mode-btn active px-3 py-1.5 rounded-lg bg-white shadow-sm text-text-main">Tous les modes</button>
+          <button onclick="filterColorMode('duo', this)" class="color-mode-btn px-3 py-1.5 rounded-lg text-text-muted hover:text-text-main">2 Couleurs (Zéro Déchet Z-Hop)</button>
+          <button onclick="filterColorMode('trio', this)" class="color-mode-btn px-3 py-1.5 rounded-lg text-text-muted hover:text-text-main">3 Couleurs</button>
+          <button onclick="filterColorMode('quad', this)" class="color-mode-btn px-3 py-1.5 rounded-lg text-text-muted hover:text-text-main">4 Couleurs Full AMS</button>
+        </div>
+      </div>
+
+      <!-- Les 4 Bobines Physiques -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
+        <!-- Slot 1 : Noir Basalte -->
+        <div onclick="toggleFilamentHighlight('noir')" class="filament-card p-3 rounded-xl border border-border-line bg-surface flex items-center gap-3 cursor-pointer hover:border-black transition group">
+          <span class="w-8 h-8 rounded-full bg-[#161616] text-white flex items-center justify-center font-bold text-xs ring-2 ring-black/20 shrink-0">1</span>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-text-main truncate">Noir Basalte</div>
+            <div class="text-[10px] text-text-muted">#161616 • PLA Mat</div>
+            <div class="text-[10px] text-emerald-600 font-semibold mt-0.5">Socles & Contrastes</div>
+          </div>
+        </div>
+
+        <!-- Slot 2 : Blanc Albâtre -->
+        <div onclick="toggleFilamentHighlight('blanc')" class="filament-card p-3 rounded-xl border border-border-line bg-surface flex items-center gap-3 cursor-pointer hover:border-black transition group">
+          <span class="w-8 h-8 rounded-full bg-[#FAFAFA] border border-border-line text-text-main flex items-center justify-center font-bold text-xs ring-2 ring-gray-200 shrink-0">2</span>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-text-main truncate">Blanc Albâtre / Ivoire</div>
+            <div class="text-[10px] text-text-muted">#FAFAFA • Tadelakt look</div>
+            <div class="text-[10px] text-emerald-600 font-semibold mt-0.5">Textes & Reliefs 1.2mm</div>
+          </div>
+        </div>
+
+        <!-- Slot 3 : Bleu Majorelle -->
+        <div onclick="toggleFilamentHighlight('bleu')" class="filament-card p-3 rounded-xl border-2 border-primary bg-primary/5 flex items-center gap-3 cursor-pointer hover:border-primary transition group">
+          <span class="w-8 h-8 rounded-full bg-[#233D99] text-white flex items-center justify-center font-bold text-xs ring-2 ring-primary/40 shrink-0">3</span>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-primary truncate">Bleu Majorelle</div>
+            <div class="text-[10px] text-text-muted">#233D99 • Signature Maroc</div>
+            <div class="text-[10px] text-emerald-600 font-semibold mt-0.5">Bordures & Motifs Zellige</div>
+          </div>
+        </div>
+
+        <!-- Slot 4 : Rouge Atlas -->
+        <div onclick="toggleFilamentHighlight('rouge')" class="filament-card p-3 rounded-xl border border-border-line bg-surface flex items-center gap-3 cursor-pointer hover:border-black transition group">
+          <span class="w-8 h-8 rounded-full bg-[#B92B32] text-white flex items-center justify-center font-bold text-xs ring-2 ring-red-400/40 shrink-0">4</span>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-text-main truncate">Rouge Atlas / Terracotta</div>
+            <div class="text-[10px] text-text-muted">#B92B32 • Argile Fès</div>
+            <div class="text-[10px] text-emerald-600 font-semibold mt-0.5">Accents & Drapeaux</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRILLE PRINCIPALE DES 16 PRODUITS IMPRIMABLES -->
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-2">
+        <span class="font-serif font-bold text-xl text-text-main">Modèles Disponibles à la Commande</span>
+        <span class="bg-primary/10 text-primary text-xs font-bold px-2.5 py-0.5 rounded-full" id="counter-badge">16 modèles</span>
+      </div>
+      <div class="text-xs text-text-muted">
+        Tri : <span class="font-semibold text-text-main">Popularité d'atelier</span>
+      </div>
+    </div>
+
+    <!-- Le catalogue des 16 Cartes Produits -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="product-grid">
+
+      <!-- 1. Porte-clés Prénom Bilingue Youssef -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="cadeaux" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrAlg3hGxQq6YJlSRcKsAyZwb9nMigGUj_s9dOvrVNb8SVIRXRUiMxOUS8HzYm4OwbXscTkYbediaqa-jPsQz2MgyLibhUT4Fus4Z8oq7fqpSBJ--cjSMQAnMPp5MwJNOowT8Nj3QSIXpCPaJnCyB7ClJwCKL8y-MvFAjsaOePHvx9bN0gxYrG3w4GplZyaMy2xcjedncJfFpkLBXA8LK-rZKL8MNc7ha8nTPldvAPhc" alt="Porte-clés Prénom Bilingue Youssef" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Bambu A1 0.16mm</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Zero-Support</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 18 min • 2 Couleurs
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Cadeaux & Prénoms</span>
+              <span class="font-arabic font-bold text-primary">يوسف / Youssef</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Porte-Clés Prénom Bilingue</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Extrusion continue sans bavure. Anneau inox renforcé 12kg inclus.</p>
+          </div>
+          <!-- Swatches des 4 couleurs d'atelier -->
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1" title="Couleurs compatibles : Bleu, Blanc, Noir, Rouge">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#233D99] ring-1 ring-black/20"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#B92B32]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">COD Disponible</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">49 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Personnaliser</span>
+              <span class="material-symbols-outlined text-[14px]">edit</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Présentoir QR Code & Google Avis Comptoir -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="b2b" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrAFA5DsKNUHvJabtOnNXKVr8FA9nSekqYcKJGBSIgEAo7UaeBN3vKBvS1Ds1iL-Sq1aIpaAlzx6OpSyV_MT9z9z6OoVn6OGFE6YW5FB4xQNB5TOipqrZE0D-OXLayTiokClkpYlGjWjVnCOaYZbJBoChWcbf1kfrYafsbHcPd9Zio7p6Aiu5SFyTZWk54m57Yth4pA4jI-zfoz3AvnJsi6fi2mLGygFdjT1d6p-H7ZG" alt="Présentoir QR Code Comptoir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-primary text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">B2B & Comptoir</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">100% Scannable</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 1h 15 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Professionnels</span>
+              <span class="text-emerald-600 font-bold">Avis Google & Menu</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Présentoir QR Code Comptoir</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Socle incliné rigide pour cafés, riads et restaurants marocains.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#233D99]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Tout le Maroc</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">149 MAD</span>
+            </div>
+            <a href="#" class="bg-[#1E2022] hover:bg-primary text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Configurer</span>
+              <span class="material-symbols-outlined text-[14px]">qr_code_2</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Marque-places Cérémonies & Mariages -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="cadeaux" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCoebuK4NZiQhPPArZ65PpOGD7ZvAH7Ob3CIRf-DxlV24iyPaySaQyVM1xLyRN_98UUJHcbFrFuZdXlGh0a7AO12TWocIkrFGCpDioOPeoW983nRw_PoDsly3j4Hgv0Q_RNDr-guwpaiyDmLFQHwsxcrLwfONn2XDF0NlIWZiRJrc53W-ECmcQOC9xllKpyTxJY9_V14unkT0kQOoNPzXSpO7fZ_-tcHsjXonuhThg" alt="Marque-places Cérémonies Mariage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Mariage & Fêtes</span>
+          <span class="absolute top-2.5 right-2.5 bg-[#D49B42] text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Or Soyeux</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 12 min / pc
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Événements</span>
+              <span class="text-primary font-bold">Dès 10 pièces</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Marque-places Cérémonie</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Prénoms autoportants fins et élégants pour tables d'invités.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#D49B42]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">Tarif Dégressif</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">À partir de</span>
+              <span class="text-lg font-bold text-primary">19 MAD</span>
+            </div>
+            <a href="https://wa.me/212661458920?text=Bonjour,%20devis%20marque-places" class="bg-surface-container hover:bg-surface-container-high text-text-main text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Devis WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Plaque de Bureau Nominative Architecte -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="bureau" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrDVy8h8b0sxyzf51Tg5OXP_AgBikrnUK7MIebRHG5WZLZxyRaKWnnH01boKpUP5IiKo_xa1_zRyKxtZLpvCLzhVOVGqK_j-VhRXn9vKQ54tYvACgFG15CEMb5cniXZ8oOgh61cya3-7t9HoXKLS-J67p6HOtc6cAzldfWH8ZxtFzdlqmnsputqr5TV0pbSyGBCW4YlBzjs2tkSmQ9P1kD-iTalLN_Nzfow9kICE3gpU" alt="Plaque de Bureau Nominative Architecte" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Direction</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Zero-Support</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 45 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Bureau & Cabinet</span>
+              <span>220 × 55 mm</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Plaque Bureau Nominative</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Nom, titre et profession en relief 3D bilingue sur socle lesté.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#D49B42]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">COD Inclus</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">99 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Personnaliser</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Plaque de Porte & Entrée 'Dar Yasmine' -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="riad" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCBU2g6XpXG5qeLiVvxQX2OVlbnBlB4UkVj50wlrMLc9Ofkzynkg8_cnt5u5w3tkj6KTBQkRUqLBTjccUZb3ot5rh1Qfre65ienowRE_0uI6sFhHvzK5PR33qNVf7CIvvxrAHZq0lmUnpyRyVhkOVM34UwaIsr88WgTwQRiUpXGDnxFQoesLEr2rCLAr2LipdVmJFYzhZqB9yVg0otDaAhFHGm2UeAyrFkNoJ30fRk" alt="Plaque de Porte Dar Yasmine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-[#C25E3E] text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Maison & Riad</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Anti-UV</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 42 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Signalétique</span>
+              <span class="font-arabic font-bold text-[#C25E3E]">دار ياسمين</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Plaque d'Entrée 'Dar Yasmine'</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Plaque pour villa ou riad avec fixation invisible ou trous fraisés.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#233D99]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#C25E3E]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">COD Maroc</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">99 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Configurer</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Plaque Pixel Art Zellige Marocain -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="riad" data-mode="trio">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrAgBTJsu9djk3e8ZmXLqFkbY3uzveKgoETAf2pVV6kLB95fI48l1xAlJ1lKrk7BIxXu_AmzjcY5VA4fwczFhf5mXOHn1ipA8PY6PGMQwtriEFzoBUh2wcOVmL34WT3pUSHswmbl4n91kV1ierDOseU3TYnVwn-m1ISOjWvDx_9FApAEGGJDUL5qjZ9TbfqZelHkoWWsN2E3Z7IkqUWzQ4uF7W6t3P1dF4ZePONHHfzY" alt="Plaque Pixel Art Zellige Marocain" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-[#D49B42] text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Art Zellige</span>
+          <span class="absolute top-2.5 right-2.5 bg-primary text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">3 Couleurs</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 55 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Art Mural</span>
+              <span>86 × 86 × 3.6 mm</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Plaque Pixel Art Zellige</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Mosaïque de Fès réinterprétée en micro-pixels extrudés sur socle.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#233D99]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#D49B42]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">En stock atelier</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">119 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Commander</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Porte-clés Plaque Matricule Maroc -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="cadeaux" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrBBXnMWCv4xsdZX30O2mY3lnJaJSOTmiAtnWl2tvXjCphTMHtdm4ZsssLiEmoKZnvJ5GQYQB-9C-BeyhJuX-x5TL1kuuy0xq5qIbIhx6wiQXrhTSz0N7loCi-9fiR2COBwth7mgYyFIevZ61mU1HeXUy2R_mNf0zO8XcwDxAOkjZZOREKwNQt4Y6UVHJROra_OQsz5FNLKaPu_wZv1SI--svA7LEgCWnVFQTSeru8c" alt="Porte-clés Plaque Matricule Maroc" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Auto & Moto</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Best-Seller</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 15 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Automobile</span>
+              <span class="font-mono text-primary font-bold">12345 | أ | 6</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Porte-Clés Matricule Maroc</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Reproduction fidèle du format officiel avec numéro et préfecture au choix.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#B92B32]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Prêt en 24h</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">45 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Créer matricule</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Plaque Murale Riad 'مرحباً / Bienvenue' -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="riad" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrDhwf6jKzqzYqjlCnzbNwgBiHXukvg11EaqProLeNwY68H40CKHnFqHyd-xhypgDz_Y9C9zLJKZGY-UYND5To3mhebVbuhJM3sae847Edf2LliId-fLPAINjegeERVPTFbcPUcVEAhDsJHbQoQ777jXi1fwxEMV9LgUT3QZxPc9PhWZYL4wo18KQE5sl2DOlYm8rHimx6LATzMHuDwXRWB-rsaKjA8IUEgvtE4a6BOV" alt="Plaque Murale Marhaban Bienvenue" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-[#C25E3E] text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Déco Riad</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Zero-Support</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 48 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Maison & Riad</span>
+              <span class="font-arabic font-bold text-[#C25E3E]">مرحباً بكم</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Plaque Murale 'مرحباً'</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Calligraphie Diwani avec arabesques. Pose adhésive ou à visser.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#233D99]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#C25E3E]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">COD Disponible</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">99 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Commander 3D</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Écusson Fan Maroc Lions de l'Atlas -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="cadeaux" data-mode="trio">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrDGZJYPa5L48lris1IZJm12B6zJ1zSGVJZEpHuDRA3u7nL8pImrPpyOFGBMu2iPEJjuXOwc7tyh8x6ibPr8EoTAxadBMnGc3J3fZwjiRBNFxKkIiceBgOet9OV9P24bzFoAgVCIFofblV7SqxziBZC_GzCbuVTrIowhxz75MlR7QrRnTYg2x12TlOSLcMoirWPh1nZXLHJX3iMmTKcQ9gsHdRf8Z4HcmJC3GSrYYhTS" alt="Écusson Fan Maroc Lions de l'Atlas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-[#B92B32] text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Supporter Maroc</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Aimanté</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 35 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Édition Spéciale</span>
+              <span class="text-[#B92B32] font-bold">ديما مغرب</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Écusson Fan Maroc 3D</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Écusson en relief avec étoile verte. Support de bureau ou aimant frigo.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#B92B32]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-emerald-600"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Envoi 24-48h</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">89 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Commander</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Support Smartphone & Dock Câble Zellige -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="bureau" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCS-o0B8EsBKJ3n2-jINzTylBfaR4314WwxzX_1NjYBSTyIZrzVa3pwySozvhq47SvI9LC9cESpPAG92hWxvEk4pS0x1DFVqtiyjAXJxWOH6WjdTOBXAMnPthhiQCWyy4nxJ6bnQDGFOsAQGxl0kfwcPl-3gs6rTAT--K4bRCQxhl11HZciCHw1iL0rJTEi2jZzj3nxgmZhdTFFYxSBGriD1s-pTri1jOnt6N6gquOI" alt="Support Smartphone & Dock Zellige" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-primary text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Bureau & Dock</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Passe-câble</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 50 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Accessoire Desk</span>
+              <span class="text-primary font-bold">Angle 65°</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Support Smartphone Zellige</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Support avec goulotte pour câble de charge USB-C et motif zellige.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#233D99]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Paiement à la livraison</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">79 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Commander</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Présentoir Bureau Architecte 'Maktab' -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="bureau" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCYg24mgsD7if0KqX6HejNiivg8qTx4eo7WZ-Rf5EvY4XIARrL5uh--AP9ttobrVYp8Cr1RJ38AX-UxYe0H9bwSkeahhgz_6J4LnTTY_sdbdsIh_NZTRLzkRmAEwz5zE81x-Cqe54a581SgTLmsEVmMlLXBfMio-qznZ7TFiImbYWREyW6mDmVfJS102cSyGGU1hI1KXgRlJ15lYI_D9D-WNkKVVAYivdtloGRlVrc" alt="Présentoir Bureau Architecte Maktab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Maktab Collection</span>
+          <span class="absolute top-2.5 right-2.5 bg-[#D49B42] text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Luxe</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 1h 10 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Bureau & Agence</span>
+              <span class="font-arabic font-bold text-primary">مكتب معماري</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Présentoir Bureau 'Maktab'</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Organiseur pour cartes de visite, stylos et papeterie d'architecte.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#C25E3E]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Garantie 0-défaut</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">119 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Personnaliser</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Porte-clés Cœur Couple Emboîtable S&K -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="cadeaux" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrC5ab_Gow-B6S-6KDPYMHQUqQn03Zx7JgtV_8Jw11axgJOTFVKzo4zfPVmua-gZ1qOh5vxA07UekTqpUK2y6wxh5wB-VXzqMEbFrILA6liMlARzl50f1W5yyebL_Dl0VXL7scQcKMCFrmzRHCQr_Uo7CdBum4glU4R7axjc1tFhDDQbHi4T7F1cvlNX7mdafhewKpoPAzPUVQMF5v5bd3DdP0OuCaK9c-MAuhVVSaxc" alt="Porte-clés Cœur Couple Emboîtable" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-[#B92B32] text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Duo Couple</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">2 Pièces</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 24 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Cadeaux Couple</span>
+              <span class="text-[#B92B32] font-bold">Initiales & Date</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Porte-Clés Cœur Emboîtable</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Deux moitiés complémentaires qui s'emboîtent avec vos initiales gravées.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#B92B32]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Le pack de 2</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix le duo</span>
+              <span class="text-lg font-bold text-text-main">59 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Personnaliser</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. Porte-clés Monogramme Initiale Zellige M -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="cadeaux" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCY_WPmlgpl4v7NFMtkvYz0MBqYO8r6fGu-CvvKJognjBCW0yyGjanuJngw3xqpYbjFTBh76hd48d6tyWihFIVJRGzMAwdmvJ46Rpn2Dnlg881_LvjDOUB3Fd8MJ9GI86I3E8w8L4yzmoKwn2h2dsMC5KBbsSyrrAgN-x5JsajSBQ90UMVyxRHLucZ_uNqcMnhB2oWN7kuPqA8bkVhME3IG3kUwCgZ9nW9yJHpDAzI" alt="Porte-clés Monogramme Initiale Zellige" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-primary text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Initiale A-Z</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Ultra-léger 9g</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 18 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Cadeaux & Goodies</span>
+              <span class="text-primary font-bold">28 Lettres</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Porte-Clés Initiale Zellige</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Initiale ajourée avec motifs géométriques des portes de Fès et Meknès.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#233D99]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">En stock</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">39 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Choisir lettre</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. Médaillon Protection Car Charm 'Mashallah' -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="cadeaux" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrDIKrN-ee8gkhKdJjZkWF6z6ZsD_lvCey9AXN8maKRMpvoXJqMyJ4HfTIxKlYOs8Nexnk0-_10AFvwAQgQ6GflKdLb1Xf88ocn1gmS9wkM0k7CZ1gWVH1I1-QUaEWbRTPWfLOMJH7A0IX051HRhN6utKHIV0ZZRt2mR_nSURcX3nLuQcfgkAeMu-VadTPOSmifw_uyaZYuEtxgMk7-NFNqsJneOS4bTiu3UbfA8Agcl" alt="Médaillon Rétroviseur Car Charm Mashallah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Protection Auto</span>
+          <span class="absolute top-2.5 right-2.5 bg-[#D49B42] text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Anti-Chaleur</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 22 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Rétroviseur</span>
+              <span class="font-arabic font-bold text-[#D49B42]">ما شاء الله</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Médaillon Auto 'ما شاء الله'</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Pendentif de rétroviseur anti-UV avec cordon soyeux et lettrage en relief.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#D49B42]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Cordon inclus</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">49 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Commander</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15. Boîte à Bagues de Fiançailles 'حب' -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="riad" data-mode="duo">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCzNZhpdWuEILxkBKTKKYJAaBiKTnsnVQOgYfIUaqB2r-wZpyd4HD6u_k8gGh728bedesgCpFKRmlU9gZ9c_GVcZsKwgsqpL2QWMn_HEEqwqWzLIxmwWmEMJ6qKD3_T1-e_Drzn5oefLXhvtfGQJT2Vvl-YrtyBf130JidT9RECUyA5nnnLIRGZQ6KmXXUbn2zoy-G_JaVoocZMragQqxUG5gnvwdfqwsX-3m56ua3-" alt="Boîte à Bagues de Fiançailles 3D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-[#D49B42] text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Écrin Mariage</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Aimanté</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 1h 10 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Cérémonie</span>
+              <span class="font-arabic font-bold text-[#B92B32]">حُبّ / Amour</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Boîte à Bagues 'حُبّ'</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Écrin géométrique facetté avec couvercle pivotant et gravure de prénoms.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#D49B42]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">Pièce de collection</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Prix unitaire</span>
+              <span class="text-lg font-bold text-text-main">149 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Personnaliser</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 16. Set de 4 Sous-verres Zellige & Socle -->
+      <div class="product-card bg-white border border-border-line rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="riad" data-mode="quad">
+        <div class="relative aspect-square bg-surface-container overflow-hidden group">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrDQ4rg0cRLd4GDQ2If7-S6Q90gjRYrz2a2MptOM0Hyp6YGIvwy_ZEoEivfqCEEBnEE0Z0J9Mm-VnjBa8viyA7ggB449gNbhUqy8R2AxP5zeKM-KKnk0rZuB8zuzGtBc9PpKfLCEm9SvRmuxmtsoMhZiZSRKOlccji49WkcP9R3tRtRBzWEZqf6iuRICDOR8sukXSd6iCD7yS4xGRCGpXLSeHDjdXvbjAFaiKKq1anuU" alt="Set de 4 Sous-verres Zellige avec Socle 3D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-2.5 left-2.5 bg-primary text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Full AMS 4 Couleurs</span>
+          <span class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">Pack x4</span>
+          <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-bold text-text-main flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px] text-primary">timer</span> 1h 20 min
+          </div>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-text-muted mb-1">
+              <span>Art de la table</span>
+              <span class="text-primary font-bold">4 Pièces + Boîte</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-text-main hover:text-primary transition">Set Sous-verres Zellige x4</h3>
+            <p class="text-xs text-text-muted mt-1 line-clamp-2">Quatre motifs géométriques distincts inspirés du zellige avec socle.</p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-line flex items-center justify-between">
+            <div class="flex items-center gap-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#161616]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FAFAFA] border border-gray-300"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#233D99]"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#B92B32]"></span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">4 Couleurs physiques</span>
+          </div>
+          <div class="pt-3 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-text-muted block">Le set complet</span>
+              <span class="text-lg font-bold text-text-main">89 MAD</span>
+            </div>
+            <a href="#" class="bg-primary hover:bg-primary-dark text-white text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1">
+              <span>Commander</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Réassurance Atelier & Livraison Maroc -->
+    <section class="mt-12 bg-surface-container-low border border-border-line rounded-2xl p-6 md:p-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-white border border-border-line flex items-center justify-center text-primary shrink-0">
+            <span class="material-symbols-outlined text-[24px]">payments</span>
+          </div>
+          <div>
+            <h4 class="font-serif font-bold text-base text-text-main">Paiement à la Livraison (COD)</h4>
+            <p class="text-xs text-text-muted mt-1 leading-relaxed">
+              Payez en espèces ou virement instantané lorsque le livreur Amana ou Aramex vous remet votre colis à Casablanca, Rabat, Marrakech, Tanger...
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-white border border-border-line flex items-center justify-center text-[#D49B42] shrink-0">
+            <span class="material-symbols-outlined text-[24px]">precision_manufacturing</span>
+          </div>
+          <div>
+            <h4 class="font-serif font-bold text-base text-text-main">Bambu Lab A1 & Zero-Support</h4>
+            <p class="text-xs text-text-muted mt-1 leading-relaxed">
+              Tolérance de couche ultra-fine 0.16mm. Aucun résidu rugueux de support : vos pièces possèdent une finition lisse et des arêtes nettes.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-white border border-border-line flex items-center justify-center text-[#B92B32] shrink-0">
+            <span class="material-symbols-outlined text-[24px]">verified</span>
+          </div>
+          <div>
+            <h4 class="font-serif font-bold text-base text-text-main">Bon à Tirer (BAT) WhatsApp</h4>
+            <p class="text-xs text-text-muted mt-1 leading-relaxed">
+              Pour chaque prénom ou logo, notre équipe vous envoie un aperçu numérique 3D avant de lancer l'extrusion dans l'atelier.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pied de Page Officiel -->
+  <footer class="w-full bg-[#161616] text-[#FEF8F4] mt-12 pt-12 pb-8 border-t border-border-line">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-xs">
+      <div>
+        <div class="font-serif font-bold text-xl mb-3 text-white">MustDesign<span class="text-primary">3D</span></div>
+        <p class="text-white/60 leading-relaxed">
+          Atelier de fabrication additive haute précision à Casablanca. Spécialiste des objets nominatifs, calligraphies arabes et solutions B2B multicouleurs Bambu Lab A1.
+        </p>
+        <div class="mt-4 flex items-center gap-3 text-white/80">
+          <span>@mustdesign3d</span>
+          <span>•</span>
+          <span>Casablanca, Maroc</span>
+        </div>
+      </div>
+      <div>
+        <h5 class="font-bold text-sm uppercase tracking-wider text-white mb-3">Catégories & Modèles</h5>
+        <ul class="space-y-2 text-white/60">
+          <li><a href="#" class="hover:text-white transition">Porte-clés prénoms arabes & français</a></li>
+          <li><a href="#" class="hover:text-white transition">Présentoirs QR Code & Google Avis</a></li>
+          <li><a href="#" class="hover:text-white transition">Plaques de porte & Riad 'Marhaban'</a></li>
+          <li><a href="#" class="hover:text-white transition">Accessoires de bureau & Maktab</a></li>
+          <li><a href="#" class="hover:text-white transition">Cérémonies, Mariages & Boîtes fiançailles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold text-sm uppercase tracking-wider text-white mb-3">Filaments AMS Lite</h5>
+        <ul class="space-y-2 text-white/60">
+          <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#161616] border border-white/20"></span> Noir Basalte Mat (#161616)</li>
+          <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#FAFAFA]"></span> Blanc Albâtre / Ivoire (#FAFAFA)</li>
+          <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#233D99]"></span> Bleu Majorelle Emblématique (#233D99)</li>
+          <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#B92B32]"></span> Rouge Atlas / Terracotta (#B92B32)</li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold text-sm uppercase tracking-wider text-white mb-3">Support & Atelier Direct</h5>
+        <p class="text-white/60 leading-relaxed mb-3">
+          Une question sur un fichier STL, un modèle 3MF ou une personnalisation spécifique ?
+        </p>
+        <a href="https://wa.me/212661458920" class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-black font-bold px-4 py-2.5 rounded-xl transition">
+          <span class="material-symbols-outlined text-[18px]">chat</span>
+          WhatsApp : 06 61 45 89 20
+        </a>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-[11px] text-white/40 gap-4">
+      <div>© 2026 MustDesign3D. Tous droits réservés. Conçu et fabriqué avec passion à Casablanca.</div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-white">Conditions Générales</a>
+        <a href="#" class="hover:text-white">Expédition Amana COD</a>
+        <a href="#" class="hover:text-white">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts d'Interactivité Filtrage Client -->
+  <script>
+    let activeCat = 'all';
+    let activeMode = 'all';
+
+    function filterCategory(cat, btn) {
+      activeCat = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.classList.remove('bg-primary', 'text-white', 'shadow-sm');
+        b.classList.add('bg-white', 'text-text-main', 'border', 'border-border-line');
+      });
+      btn.classList.add('bg-primary', 'text-white', 'shadow-sm');
+      btn.classList.remove('bg-white', 'text-text-main', 'border', 'border-border-line');
+      applyFilters();
+    }
+
+    function filterColorMode(mode, btn) {
+      activeMode = mode;
+      document.querySelectorAll('.color-mode-btn').forEach(b => {
+        b.classList.remove('bg-white', 'shadow-sm', 'text-text-main');
+        b.classList.add('text-text-muted');
+      });
+      btn.classList.add('bg-white', 'shadow-sm', 'text-text-main');
+      btn.classList.remove('text-text-muted');
+      applyFilters();
+    }
+
+    function toggleFilamentHighlight(color) {
+      const cards = document.querySelectorAll('.filament-card');
+      cards.forEach(c => c.classList.remove('ring-2', 'ring-primary'));
+      event.currentTarget.classList.add('ring-2', 'ring-primary');
+    }
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.product-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        const cardMode = card.getAttribute('data-mode');
+
+        const catMatches = (activeCat === 'all' || cardCat === activeCat);
+        const modeMatches = (activeMode === 'all' || cardMode === activeMode);
+
+        if (catMatches && modeMatches) {
+          card.style.display = 'flex';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      document.getElementById('counter-badge').textContent = visible + ' modèle' + (visible > 1 ? 's' : '');
+    }
+  </script>
+</body>
+</html>

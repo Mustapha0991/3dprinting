@@ -1,0 +1,339 @@
+// ==============================================================================
+// prisma/schema.prisma — MustDesign3D Production Schema
+// ==============================================================================
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  OPERATOR
+  VIEWER
+}
+
+enum PriceType {
+  FIXED
+  STARTING_AT
+  QUOTE
+}
+
+enum ProductionMethod {
+  SINGLE_COLOR
+  MULTICOLOR
+  ASSEMBLED
+}
+
+enum ProductStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+enum ManufacturingStatus {
+  CONCEPT
+  MODELING
+  SLICING_REVIEW
+  PROTOTYPE_TESTING
+  VALIDATED
+  UNAVAILABLE
+}
+
+enum MaterialType {
+  PLA
+  PETG
+  TPU
+  OTHER
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  DESIGN_REVIEW
+  PRINTING
+  QUALITY_CHECK
+  PACKED
+  SHIPPING
+  DELIVERED
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  COD
+  BANK_TRANSFER
+  ONLINE_PENDING
+}
+
+enum QuoteStatus {
+  PENDING
+  REVIEWED
+  ACCEPTED
+  REJECTED
+  ARCHIVED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  name          String?
+  role          Role      @default(OPERATOR)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  auditLogs     AuditLog[]
+}
+
+model ProductCategory {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  description String?
+  icon        String?
+  sortOrder   Int       @default(0)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id                    String              @id @default(cuid())
+  sku                   String              @unique
+  slug                  String              @unique
+  name                  String
+  shortDescription      String
+  description           String
+  categoryId            String
+  category              ProductCategory     @relation(fields: [categoryId], references: [id])
+  priceType             PriceType           @default(FIXED)
+  basePriceCents        Int?                // Minor units: 4900 = 49.00 MAD
+  currency              String              @default("MAD")
+  customizable          Boolean             @default(false)
+  productionMethod      ProductionMethod    @default(MULTICOLOR)
+  status                ProductStatus       @default(ACTIVE)
+  manufacturingStatus   ManufacturingStatus @default(VALIDATED)
+  featured              Boolean             @default(false)
+
+  // Technical DFM Specifications (Bambu Lab A1)
+  estimatedWeightGrams  Int?
+  estimatedPrintMinutes Int?
+  dimensionWidthMm      Float?
+  dimensionDepthMm      Float?
+  dimensionHeightMm     Float?
+  maxAmsColors          Int                 @default(4)
+  nozzleSizeMm          Float               @default(0.4)
+  layerHeightMm         Float               @default(0.20)
+  supportsRequired      Boolean             @default(false)
+
+  // Relations
+  images                ProductImage[]
+  customizationFields   CustomizationField[]
+  productFilaments      ProductFilament[]
+  manufacturingFiles    ManufacturingFile[]
+  orderItems            OrderItem[]
+  quotationItems        QuotationItem[]
+
+  // SEO
+  seoTitle              String?
+  seoDescription        String?
+
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+
+  @@index([categoryId])
+  @@index([status])
+  @@index([featured])
+}
+
+model ProductImage {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url         String   // Cloudinary or local assets
+  alt         String
+  kind        String   @default("photo") // photo, 3d-render, concept
+  isCover     Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  @@index([productId])
+}
+
+model CustomizationField {
+  id               String   @id @default(cuid())
+  productId        String
+  product          Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  name             String
+  label            String
+  type             String   // text, select, color, number, file, date
+  required         Boolean  @default(false)
+  optionsJson      Json?    // ["Diwani", "Kufi", "Standard"]
+  maxGraphemes     Int?
+  priceAdjustmentCents Int? @default(0)
+  sortOrder        Int      @default(0)
+  createdAt        DateTime @default(now())
+
+  @@index([productId])
+}
+
+model Filament {
+  id              String            @id @default(cuid())
+  name            String            // e.g. "Noir Basalte", "Bleu Majorelle"
+  brand           String?           @default("Bambu Lab PLA Basic")
+  material        MaterialType      @default(PLA)
+  hexColor        String            // e.g. "#1e2022"
+  colorLabel      String
+  remainingGrams  Int?              @default(1000)
+  amsSlot         Int?              // 1, 2, 3, 4 or null
+  available       Boolean           @default(true)
+  active          Boolean           @default(true)
+  productLinks    ProductFilament[]
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model ProductFilament {
+  productId   String
+  filamentId  String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  filament    Filament @relation(fields: [filamentId], references: [id], onDelete: Cascade)
+
+  @@id([productId, filamentId])
+}
+
+model ManufacturingFile {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  fileName    String
+  fileFormat  String   // stl, 3mf, scad, glb
+  storageKey  String   // private object storage path (never public)
+  fileSize    Int
+  sha256      String?
+  version     Int      @default(1)
+  createdAt   DateTime @default(now())
+
+  @@index([productId])
+}
+
+model Customer {
+  id          String   @id @default(cuid())
+  phone       String   @unique // Moroccan format: +2126XXXXXXXX
+  name        String
+  city        String
+  address     String
+  orders      Order[]
+  quotations  Quotation[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([phone])
+}
+
+model Order {
+  id                  String               @id @default(cuid())
+  reference           String               @unique // MD3D-2026-000124
+  customerId          String
+  customer            Customer             @relation(fields: [customerId], references: [id])
+  shippingCity        String
+  shippingAddress     String
+  customerPhone       String
+  customerName        String
+  note                String?
+  status              OrderStatus          @default(PENDING)
+  paymentMethod       PaymentMethod        @default(COD)
+  isPaid              Boolean              @default(false)
+  subtotalCents       Int
+  shippingFeeCents    Int                  @default(3500)
+  totalCents          Int
+  requestWhatsAppBat  Boolean              @default(true)
+  items               OrderItem[]
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+
+  @@index([reference])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id                     String               @id @default(cuid())
+  orderId                String
+  order                  Order                @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId              String
+  product                Product              @relation(fields: [productId], references: [id])
+  productNameSnapshot    String
+  skuSnapshot            String
+  unitPriceCents         Int
+  quantity               Int                  @default(1)
+  lineTotalCents         Int
+  customizations         OrderCustomization[]
+}
+
+model OrderCustomization {
+  id          String    @id @default(cuid())
+  orderItemId String
+  orderItem   OrderItem @relation(fields: [orderItemId], references: [id], onDelete: Cascade)
+  fieldLabel  String
+  value       String
+}
+
+model Quotation {
+  id             String          @id @default(cuid())
+  reference      String          @unique // QUOTE-2026-00042
+  customerId     String?
+  customer       Customer?       @relation(fields: [customerId], references: [id])
+  contactName    String
+  contactPhone   String
+  contactCity    String
+  projectType    String
+  description    String
+  quantity       Int             @default(1)
+  preferredColors String?
+  status         QuoteStatus     @default(PENDING)
+  estimatedTotal Int?
+  items          QuotationItem[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model QuotationItem {
+  id             String     @id @default(cuid())
+  quotationId    String
+  quotation      Quotation  @relation(fields: [quotationId], references: [id], onDelete: Cascade)
+  productId      String?
+  product        Product?   @relation(fields: [productId], references: [id])
+  customNotes    String
+  quantity       Int        @default(1)
+}
+
+model ShippingZone {
+  id             String   @id @default(cuid())
+  cityName       String   @unique
+  feeCents       Int      @default(3500)
+  freeThresholdCents Int  @default(20000) // 200.00 MAD
+  estimatedDays  String   @default("24h - 48h")
+  active         Boolean  @default(true)
+}
+
+model SiteSettings {
+  key         String   @id
+  value       String
+  description String?
+  updatedAt   DateTime @updatedAt
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id])
+  action      String
+  entity      String
+  entityId    String?
+  metadata    Json?
+  createdAt   DateTime @default(now())
+}

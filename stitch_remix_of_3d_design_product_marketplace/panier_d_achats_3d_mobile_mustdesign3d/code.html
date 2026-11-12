@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface-variant": "#44474a", "tertiary-container": "#2c1e00", "primary-fixed": "#e2e2e5", "on-tertiary-fixed-variant": "#5c4300", "gold-zellige": "#D9A93C", "on-tertiary": "#ffffff", "surface-bright": "#fef8f4", "surface-sand": "#F5EFEB", "border-warm": "#E6DFD5", "surface-tint": "#5d5e61", "outline": "#75777a", "surface-sand-subtle": "#EFE8E0", "ink-anthracite": "#1E2022", "surface-container": "#f3ede9", "outline-variant": "#c5c6ca", "surface-container-high": "#ede7e3", "filament-white": "#FDFBF7", "surface": "#fef8f4", "inverse-on-surface": "#f6f0ec", "on-error-container": "#93000a", "secondary": "#3755c3", "inverse-primary": "#c6c6c9", "on-surface": "#1d1b19", "on-error": "#ffffff", "on-tertiary-fixed": "#261900", "surface-container-highest": "#e7e1dd", "filament-majorelle": "#1E40AF", "on-secondary-fixed": "#001453", "on-secondary-container": "#00217a", "accent-majorelle-soft": "#EEF2FF", "secondary-fixed": "#dde1ff", "on-tertiary-container": "#ac8111", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#454749", "tertiary-fixed": "#ffdea1", "on-primary": "#ffffff", "tertiary": "#0e0700", "accent-majorelle": "#1E40AF", "ink-muted": "#686D76", "tertiary-fixed-dim": "#f2bf50", "background": "#fef8f4", "surface-dim": "#dfd9d5", "error-container": "#ffdad6", "secondary-container": "#708cfd", "surface-container-lowest": "#ffffff", "on-primary-fixed": "#1a1c1e", "canvas-cream": "#FDFBF7", "primary-fixed-dim": "#c6c6c9", "primary-container": "#1e2022", "on-primary-container": "#86878a", "filament-black": "#1A1A1A", "on-secondary-fixed-variant": "#173bab", "on-background": "#1d1b19", "secondary-fixed-dim": "#b8c4ff", "surface-container-low": "#f8f2ee", "error": "#ba1a1a", "inverse-surface": "#32302e", "primary": "#06080a", "filament-terracotta": "#B85D3B", "surface-variant": "#e7e1dd" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-md": "1rem", "space-2xs": "0.25rem", "gutter-mobile": "0.75rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-xl": "2.5rem", "space-sm": "0.75rem", "margin": "2rem", "margin-mobile": "1rem", "space-2xl": "4rem", "space-xs": "0.5rem" }, "fontFamily": { "display-lg": ["Noto Serif"], "headline-lg": ["Noto Serif"], "body-lg": ["Manrope"], "headline-sm": ["Noto Serif"], "title-md": ["Manrope"], "price-lg": ["Manrope"], "label-lg": ["Manrope"], "arabic-title": ["Noto Serif"], "headline-md": ["Noto Serif"], "body-md": ["Manrope"], "display-lg-mobile": ["Noto Serif"], "headline-lg-mobile": ["Noto Serif"], "label-md": ["Manrope"] }, "fontSize": { "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "400" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "500" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }], "price-lg": ["20px", { "lineHeight": "24px", "fontWeight": "700" }], "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }], "arabic-title": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "500" }], "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-accent-majorelle"></span><a class="font-headline-sm text-headline-sm tracking-tight text-ink-anthracite" data-path="catalogue-atelier" href="#">MustDesign<span class="text-accent-majorelle font-semibold">3D</span></a></div><div class="flex items-center gap-space-xs"><button aria-label="Changer de langue" class="h-9 px-space-xs bg-surface-sand rounded-full flex items-center gap-1 text-on-surface-variant hover:text-ink-anthracite transition-colors" type="button"><span class="font-label-md text-label-md uppercase tracking-wider font-semibold text-accent-majorelle">FR</span><span class="text-outline-variant text-[10px]">/</span><span class="font-arabic-title text-[13px] leading-none pt-0.5 text-ink-muted">عربي</span></button><a aria-label="Panier d achats" class="relative w-11 h-11 flex items-center justify-center rounded-full bg-surface-sand text-ink-anthracite hover:bg-surface-sand-subtle transition-colors" data-path="panier-commande" href="#"><span class="material-symbols-outlined text-[22px]">local_mall</span><span class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 bg-accent-majorelle text-on-secondary rounded-full flex items-center justify-center font-label-md text-[10px] font-bold shadow-sm">5</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-4 pb-12 pt-2 max-w-md mx-auto space-y-5">
+<!-- En-tête Statut & Titre -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-ink-muted">
+<span class="material-symbols-outlined text-[17px] text-accent-majorelle">view_in_ar</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Plateau A1 • 5 pièces personnalisées</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded-full shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-md text-[10px] text-ink-anthracite font-semibold">Prêt pour extrusion</span>
+</div>
+</div>
+<div class="space-y-0.5">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-ink-anthracite font-normal tracking-tight">
+        Votre Panier d'Objets Sur-Mesure
+      </h1>
+<p class="font-body-md text-body-md text-ink-muted">
+        Modélisation paramétrique et tranchage haute définition prêts pour l'impression.
+      </p>
+</div>
+</section>
+<!-- Jauge Livraison Offerte Amana -->
+<section class="bg-surface-sand p-3.5 rounded-xl space-y-2 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded-full bg-accent-majorelle text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+</div>
+<span class="font-title-md text-[13px] text-ink-anthracite truncate">
+          Félicitations ! Seuil de 200 MAD atteint
+        </span>
+</div>
+<span class="font-label-md text-label-md text-accent-majorelle font-bold shrink-0 bg-surface-container-lowest px-2 py-0.5 rounded-full">
+        100% Offerte
+      </span>
+</div>
+<!-- Barre de progression -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-accent-majorelle h-full rounded-full transition-all duration-500 w-full"></div>
+</div>
+<div class="flex items-center justify-between font-label-md text-[11px] text-ink-muted">
+<span>Express Amana (Casablanca, Rabat, Marrakech, Fès...)</span>
+<span class="font-semibold text-ink-anthracite">535 MAD / 200 MAD</span>
+</div>
+</section>
+<!-- Liste des 4 Articles du Panier -->
+<section class="space-y-3.5" id="cart-items-list">
+<!-- Article 1 : Porte-Clés Bilingue -->
+<article class="bg-surface-container-lowest rounded-xl p-3 shadow-sm space-y-3">
+<div class="flex gap-3">
+<!-- Miniature 4:5 réelle -->
+<div class="relative w-20 h-24 shrink-0 rounded-lg overflow-hidden bg-surface-sand">
+<img alt="Porte-clés 3D personnalisé Youssef en bleu Majorelle et lettres blanches en relief" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrDhwT0PL-mCSEM6STdJZ5WXBIIB-QVx4pojTSGlGfXYvUnANjSdNwUQLCIbu-qDZb6QoHSDiXrwfKRPc6kFX6qx-8ref95GAlxmYAzYXvnf28CxVOng0ofNB3EQYadsFDMbiVr368Rpd4MaF_9mRGoI7PguD9hP3nIWdQdwBz2qZOS71WaNOTNg4CL4NW6ag2sPmlq2pUAJq1rfGeTXT2y-ZPsjLKn6M8KQWebBGhc"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 backdrop-blur-sm text-ink-anthracite font-label-md text-[9px] px-1.5 py-0.5 rounded shadow-sm">
+            Double Face
+          </span>
+</div>
+<!-- Détails produit -->
+<div class="flex flex-col justify-between flex-1 min-w-0">
+<div>
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-md text-[10px] text-accent-majorelle bg-accent-majorelle-soft px-1.5 py-0.5 rounded font-semibold">
+                Bilingue FR / AR
+              </span>
+<button aria-label="Supprimer l'article" class="text-ink-muted hover:text-error transition-colors p-0.5" type="button">
+<span class="material-symbols-outlined text-[18px]">delete_outline</span>
+</button>
+</div>
+<h2 class="font-title-md text-[14px] text-ink-anthracite font-semibold leading-snug mt-1">
+              Porte-Clés Prénom Bilingue 3D
+            </h2>
+<div class="font-price-lg text-[15px] text-ink-anthracite font-bold mt-0.5">
+              98 MAD <span class="font-body-md text-[11px] text-ink-muted font-normal">(49 MAD / pièce)</span>
+</div>
+</div>
+<!-- Configuration AMS & options -->
+<div class="bg-surface-sand p-2 rounded-lg space-y-1 mt-1.5 text-[11px] text-on-surface-variant font-body-md">
+<div class="flex items-center justify-between">
+<span class="text-ink-muted">Recto : <strong class="text-ink-anthracite font-semibold">YOUSSEF</strong></span>
+<span class="text-ink-muted">Verso : <strong class="text-ink-anthracite font-arabic-title text-[12px]">يوسف</strong></span>
+</div>
+<div class="flex items-center gap-1.5 pt-0.5">
+<span class="text-ink-muted">Filaments :</span>
+<span class="w-3 h-3 rounded-full bg-filament-majorelle shadow-sm" title="Bleu Majorelle"></span>
+<span class="w-3 h-3 rounded-full bg-filament-white shadow-sm" title="Blanc Albâtre"></span>
+<span class="text-[10px] text-ink-muted ml-auto">Buse 0.4mm • 100% Infill</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer article : Stepper & Modification -->
+<div class="flex items-center justify-between pt-1">
+<button class="text-accent-majorelle font-label-md text-label-md hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+          Modifier la typographie
+        </button>
+<div class="flex items-center bg-surface-sand rounded-full p-0.5 shadow-inner">
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-ink-anthracite flex items-center justify-center shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="w-7 text-center font-title-md text-[13px] text-ink-anthracite font-semibold">2</span>
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-ink-anthracite flex items-center justify-center shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Article 2 : Boîte Fiançailles Halka -->
+<article class="bg-surface-container-lowest rounded-xl p-3 shadow-sm space-y-3">
+<div class="flex gap-3">
+<div class="relative w-20 h-24 shrink-0 rounded-lg overflow-hidden bg-surface-sand">
+<img alt="Boîte à bague octogonale imprimée 3D or et bleu avec motif arabesque et bague solitaire" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrA3k7QMUz7yI97P3vOuJaecMRd5_x2pFb5Uy2YrVpdQ8VPrHiCEBw_MVc9KrmQ0hhofymNyC1dhYoM41VFdqlkpmtZSMKAWgFgFU2UlXk7bV5qNXH2YVqWagr_PXPMaZ1Yh9qKWdeWlSGiHXmgF-8zXtfd-X-bKTXvqeViatYj_b1Zl6poHeHD4lixKYnvpvPPL-kcbaf3q6kvr5fmYpWl9bUr3IkzmeapXl8Eocw"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 backdrop-blur-sm text-ink-anthracite font-label-md text-[9px] px-1.5 py-0.5 rounded shadow-sm">
+            Écrin Luxe
+          </span>
+</div>
+<div class="flex flex-col justify-between flex-1 min-w-0">
+<div>
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-md text-[10px] text-gold-zellige bg-surface-sand px-1.5 py-0.5 rounded font-semibold">
+                Mariage &amp; Halka
+              </span>
+<button aria-label="Supprimer l'article" class="text-ink-muted hover:text-error transition-colors p-0.5" type="button">
+<span class="material-symbols-outlined text-[18px]">delete_outline</span>
+</button>
+</div>
+<h2 class="font-title-md text-[14px] text-ink-anthracite font-semibold leading-snug mt-1">
+              Boîte à Bagues « حب / Love » 3D
+            </h2>
+<div class="font-price-lg text-[15px] text-ink-anthracite font-bold mt-0.5">
+              189 MAD
+            </div>
+</div>
+<div class="bg-surface-sand p-2 rounded-lg space-y-1 mt-1.5 text-[11px] text-on-surface-variant font-body-md">
+<div class="flex items-center justify-between">
+<span class="text-ink-muted">Relief : <strong class="text-ink-anthracite font-arabic-title text-[13px] text-gold-zellige">حب (Amour)</strong></span>
+<span class="text-[10px] text-ink-muted">4 Aimants N52</span>
+</div>
+<div class="flex items-center gap-1.5 pt-0.5">
+<span class="text-ink-muted">Finition :</span>
+<span class="w-3 h-3 rounded-full bg-gold-zellige shadow-sm" title="Or Métallique"></span>
+<span class="w-3 h-3 rounded-full bg-filament-majorelle shadow-sm" title="Bleu Nuit"></span>
+<span class="text-[10px] text-ink-muted ml-auto">Velours interne inséré</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<button class="text-accent-majorelle font-label-md text-label-md hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+          Personnaliser le couvercle
+        </button>
+<div class="flex items-center bg-surface-sand rounded-full p-0.5 shadow-inner">
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-ink-anthracite flex items-center justify-center shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="w-7 text-center font-title-md text-[13px] text-ink-anthracite font-semibold">1</span>
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-ink-anthracite flex items-center justify-center shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Article 3 : Présentoir QR Code Comptoir -->
+<article class="bg-surface-container-lowest rounded-xl p-3 shadow-sm space-y-3">
+<div class="flex gap-3">
+<div class="relative w-20 h-24 shrink-0 rounded-lg overflow-hidden bg-surface-sand">
+<img alt="Présentoir QR code de table 3D avec tasse à café dans un riad marocain" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrASYxZMIDtfwnSvDWIW6G_8c2RsR9qWs-9C-efEPYtbs6b6KCDk8f7ZwsZyd3Jdo7VAT9CTXoHqEljmaIQOqH6-BOdDcl5jPP1QX_zvPYMq-kwPytcSz4mE7wl9aVzceVo85g1nPr3ur6oEpqfgm7a23x58lQNnscvH06R2A_xV4hfuOO92B5-f94NfJmBqT6JA4uwBgl-XQCYXeFQjyQzHwhFaLrzGoRzZKExkNj8"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 backdrop-blur-sm text-ink-anthracite font-label-md text-[9px] px-1.5 py-0.5 rounded shadow-sm">
+            Pro Café
+          </span>
+</div>
+<div class="flex flex-col justify-between flex-1 min-w-0">
+<div>
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-md text-[10px] text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded font-semibold">
+                Scan 100% Garanti
+              </span>
+<button aria-label="Supprimer l'article" class="text-ink-muted hover:text-error transition-colors p-0.5" type="button">
+<span class="material-symbols-outlined text-[18px]">delete_outline</span>
+</button>
+</div>
+<h2 class="font-title-md text-[14px] text-ink-anthracite font-semibold leading-snug mt-1">
+              Présentoir QR Code Comptoir
+            </h2>
+<div class="font-price-lg text-[15px] text-ink-anthracite font-bold mt-0.5">
+              149 MAD
+            </div>
+</div>
+<div class="bg-surface-sand p-2 rounded-lg space-y-1 mt-1.5 text-[11px] text-on-surface-variant font-body-md">
+<div class="truncate text-ink-muted">
+              Lien : <strong class="text-ink-anthracite font-medium">menu.riad-andalous.ma</strong>
+</div>
+<div class="flex items-center gap-1.5 pt-0.5">
+<span class="text-ink-muted">En-tête : « Riad Al Andalous »</span>
+<span class="text-[10px] text-ink-muted ml-auto">Angle 72° ergonomique</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<button class="text-accent-majorelle font-label-md text-label-md hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">qr_code_scanner</span>
+          Tester le lien QR
+        </button>
+<div class="flex items-center bg-surface-sand rounded-full p-0.5 shadow-inner">
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-ink-anthracite flex items-center justify-center shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="w-7 text-center font-title-md text-[13px] text-ink-anthracite font-semibold">1</span>
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-ink-anthracite flex items-center justify-center shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Article 4 : Plaque Bureau Triangulaire -->
+<article class="bg-surface-container-lowest rounded-xl p-3 shadow-sm space-y-3">
+<div class="flex gap-3">
+<div class="relative w-20 h-24 shrink-0 rounded-lg overflow-hidden bg-surface-sand">
+<img alt="Plaque de bureau imprimée 3D triangulaire terracotta avec lettrage ARCHITECTE en relief" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrCc480XdmC-qZXe64w_m7zzOexwppXbGR-BJ7Sb498ku_RTjseYmCg3B4225_7M____37qvQ5JDyz6kL0CRrWGBusL9QZ5wSVUNcbAYym_wdiIuBKsvfclUZISTTaTAeHPl8yD8tFAQGqjuEUCCBXo1MzcO_UP6Ylj8vRWr4s4zy2lXBf6ksQYe1POXyCILzi-aohsRFTz_OGPLk2T9bZZbhcv5dCc0k0jLXPyEoI0"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 backdrop-blur-sm text-ink-anthracite font-label-md text-[9px] px-1.5 py-0.5 rounded shadow-sm">
+            220 mm
+          </span>
+</div>
+<div class="flex flex-col justify-between flex-1 min-w-0">
+<div>
+<div class="flex items-start justify-between gap-1">
+<span class="font-label-md text-[10px] text-filament-terracotta bg-surface-sand px-1.5 py-0.5 rounded font-semibold">
+                Bureau Signature
+              </span>
+<button aria-label="Supprimer l'article" class="text-ink-muted hover:text-error transition-colors p-0.5" type="button">
+<span class="material-symbols-outlined text-[18px]">delete_outline</span>
+</button>
+</div>
+<h2 class="font-title-md text-[14px] text-ink-anthracite font-semibold leading-snug mt-1">
+              Plaque Triangulaire Nom &amp; Titre
+            </h2>
+<div class="font-price-lg text-[15px] text-ink-anthracite font-bold mt-0.5">
+              99 MAD
+            </div>
+</div>
+<div class="bg-surface-sand p-2 rounded-lg space-y-1 mt-1.5 text-[11px] text-on-surface-variant font-body-md">
+<div class="truncate text-ink-muted">
+              L1 : <strong class="text-ink-anthracite">YASMINE BENNANI</strong>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-ink-muted">L2 : ARCHITECTE D.P.L.G.</span>
+<span class="text-[10px] text-filament-terracotta font-semibold">Terracotta &amp; Or</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<button class="text-accent-majorelle font-label-md text-label-md hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+          Modifier le titre
+        </button>
+<div class="flex items-center bg-surface-sand rounded-full p-0.5 shadow-inner">
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-ink-anthracite flex items-center justify-center shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="w-7 text-center font-title-md text-[13px] text-ink-anthracite font-semibold">1</span>
+<button class="w-7 h-7 rounded-full bg-surface-container-lowest text-ink-anthracite flex items-center justify-center shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Fiche Télémétrie Atelier Bambu Lab A1 -->
+<section class="bg-primary-container text-on-primary rounded-xl p-3.5 space-y-2.5 shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gold-zellige text-[20px]">precision_manufacturing</span>
+<span class="font-title-md text-[13px] font-semibold tracking-wide">Télémétrie Impression 3D Bambu Lab</span>
+</div>
+<span class="bg-surface-sand/20 text-surface-bright font-label-md text-[10px] px-2 py-0.5 rounded-full font-medium">
+        G-Code Validé
+      </span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-surface-bright/90 pt-0.5">
+<div class="bg-surface-sand/10 p-2 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-majorelle-soft text-[18px]">timer</span>
+<div>
+<div class="font-label-md text-[10px] text-surface-sand-subtle">Temps cumulé</div>
+<div class="font-title-md text-[13px] text-filament-white font-bold">2h 45min</div>
+</div>
+</div>
+<div class="bg-surface-sand/10 p-2 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-majorelle-soft text-[18px]">scale</span>
+<div>
+<div class="font-label-md text-[10px] text-surface-sand-subtle">Matière PLA+</div>
+<div class="font-title-md text-[13px] text-filament-white font-bold">184g biosourcé</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] text-surface-sand-subtle pt-0.5">
+<span class="material-symbols-outlined text-[14px] text-gold-zellige">eco</span>
+<span>Optimisation AMS : Zéro déchet de purge (Slicing 2.5D sans tour de purge)</span>
+</div>
+</section>
+<!-- Carrousel "Petits ajouts artisanaux" -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-[16px] text-ink-anthracite font-normal">
+        Compléter votre colis
+      </h3>
+<span class="font-label-md text-[11px] text-ink-muted">Poids disponible : 316g</span>
+</div>
+<div class="flex gap-2.5 overflow-x-auto pb-1 -mx-4 px-4 snap-x">
+<!-- Ajout 1 -->
+<div class="min-w-[170px] max-w-[170px] bg-surface-container-lowest p-2.5 rounded-xl shadow-sm space-y-2 snap-start flex flex-col justify-between">
+<div class="w-full h-20 rounded-lg bg-surface-sand overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Marque-page artisanal imprimé en 3D avec calligraphie arabe ajourée Iqra en filament or posé délicatement sur un livre ancien relié en cuir sur table de lecture marocaine" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANzUuXMWJlmLZMqdsMX4zGKpw7tvktgIvIPqosDCETsn3F4KbWZ0I2AFYzHmv189cHHvpaoIVoons7zHHsE9rigH9tEh1liLAWb6eWDZq4ydhAasGiyrG3RPrsnA4R3keeG8Q3C5Zo2BN49dgf0Kek2CZFfQGc9LU4rjmaOmRqDUO76jX0MgHuh7eMoI0s2cdGSlt7IQpYpZ1EaJHtB9VJQuVOYyrpQRY39npw8Q"/>
+<span class="absolute top-1 right-1 bg-surface-container-lowest text-ink-anthracite font-label-md text-[9px] px-1.5 py-0.5 rounded font-bold shadow-sm">
+            35 MAD
+          </span>
+</div>
+<div>
+<h4 class="font-title-md text-[12px] text-ink-anthracite font-semibold leading-tight line-clamp-1">
+            Marque-Page « Iqra »
+          </h4>
+<p class="font-body-md text-[10px] text-ink-muted line-clamp-1">Calligraphie or ajourée</p>
+</div>
+<button class="w-full py-1.5 bg-surface-sand hover:bg-surface-sand-subtle text-ink-anthracite rounded-lg font-label-md text-[11px] font-semibold flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+          Ajouter
+        </button>
+</div>
+<!-- Ajout 2 -->
+<div class="min-w-[170px] max-w-[170px] bg-surface-container-lowest p-2.5 rounded-xl shadow-sm space-y-2 snap-start flex flex-col justify-between">
+<div class="w-full h-20 rounded-lg bg-surface-sand overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Support de smartphone pliable imprimé en 3D avec motifs géométriques de moucharabieh marocain en filament bleu Majorelle éclatant posé sur un bureau en bois clair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbS6L_xzyoSVJFPVE8UU1kjftlvfCRO1iN6VOl-K19ubCITil8w8wnIy9Rwa6_cme03oTqoW4ADdx4IqevXVSJ4ZXQjcA8WNOaaGO2RIz_nP3SlGOQpUOBojv7m8ClTlcImclk63L8tGF7pNIZYyqnnq1WqBxP3ZYQwszgxUd5ZUI0EmvY41FlC2DJK0_9HnjMeQV-r7mHIhnyYI9KuusrUN6nwzeocpNfNq2KXw"/>
+<span class="absolute top-1 right-1 bg-surface-container-lowest text-ink-anthracite font-label-md text-[9px] px-1.5 py-0.5 rounded font-bold shadow-sm">
+            59 MAD
+          </span>
+</div>
+<div>
+<h4 class="font-title-md text-[12px] text-ink-anthracite font-semibold leading-tight line-clamp-1">
+            Support Moucharabieh
+          </h4>
+<p class="font-body-md text-[10px] text-ink-muted line-clamp-1">Pliable format poche</p>
+</div>
+<button class="w-full py-1.5 bg-surface-sand hover:bg-surface-sand-subtle text-ink-anthracite rounded-lg font-label-md text-[11px] font-semibold flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+          Ajouter
+        </button>
+</div>
+<!-- Ajout 3 -->
+<div class="min-w-[170px] max-w-[170px] bg-surface-container-lowest p-2.5 rounded-xl shadow-sm space-y-2 snap-start flex flex-col justify-between">
+<div class="w-full h-20 rounded-lg bg-surface-sand overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Porte-clés protecteur main de fatma khamsa imprimé en relief 3D haute précision en filament blanc albâtre et cuivre ambré" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY7C_zZTFHdzkLS66WzgAlLoauzf5PxNTYza5_EzAt-KkUEho5qd9xHSvT2sV__O8VFPqKoW53JoGxiAXRzSXlFg4cbvlUNnXVcBIgsZ-LKGAMkXeC0CLUFXRqKxkMtr3Oybl5DNHEkULlmLevOT4q-RQf1tW7H_FO6ywLn_h6rs3AzGedDcFQQ-AuiIf9wq3wy05gKL2sYt7JLPHmaz3mzB6vwlNo6Sh0ic-fBQ"/>
+<span class="absolute top-1 right-1 bg-surface-container-lowest text-ink-anthracite font-label-md text-[9px] px-1.5 py-0.5 rounded font-bold shadow-sm">
+            39 MAD
+          </span>
+</div>
+<div>
+<h4 class="font-title-md text-[12px] text-ink-anthracite font-semibold leading-tight line-clamp-1">
+            Porte-Clés Khamsa
+          </h4>
+<p class="font-body-md text-[10px] text-ink-muted line-clamp-1">Protection traditionnelle</p>
+</div>
+<button class="w-full py-1.5 bg-surface-sand hover:bg-surface-sand-subtle text-ink-anthracite rounded-lg font-label-md text-[11px] font-semibold flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+          Ajouter
+        </button>
+</div>
+</div>
+</section>
+<!-- Récapitulatif Tarifaire & Code Promo -->
+<section class="bg-surface-container-lowest rounded-xl p-4 shadow-sm space-y-3">
+<div class="flex items-center justify-between pb-2">
+<span class="font-headline-sm text-[16px] text-ink-anthracite font-normal">Récapitulatif</span>
+<span class="font-label-md text-[11px] text-accent-majorelle bg-accent-majorelle-soft px-2 py-0.5 rounded-full font-semibold">
+        Code MAROC3D appliqué (-10%)
+      </span>
+</div>
+<div class="space-y-2 font-body-md text-[13px] text-on-surface-variant">
+<div class="flex justify-between">
+<span class="text-ink-muted">Sous-total (4 créations, 5 pièces)</span>
+<span class="font-semibold text-ink-anthracite">535.00 MAD</span>
+</div>
+<div class="flex justify-between text-emerald-700">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">high_res</span>
+          Remise Spéciale Atelier (10%)
+        </span>
+<span class="font-semibold">-53.50 MAD</span>
+</div>
+<div class="flex justify-between">
+<span class="text-ink-muted">Livraison Express Amana Maroc</span>
+<div class="text-right">
+<span class="text-ink-muted line-through text-[11px] mr-1">35.00 MAD</span>
+<span class="font-semibold text-accent-majorelle">GRATUITE</span>
+</div>
+</div>
+<div class="flex justify-between">
+<span class="text-ink-muted">Frais encaissement espèces (COD)</span>
+<span class="font-semibold text-ink-anthracite">0.00 MAD</span>
+</div>
+</div>
+<!-- Séparateur doux sans bordure -->
+<div class="h-px bg-surface-sand my-2"></div>
+<!-- Total à payer -->
+<div class="flex items-end justify-between pt-1">
+<div>
+<div class="font-label-md text-[11px] uppercase tracking-wider text-ink-muted font-bold">Total net à régler TTC</div>
+<div class="font-body-md text-[11px] text-ink-muted">À remettre en espèces au livreur</div>
+</div>
+<div class="text-right">
+<div class="font-price-lg text-[24px] text-filament-majorelle font-bold tracking-tight">
+          481.50 <span class="text-[16px] font-semibold">MAD</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Réassurance & Confiance -->
+<section class="bg-surface-sand p-3.5 rounded-xl space-y-2 font-body-md text-[12px] text-ink-muted shadow-sm">
+<div class="flex items-center gap-2.5">
+<div class="w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm text-ink-anthracite">
+<span class="material-symbols-outlined text-[15px]">payments</span>
+</div>
+<div>
+<strong class="text-ink-anthracite font-semibold">Paiement à la livraison (Cash on Delivery) :</strong> Vous payez uniquement après inspection du colis.
+      </div>
+</div>
+<div class="flex items-center gap-2.5">
+<div class="w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm text-ink-anthracite">
+<span class="material-symbols-outlined text-[15px]">mark_chat_read</span>
+</div>
+<div>
+<strong class="text-ink-anthracite font-semibold">Expédition suivie :</strong> Appel du coursier Amana + SMS de tracking en temps réel.
+      </div>
+</div>
+<div class="flex items-center gap-2.5">
+<div class="w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm text-ink-anthracite">
+<span class="material-symbols-outlined text-[15px]">inventory_2</span>
+</div>
+<div>
+<strong class="text-ink-anthracite font-semibold">Emballage artisanal sécurisé :</strong> Boîte kraft rigide et cale antichoc sur-mesure.
+      </div>
+</div>
+</section>
+<!-- Actions Principales (Sticky feel ou CTA proéminents) -->
+<section class="space-y-2 pt-1">
+<!-- Bouton WhatsApp BAT 3D -->
+<a class="w-full h-12 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-on-secondary rounded-lg font-title-md text-[14px] flex items-center justify-center gap-2 shadow-sm transition-all text-decoration-none" href="https://wa.me/212600000000?text=Salam,%20je%20souhaite%20valider%20le%20rendu%203D%20de%20mon%20panier%20MustDesign3D%20(535%20MAD)" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.923-.457-1.579-.652-2.578-2.274-2.656-2.378-.078-.104-.645-.856-.645-1.634 0-.777.408-1.161.554-1.32.144-.158.316-.198.421-.198.106 0 .211.002.304.006.098.005.228-.037.357.272.133.321.455 1.109.496 1.189.04.08.067.173.013.279-.053.107-.08.173-.16.265-.079.093-.168.207-.24.278-.08.079-.163.165-.07.324.093.159.412.679.883 1.097.607.541 1.12.709 1.28.789.159.079.252.069.345-.04.093-.106.398-.463.504-.622.106-.159.212-.132.357-.079.145.053.923.435 1.082.514.159.08.265.119.304.185.04.066.04.385-.104.79zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.436 5.176L2 22l4.981-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.624 0-3.136-.484-4.408-1.314l-.316-.188-2.964.778.791-2.89-.206-.328A8.176 8.176 0 013.8 12c0-4.521 3.679-8.2 8.2-8.2 4.522 0 8.2 3.679 8.2 8.2 0 4.521-3.678 8.2-8.2 8.2z"></path>
+</svg>
+<span>Valider le BAT 3D sur WhatsApp (Optionnel)</span>
+</a>
+<!-- Bouton Principal Confirmer Commande COD -->
+<button class="w-full h-13 py-3.5 bg-ink-anthracite hover:bg-filament-majorelle text-on-primary rounded-lg font-title-md text-[15px] flex items-center justify-center gap-2 shadow-lg active:scale-[0.99] transition-all" type="button">
+<span>Confirmer la commande (Paiement COD)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<div class="text-center pt-1 font-label-md text-[11px] text-ink-muted">
+      Production immédiate lancée sous 3h après validation
+    </div>
+</section>
+</div>
+<script>
+  // Micro-interactions pour les steppers du panier
+  document.querySelectorAll('#cart-items-list article').forEach(card => {
+    const decBtn = card.querySelector('button:has(.material-symbols-outlined:contains("remove")), button .material-symbols-outlined:contains("remove")')?.closest('button') || card.querySelectorAll('.bg-surface-sand button')[0];
+    const incBtn = card.querySelector('button:has(.material-symbols-outlined:contains("add")), button .material-symbols-outlined:contains("add")')?.closest('button') || card.querySelectorAll('.bg-surface-sand button')[1];
+    const qtyText = card.querySelector('.font-title-md.text-\\[13px\\].text-ink-anthracite');
+
+    if (decBtn && incBtn && qtyText) {
+      incBtn.addEventListener('click', () => {
+        let val = parseInt(qtyText.textContent.trim(), 10);
+        qtyText.textContent = val + 1;
+        qtyText.classList.add('scale-110');
+        setTimeout(() => qtyText.classList.remove('scale-110'), 150);
+      });
+
+      decBtn.addEventListener('click', () => {
+        let val = parseInt(qtyText.textContent.trim(), 10);
+        if (val > 1) {
+          qtyText.textContent = val - 1;
+          qtyText.classList.add('scale-90');
+          setTimeout(() => qtyText.classList.remove('scale-90'), 150);
+        }
+      });
+    }
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-accent-majorelle font-semibold"><div class="flex justify-around items-center h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center gap-1 w-16 h-12 text-ink-muted hover:text-on-surface transition-colors" data-path="catalogue-atelier" href="#"><span class="material-symbols-outlined text-[22px]">view_in_ar</span><span class="font-label-md text-label-md">Atelier</span></a><a class="flex flex-col items-center justify-center gap-1 w-16 h-12 text-ink-muted hover:text-on-surface transition-colors" data-path="personnalisation-3d" href="#"><span class="material-symbols-outlined text-[22px]">palette</span><span class="font-label-md text-label-md">Sur-Mesure</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 w-16 h-12 transition-colors text-accent-majorelle font-semibold" data-path="panier-commande" href="#"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="font-label-md text-label-md">Panier</span></a><a class="flex flex-col items-center justify-center gap-1 w-16 h-12 text-ink-muted hover:text-on-surface transition-colors" data-path="suivi-fabrication" href="#"><span class="material-symbols-outlined text-[22px]">precision_manufacturing</span><span class="font-label-md text-label-md">Production</span></a></div></nav></body></html>

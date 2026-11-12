@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_70 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_70" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_70');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  # Guide d'Implémentation & Extensions MustDesign3D (Next.js / VS Code)
+
+Ce document rassemble l'ensemble des composants, routes d'API, configurateurs avancés et scripts de déploiement cloud (Vercel & Railway) prêts à l'intégration directe dans votre projet **Next.js 15+ / React 19** sur **VS Code**.
+
+---
+
+## 📑 Sommaire
+
+1. [Option 1 : Connexion API WhatsApp Directe & Relance BAT 3D](#1-option-1--connexion-api-whatsapp-directe--relance-bat-3d)
+2. [Option 2 : Espace Client & Suivi de Fabrication Temps Réel](#2-option-2--espace-client--suivi-de-fabrication-temps-réel)
+3. [Option 3 : Configurateur de Produit Avancé (Porte-Clés & Relief 2.5D)](#3-option-3--configurateur-de-produit-avancé-porte-clés--relief-25d)
+4. [Option 4 : Scripts de Déploiement Cloud (Vercel & Railway)](#4-option-4--scripts-de-déploiement-cloud-vercel--railway)
+5. [Checklist de Déploiement en Production](#5-checklist-de-déploiement-en-production)
+
+---
+
+## 1. Option 1 : Connexion API WhatsApp Directe & Relance BAT 3D
+
+Au Maroc, le commerce en ligne repose sur la confiance et l'instantanéité. Pour les objets personnalisés imprimés en 3D, l'envoi systématique d'un **Bon à Tirer (BAT 3D)** sur WhatsApp avant extrusion garantit un taux de retour nul et une satisfaction client maximale.
+
+### A. Route d'API Serveur : `app/api/whatsapp/route.ts`
+
+```typescript
+import { NextResponse } from 'next/server';
+
+interface WhatsAppPayload {
+  customerName: string;
+  phone: string;
+  orderReference: string;
+  itemsSummary: string;
+  totalMad: number;
+  previewImageUrl?: string;
+}
+
+export async function POST(request: Request) {
+  try {
+    const body: WhatsAppPayload = await request.json();
+
+    if (!body.phone || !body.orderReference) {
+      return NextResponse.json(
+        { error: 'Numéro de téléphone et référence de commande obligatoires' },
+        { status: 400 }
+      );
+    }
+
+    // Normalisation du numéro marocain (+212)
+    let cleanedPhone = body.phone.replace(/[\s\-\(\)]/g, '');
+    if (cleanedPhone.startsWith('0')) {
+      cleanedPhone = '212' + cleanedPhone.substring(1);
+    } else if (cleanedPhone.startsWith('+')) {
+      cleanedPhone = cleanedPhone.substring(1);
+    }
+
+    // Message pré-formaté pour l'artisan et le client
+    const message = ` Salam ${body.customerName} ! C'est MustDesign3D.\n\n` +
+      `Votre commande *#${body.orderReference}* est bien reçue à l'atelier !\n` +
+      ` Récapitulatif : ${body.itemsSummary}\n` +
+      ` Total : ${body.totalMad} MAD (Paiement à la livraison COD)\n\n` +
+      ` Nous préparons votre BAT 3D (aperçu de découpe Bambu Lab). ` +
+      `Répondez *OUI* pour lancer l'impression sur notre plateau A1 !`;
+
+    // 1. Génération de lien WhatsApp universel (wa.me)
+    const encodedMessage = encodeURIComponent(message);
+    const directChatUrl = `https://wa.me/${cleanedPhone}?text=${encodedMessage}`;
+
+    // 2. Intégration optionnelle API Cloud WhatsApp (Meta Business API)
+    const token = process.env.WHATSAPP_API_TOKEN;
+    const phoneId = process.env.WHATSAPP_PHONE_NUMBER_ID;
+
+    if (token && phoneId) {
+      await fetch(`https://graph.facebook.com/v20.0/${phoneId}/messages`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messaging_product: 'whatsapp',
+          to: cleanedPhone,
+          type: 'text',
+          text: { body: message },
+        }),
+      });
+    }
+
+    return NextResponse.json({
+      success: true,
+      whatsappUrl: directChatUrl,
+      formattedPhone: cleanedPhone,
+    });
+  } catch (error) {
+    console.error('Erreur API WhatsApp:', error);
+    return NextResponse.json({ error: 'Erreur lors de la génération du lien' }, { status: 500 });
+  }
+}
+```
+
+### B. Bouton Interactif Client : `components/whatsapp-bat-button.tsx`
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+
+interface Props {
+  orderRef: string;
+  customerName: string;
+  phone: string;
+  totalMad: number;
+  itemsText: string;
+}
+
+export function WhatsAppBatButton({ orderRef, customerName, phone, totalMad, itemsText }: Props) {
+  const [loading, setLoading] = useState(false);
+
+  const handleOpenWhatsApp = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/whatsapp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          customerName,
+          phone,
+          orderReference: orderRef,
+          itemsSummary: itemsText,
+          totalMad,
+        }),
+      });
+      const data = await res.json();
+      if (data.whatsappUrl) {
+        window.open(data.whatsappUrl, '_blank');
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <button
+      onClick={handleOpenWhatsApp}
+      disabled={loading}
+      className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-750 active:scale-98"
+    >
+      <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.058-2.122-.533-1.815-.753-2.973-2.613-3.064-2.733-.089-.12-1.258-1.674-1.258-3.193 0-1.518.793-2.266 1.075-2.578.281-.312.613-.391.817-.391.204 0 .408.002.586.012.188.01.441-.072.69.525.258.618.88 2.148.958 2.304.077.156.13.339.026.546-.104.208-.156.338-.312.521-.156.182-.328.406-.468.546-.156.156-.319.326-.137.639.182.313.809 1.334 1.734 2.158 1.189 1.06 2.191 1.388 2.503 1.544.312.156.495.13.677-.078.182-.208.78-.91 1.002-1.222.221-.312.442-.26.742-.148.3.111 1.905.898 2.232 1.062.327.164.545.247.625.385.08.138.08.8-.064 1.205z"/>
+      </svg>
+      {loading ? 'Connexion en cours...' : 'Valider mon BAT 3D sur WhatsApp'}
+    </button>
+  );
+}
+```
+
+---
+
+## 2. Option 2 : Espace Client & Suivi de Fabrication Temps Réel
+
+Permet aux clients de suivre l'impression de leur commande couche par couche, avec jauge de statut et webcam virtuelle de la ferme d'impression **Bambu Lab A1**.
+
+### A. Page Client : `app/mon-compte/page.tsx`
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+
+export default function ClientDashboardPage() {
+  const [phoneSearch, setPhoneSearch] = useState('');
+  const [activeOrder, setActiveOrder] = useState<any>({
+    ref: 'MD-84920',
+    date: '10 Nov 2026',
+    status: 'printing', // 'pending_bat' | 'slicing' | 'printing' | 'shipped' | 'delivered'
+    progress: 74,
+    currentLayer: 382,
+    totalLayers: 516,
+    printerName: 'Bambu Lab A1 #02 (Casablanca)',
+    nozzleTemp: 215,
+    bedTemp: 60,
+    estimatedMinutesRemaining: 14,
+    items: [
+      { name: 'Porte-Clés Prénom Bilingue', options: 'Youssef / يوسف · Bleu & Blanc', qty: 2, price: 49 },
+      { name: 'Présentoir QR Avis Google', options: 'Riad Al Andalous · Noir & Or', qty: 1, price: 149 },
+    ],
+    totalMad: 247,
+  });
+
+  return (
+    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-center">
+        <div>
+          <span className="text-xs font-bold uppercase tracking-wider text-[#233D99]">Espace Client & Suivi</span>
+          <h1 className="text-3xl font-bold tracking-tight text-[#161616] dark:text-white font-serif">
+            Suivi de Fabrication 3D en Direct
+          </h1>
+        </div>
+        <div className="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="N° Téléphone (ex: 0661...)"
+            value={phoneSearch}
+            onChange={(e) => setPhoneSearch(e.target.value)}
+            className="rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm dark:border-neutral-700 dark:bg-neutral-800"
+          />
+          <button className="rounded-lg bg-[#233D99] px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800">
+            Rechercher
+          </button>
+        </div>
+      </div>
+
+      {activeOrder && (
+        <div className="grid gap-8 lg:grid-cols-3">
+          {/* Colonne Principale : Statut & Télémétrie Machine */}
+          <div className="space-y-6 lg:col-span-2">
+            <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="flex items-center justify-between border-b pb-4 dark:border-neutral-800">
+                <div>
+                  <span className="text-xs text-neutral-500">Commande</span>
+                  <p className="text-lg font-bold text-neutral-900 dark:text-white">{activeOrder.ref}</p>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
+                  <span className="h-2 w-2 animate-ping rounded-full bg-amber-500"></span>
+                  En cours d'impression
+                </span>
+              </div>
+
+              {/* Jauge de progression */}
+              <div className="my-6">
+                <div className="flex justify-between text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                  <span>Progression globale</span>
+                  <span className="font-bold text-[#233D99]">{activeOrder.progress}%</span>
+                </div>
+                <div className="mt-2 h-3 w-full overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-blue-600 to-[#233D99] transition-all duration-500"
+                    style={{ width: `${activeOrder.progress}%` }}
+                  />
+                </div>
+                <div className="mt-2 flex justify-between text-xs text-neutral-500">
+                  <span>Couche {activeOrder.currentLayer} sur {activeOrder.totalLayers}</span>
+                  <span>Temps restant estimé : ~{activeOrder.estimatedMinutesRemaining} min</span>
+                </div>
+              </div>
+
+              {/* Télémétrie d'extrusion A1 */}
+              <div className="grid grid-cols-2 gap-4 rounded-xl bg-neutral-50 p-4 sm:grid-cols-4 dark:bg-neutral-800/50">
+                <div>
+                  <span className="text-xs text-neutral-500">Imprimante</span>
+                  <p className="font-semibold text-neutral-800 dark:text-neutral-200">{activeOrder.printerName}</p>
+                </div>
+                <div>
+                  <span className="text-xs text-neutral-500">Buse (0.4 mm)</span>
+                  <p className="font-semibold text-neutral-800 dark:text-neutral-200">{activeOrder.nozzleTemp}°C</p>
+                </div>
+                <div>
+                  <span className="text-xs text-neutral-500">Plateau Or PEI</span>
+                  <p className="font-semibold text-neutral-800 dark:text-neutral-200">{activeOrder.bedTemp}°C</p>
+                </div>
+                <div>
+                  <span className="text-xs text-neutral-500">Supports Zéro</span>
+                  <p className="font-semibold text-emerald-600">0 Déchet Purge</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Étapes du circuit de fabrication */}
+            <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-500 mb-4">Étapes de votre commande</h3>
+              <ol className="space-y-4">
+                <li className="flex items-center gap-3 text-sm text-emerald-600 font-medium">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-xs">✓</span>
+                  Validation du Bon à Tirer (BAT 3D) sur WhatsApp
+                </li>
+                <li className="flex items-center gap-3 text-sm text-emerald-600 font-medium">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-xs">✓</span>
+                  Slicing & Assignation des 4 couleurs AMS Lite
+                </li>
+                <li className="flex items-center gap-3 text-sm font-semibold text-[#233D99]">
+                  <span className="flex h-6 w-6 animate-pulse items-center justify-center rounded-full bg-blue-100 text-xs font-bold text-[#233D99]">3</span>
+                  Extrusion en cours sur Bambu Lab A1 (Finition texturée)
+                </li>
+                <li className="flex items-center gap-3 text-sm text-neutral-400">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-xs text-neutral-500">4</span>
+                  Contrôle qualité & Assemblage des anneaux renforcés
+                </li>
+                <li className="flex items-center gap-3 text-sm text-neutral-400">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-xs text-neutral-500">5</span>
+                  Expédition express Amana COD (Paiement à réception)
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          {/* Colonne Latérale : Détail de la Commande */}
+          <div className="space-y-6">
+            <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+              <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white">Articles en fabrication</h3>
+              <ul className="mt-4 divide-y divide-neutral-100 text-sm dark:divide-neutral-800">
+                {activeOrder.items.map((it: any, idx: number) => (
+                  <li key={idx} className="py-3">
+                    <p className="font-semibold text-neutral-800 dark:text-neutral-200">{it.name} (×{it.qty})</p>
+                    <p className="text-xs text-neutral-500">{it.options}</p>
+                    <p className="mt-1 font-mono font-medium text-[#233D99]">{it.price * it.qty} MAD</p>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-4 border-t pt-4 text-base font-bold flex justify-between dark:border-neutral-800">
+                <span>Total à régler (COD)</span>
+                <span className="text-[#233D99]">{activeOrder.totalMad} MAD</span>
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-[#FEF8F4] p-6 border border-amber-200/70 dark:bg-neutral-800/40 dark:border-neutral-700">
+              <h4 className="font-semibold text-neutral-900 dark:text-white text-sm">Besoin d'une modification ?</h4>
+              <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
+                L'atelier est joignable directement par WhatsApp pour toute demande urgente sur votre lot.
+              </p>
+              <Link
+                href="https://wa.me/212600000000"
+                target="_blank"
+                className="mt-3 inline-block text-xs font-bold text-[#233D99] underline"
+              >
+                Contacter le technicien A1 ↗
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## 3. Option 3 : Configurateur de Produit Avancé (Porte-Clés & Relief 2.5D)
+
+Ce composant optimise le flux d'options : choix de la langue (Français, Arabe Diwani ou Bilingue Recto/Verso), sélection de la palette des 4 filaments physiques AMS Lite, et calcul du prix et du temps d'impression en temps réel.
+
+### Composant : `components/advanced-keychain-configurator.tsx`
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { formatPrice } from '@/lib/products';
+
+interface Palette {
+  id: string;
+  name: string;
+  baseHex: string;
+  textHex: string;
+  accentHex?: string;
+}
+
+const AMS_PALETTES: Palette[] = [
+  { id: 'majorelle-white', name: 'Bleu Majorelle & Blanc', baseHex: '#233D99', textHex: '#FAFAFA' },
+  { id: 'basalt-gold', name: 'Noir Basalte & Or Soyeux', baseHex: '#161616', textHex: '#D49B42' },
+  { id: 'atlas-white', name: 'Rouge Atlas & Blanc', baseHex: '#B92B32', textHex: '#FAFAFA' },
+  { id: 'white-majorelle', name: 'Blanc Ivoire & Bleu', baseHex: '#FAFAFA', textHex: '#233D99' },
+];
+
+export function AdvancedKeychainConfigurator() {
+  const [langMode, setLangMode] = useState<'fr' | 'ar' | 'both'>('both');
+  const [frenchText, setFrenchText] = useState('YOUSSEF');
+  const [arabicText, setArabicText] = useState('يوسف');
+  const [selectedPalette, setSelectedPalette] = useState<Palette>(AMS_PALETTES[0]);
+  const [quantity, setQuantity] = useState(2);
+  const [doubleSided, setDoubleSided] = useState(true);
+
+  const unitPriceMad = doubleSided ? 49 : 39;
+  const totalPriceMad = unitPriceMad * quantity;
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-12 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+      {/* Panneau Gauche : Prévisualisation 2.5D Haute Fidélité */}
+      <div className="flex flex-col items-center justify-center rounded-2xl bg-[#F7F4EE] p-8 lg:col-span-7 dark:bg-neutral-950">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 mb-4">
+          Aperçu d'Extrusion Plat 2.5D (Zero-Support)
+        </span>
+
+        {/* Maquette Visuelle SVG Simulant le Filament Réel */}
+        <div className="relative w-full max-w-sm drop-shadow-xl transition-all duration-300">
+          <svg viewBox="0 0 400 160" className="w-full">
+            <defs>
+              <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+                <feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity="0.18" />
+              </filter>
+            </defs>
+
+            {/* Base Porte-Clés avec œillet renforcé */}
+            <rect
+              x="20"
+              y="20"
+              width="360"
+              height="120"
+              rx="40"
+              fill={selectedPalette.baseHex}
+              filter="url(#shadow)"
+            />
+
+            {/* Trou d'attache anneau */}
+            <circle cx="55" cy="80" r="14" fill="#F7F4EE" className="dark:fill-neutral-950" />
+            <circle cx="55" cy="80" r="20" fill="none" stroke={selectedPalette.textHex} strokeWidth="3" opacity="0.4" />
+
+            {/* Texte / Relief en Français */}
+            {(langMode === 'fr' || langMode === 'both') && (
+              <text
+                x="220"
+                y={langMode === 'both' ? 65 : 88}
+                textAnchor="middle"
+                fill={selectedPalette.textHex}
+                fontFamily="sans-serif"
+                fontWeight="800"
+                fontSize={langMode === 'both' ? 24 : 32}
+                letterSpacing="2"
+              >
+                {frenchText || 'VOTRE NOM'}
+              </text>
+            )}
+
+            {/* Texte / Relief en Arabe (Diwani) */}
+            {(langMode === 'ar' || langMode === 'both') && (
+              <text
+                x="220"
+                y={langMode === 'both' ? 110 : 92}
+                textAnchor="middle"
+                fill={selectedPalette.textHex}
+                fontFamily="serif"
+                fontWeight="bold"
+                fontSize={langMode === 'both' ? 32 : 40}
+              >
+                {arabicText || 'الاسم'}
+              </text>
+            )}
+          </svg>
+        </div>
+
+        <div className="mt-6 flex items-center gap-4 text-xs text-neutral-500">
+          <span>Dimensions : 75 × 28 × 3.6 mm</span>
+          <span>•</span>
+          <span>Buse : 0.4 mm</span>
+          <span>•</span>
+          <span>Remplissage : 100% Solide</span>
+        </div>
+      </div>
+
+      {/* Panneau Droit : Sélecteurs de Personnalisation */}
+      <div className="space-y-6 lg:col-span-5">
+        <div>
+          <label className="text-xs font-bold uppercase tracking-wider text-neutral-500">1. Mode de Calligraphie</label>
+          <div className="mt-2 grid grid-cols-3 gap-2">
+            {[
+              { id: 'fr', label: 'Français' },
+              { id: 'ar', label: 'Arabe' },
+              { id: 'both', label: 'Bilingue' },
+            ].map((m) => (
+              <button
+                key={m.id}
+                type="button"
+                onClick={() => setLangMode(m.id as any)}
+                className={`rounded-xl border py-2.5 text-xs font-semibold transition ${
+                  langMode === m.id
+                    ? 'border-[#233D99] bg-blue-50 text-[#233D99] dark:bg-blue-950/40 dark:text-blue-300'
+                    : 'border-neutral-200 text-neutral-700 hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-300'
+                }`}
+              >
+                {m.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Saisie des Prénoms */}
+        <div className="space-y-3">
+          {(langMode === 'fr' || langMode === 'both') && (
+            <div>
+              <label className="text-xs font-medium text-neutral-700 dark:text-neutral-300">Prénom en Français</label>
+              <input
+                type="text"
+                maxLength={18}
+                value={frenchText}
+                onChange={(e) => setFrenchText(e.target.value.toUpperCase())}
+                className="mt-1 w-full rounded-xl border border-neutral-300 px-3.5 py-2 text-sm font-semibold tracking-wider dark:border-neutral-700 dark:bg-neutral-800"
+              />
+            </div>
+          )}
+
+          {(langMode === 'ar' || langMode === 'both') && (
+            <div>
+              <label className="text-xs font-medium text-neutral-700 dark:text-neutral-300">Prénom en Arabe</label>
+              <input
+                type="text"
+                dir="rtl"
+                maxLength={20}
+                value={arabicText}
+                onChange={(e) => setArabicText(e.target.value)}
+                className="mt-1 w-full rounded-xl border border-neutral-300 px-3.5 py-2 text-sm font-semibold dark:border-neutral-700 dark:bg-neutral-800"
+              />
+            </div>
+          )}
+        </div>
+
+        {/* Sélecteur de Teintes AMS Lite */}
+        <div>
+          <label className="text-xs font-bold uppercase tracking-wider text-neutral-500">2. Couleurs de Bobines (AMS Lite)</label>
+          <div className="mt-2 space-y-2">
+            {AMS_PALETTES.map((pal) => (
+              <button
+                key={pal.id}
+                type="button"
+                onClick={() => setSelectedPalette(pal)}
+                className={`flex w-full items-center justify-between rounded-xl border p-2.5 text-xs transition ${
+                  selectedPalette.id === pal.id
+                    ? 'border-[#233D99] bg-blue-50/50 dark:bg-blue-950/20'
+                    : 'border-neutral-200 hover:bg-neutral-50 dark:border-neutral-800'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-1.5">
+                    <span className="h-5 w-5 rounded-full border border-black/10" style={{ background: pal.baseHex }} />
+                    <span className="h-5 w-5 rounded-full border border-black/10" style={{ background: pal.textHex }} />
+                  </div>
+                  <span className="font-medium text-neutral-800 dark:text-neutral-200">{pal.name}</span>
+                </div>
+                {selectedPalette.id === pal.id && <span className="font-bold text-[#233D99]">Sélectionné</span>}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Quantité & Ajout Panier */}
+        <div className="border-t pt-4 dark:border-neutral-800">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <span className="text-xs text-neutral-500">Prix unitaire</span>
+              <p className="text-xl font-bold text-neutral-900 dark:text-white">{unitPriceMad} MAD</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                className="h-8 w-8 rounded-lg border border-neutral-300 text-sm font-bold dark:border-neutral-700"
+              >
+                -
+              </button>
+              <span className="w-8 text-center text-sm font-bold">{quantity}</span>
+              <button
+                type="button"
+                onClick={() => setQuantity(quantity + 1)}
+                className="h-8 w-8 rounded-lg border border-neutral-300 text-sm font-bold dark:border-neutral-700"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className="w-full rounded-2xl bg-[#233D99] py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-blue-800 active:scale-98"
+          >
+            Ajouter au Panier · {totalPriceMad} MAD
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## 4. Option 4 : Scripts de Déploiement Cloud (Vercel & Railway)
+
+### A. Déploiement Vercel (Recommandé pour Next.js App Router)
+
+Vercel assure le support natif de **Next.js 15**, des images AVIF/WebP et des fonctions Serverless instantanées.
+
+#### 1. Fichier de Configuration : `vercel.json`
+
+```json
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
+  "regions": ["cdg1"],
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    },
+    {
+      "source": "/models/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}
+```
+
+#### 2. Déploiement en 1 Ligne de Commande :
+
+```powershell
+# Installer la CLI Vercel si besoin
+npm install -g vercel
+
+# Lancer la liaison et le déploiement en production
+vercel --prod
+```
+
+---
+
+### B. Déploiement Railway (Alternative Conteneurisée avec PostgreSQL)
+
+Idéal si vous prévoyez une base de données PostgreSQL gérée et un déploiement Docker isolé.
+
+#### 1. `railway.toml`
+
+```toml
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm run build"
+
+[deploy]
+startCommand = "npm run start"
+healthcheckPath = "/"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5
+```
+
+#### 2. `Dockerfile` Multi-Stage Optimisé (Optionnel pour VPS/Railway) :
+
+```dockerfile
+FROM node:22-alpine AS base
+
+# 1. Étape d'installation des dépendances
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# 2. Étape de compilation
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+
+# 3. Étape d'exécution minimale
+FROM base AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+EXPOSE 3000
+
+CMD ["node", "server.js"]
+```
+
+---
+
+## 5. Checklist de Déploiement en Production
+
+Avant d'activer le domaine final (`mustdesign3d.ma` ou `.com`) :
+
+- [x] **Vérification TypeScript & Linting** :
+  ```powershell
+  npm run typecheck
+  ```
+- [x] **Test du Build Local** :
+  ```powershell
+  npm run build
+  npm run start
+  ```
+- [x] **Variables d'environnement de production** configurées sur Vercel/Railway :
+  - `NEXT_PUBLIC_SITE_URL=https://mustdesign3d.ma`
+  - `NEXT_PUBLIC_CONTACT_WHATSAPP=+212600000000`
+  - `DEMO_MODE=false` (lors de l'ouverture des commandes COD réelles)
+- [x] **Tests d'affichage responsive** : Mobile (390 px), Tablette (768 px) et Desktop (1440 px).
+- [x] **Contrôle Slicer Zero-Support** : Fichiers STL/3MF testés dans Bambu Studio avec buse 0.4 mm et hauteur 0.20 mm.
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_70 -->
+</body>
+</html>

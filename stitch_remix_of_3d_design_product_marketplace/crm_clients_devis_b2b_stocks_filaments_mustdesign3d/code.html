@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-variant": "#e7e1dd", "surface-sand": "#F5EFEB", "primary-fixed-dim": "#c6c6c9", "surface-sand-subtle": "#EFE8E0", "filament-majorelle": "#1E40AF", "on-secondary-container": "#00217a", "primary-container": "#1e2022", "on-secondary": "#ffffff", "inverse-surface": "#32302e", "secondary-fixed-dim": "#b8c4ff", "on-primary-fixed": "#1a1c1e", "on-primary-fixed-variant": "#454749", "on-tertiary-fixed-variant": "#5c4300", "outline": "#75777a", "ink-muted": "#686D76", "on-tertiary-fixed": "#261900", "gold-zellige": "#D9A93C", "secondary-container": "#708cfd", "tertiary": "#0e0700", "tertiary-fixed-dim": "#f2bf50", "background": "#fef8f4", "surface-container-low": "#f8f2ee", "accent-majorelle": "#1E40AF", "primary-fixed": "#e2e2e5", "on-error": "#ffffff", "on-secondary-fixed": "#001453", "on-primary-container": "#86878a", "on-primary": "#ffffff", "canvas-cream": "#FDFBF7", "on-tertiary-container": "#ac8111", "error": "#ba1a1a", "on-error-container": "#93000a", "tertiary-container": "#2c1e00", "accent-majorelle-soft": "#EEF2FF", "filament-terracotta": "#B85D3B", "border-warm": "#E6DFD5", "secondary-fixed": "#dde1ff", "filament-black": "#1A1A1A", "surface-container-highest": "#e7e1dd", "inverse-on-surface": "#f6f0ec", "on-surface-variant": "#44474a", "surface-tint": "#5d5e61", "primary": "#06080a", "tertiary-fixed": "#ffdea1", "on-background": "#1d1b19", "ink-anthracite": "#1E2022", "on-surface": "#1d1b19", "surface-dim": "#dfd9d5", "error-container": "#ffdad6", "on-tertiary": "#ffffff", "surface": "#fef8f4", "surface-container": "#f3ede9", "secondary": "#3755c3", "outline-variant": "#c5c6ca", "on-secondary-fixed-variant": "#173bab", "surface-bright": "#fef8f4", "surface-container-lowest": "#ffffff", "surface-container-high": "#ede7e3", "filament-white": "#FDFBF7", "inverse-primary": "#c6c6c9" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin": "2rem", "space-2xl": "4rem", "space-lg": "1.5rem", "space-2xs": "0.25rem", "gutter": "1.5rem", "space-sm": "0.75rem", "space-xl": "2.5rem", "space-xs": "0.5rem", "gutter-mobile": "0.75rem", "margin-mobile": "1rem", "space-md": "1rem" }, "fontFamily": { "body-lg": [ "Manrope" ], "headline-lg-mobile": [ "Noto Serif" ], "headline-lg": [ "Noto Serif" ], "headline-sm": [ "Noto Serif" ], "display-lg": [ "Noto Serif" ], "body-md": [ "Manrope" ], "label-md": [ "Manrope" ], "price-lg": [ "Manrope" ], "label-lg": [ "Manrope" ], "headline-md": [ "Noto Serif" ], "display-lg-mobile": [ "Noto Serif" ], "arabic-title": [ "Noto Serif" ], "title-md": [ "Manrope" ] }, "fontSize": { "body-lg": [ "16px", { "lineHeight": "26px", "fontWeight": "400" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "500" } ], "headline-lg": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "fontWeight": "500" } ], "display-lg": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "400" } ], "body-md": [ "14px", { "lineHeight": "22px", "fontWeight": "400" } ], "label-md": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" } ], "price-lg": [ "20px", { "lineHeight": "24px", "fontWeight": "700" } ], "label-lg": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "headline-md": [ "24px", { "lineHeight": "32px", "fontWeight": "500" } ], "display-lg-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "arabic-title": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "title-md": [ "16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-xs"><span class="w-7 h-7 rounded-xl bg-ink-anthracite flex items-center justify-center text-filament-white text-[14px] font-bold">M3D</span><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-ink-anthracite leading-none">MustDesign3D</span><span class="font-label-md text-label-md text-ink-muted uppercase tracking-wider">Studio Back-Office</span></div></div></div><div class="px-space-md py-space-sm"><div class="bg-surface-sand p-space-xs rounded-xl flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-filament-terracotta">location_on</span><span class="font-label-lg text-label-lg text-on-surface">Casablanca • Maarif Hub</span></div><span class="material-symbols-outlined text-[16px] text-ink-muted">expand_more</span></div></div><div class="px-space-md py-space-xs"><span class="px-space-xs font-label-md text-label-md text-ink-muted uppercase">Atelier &amp; Operations</span></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-ink-anthracite text-on-primary font-title-md"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="tableau-de-bord" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span><span>Tableau de bord</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="commandes-et-bat-cod" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span>Commandes &amp; BAT (COD)</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="file-dimpression-3d-et-ams" href="#"><span class="material-symbols-outlined text-[20px]">print</span><span>File d'impression 3D &amp; AMS</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="clients-et-devis-b2b" href="#"><span class="material-symbols-outlined text-[20px]">request_quote</span><span>Clients &amp; Devis B2B</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="stocks-filaments-et-materiaux" href="#"><span class="material-symbols-outlined text-[20px]">view_in_ar</span><span>Stocks Filaments &amp; Matériaux</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="parametres-atelier" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span>Paramètres Atelier</span></a></nav></div><div class="p-space-md flex flex-col gap-space-xs bg-surface-container"><div class="flex items-center justify-between text-ink-muted"><span class="font-label-md text-label-md uppercase tracking-wider">Bambu Lab LAN</span><span class="font-label-md text-label-md text-filament-majorelle font-semibold">4 / 4 ONLINE</span></div><div class="grid grid-cols-4 gap-1.5"><div class="h-1.5 rounded-full bg-filament-majorelle"></div><div class="h-1.5 rounded-full bg-filament-majorelle"></div><div class="h-1.5 rounded-full bg-filament-majorelle"></div><div class="h-1.5 rounded-full bg-gold-zellige animate-pulse"></div></div><div class="flex items-center justify-between pt-space-2xs text-ink-muted font-label-md text-label-md"><span>AMS Hub Sync: Actif</span><span>Ping: 14ms</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-canvas-cream/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md"><div class="inline-flex items-center gap-space-xs bg-surface-sand px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-filament-majorelle animate-ping"></span><span class="font-label-lg text-label-lg text-ink-anthracite font-semibold">Ferme Bambu A1 (Maarif): 3 en impression • 1 en calibration</span></div><span class="font-arabic-title text-arabic-title text-ink-muted hidden xl:inline">ورشة موست ديزاين الدار البيضاء</span></div><div class="flex items-center gap-space-md"><button class="relative p-2 rounded-xl text-ink-muted hover:text-ink-anthracite hover:bg-surface-sand transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">mark_chat_unread</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-filament-terracotta"></span></button><button class="relative p-2 rounded-xl text-ink-muted hover:text-ink-anthracite hover:bg-surface-sand transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-gold-zellige"></span></button><div class="h-6 w-px bg-surface-variant"></div><div class="flex items-center gap-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-lg text-label-lg text-ink-anthracite leading-none">Taha E.</span><span class="font-label-md text-label-md text-ink-muted leading-tight">Gestionnaire Atelier</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-background px-space-xl min-h-screen"><div class="flex flex-col w-full pb-space-2xl">
+<!-- Top Ambient Banner & KPIs -->
+<div class="relative w-full rounded-2xl bg-surface-sand p-space-lg shadow-sm overflow-hidden mb-space-xl">
+<div class="absolute -right-12 -top-12 w-64 h-64 rounded-full bg-gold-zellige/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-72 h-72 rounded-full bg-filament-majorelle/5 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-space-2xs max-w-2xl">
+<div class="inline-flex items-center gap-space-xs text-filament-majorelle font-label-md text-label-md uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-filament-majorelle"></span>
+<span>CRM B2B &amp; Gestion des Matières Premières</span>
+<span class="text-ink-muted">•</span>
+<span class="font-arabic-title text-arabic-title text-ink-muted">إدارة علاقات الزبائن ومخزون الخيوط</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-ink-anthracite">
+          Comptes Professionnels &amp; Approvisionnement Filament
+        </h1>
+<p class="font-body-md text-body-md text-ink-muted">
+          Suivi des devis corporatifs, facturation ICE marocaine, remises d'atelier et statut télémétrique des 5 bobines physiques Bambu Lab AMS Lite.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="px-space-md py-space-xs bg-ink-anthracite text-on-primary rounded-lg font-title-md text-title-md flex items-center gap-space-xs shadow-md hover:bg-filament-majorelle transition-all" id="btnOpenQuoter">
+<span class="material-symbols-outlined text-[20px]">add_chart</span>
+<span>Nouveau Devis B2B</span>
+</button>
+<button class="px-space-md py-space-xs bg-surface-container-lowest text-ink-anthracite rounded-lg font-title-md text-title-md flex items-center gap-space-xs shadow-sm hover:bg-surface-sand-subtle transition-all">
+<span class="material-symbols-outlined text-[20px] text-filament-terracotta">receipt_long</span>
+<span>Registre ICE &amp; Fiscale</span>
+</button>
+</div>
+</div>
+<!-- Quick Stats Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md mt-space-lg pt-space-md bg-canvas-cream/60 rounded-xl p-space-md backdrop-blur-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-ink-muted uppercase">Pipe Devis Actifs</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-price-lg text-price-lg text-ink-anthracite">38,450</span>
+<span class="font-label-md text-label-md text-ink-muted">MAD</span>
+</div>
+<span class="font-label-md text-label-md text-filament-majorelle mt-0.5">8 dossiers en validation BAT</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-ink-muted uppercase">Stock Filament Total</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-price-lg text-price-lg text-ink-anthracite">12.3</span>
+<span class="font-label-md text-label-md text-ink-muted">KG</span>
+</div>
+<span class="font-label-md text-label-md text-gold-zellige mt-0.5">2 alertes réassort d'urgence</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-ink-muted uppercase">Capacité AMS Active</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-price-lg text-price-lg text-ink-anthracite">4 / 4</span>
+<span class="font-label-md text-label-md text-ink-muted">Slots</span>
+</div>
+<span class="font-label-md text-label-md text-filament-majorelle mt-0.5">1 bobine externe sur support</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-ink-muted uppercase">Rendement Moyen Matière</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-price-lg text-price-lg text-ink-anthracite">20.04×</span>
+<span class="font-label-md text-label-md text-ink-muted">Marge brute</span>
+</div>
+<span class="font-label-md text-label-md text-filament-terracotta mt-0.5">Atelier Maarif High-Yield</span>
+</div>
+</div>
+</div>
+<!-- Main CRM & Stocks Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-xl">
+<!-- LEFT & CENTER: CRM CLIENTS, B2B & QUOTATIONS (7 COLS) -->
+<div class="xl:col-span-7 flex flex-col gap-space-xl">
+<!-- CRM Filter Tabs & Search -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<!-- Segment Tabs -->
+<div class="flex flex-wrap items-center gap-space-2xs bg-surface-sand p-1 rounded-xl">
+<button class="crm-tab px-space-sm py-1.5 rounded-lg font-label-lg text-label-lg text-ink-muted hover:text-ink-anthracite transition-all" id="tab-particuliers" onclick="setFilter('particuliers')">
+              Particuliers (142)
+            </button>
+<button class="crm-tab px-space-sm py-1.5 rounded-lg font-label-lg text-label-lg bg-ink-anthracite text-on-primary shadow-sm transition-all" id="tab-pro" onclick="setFilter('pro')">
+              Professionnels &amp; B2B (38)
+            </button>
+<button class="crm-tab px-space-sm py-1.5 rounded-lg font-label-lg text-label-lg text-ink-muted hover:text-ink-anthracite transition-all" id="tab-events" onclick="setFilter('events')">
+              Événements &amp; Mariages (16)
+            </button>
+</div>
+<!-- Quick Action / Status indicator -->
+<div class="flex items-center gap-space-xs self-end sm:self-auto">
+<span class="inline-flex items-center gap-1 text-label-md font-label-md text-ink-muted bg-surface-sand-subtle px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-filament-majorelle">hub</span>
+<span>Sync CRM Casa</span>
+</span>
+</div>
+</div>
+<!-- Search Bar & Filters -->
+<div class="flex items-center gap-space-sm">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted text-[18px]">search</span>
+<input class="w-full bg-surface-sand/60 text-ink-anthracite font-body-md text-body-md pl-10 pr-4 py-2 rounded-lg outline-none focus:bg-surface-sand focus:ring-2 focus:ring-filament-majorelle/20 transition-all placeholder:text-ink-muted" placeholder="Rechercher par raison sociale, ICE, contact, ville..." type="text"/>
+</div>
+<button class="p-2 bg-surface-sand text-ink-anthracite rounded-lg hover:bg-surface-sand-subtle transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Featured B2B VIP Client Dossier -->
+<div class="relative bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm overflow-hidden">
+<div class="absolute top-0 right-0 w-44 h-44 bg-surface-sand rounded-bl-full pointer-events-none opacity-50"></div>
+<div class="flex items-start justify-between relative z-10">
+<div class="flex items-start gap-space-md">
+<div class="w-16 h-16 rounded-xl bg-surface-sand flex items-center justify-center text-filament-terracotta shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[32px]">local_cafe</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-sm text-headline-sm text-ink-anthracite">Café &amp; Brûlerie L'Ocre</span>
+<span class="bg-gold-zellige/15 text-gold-zellige px-2.5 py-0.5 rounded-full font-label-md text-label-md font-bold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+                  Client Fidèle VIP
+                </span>
+</div>
+<span class="font-body-md text-body-md text-ink-muted mt-0.5">Casablanca • Maarif Extension &amp; Gauthier</span>
+<div class="flex items-center gap-space-md mt-2 text-label-lg font-label-lg text-on-surface">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-filament-majorelle">person</span>
+                  M. Mehdi Alami (Gérant)
+                </span>
+<span class="flex items-center gap-1 text-ink-muted">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                  +212 661-894210
+                </span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-ink-muted uppercase">CA Cumulé (2024)</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-sm text-headline-sm text-ink-anthracite">2,890.00</span>
+<span class="font-label-lg text-label-lg text-ink-muted">MAD</span>
+</div>
+<span class="font-label-md text-label-md text-filament-majorelle mt-0.5 font-semibold">TVA Déclarée • ICE Valide</span>
+</div>
+</div>
+<!-- Client Breakdown & History Strip -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md mt-space-lg p-space-md bg-surface-sand rounded-xl">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-ink-muted uppercase tracking-wider">Productions Livrées &amp; Réassorts</span>
+<div class="flex items-center gap-space-xs mt-1">
+<span class="w-2 h-2 rounded-full bg-filament-majorelle"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">12 Présentoirs QR Avis Google</span>
+<span class="font-label-md text-label-md text-ink-muted">(Bi-matière Noir/Or)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-filament-terracotta"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">50 Sous-verres motif Zellige</span>
+<span class="font-label-md text-label-md text-ink-muted">(PLA Soie résistant chaleur)</span>
+</div>
+</div>
+<div class="flex flex-col justify-between">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<span class="text-ink-muted">Identifiant Fiscal (ICE):</span>
+<span class="font-mono font-semibold text-ink-anthracite">002891823000041</span>
+</div>
+<div class="flex items-center justify-between text-label-md font-label-md mt-1">
+<span class="text-ink-muted">Mode de Règlement:</span>
+<span class="text-ink-anthracite font-semibold">COD &amp; Virement Casablanca</span>
+</div>
+<div class="flex items-center justify-between text-label-md font-label-md mt-1">
+<span class="text-ink-muted">Dernière commande:</span>
+<span class="text-ink-anthracite">Il y a 4 jours (Lot #M3D-942)</span>
+</div>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mt-space-md pt-space-xs">
+<div class="flex items-center gap-space-xs text-ink-muted font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-filament-majorelle">verified</span>
+<span>BAT 3D approuvé sur WhatsApp Business</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2 bg-filament-majorelle text-on-primary rounded-lg font-title-md text-title-md flex items-center gap-space-xs hover:bg-ink-anthracite transition-all shadow-sm" onclick="triggerInvoiceNotification()">
+<span class="material-symbols-outlined text-[18px]">send_to_mobile</span>
+<span>Éditer Facture ICE / Devis WhatsApp</span>
+</button>
+<button class="p-2 bg-surface-sand text-ink-anthracite rounded-lg hover:bg-surface-sand-subtle transition-colors" title="Historique BAT 3D">
+<span class="material-symbols-outlined text-[20px]">view_in_ar</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Recent Custom Quotes List (Devis sur-mesure) -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-filament-terracotta uppercase tracking-wider font-semibold">Demandes d'Atelier Récentes</span>
+<h2 class="font-headline-sm text-headline-sm text-ink-anthracite">Devis Spécifiques &amp; Tarification Dégressive</h2>
+</div>
+<span class="font-label-lg text-label-lg text-ink-muted bg-surface-sand px-space-xs py-1 rounded-full">
+            3 en attente de chiffrage
+          </span>
+</div>
+<!-- Quote Item 1: Corporate 3D Logo Relief -->
+<div class="p-space-md bg-surface-sand rounded-xl flex flex-col gap-space-xs hover:bg-surface-sand-subtle/80 transition-colors">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-2xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-filament-majorelle shadow-sm">
+<span class="material-symbols-outlined text-[22px]">corporate_fare</span>
+</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-ink-anthracite">Cabinet Dentaire Maarif • Dr. Benjelloun</span>
+<span class="px-2 py-0.5 rounded-full bg-accent-majorelle-soft text-filament-majorelle font-label-md text-label-md font-semibold">Logo Bureau Relief</span>
+</div>
+<span class="font-label-md text-label-md text-ink-muted">Implantation murale 60×40cm • Multicolore AMS (Noir Basalte + Or Soyeux)</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-ink-anthracite">1,450 MAD</span>
+<div class="font-label-md text-label-md text-ink-muted">Réf: DEV-2024-089</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt- space-2xs text-label-md font-label-md text-ink-muted">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-filament-terracotta">schedule</span>
+              Estimé d'impression: 16h40 (Plateau 256×256 Bambu A1)
+            </span>
+<div class="flex items-center gap-space-xs">
+<span class="text-filament-majorelle font-semibold cursor-pointer hover:underline">Aperçu Slicer STL</span>
+<span>•</span>
+<button class="px-2.5 py-1 bg-surface-container-lowest text-ink-anthracite rounded hover:bg-ink-anthracite hover:text-on-primary transition-colors">
+                Générer Bon de Commande
+              </button>
+</div>
+</div>
+</div>
+<!-- Quote Item 2: Wedding Place Cards 150 pax with Volume Discount -->
+<div class="p-space-md bg-surface-sand rounded-xl flex flex-col gap-space-xs hover:bg-surface-sand-subtle/80 transition-colors">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-2xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-gold-zellige shadow-sm">
+<span class="material-symbols-outlined text-[22px]">celebration</span>
+</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-ink-anthracite">Mariage Ghita &amp; Yassine (Hôtel Four Seasons)</span>
+<span class="px-2 py-0.5 rounded-full bg-gold-zellige/20 text-ink-anthracite font-label-md text-label-md font-semibold">150 Marque-places Calligraphie</span>
+</div>
+<span class="font-label-md text-label-md text-ink-muted">Typographie arabe extrudée personnalisée • Or Soyeux d'Atelier</span>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-baseline justify-end gap-1.5">
+<span class="line-through font-label-md text-label-md text-ink-muted">4,350 MAD</span>
+<span class="font-price-lg text-price-lg text-filament-terracotta">2,827 MAD</span>
+</div>
+<span class="font-label-md text-label-md text-filament-majorelle font-bold">Grille Dégressive : -35% appliqué</span>
+</div>
+</div>
+<!-- Volume Discount Visual Bar -->
+<div class="mt-2 bg-surface-container-lowest p-space-xs rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-ink-muted font-medium">Paliers de commande Mariages &amp; Événements :</span>
+<span class="text-ink-anthracite font-bold">Palier Atteint : &gt; 120 unités (-35%)</span>
+</div>
+<div class="w-full bg-surface-sand h-2 rounded-full overflow-hidden flex">
+<div class="bg-surface-sand-subtle h-full" style="width: 25%" title="1-30 pcs: 0%"></div>
+<div class="bg-secondary-fixed-dim h-full" style="width: 25%" title="31-70 pcs: -15%"></div>
+<div class="bg-secondary-container h-full" style="width: 25%" title="71-120 pcs: -25%"></div>
+<div class="bg-filament-majorelle h-full" style="width: 25%" title="&gt;120 pcs: -35%"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] text-ink-muted px-1">
+<span>Standard (0%)</span>
+<span>Pack 50 (-15%)</span>
+<span>Pack 100 (-25%)</span>
+<span class="text-filament-majorelle font-bold">Pack Gala 150+ (-35%)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-label-md font-label-md text-ink-muted">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-gold-zellige">warning</span>
+              Impact stock : Requiert 1.9 kg Filament Or (Actuel disponible: 0.8 kg)
+            </span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 bg-ink-anthracite text-on-primary rounded font-label-md text-label-md hover:bg-filament-majorelle transition-colors">
+                Valider Devis Dégressif
+              </button>
+</div>
+</div>
+</div>
+<!-- Quote Item 3: Agence Architecture Gauthier -->
+<div class="p-space-md bg-surface-sand rounded-xl flex items-center justify-between gap-space-sm hover:bg-surface-sand-subtle/80 transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-ink-anthracite shadow-sm">
+<span class="material-symbols-outlined text-[22px]">domain</span>
+</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-ink-anthracite">K+B Architectes Urbanisme</span>
+<span class="font-label-md text-label-md text-ink-muted">Maquette volumétrique topographique Dar Bouazza • Blanc Albâtre</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-ink-anthracite">3,200 MAD</span>
+<span class="font-label-md text-label-md text-filament-majorelle block">En revue technique</span>
+</div>
+<button class="p-2 bg-surface-container-lowest rounded-lg hover:bg-surface-sand transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT: PHYSICAL FILAMENT INVENTORY & AMS LITE SYSTEM (5 COLS) -->
+<div class="xl:col-span-5 flex flex-col gap-space-xl">
+<!-- Filament Physical Stocks Section -->
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-filament-majorelle text-[22px]">view_in_ar</span>
+<span class="font-headline-sm text-headline-sm text-ink-anthracite">Stocks Filaments Physiques</span>
+</div>
+<span class="font-label-md text-label-md text-ink-muted mt-0.5">Télémétrie AMS Lite &amp; Racks d'atelier Maarif</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-sand px-2.5 py-1 rounded-full text-label-md font-label-md text-ink-anthracite">
+<span class="w-2 h-2 rounded-full bg-filament-majorelle animate-pulse"></span>
+<span>RFID Hub Sync</span>
+</div>
+</div>
+<!-- 5 Filament Gauges -->
+<div class="flex flex-col gap-space-md">
+<!-- Bobine 1: Noir Basalte -->
+<div class="p-space-sm bg-surface-sand rounded-xl flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded-full bg-[#1e2022] shadow-sm"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">Noir Basalte</span>
+<span class="font-label-md text-label-md text-ink-muted">(PLA Mat 1.75mm)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-price-lg text-price-lg text-ink-anthracite">3.4</span>
+<span class="font-label-md text-label-md text-ink-muted">kg restants</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-ink-anthracite font-label-md text-label-md font-bold">VERT</span>
+</div>
+</div>
+<!-- Gauge Bar -->
+<div class="w-full bg-surface-container-lowest h-2.5 rounded-full overflow-hidden">
+<div class="bg-filament-majorelle h-full rounded-full" style="width: 68%;"></div>
+</div>
+<div class="flex items-center justify-between text-label-md font-label-md text-ink-muted">
+<span>Slot AMS #1 • Bobine 5kg Bulk</span>
+<span>Autonomie: ~42 pièces moyennes</span>
+</div>
+</div>
+<!-- Bobine 2: Blanc Albâtre / Ivoire -->
+<div class="p-space-sm bg-surface-sand rounded-xl flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded-full bg-[#fdfbf7] shadow-sm ring-1 ring-border-warm"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">Blanc Albâtre / Ivoire</span>
+<span class="font-label-md text-label-md text-ink-muted">(PLA Soie Tadelakt)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-price-lg text-price-lg text-ink-anthracite">4.1</span>
+<span class="font-label-md text-label-md text-ink-muted">kg restants</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-ink-anthracite font-label-md text-label-md font-bold">VERT</span>
+</div>
+</div>
+<!-- Gauge Bar -->
+<div class="w-full bg-surface-container-lowest h-2.5 rounded-full overflow-hidden">
+<div class="bg-filament-majorelle h-full rounded-full" style="width: 82%;"></div>
+</div>
+<div class="flex items-center justify-between text-label-md font-label-md text-ink-muted">
+<span>Slot AMS #2 • Bobine Haute Finition</span>
+<span>Autonomie: ~58 pièces</span>
+</div>
+</div>
+<!-- Bobine 3: Bleu Majorelle -->
+<div class="p-space-sm bg-surface-sand rounded-xl flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded-full bg-filament-majorelle shadow-sm"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">Bleu Majorelle</span>
+<span class="font-label-md text-label-md text-filament-majorelle font-semibold">(PLA Signature)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-price-lg text-price-lg text-filament-terracotta">1.2</span>
+<span class="font-label-md text-label-md text-ink-muted">kg restants</span>
+<span class="px-2 py-0.5 rounded bg-filament-terracotta/20 text-filament-terracotta font-label-md text-label-md font-bold">SEUIL MINI</span>
+</div>
+</div>
+<!-- Gauge Bar -->
+<div class="w-full bg-surface-container-lowest h-2.5 rounded-full overflow-hidden">
+<div class="bg-filament-terracotta h-full rounded-full" style="width: 24%;"></div>
+</div>
+<div class="flex items-center justify-between text-label-md font-label-md text-ink-muted">
+<span>Slot AMS #3 • Couleur Emblématique</span>
+<span class="text-filament-terracotta font-semibold">Réassort recommandé sous 48h</span>
+</div>
+</div>
+<!-- Bobine 4: Rouge Atlas -->
+<div class="p-space-sm bg-surface-sand rounded-xl flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded-full bg-filament-terracotta shadow-sm"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">Rouge Atlas</span>
+<span class="font-label-md text-label-md text-ink-muted">(PLA Tough)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-price-lg text-price-lg text-ink-anthracite">2.8</span>
+<span class="font-label-md text-label-md text-ink-muted">kg restants</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-ink-anthracite font-label-md text-label-md font-bold">VERT</span>
+</div>
+</div>
+<!-- Gauge Bar -->
+<div class="w-full bg-surface-container-lowest h-2.5 rounded-full overflow-hidden">
+<div class="bg-filament-majorelle h-full rounded-full" style="width: 56%;"></div>
+</div>
+<div class="flex items-center justify-between text-label-md font-label-md text-ink-muted">
+<span>Slot AMS #4 • Grade Technique</span>
+<span>Autonomie: ~35 boîtiers industriels</span>
+</div>
+</div>
+<!-- Bobine 5: Or Soyeux d'Atelier -->
+<div class="p-space-sm bg-gold-zellige/10 rounded-xl flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded-full bg-gold-zellige shadow-sm"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">Or Soyeux d'Atelier</span>
+<span class="font-label-md text-label-md text-gold-zellige font-bold">(Spécial Fiançailles)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-price-lg text-price-lg text-error">0.8</span>
+<span class="font-label-md text-label-md text-ink-muted">kg restant</span>
+<span class="px-2 py-0.5 rounded bg-error/15 text-error font-label-md text-label-md font-bold animate-pulse">ALERTE RÉASSORT</span>
+</div>
+</div>
+<!-- Gauge Bar -->
+<div class="w-full bg-surface-container-lowest h-2.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 16%;"></div>
+</div>
+<div class="flex items-center justify-between text-label-md font-label-md text-ink-muted">
+<span>Spool Externe #5 • Très forte demande</span>
+<span class="text-error font-semibold">Insuffisant pour devis Ghita (150 pcs)</span>
+</div>
+</div>
+</div>
+<!-- Supplier Quick CTA Buttons -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs pt-space-xs">
+<a class="px-space-sm py-2.5 bg-ink-anthracite text-on-primary rounded-lg font-title-md text-title-md flex items-center justify-center gap-space-xs hover:bg-filament-majorelle transition-all text-center" href="https://store.bambulab.com" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>Commander Bambu Officiel</span>
+</a>
+<button class="px-space-sm py-2.5 bg-surface-sand text-ink-anthracite rounded-lg font-title-md text-title-md flex items-center justify-center gap-space-xs hover:bg-surface-sand-subtle transition-all text-center" onclick="openLocalSupplierModal()">
+<span class="material-symbols-outlined text-[18px] text-filament-terracotta">storefront</span>
+<span>Fournisseur Local Casa</span>
+</button>
+</div>
+</div>
+<!-- Spool Profitability & ROI Calculator Widget -->
+<div class="bg-surface-sand rounded-2xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-gold-zellige text-[22px]">calculate</span>
+<span class="font-headline-sm text-headline-sm text-ink-anthracite">Calculateur de Rentabilité</span>
+</div>
+<span class="font-label-md text-label-md text-ink-muted">Modèle 1kg PLA Spool</span>
+</div>
+<!-- Visual ROI Metrics Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between border-b-0 pb-1">
+<span class="font-body-md text-body-md text-ink-muted">Unité de base d'extrusion :</span>
+<span class="font-title-md text-title-md text-ink-anthracite font-bold">1 Bobine Physique (1,000 g)</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs text-center py-space-xs bg-surface-sand/50 rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-ink-muted">Rendement Pièces</span>
+<span class="font-price-lg text-price-lg text-ink-anthracite mt-1">90 pcs</span>
+<span class="font-label-md text-label-md text-ink-muted">Porte-clés Zellige</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-ink-muted">Coût Bobine</span>
+<span class="font-price-lg text-price-lg text-filament-terracotta mt-1">220 MAD</span>
+<span class="font-label-md text-label-md text-ink-muted">Matière brute</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-ink-muted">Chiffre d'Affaires</span>
+<span class="font-price-lg text-price-lg text-filament-majorelle mt-1">4,410 MAD</span>
+<span class="font-label-md text-label-md text-filament-majorelle font-semibold">49 MAD / unité</span>
+</div>
+</div>
+<!-- Profit Progress Indicator -->
+<div class="flex flex-col gap-1 mt-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-ink-muted">Marge brute d'atelier dégagée :</span>
+<span class="text-filament-majorelle font-bold">4,190 MAD (95.0% de marge brute)</span>
+</div>
+<div class="w-full bg-surface-sand h-3 rounded-full overflow-hidden flex">
+<div class="bg-filament-terracotta h-full" style="width: 5%;" title="Coût Matière: 220 MAD"></div>
+<div class="bg-filament-majorelle h-full" style="width: 95%;" title="Bénéfice Brut: 4,190 MAD"></div>
+</div>
+<div class="flex justify-between text-[11px] text-ink-muted">
+<span>Coût matière (5%)</span>
+<span>Valeur ajoutée &amp; Impression Bambu (95%)</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-ink-muted text-xs leading-relaxed">
+          *Calculé sur la base de pièces calibrées à 11g de matière consommée (remplissage gyroid 15% + support d'arbre). Frais électriques d'atelier Maarif (0.35 MAD / pièce) non déduits.
+        </p>
+</div>
+</div>
+</div>
+<!-- Interactive Modal / Slide-over Simulation for Quote or Local Supplier -->
+<div class="fixed inset-0 z-50 bg-ink-anthracite/60 backdrop-blur-sm hidden flex items-center justify-center p-space-md" id="supplierModal">
+<div class="bg-surface-container-lowest w-full max-w-lg rounded-2xl p-space-lg shadow-2xl flex flex-col gap-space-md relative animate-in fade-in zoom-in-95 duration-200">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-filament-terracotta text-[24px]">local_shipping</span>
+<span class="font-headline-sm text-headline-sm text-ink-anthracite">Fournisseur Local Casablanca</span>
+</div>
+<button class="p-1 rounded-lg text-ink-muted hover:text-ink-anthracite hover:bg-surface-sand transition-colors" onclick="closeLocalSupplierModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-ink-muted">
+        Commander un réassort urgent le jour même pour le hub Maarif auprès de nos distributeurs agréés au Maroc (Sidi Maârouf ou Bd Ghandi).
+      </p>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-ink-muted uppercase">Sélectionner Filament à réapprovisionner</label>
+<select class="w-full bg-surface-sand p-2.5 rounded-lg font-title-md text-title-md text-ink-anthracite outline-none" id="modalFilamentSelect">
+<option value="gold">Or Soyeux d'Atelier (Spécial Fiançailles) - URGENT</option>
+<option value="majorelle">Bleu Majorelle Signature PLA (1.2 kg restants)</option>
+<option value="black">Noir Basalte PLA Mat 1.75mm</option>
+<option value="white">Blanc Albâtre / Ivoire</option>
+<option value="red">Rouge Atlas PLA Tough</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-ink-muted uppercase">Quantité (Bobines 1kg)</label>
+<input class="w-full bg-surface-sand p-2 rounded-lg font-title-md text-title-md text-ink-anthracite outline-none" max="20" min="1" type="number" value="3"/>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-ink-muted uppercase">Délai Coursier</label>
+<div class="p-2 bg-surface-sand rounded-lg font-title-md text-title-md text-filament-majorelle font-semibold">
+            Livraison Express 3h Casa
+          </div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-xs mt-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded-lg font-title-md text-title-md text-ink-muted hover:bg-surface-sand" onclick="closeLocalSupplierModal()">
+          Annuler
+        </button>
+<button class="px-space-lg py-2 bg-filament-majorelle text-on-primary rounded-lg font-title-md text-title-md hover:bg-ink-anthracite transition-all shadow-md" onclick="submitSupplierOrder()">
+          Envoyer Commande Coursier
+        </button>
+</div>
+</div>
+</div>
+<!-- Toast Notification element -->
+<div class="fixed bottom-6 right-6 z-50 bg-ink-anthracite text-on-primary px-space-md py-space-sm rounded-xl shadow-xl flex items-center gap-space-sm transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<span class="material-symbols-outlined text-gold-zellige text-[22px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-primary" id="toastTitle">Document généré</span>
+<span class="font-label-md text-label-md text-surface-sand-subtle" id="toastDesc">Devis WhatsApp prêt pour M. Mehdi Alami</span>
+</div>
+</div>
+<script>
+    function setFilter(type) {
+      const tabs = document.querySelectorAll('.crm-tab');
+      tabs.forEach(t => {
+        t.className = 'crm-tab px-space-sm py-1.5 rounded-lg font-label-lg text-label-lg text-ink-muted hover:text-ink-anthracite transition-all';
+      });
+
+      const activeTab = document.getElementById('tab-' + type);
+      if (activeTab) {
+        activeTab.className = 'crm-tab px-space-sm py-1.5 rounded-lg font-label-lg text-label-lg bg-ink-anthracite text-on-primary shadow-sm transition-all';
+      }
+
+      showToast('Filtre CRM appliqué', 'Affichage des fiches pour : ' + type.toUpperCase());
+    }
+
+    function openLocalSupplierModal() {
+      document.getElementById('supplierModal').classList.remove('hidden');
+    }
+
+    function closeLocalSupplierModal() {
+      document.getElementById('supplierModal').classList.add('hidden');
+    }
+
+    function submitSupplierOrder() {
+      closeLocalSupplierModal();
+      showToast('Ordre Envoyé au Fournisseur', 'Coursier Casablanca notifié pour récupération d\'urgence.');
+    }
+
+    function triggerInvoiceNotification() {
+      showToast('Facture ICE / WhatsApp Générée', 'Fiche Café L\'Ocre exportée avec mentions fiscales.');
+    }
+
+    function showToast(title, desc) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastDesc').textContent = desc;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+
+    document.getElementById('btnOpenQuoter')?.addEventListener('click', () => {
+      showToast('Module Devis 3D Ouvert', 'Initialisation du calculateur volumétrique BAMBU-A1...');
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-sand-subtle py-space-sm px-space-xl flex flex-col md:flex-row items-center justify-between gap-space-xs text-ink-muted font-label-md text-label-md"><div class="flex items-center gap-space-md"><span>MustDesign3D OS • Bambu Farm Suite v2.4</span><span class="hidden sm:inline">•</span><span class="hidden sm:inline">Cluster MQTT Broker: En ligne (Casablanca DC)</span><span class="hidden sm:inline">•</span><span class="hidden sm:inline">Passerelle WhatsApp COD: Connectée</span></div><div class="flex items-center gap-space-xs"><span>Firmware Bambu A1 v01.03.01.00</span><span class="w-1.5 h-1.5 rounded-full bg-filament-majorelle"></span></div></footer></div></body></html>

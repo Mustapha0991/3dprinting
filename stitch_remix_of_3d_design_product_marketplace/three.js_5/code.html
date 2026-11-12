@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_68 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_68" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_68');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  # 📸 BIBLIOTHÈQUE PHOTOGRAPHIQUE & GUIDE CODEX / GEMINI API — MUSTDESIGN3D
+## Catalogue Complet des 20+ Assets Visuels, Mapping des Fichiers Next.js & Script Automatisé d'Intégration
+
+Ce document rassemble l'inventaire exhaustif de tous les visuels commerciaux générés pour **MustDesign3D**, avec leurs identifiants de placeholders, leurs fichiers de destination dans le projet Next.js (`lib/catalogue.server.ts`), ainsi que le script prêt à l'emploi pour générer ou mettre à jour les photos avec l'API Gemini / Imagen.
+
+---
+
+### 1. TABLEAU DE MAPPING DES ASSETS VISUELS (NEXT.JS & CODEX)
+
+| # | Réf Produit / Composant | Nom de la Référence | Destination Locale Next.js | Placeholder DataStore | Fichier CAD Associé |
+|---|---|---|---|---|---|
+| **01** | `md-ringbox-01` | **Boîte à Bagues 'حب / Love'** | `/public/products/ringbox-love.webp` | `{{DATA:IMAGE:IMAGE_7}}` | `production/boite-bagues.scad` |
+| **02** | `md-jersey-keychain` | **Porte-clés Maillot Maroc** | `/public/products/maillot-maroc.webp` | `{{DATA:IMAGE:IMAGE_9}}` | `production/maillot-maroc.scad` |
+| **03** | `md-wall-map` | **Carte du Maroc en Relief 3D** | `/public/products/carte-maroc-relief.webp` | `{{DATA:IMAGE:IMAGE_6}}` | `production/carte-maroc.scad` |
+| **04** | `md-coasters-04` | **Set 4 Sous-verres Zellige** | `/public/products/sous-verres-zellige.webp` | `{{DATA:IMAGE:IMAGE_8}}` | `production/sous-verres-zellige.scad` |
+| **05** | `md-keychain-01` | **Porte-clés Prénom Youssef** | `/public/products/porte-cles-youssef.webp` | `{{DATA:IMAGE:IMAGE_29}}` | `production/porte-cles-prenom.scad` |
+| **06** | `md-qr-01` | **Présentoir QR & Google Avis** | `/public/products/support-qr-cafe.webp` | `{{DATA:IMAGE:IMAGE_28}}` | `production/support-qr.scad` |
+| **07** | `md-desk-01` | **Plaque Bureau Architecte** | `/public/products/plaque-bureau-tazi.webp` | `{{DATA:IMAGE:IMAGE_26}}` | `production/plaque-bureau.scad` |
+| **08** | `md-door-01` | **Plaque Porte 'Dar Yasmine'** | `/public/products/plaque-porte-yasmine.webp` | `{{DATA:IMAGE:IMAGE_25}}` | `production/plaque-porte.scad` |
+| **09** | `md-plate-01` | **Porte-clés Matricule Maroc** | `/public/products/plaque-matricule.webp` | `{{DATA:IMAGE:IMAGE_23}}` | `production/plaque-matricule.scad` |
+| **10** | `md-pixel-01` | **Tableau Pixel Art Zellige** | `/public/products/tableau-pixel-zellige.webp` | `{{DATA:IMAGE:IMAGE_24}}` | `production/plaque-pixel-zellige.scad` |
+| **11** | `md-place-01` | **Marque-places Mariage Lina** | `/public/products/marque-places-mariage.webp` | `{{DATA:IMAGE:IMAGE_27}}` | `production/marque-places.scad` |
+| **12** | `md-baby-sign` | **Plaque Naissance Kenza** | `/public/products/plaque-naissance-kenza.webp` | `{{DATA:IMAGE:IMAGE_10}}` | `production/medaillon-naissance.scad` |
+| **13** | `md-nfc-stand` | **Chevalet Table Menu & NFC** | `/public/products/chevalet-menu-nfc.webp` | `{{DATA:IMAGE:IMAGE_11}}` | `production/chevalet-menu-nfc.scad` |
+| **14** | `md-candle-holder`| **Photophore Moucharabieh** | `/public/products/photophore-moucharabieh.webp` | `{{DATA:IMAGE:IMAGE_12}}` | `production/photophore-moucharabieh.scad` |
+| **15** | `md-vase-facette` | **Soliflore Paramétrique Fès** | `/public/products/vase-facette-terracotta.webp` | `{{DATA:IMAGE:IMAGE_13}}` | `production/vase-soliflore.scad` |
+| **16** | `md-city-01` | **Skyline Mosquée Hassan II** | `/public/products/skyline-casablanca.webp` | `{{DATA:IMAGE:IMAGE_15}}` | `production/ville-maroc.scad` |
+| **17** | `md-bag-01` | **Étiquette Bagage Géométrique** | `/public/products/etiquette-bagage-cuir.webp` | `{{DATA:IMAGE:IMAGE_16}}` | `production/etiquette-sac.scad` |
+| **18** | `md-desk-stand` | **Support Téléphone & Stylos** | `/public/products/support-bureau-organiseur.webp` | `{{DATA:IMAGE:IMAGE_17}}` | `production/support-telephone.scad` |
+| **19** | `md-bab-bookends` | **Serre-Livres Portes Riad Bab** | `/public/products/serre-livres-bab-riad.webp` | `{{DATA:IMAGE:IMAGE_65}}` | `production/serre-livres-bab.scad` |
+| **20** | `md-card-stand` | **Présentoir Cartes de Visite** | `/public/products/porte-cartes-architecte.webp` | `{{DATA:IMAGE:IMAGE_66}}` | `production/porte-cartes.scad` |
+| **21** | `md-ramadan-crescent` | **Centre de Table Croissant Eid** | `/public/products/centre-table-croissant.webp` | `{{DATA:IMAGE:IMAGE_67}}` | `production/croissant-ramadan.scad` |
+| **22** | `brand-icon` | **Apple Touch Icon (180x180)** | `/public/icons/apple-touch-icon.png` | `{{DATA:IMAGE:IMAGE_21}}` | *Asset Branding* |
+| **23** | `brand-pwa` | **Favicon & Web App Icon** | `/public/icons/icon-512x512.png` | `{{DATA:IMAGE:IMAGE_22}}` | *Asset Branding* |
+
+---
+
+### 2. SCRIPT NODE.JS D'INTÉGRATION AUTOMATIQUE VIA L'API GEMINI
+
+Voici le script `scripts/generate-catalogue-images.mjs` à exécuter dans votre projet pour régénérer ou télécharger directement les photos avec votre clé `GEMINI_API_KEY` :
+
+```javascript
+import fs from 'node:fs';
+import path from 'node:path';
+import { GoogleGenAI } from '@google/genai';
+
+// 1. Initialisation avec votre clé API Gemini
+const apiKey = process.env.GEMINI_API_KEY;
+if (!apiKey) {
+  console.error('❌ Erreur : Veuillez définir la variable GEMINI_API_KEY');
+  process.exit(1);
+}
+
+const ai = new GoogleGenAI({ apiKey });
+const outputDir = path.resolve('public/products');
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+// 2. Définition des prompts d'atelier conformes au Master Prompt
+const imageTasks = [
+  {
+    filename: 'ringbox-love.webp',
+    prompt: `Commercial luxury product photography of a modern 3D printed Moroccan wedding ring box. Hexagonal faceted jewelry box printed on Bambu Lab A1 with ultra-fine 0.16mm layers in ivory alabaster porcelain PLA (#FEF8F4). The lid features ornate 1.2mm raised Arabic calligraphy in satin polished gold (#D49B42) reading 'حب / Love'. Open box showing midnight blue velvet interior cushion holding two wedding rings on a silk runner with white jasmine petals. Soft morning sunlight, 85mm lens, f/3.2.`
+  },
+  {
+    filename: 'maillot-maroc.webp',
+    prompt: `Commercial product photography of a premium 3D printed Moroccan national football team jersey keychain (Lions de l'Atlas). FDM 3D printed on Bambu Lab A1 with crisp 0.16mm layers. Vibrant Moroccan deep red PLA base (#B92B32) with emerald green collar, crisp raised 1.2mm relief white number '10' and personalized name 'HAKIMI'. Solid brass clasp, resting on light oak table with mint tea accessories, 85mm lens, f/4.`
+  },
+  {
+    filename: 'carte-maroc-relief.webp',
+    prompt: `Commercial product photography of a premium 3D printed multi-layered architectural relief map of Morocco. Precision FDM 3D printed on Bambu Lab A1 with distinct contour topographic layers. Rich textured bioplastic PLA in Majorelle blue (#233D99), terracotta ocre (#C25E3E) and sand ivory. Mounted in minimalist oak wood frame on executive desk.`
+  },
+  {
+    filename: 'sous-verres-zellige.webp',
+    prompt: `Commercial product photography of a premium set of 4 modern 3D printed Moroccan zellige geometric coasters with holder stand. FDM 3D printed on Bambu Lab A1, octagonal interlocking star pattern in Majorelle blue, ivory white and terracotta ocre. Next to steaming glass of mint tea on travertine stone.`
+  }
+];
+
+async function generateAll() {
+  console.log(`🚀 Démarrage de la génération photographique pour ${imageTasks.length} produits...`);
+  
+  for (const task of imageTasks) {
+    const dest = path.join(outputDir, task.filename);
+    console.log(`📸 Génération de : ${task.filename}...`);
+    try {
+      const response = await ai.models.generateImages({
+        model: 'imagen-3.0-generate-002',
+        prompt: task.prompt,
+        config: {
+          numberOfImages: 1,
+          aspectRatio: '4:5',
+          outputMimeType: 'image/webp',
+        },
+      });
+
+      const base64ImageBytes = response.generatedImages[0].image.imageBytes;
+      fs.writeFileSync(dest, Buffer.from(base64ImageBytes, 'base64'));
+      console.log(`✅ Enregistré avec succès : ${dest}`);
+    } catch (err) {
+      console.error(`❌ Échec pour ${task.filename} :`, err.message);
+    }
+  }
+  console.log('✨ Toutes les images ont été générées et intégrées dans /public/products !');
+}
+
+generateAll();
+```
+
+---
+
+### 3. CONFIGURATION TYPESCRIPT DANS NEXT.JS (`lib/catalogue.server.ts`)
+
+Pour mapper immédiatement ces photographies dans votre code source Next.js local :
+
+```typescript
+// lib/catalogue.server.ts
+export const productCommercialImages: Record<string, { src: string; alt: string }> = {
+  'porte-cles-maillot-maroc': {
+    src: '/products/maillot-maroc.webp',
+    alt: 'Porte-clés maillot Maroc Lions de l’Atlas en relief 3D et flocage personnalisé'
+  },
+  'boite-a-bagues-fiancailles': {
+    src: '/products/ringbox-love.webp',
+    alt: 'Écrin hexagonal de fiançailles حب / Love en bioplastique ivoire et or satiné'
+  },
+  'carte-maroc-relief-3d': {
+    src: '/products/carte-maroc-relief.webp',
+    alt: 'Carte topographique du Maroc en relief 3D avec cadre en chêne massif'
+  },
+  'set-sous-verres-zellige': {
+    src: '/products/sous-verres-zellige.webp',
+    alt: 'Set de 4 sous-verres géométriques zellige marocain avec dock de rangement'
+  },
+  'porte-cles-prenom': {
+    src: '/products/porte-cles-youssef.webp',
+    alt: 'Porte-clés prénom bilingue Youssef en relief 3D et Bleu Majorelle'
+  },
+  'support-qr': {
+    src: '/products/support-qr-cafe.webp',
+    alt: 'Présentoir QR code et Google Avis pour cafés et commerces'
+  },
+  'plaque-bureau': {
+    src: '/products/plaque-bureau-tazi.webp',
+    alt: 'Plaque de bureau nominative bilingue d’architecte'
+  }
+};
+```
+
+---
+
+### 4. INSTRUCTIONS D'EXÉCUTION DANS CODEX / VS CODE
+
+1. **Créer le dossier des médias** : `mkdir -p public/products public/icons`
+2. **Ajouter la clé API Gemini** dans votre fichier `.env.local` :
+   ```bash
+   GEMINI_API_KEY="AIzaSyYourGeminiApiKeyHere"
+   ```
+3. **Lancer la génération des visuels** :
+   ```bash
+   node scripts/generate-catalogue-images.mjs
+   ```
+4. **Tester le build Next.js** :
+   ```bash
+   npm run typecheck && npm run build
+   ```
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_68 -->
+</body>
+</html>

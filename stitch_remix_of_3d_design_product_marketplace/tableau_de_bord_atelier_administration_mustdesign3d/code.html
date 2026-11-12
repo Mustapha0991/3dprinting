@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-variant": "#e7e1dd", "surface-sand": "#F5EFEB", "primary-fixed-dim": "#c6c6c9", "surface-sand-subtle": "#EFE8E0", "filament-majorelle": "#1E40AF", "on-secondary-container": "#00217a", "primary-container": "#1e2022", "on-secondary": "#ffffff", "inverse-surface": "#32302e", "secondary-fixed-dim": "#b8c4ff", "on-primary-fixed": "#1a1c1e", "on-primary-fixed-variant": "#454749", "on-tertiary-fixed-variant": "#5c4300", "outline": "#75777a", "ink-muted": "#686D76", "on-tertiary-fixed": "#261900", "gold-zellige": "#D9A93C", "secondary-container": "#708cfd", "tertiary": "#0e0700", "tertiary-fixed-dim": "#f2bf50", "background": "#fef8f4", "surface-container-low": "#f8f2ee", "accent-majorelle": "#1E40AF", "primary-fixed": "#e2e2e5", "on-error": "#ffffff", "on-secondary-fixed": "#001453", "on-primary-container": "#86878a", "on-primary": "#ffffff", "canvas-cream": "#FDFBF7", "on-tertiary-container": "#ac8111", "error": "#ba1a1a", "on-error-container": "#93000a", "tertiary-container": "#2c1e00", "accent-majorelle-soft": "#EEF2FF", "filament-terracotta": "#B85D3B", "border-warm": "#E6DFD5", "secondary-fixed": "#dde1ff", "filament-black": "#1A1A1A", "surface-container-highest": "#e7e1dd", "inverse-on-surface": "#f6f0ec", "on-surface-variant": "#44474a", "surface-tint": "#5d5e61", "primary": "#06080a", "tertiary-fixed": "#ffdea1", "on-background": "#1d1b19", "ink-anthracite": "#1E2022", "on-surface": "#1d1b19", "surface-dim": "#dfd9d5", "error-container": "#ffdad6", "on-tertiary": "#ffffff", "surface": "#fef8f4", "surface-container": "#f3ede9", "secondary": "#3755c3", "outline-variant": "#c5c6ca", "on-secondary-fixed-variant": "#173bab", "surface-bright": "#fef8f4", "surface-container-lowest": "#ffffff", "surface-container-high": "#ede7e3", "filament-white": "#FDFBF7", "inverse-primary": "#c6c6c9" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin": "2rem", "space-2xl": "4rem", "space-lg": "1.5rem", "space-2xs": "0.25rem", "gutter": "1.5rem", "space-sm": "0.75rem", "space-xl": "2.5rem", "space-xs": "0.5rem", "gutter-mobile": "0.75rem", "margin-mobile": "1rem", "space-md": "1rem" }, "fontFamily": { "body-lg": [ "Manrope" ], "headline-lg-mobile": [ "Noto Serif" ], "headline-lg": [ "Noto Serif" ], "headline-sm": [ "Noto Serif" ], "display-lg": [ "Noto Serif" ], "body-md": [ "Manrope" ], "label-md": [ "Manrope" ], "price-lg": [ "Manrope" ], "label-lg": [ "Manrope" ], "headline-md": [ "Noto Serif" ], "display-lg-mobile": [ "Noto Serif" ], "arabic-title": [ "Noto Serif" ], "title-md": [ "Manrope" ] }, "fontSize": { "body-lg": [ "16px", { "lineHeight": "26px", "fontWeight": "400" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "letterSpacing": "0", "fontWeight": "500" } ], "headline-lg": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "fontWeight": "500" } ], "display-lg": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "400" } ], "body-md": [ "14px", { "lineHeight": "22px", "fontWeight": "400" } ], "label-md": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" } ], "price-lg": [ "20px", { "lineHeight": "24px", "fontWeight": "700" } ], "label-lg": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "headline-md": [ "24px", { "lineHeight": "32px", "fontWeight": "500" } ], "display-lg-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "arabic-title": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "title-md": [ "16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-xs"><span class="w-7 h-7 rounded-xl bg-ink-anthracite flex items-center justify-center text-filament-white text-[14px] font-bold">M3D</span><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-ink-anthracite leading-none">MustDesign3D</span><span class="font-label-md text-label-md text-ink-muted uppercase tracking-wider">Studio Back-Office</span></div></div></div><div class="px-space-md py-space-sm"><div class="bg-surface-sand p-space-xs rounded-xl flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-filament-terracotta">location_on</span><span class="font-label-lg text-label-lg text-on-surface">Casablanca • Maarif Hub</span></div><span class="material-symbols-outlined text-[16px] text-ink-muted">expand_more</span></div></div><div class="px-space-md py-space-xs"><span class="px-space-xs font-label-md text-label-md text-ink-muted uppercase">Atelier &amp; Operations</span></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-ink-anthracite text-on-primary font-title-md"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl transition-colors bg-ink-anthracite text-on-primary font-title-md" data-path="tableau-de-bord" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span><span>Tableau de bord</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="commandes-et-bat-cod" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span>Commandes &amp; BAT (COD)</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="file-dimpression-3d-et-ams" href="#"><span class="material-symbols-outlined text-[20px]">print</span><span>File d'impression 3D &amp; AMS</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="clients-et-devis-b2b" href="#"><span class="material-symbols-outlined text-[20px]">request_quote</span><span>Clients &amp; Devis B2B</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="stocks-filaments-et-materiaux" href="#"><span class="material-symbols-outlined text-[20px]">view_in_ar</span><span>Stocks Filaments &amp; Matériaux</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="parametres-atelier" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span>Paramètres Atelier</span></a></nav></div><div class="p-space-md flex flex-col gap-space-xs bg-surface-container"><div class="flex items-center justify-between text-ink-muted"><span class="font-label-md text-label-md uppercase tracking-wider">Bambu Lab LAN</span><span class="font-label-md text-label-md text-filament-majorelle font-semibold">4 / 4 ONLINE</span></div><div class="grid grid-cols-4 gap-1.5"><div class="h-1.5 rounded-full bg-filament-majorelle"></div><div class="h-1.5 rounded-full bg-filament-majorelle"></div><div class="h-1.5 rounded-full bg-filament-majorelle"></div><div class="h-1.5 rounded-full bg-gold-zellige animate-pulse"></div></div><div class="flex items-center justify-between pt-space-2xs text-ink-muted font-label-md text-label-md"><span>AMS Hub Sync: Actif</span><span>Ping: 14ms</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-canvas-cream/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md"><div class="inline-flex items-center gap-space-xs bg-surface-sand px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-filament-majorelle animate-ping"></span><span class="font-label-lg text-label-lg text-ink-anthracite font-semibold">Ferme Bambu A1 (Maarif): 3 en impression • 1 en calibration</span></div><span class="font-arabic-title text-arabic-title text-ink-muted hidden xl:inline">ورشة موست ديزاين الدار البيضاء</span></div><div class="flex items-center gap-space-md"><button class="relative p-2 rounded-xl text-ink-muted hover:text-ink-anthracite hover:bg-surface-sand transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">mark_chat_unread</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-filament-terracotta"></span></button><button class="relative p-2 rounded-xl text-ink-muted hover:text-ink-anthracite hover:bg-surface-sand transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-gold-zellige"></span></button><div class="h-6 w-px bg-surface-variant"></div><div class="flex items-center gap-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-lg text-label-lg text-ink-anthracite leading-none">Taha E.</span><span class="font-label-md text-label-md text-ink-muted leading-tight">Gestionnaire Atelier</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-background px-space-xl min-h-screen"><div class="flex flex-col w-full pb-space-2xl">
+<!-- Operational Notice Banner -->
+<div class="mt-space-md mb-space-lg bg-surface-container-high rounded-xl p-space-sm shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-gold-zellige/20 text-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-on-tertiary-container">schedule</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-tertiary-container uppercase tracking-widest font-semibold">Validation Client Critique</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-gold-zellige animate-ping"></span>
+</div>
+<p class="font-title-md text-title-md text-ink-anthracite">
+          2 BAT en attente de réponse WhatsApp client avant lancement sur Bambu Lab A1 #02
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end md:self-auto">
+<button class="bg-surface-sand hover:bg-surface-sand-subtle text-ink-anthracite px-space-sm py-1.5 rounded font-label-lg text-label-lg transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>Relancer WhatsApp</span>
+</button>
+<button class="bg-primary hover:bg-filament-majorelle text-on-primary px-space-sm py-1.5 rounded font-label-lg text-label-lg transition-colors">
+        Consulter fiches
+      </button>
+</div>
+</div>
+<!-- Hero KPI Row (Dirhams, COD, WhatsApp BAT, Farm Uptime) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-xl">
+<!-- Daily Revenue -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-ink-muted uppercase">Chiffre d'Affaires du Jour</span>
+<span class="w-8 h-8 rounded-full bg-accent-majorelle-soft text-accent-majorelle flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-ink-anthracite font-normal tracking-tight">4,850</span>
+<span class="font-price-lg text-price-lg text-ink-muted">MAD</span>
+</div>
+<div class="flex items-center gap-1 text-accent-majorelle mt-1 font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+<span>+18.4% vs hier (3,980 MAD)</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-ink-muted font-label-md text-label-md pt-space-xs bg-surface-sand/40 -mx-space-lg -mb-space-lg px-space-lg py-2">
+<span>32 commandes réglées</span>
+<span class="font-arabic-title text-[12px] text-ink-muted">درهم مغربي</span>
+</div>
+</div>
+<!-- Cash On Delivery Parcels -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-ink-muted uppercase">Colis COD à expédier</span>
+<span class="w-8 h-8 rounded-full bg-surface-sand text-filament-terracotta flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-ink-anthracite font-normal tracking-tight">24</span>
+<span class="font-label-lg text-label-lg text-ink-muted">colis prêts</span>
+</div>
+<div class="flex items-center gap-1 text-ink-anthracite mt-1 font-label-lg text-label-lg">
+<span class="inline-block w-2 h-2 rounded-full bg-filament-terracotta"></span>
+<span>Amana Messagerie • Enlèvement 16h30</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-ink-muted font-label-md text-label-md pt-space-xs bg-surface-sand/40 -mx-space-lg -mb-space-lg px-space-lg py-2">
+<span>Valeur encaissable COD</span>
+<span class="font-semibold text-ink-anthracite">3,420 MAD</span>
+</div>
+</div>
+<!-- WhatsApp BAT Rate -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-ink-muted uppercase">Taux Validation BAT</span>
+<span class="w-8 h-8 rounded-full bg-surface-sand text-ink-anthracite flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">mark_chat_read</span>
+</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-ink-anthracite font-normal tracking-tight">94.2%</span>
+<span class="font-label-md text-label-md text-accent-majorelle font-semibold">+3.1%</span>
+</div>
+<div class="flex items-center gap-1 text-ink-muted mt-1 font-label-lg text-label-lg">
+<span>Délai moyen de confirmation : 22 min</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-ink-muted font-label-md text-label-md pt-space-xs bg-surface-sand/40 -mx-space-lg -mb-space-lg px-space-lg py-2">
+<span>61 BAT validés ce jour</span>
+<span class="text-filament-majorelle font-semibold">Flux fluide</span>
+</div>
+</div>
+<!-- Bambu Farm Status -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-ink-muted uppercase">Parc Bambu A1 (Atelier)</span>
+<span class="w-8 h-8 rounded-full bg-accent-majorelle-soft text-filament-majorelle flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-ink-anthracite font-normal tracking-tight">4 / 4</span>
+<span class="font-label-md text-label-md text-filament-majorelle font-semibold">100% OK</span>
+</div>
+<div class="flex items-center gap-1 text-ink-muted mt-1 font-label-lg text-label-lg">
+<span>0 bouchage buse • 98% efficacité 0-poop</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-ink-muted font-label-md text-label-md pt-space-xs bg-surface-sand/40 -mx-space-lg -mb-space-lg px-space-lg py-2">
+<span>Buses acier trempé 0.4mm</span>
+<span class="text-ink-anthracite font-semibold">AMS 4-Couleurs</span>
+</div>
+</div>
+</div>
+<!-- Real-Time Print Queue: 4 Bambu Lab A1 Machines -->
+<div class="mb-space-xl">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between mb-space-md gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-filament-majorelle font-semibold uppercase tracking-wider">Atelier Maarif Direct</span>
+<span class="w-2 h-2 rounded-full bg-filament-majorelle animate-pulse"></span>
+</div>
+<h2 class="font-headline-md text-headline-md text-ink-anthracite mt-1">File de Production en Temps Réel</h2>
+</div>
+<div class="flex items-center gap-space-xs text-ink-muted font-label-md text-label-md bg-surface-container px-space-sm py-1.5 rounded-full self-start sm:self-auto">
+<span class="material-symbols-outlined text-[16px] text-filament-majorelle">wifi_tethering</span>
+<span>MQTT Cluster Bambu Connect: 230V Stable</span>
+</div>
+</div>
+<!-- 4 Machine Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Machine 1: Bambu A1-01 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between transition-shadow hover:shadow-md">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-filament-majorelle"></span>
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold">A1-01</span>
+</div>
+<span class="font-label-md text-label-md bg-accent-majorelle-soft text-filament-majorelle px-2 py-0.5 rounded font-semibold uppercase">Impression 78%</span>
+</div>
+<div class="aspect-video bg-surface-sand rounded-lg overflow-hidden relative mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="A clean studio overhead photography of Bambu Lab 3D printer textured PEI plate printing a bespoke Arabic calligraphy keychain with royal Majorelle blue and crisp white PLA filaments, layer lines visible with ultra high precision, warm studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZVqlvqkgeuZ4LQAsP8Ug4vQIShoiQtiDYxAjLQVhzTDcASRAIwuXSAcGbMbeC-jqLEZTMsd9PR9kbggGQ42lab6IsE3pMksdPMdNN9R49Wr6DBM7A0fJPpd66zcHCMQQGlUKKe_LRQY2MdJGtGik6JXaDmn38LKiv3ou_Ocqnaxxgzkdaj4eUSeazRgGwEiqeK1bSKtyGmQ0r8cO1EVHBO0JqCU_ZSl2vlYJsbqQ"/>
+<div class="absolute bottom-2 left-2 bg-ink-anthracite/80 backdrop-blur text-filament-white font-label-md text-label-md px-2 py-0.5 rounded">
+              AMS: Slot 2 &amp; 3
+            </div>
+</div>
+<div class="font-title-md text-title-md text-ink-anthracite line-clamp-1 mb-1">
+            Porte-clés Youssef (Bilingue)
+          </div>
+<p class="font-body-md text-body-md text-ink-muted line-clamp-1 mb-space-sm">
+            Buse: 215°C • Plateau: 62°C • Reste: 14 min
+          </p>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-sand rounded-full h-2 overflow-hidden mb-space-xs">
+<div class="bg-filament-majorelle h-2 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-ink-muted font-label-md text-label-md">
+<div class="flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-filament-majorelle inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-canvas-cream inline-block shadow-sm"></span>
+<span class="ml-1">Bleu Majorelle / Blanc</span>
+</div>
+<span class="font-semibold text-ink-anthracite">78%</span>
+</div>
+</div>
+<!-- Machine 2: Bambu A1-02 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between transition-shadow hover:shadow-md">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-gold-zellige animate-pulse"></span>
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold">A1-02</span>
+</div>
+<span class="font-label-md text-label-md bg-surface-sand text-on-tertiary-container px-2 py-0.5 rounded font-semibold uppercase">Préchauffage</span>
+</div>
+<div class="aspect-video bg-surface-sand rounded-lg overflow-hidden relative mb-space-sm flex items-center justify-center">
+<div class="flex flex-col items-center gap-1 text-ink-muted">
+<span class="material-symbols-outlined text-[32px] text-gold-zellige animate-spin">cyclone</span>
+<span class="font-label-md text-label-md">Plateau PEI en montée (55°C / 65°C)</span>
+</div>
+<div class="absolute bottom-2 left-2 bg-ink-anthracite/80 backdrop-blur text-filament-white font-label-md text-label-md px-2 py-0.5 rounded">
+              AMS: Slot 1 (Noir Mat)
+            </div>
+</div>
+<div class="font-title-md text-title-md text-ink-anthracite line-clamp-1 mb-1">
+            Plaque Bureau 'Maktab'
+          </div>
+<p class="font-body-md text-body-md text-ink-muted line-clamp-1 mb-space-sm">
+            En attente BAT ou forçage manuel • 420g
+          </p>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-sand rounded-full h-2 overflow-hidden mb-space-xs">
+<div class="bg-gold-zellige h-2 rounded-full" style="width: 15%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-ink-muted font-label-md text-label-md">
+<div class="flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-filament-black inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-gold-zellige inline-block"></span>
+<span class="ml-1">Noir Ardoise &amp; Doré</span>
+</div>
+<span class="text-on-tertiary-container font-semibold">Pre-heat</span>
+</div>
+</div>
+<!-- Machine 3: Bambu A1-03 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between transition-shadow hover:shadow-md">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-filament-majorelle"></span>
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold">A1-03</span>
+</div>
+<span class="font-label-md text-label-md bg-accent-majorelle-soft text-filament-majorelle px-2 py-0.5 rounded font-semibold uppercase">Batch 12 Pcs</span>
+</div>
+<div class="aspect-video bg-surface-sand rounded-lg overflow-hidden relative mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="Close-up macro of an automated 3D print bed with 12 miniature red and green football jersey keychains in Moroccan team colors, ultra fine extruded details with Hakimi number 10, clean matte finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChscr8SDx78PGJV-pKTSyV3udfzywP2qA3adf5Vi5SuDJZKBspAQTAqv0PVyiVRZHfhqTgFYKYRtZtnmZHqajYe_qkwNKDbLEp31IRWr4cA1q_L6kKp_iOqOWY6Ktz_LTQpECBr1uzcxAFqD5GJkr4t8N3STgdg5hMFNdS4f0-6YXrz7ZcANwjsvne6MFfsS58VVFxhC6hGGLk5zte5lU-dgW0amgjn9bfOr024Ek"/>
+<div class="absolute bottom-2 left-2 bg-ink-anthracite/80 backdrop-blur text-filament-white font-label-md text-label-md px-2 py-0.5 rounded">
+              AMS: 3 Couleurs Sync
+            </div>
+</div>
+<div class="font-title-md text-title-md text-ink-anthracite line-clamp-1 mb-1">
+            Maillot Maroc Hakimi #10 (x12)
+          </div>
+<p class="font-body-md text-body-md text-ink-muted line-clamp-1 mb-space-sm">
+            Buse: 220°C • Couche 184/320 • Reste: 54 min
+          </p>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-sand rounded-full h-2 overflow-hidden mb-space-xs">
+<div class="bg-filament-majorelle h-2 rounded-full" style="width: 58%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-ink-muted font-label-md text-label-md">
+<div class="flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-error inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-canvas-cream inline-block shadow-sm"></span>
+<span class="ml-1">Rouge Atlas / Blanc</span>
+</div>
+<span class="font-semibold text-ink-anthracite">58%</span>
+</div>
+</div>
+<!-- Machine 4: Bambu A1-04 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between transition-shadow hover:shadow-md">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-filament-terracotta"></span>
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold">A1-04</span>
+</div>
+<span class="font-label-md text-label-md bg-surface-sand text-filament-terracotta px-2 py-0.5 rounded font-semibold uppercase">Terminé • Attente</span>
+</div>
+<div class="aspect-video bg-surface-sand rounded-lg overflow-hidden relative mb-space-sm flex items-center justify-center">
+<div class="flex flex-col items-center gap-1 text-center p-2">
+<span class="material-symbols-outlined text-[32px] text-filament-terracotta">task_alt</span>
+<span class="font-title-md text-title-md text-ink-anthracite">Vase Moucharabieh V2</span>
+<span class="font-label-md text-label-md text-ink-muted">Plateau refroidi (28°C)</span>
+</div>
+<div class="absolute bottom-2 left-2 bg-ink-anthracite/80 backdrop-blur text-filament-white font-label-md text-label-md px-2 py-0.5 rounded">
+              Prêt pour éjection
+            </div>
+</div>
+<div class="font-title-md text-title-md text-ink-anthracite line-clamp-1 mb-1">
+            Vase Évasé Motif Moucharabieh
+          </div>
+<p class="font-body-md text-body-md text-ink-muted line-clamp-1 mb-space-sm">
+            Durée totale : 3h 12m • Poids filament : 185g
+          </p>
+<!-- Progress Bar Full -->
+<div class="w-full bg-surface-sand rounded-full h-2 overflow-hidden mb-space-xs">
+<div class="bg-filament-terracotta h-2 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-ink-muted font-label-md text-label-md">
+<div class="flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-filament-terracotta inline-block"></span>
+<span class="ml-1">Terre Cuite d'Agafay</span>
+</div>
+<button class="text-ink-anthracite hover:text-filament-majorelle font-semibold flex items-center gap-0.5">
+<span>Éjecter</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Split Grid: Orders Table & Niches Analytics + Quick Actions -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- Left Column: Recent Orders (8 cols) -->
+<div class="xl:col-span-8 flex flex-col">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex-1 flex flex-col justify-between">
+<div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-md gap-space-xs">
+<div>
+<span class="font-label-md text-label-md text-ink-muted uppercase">Flux Atelier &amp; Expéditions Amana</span>
+<h3 class="font-headline-sm text-headline-sm text-ink-anthracite">Dernières Commandes Clients &amp; Statuts</h3>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-ink-muted">Filtre :</span>
+<button class="px-space-xs py-1 rounded bg-surface-sand text-ink-anthracite font-label-md text-label-md font-semibold">Toutes (24)</button>
+<button class="px-space-xs py-1 rounded hover:bg-surface-sand text-ink-muted font-label-md text-label-md">COD Amana</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto -mx-space-lg px-space-lg">
+<table class="w-full text-left font-body-md text-body-md border-collapse min-w-[720px]">
+<thead>
+<tr class="bg-surface-sand/50 text-ink-muted font-label-md text-label-md uppercase">
+<th class="py-space-xs px-space-sm rounded-l">N° &amp; Date</th>
+<th class="py-space-xs px-space-sm">Client &amp; Destination</th>
+<th class="py-space-xs px-space-sm">Produit 3D &amp; AMS</th>
+<th class="py-space-xs px-space-sm">Total MAD</th>
+<th class="py-space-xs px-space-sm">Paiement</th>
+<th class="py-space-xs px-space-sm">Statut Production</th>
+<th class="py-space-xs px-space-sm text-right rounded-r">Actions Atelier</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-sand/30 transition-colors">
+<td class="py-space-sm px-space-sm align-middle">
+<span class="font-semibold text-ink-anthracite font-title-md text-title-md">#MD-2026-894</span>
+<div class="font-label-md text-label-md text-ink-muted">Aujourd'hui 11:20</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<div class="font-semibold text-ink-anthracite">Karim B.</div>
+<div class="text-ink-muted font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-filament-terracotta">pin_drop</span>
+<span>Rabat Agdal</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded bg-surface-sand shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Custom 3D printed desk business plaque in dark anthracite slate texture with crisp golden Arabic typography Maktab, professional finish on warm background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQjA1nh9pjHTnS1Wh6_4l2kEIcsMgxUKtPG-RcehwQL1i3MG0Q1c2SanpIn65O5L1aOQEmQjvP9dl4tlh86Mq-E1NF87AnVbHQawuNW9fpGjg-hfN2iQKGWbnvpxbhdOFyje31odTazO1jEljm8ur_n8GQoe7ktPyiQH5Lz4bEvZi3EZ4DCevs9ZOlc5rh8Y9Z1J5AhwIg2c-B96l8CmddqKr32incfJjwqjRShGQ"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-ink-anthracite line-clamp-1">Plaque Bureau 'Maktab'</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-filament-black inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-gold-zellige inline-block"></span>
+<span class="text-[11px] text-ink-muted">Noir / Or Zellige</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="font-price-lg text-price-lg text-ink-anthracite">380</span>
+<span class="font-label-md text-label-md text-ink-muted">MAD</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-md text-label-md font-semibold bg-surface-sand text-filament-terracotta">
+<span class="material-symbols-outlined text-[13px]">payments</span>
+<span>COD Amana</span>
+</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-md text-label-md font-semibold bg-accent-majorelle-soft text-filament-majorelle">
+<span class="w-1.5 h-1.5 rounded-full bg-filament-majorelle animate-pulse"></span>
+<span>En Impression (A1-02)</span>
+</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-sand text-ink-anthracite transition-colors" title="Inspecter BAT WhatsApp">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded bg-surface-sand hover:bg-surface-sand-subtle text-ink-anthracite transition-colors" title="Générer Bordereau Amana">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-sand/30 transition-colors">
+<td class="py-space-sm px-space-sm align-middle">
+<span class="font-semibold text-ink-anthracite font-title-md text-title-md">#MD-2026-893</span>
+<div class="font-label-md text-label-md text-ink-muted">Aujourd'hui 10:45</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<div class="font-semibold text-ink-anthracite">Salma T.</div>
+<div class="text-ink-muted font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-filament-terracotta">pin_drop</span>
+<span>Casablanca Gauthier</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded bg-surface-sand shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Monogram personalized 3D printed phone stand with Majorelle blue base and white Arabic calligraphy initials, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrGOpS51tbal3PLw900ljo69-aAcl3YzuPhErLApwuf4cFnX5_4xhqZ1fdW-G_sdD-r9plpCqA7_rnX1dXn3owcdb4ZBcV96bG4du4x0_ez7DWBbnTXJ94vfOG9Jtp6ReC06bQJe-tqe3KPe4W-exAyYxx9xFqNZm4fgq06xZ4vlyQiCYNbkdnwFPaYoaCI0AZAn-9TO-Qixyb-rNwJbQJNSaxOAMQk9sdGvtsPpQ"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-ink-anthracite line-clamp-1">Support Téléphone Monogramme</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-filament-majorelle inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-canvas-cream inline-block shadow-sm"></span>
+<span class="text-[11px] text-ink-muted">Bleu Majorelle / Blanc</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="font-price-lg text-price-lg text-ink-anthracite">210</span>
+<span class="font-label-md text-label-md text-ink-muted">MAD</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-md text-label-md font-semibold bg-surface-sand text-ink-anthracite">
+<span class="material-symbols-outlined text-[13px]">credit_card</span>
+<span>Virement CMI</span>
+</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-md text-label-md font-semibold bg-surface-sand text-on-tertiary-container">
+<span class="material-symbols-outlined text-[13px] text-gold-zellige">check_circle</span>
+<span>BAT Validé (WhatsApp)</span>
+</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-sand text-ink-anthracite transition-colors" title="Inspecter BAT WhatsApp">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded bg-surface-sand hover:bg-surface-sand-subtle text-ink-anthracite transition-colors" title="Générer Bordereau Amana">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-sand/30 transition-colors">
+<td class="py-space-sm px-space-sm align-middle">
+<span class="font-semibold text-ink-anthracite font-title-md text-title-md">#MD-2026-890</span>
+<div class="font-label-md text-label-md text-ink-muted">Aujourd'hui 09:15</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<div class="font-semibold text-ink-anthracite">Dr. Tazi</div>
+<div class="text-ink-muted font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-filament-terracotta">pin_drop</span>
+<span>Marrakech Hivernage</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded bg-surface-sand shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High precision 3D architectural geometric zellige lamp cover and desk organizer printed in terracotta ceramic filament finish, delicate geometric latticework" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJZ81SxxnOwhZS3SG7Frm9dfxL5hN-wwirUfdWNSRtWVtzDCE4_ED6kPQbt3Zw2y3HgPI5ktkBvnTQDD4BpFETANyITKwZmnlz2H7EaSfixuNKvt6ItHhxLeIoCEpU-kVQLQdHV9w6x9C3g9-K4cP43xN0kIr-AXDiGlATLWXfzbI3gKeKB5oSvrhO2PJAgypkZ28Gr5vRbdZNB4qCRYW9c_teR6td2TCb5wfuLG8"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-ink-anthracite line-clamp-1">Organisateur Cabinet Médical QR</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-filament-terracotta inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-filament-black inline-block"></span>
+<span class="text-[11px] text-ink-muted">Terracotta / Noir</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="font-price-lg text-price-lg text-ink-anthracite">750</span>
+<span class="font-label-md text-label-md text-ink-muted">MAD</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-md text-label-md font-semibold bg-surface-sand text-filament-terracotta">
+<span class="material-symbols-outlined text-[13px]">payments</span>
+<span>COD Amana</span>
+</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-md text-label-md font-semibold bg-surface-sand text-ink-anthracite">
+<span class="material-symbols-outlined text-[13px] text-filament-majorelle">inventory_2</span>
+<span>Prêt Expédition Amana</span>
+</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-sand text-ink-anthracite transition-colors" title="Inspecter BAT WhatsApp">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="bg-primary hover:bg-filament-majorelle text-on-primary font-label-md text-label-md px-space-xs py-1 rounded transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+<span>Bordereau Amana</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-sand/30 transition-colors">
+<td class="py-space-sm px-space-sm align-middle">
+<span class="font-semibold text-ink-anthracite font-title-md text-title-md">#MD-2026-889</span>
+<div class="font-label-md text-label-md text-ink-muted">Hier 18:40</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<div class="font-semibold text-ink-anthracite">Meryem F.</div>
+<div class="text-ink-muted font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-filament-terracotta">pin_drop</span>
+<span>Tanger Centre</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded bg-surface-sand shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Custom 3D printed lithophane lantern with traditional Moroccan pattern and soft warm backlighting effect, pristine white finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjdtcpcNd8viXQtSSv7nSv1v5Jd97DK4uC4YhbgaK7Y2Sg7BcHraB7aQveQts_sdwG_LPJ3QPwPMpECSpC0zUSWM1hqqNRveApgWZ42YXAh6Yei_OUiVazrrJvQzqJOGNhz55_jBnVc4mnmjWcnHgitv9g3CSI52JkbcR-s1IpptwP2XaHS6VGTw9ApQXco3syxTDb5xp0XjiyicK5t1hBCfQOF7kSz4XxKunn2ik"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-ink-anthracite line-clamp-1">Lithophane Veilleuse Riad</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-canvas-cream inline-block shadow-sm"></span>
+<span class="text-[11px] text-ink-muted">Blanc Albâtre Pur</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="font-price-lg text-price-lg text-ink-anthracite">440</span>
+<span class="font-label-md text-label-md text-ink-muted">MAD</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-md text-label-md font-semibold bg-surface-sand text-filament-terracotta">
+<span class="material-symbols-outlined text-[13px]">payments</span>
+<span>COD Amana</span>
+</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-md text-label-md font-semibold bg-surface-sand text-ink-anthracite">
+<span class="material-symbols-outlined text-[13px] text-filament-majorelle">check_box</span>
+<span>Colis Pris en Charge</span>
+</span>
+</td>
+<td class="py-space-sm px-space-sm align-middle text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-sand text-ink-anthracite transition-colors" title="Inspecter BAT WhatsApp">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded bg-surface-sand hover:bg-surface-sand-subtle text-ink-anthracite transition-colors font-label-md text-label-md" title="Code suivi Amana MA884129">
+                        #MA-9921
+                      </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md font-label-md text-label-md text-ink-muted border-t-0">
+<span>Affichage de 4 sur 24 commandes du jour</span>
+<a class="text-filament-majorelle hover:underline font-semibold flex items-center gap-0.5" href="#">
+<span>Accéder au gestionnaire des expéditions</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Right Column: Niche Distribution & Admin Quick Actions (4 cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Niches Chart Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<span class="font-label-md text-label-md text-ink-muted uppercase">Performance Catalogue</span>
+<h3 class="font-headline-sm text-headline-sm text-ink-anthracite">Ventes par Niches</h3>
+</div>
+<span class="material-symbols-outlined text-[20px] text-ink-muted">pie_chart</span>
+</div>
+<!-- Visual Donut Chart Representation -->
+<div class="my-space-md flex items-center justify-center">
+<div class="relative w-44 h-44 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<!-- Background track -->
+<circle cx="18" cy="18" fill="transparent" r="15.91549430918954" stroke="#F5EFEB" stroke-width="4.2"></circle>
+<!-- Segment 1: Cadeaux nominatifs (52%) -> stroke-dasharray="52 48" offset 0 -->
+<circle cx="18" cy="18" fill="transparent" r="15.91549430918954" stroke="#1E40AF" stroke-dasharray="52 48" stroke-dashoffset="0" stroke-width="4.2"></circle>
+<!-- Segment 2: Professionnels B2B (28%) -> stroke-dasharray="28 72" offset -52 -->
+<circle cx="18" cy="18" fill="transparent" r="15.91549430918954" stroke="#1E2022" stroke-dasharray="28 72" stroke-dashoffset="-52" stroke-width="4.2"></circle>
+<!-- Segment 3: Maison & Riad (20%) -> stroke-dasharray="20 80" offset -80 -->
+<circle cx="18" cy="18" fill="transparent" r="15.91549430918954" stroke="#B85D3B" stroke-dasharray="20 80" stroke-dashoffset="-80" stroke-width="4.2"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="font-label-md text-label-md text-ink-muted uppercase">Top Ventes</span>
+<span class="font-headline-sm text-headline-sm text-ink-anthracite font-bold leading-tight">52%</span>
+<span class="font-label-md text-label-md text-filament-majorelle">Nominatif</span>
+</div>
+</div>
+</div>
+<!-- Legend & Breakdown -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between p-2 rounded bg-surface-sand/50">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-sm bg-filament-majorelle shrink-0"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">Cadeaux nominatifs &amp; Prénoms</span>
+</div>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-ink-anthracite">52%</span>
+<div class="font-label-md text-label-md text-ink-muted">2,522 MAD</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-sand/50">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-sm bg-ink-anthracite shrink-0"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">B2B, Plaques &amp; Menus QR</span>
+</div>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-ink-anthracite">28%</span>
+<div class="font-label-md text-label-md text-ink-muted">1,358 MAD</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-sand/50">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-sm bg-filament-terracotta shrink-0"></span>
+<span class="font-title-md text-title-md text-ink-anthracite">Déco Maison &amp; Riads</span>
+</div>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-ink-anthracite">20%</span>
+<div class="font-label-md text-label-md text-ink-muted">970 MAD</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs text-ink-muted font-label-md text-label-md flex items-center justify-between">
+<span>Panier moyen actuel :</span>
+<span class="font-semibold text-ink-anthracite">202.08 MAD</span>
+</div>
+</div>
+<!-- Quick Administration Actions & Stock Alert -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-md text-label-md text-ink-muted uppercase">Gestion Rapide Atelier</span>
+<h3 class="font-headline-sm text-headline-sm text-ink-anthracite mb-space-md">Raccourcis Administrateur</h3>
+<div class="flex flex-col gap-space-xs">
+<!-- Action 1: G-Code / 3MF -->
+<button class="w-full flex items-center justify-between p-space-sm bg-surface-sand hover:bg-surface-sand-subtle rounded-xl text-left transition-colors group">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded bg-canvas-cream text-ink-anthracite flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+</div>
+<div>
+<span class="font-title-md text-title-md text-ink-anthracite block group-hover:text-filament-majorelle transition-colors">Télécharger G-Code / 3MF du jour</span>
+<span class="font-label-md text-label-md text-ink-muted">14 fichiers packagés pour Bambu Studio</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-ink-muted">arrow_forward</span>
+</button>
+<!-- Action 2: Accounting Export -->
+<button class="w-full flex items-center justify-between p-space-sm bg-surface-sand hover:bg-surface-sand-subtle rounded-xl text-left transition-colors group">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded bg-canvas-cream text-ink-anthracite flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<div>
+<span class="font-title-md text-title-md text-ink-anthracite block group-hover:text-filament-majorelle transition-colors">Exporter Rapport Comptable ICE</span>
+<span class="font-label-md text-label-md text-ink-muted">Format DGI Maroc • Bilan COD &amp; CMI</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-ink-muted">arrow_forward</span>
+</button>
+<!-- Stock Alert Filament -->
+<div class="p-space-sm bg-surface-container-high rounded-xl flex items-start gap-space-xs mt-space-2xs">
+<span class="material-symbols-outlined text-[20px] text-error shrink-0 mt-0.5">warning</span>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold">Alerte Réapprovisionnement</span>
+<span class="font-label-md text-label-md text-error font-semibold uppercase">Reste 320g</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted mt-0.5">
+                  Bobine Bambu PLA Basic <span class="font-semibold text-ink-anthracite">Rouge Atlas</span> sous le seuil critique (batch Hakimi en cours).
+                </p>
+<div class="mt-space-xs flex items-center gap-space-xs">
+<button class="bg-primary hover:bg-filament-majorelle text-on-primary px-space-xs py-1 rounded font-label-md text-label-md transition-colors">
+                    Commander Fournisseur Casa
+                  </button>
+<button class="text-ink-muted hover:text-ink-anthracite font-label-md text-label-md">
+                    Ignorer (2h)
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Farm Telemetry & AMS Spool Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-md gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-filament-majorelle">album</span>
+<span class="font-label-md text-label-md text-filament-majorelle uppercase tracking-wider font-semibold">Hub Matières Bambu AMS</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-ink-anthracite">État des Bobines RFID Actives</h3>
+</div>
+<div class="flex items-center gap-space-md text-ink-muted font-label-md text-label-md">
+<span>Humidité moyenne : <strong class="text-ink-anthracite font-semibold">18% HR</strong> (Silica OK)</span>
+<span>Température atelier : <strong class="text-ink-anthracite font-semibold">22.4°C</strong></span>
+</div>
+</div>
+<!-- Spool Slots -->
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-space-sm">
+<!-- Slot 1 -->
+<div class="p-space-sm bg-surface-sand/60 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-md text-label-md text-ink-muted">A1-01 / S1</span>
+<span class="w-3 h-3 rounded-full bg-filament-majorelle shadow-sm"></span>
+</div>
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold truncate">Bleu Majorelle</span>
+<span class="font-label-md text-label-md text-ink-muted">PLA Matte • 680g</span>
+<div class="w-full bg-surface-sand-subtle h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-filament-majorelle h-1.5 rounded-full" style="width: 68%"></div>
+</div>
+</div>
+<!-- Slot 2 -->
+<div class="p-space-sm bg-surface-sand/60 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-md text-label-md text-ink-muted">A1-01 / S2</span>
+<span class="w-3 h-3 rounded-full bg-canvas-cream shadow-sm"></span>
+</div>
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold truncate">Blanc Albâtre</span>
+<span class="font-label-md text-label-md text-ink-muted">PLA Basic • 890g</span>
+<div class="w-full bg-surface-sand-subtle h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-ink-anthracite h-1.5 rounded-full" style="width: 89%"></div>
+</div>
+</div>
+<!-- Slot 3 -->
+<div class="p-space-sm bg-surface-sand/60 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-md text-label-md text-ink-muted">A1-02 / S1</span>
+<span class="w-3 h-3 rounded-full bg-filament-black shadow-sm"></span>
+</div>
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold truncate">Noir Ardoise</span>
+<span class="font-label-md text-label-md text-ink-muted">PLA Tough • 510g</span>
+<div class="w-full bg-surface-sand-subtle h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-filament-black h-1.5 rounded-full" style="width: 51%"></div>
+</div>
+</div>
+<!-- Slot 4 -->
+<div class="p-space-sm bg-surface-sand/60 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-md text-label-md text-ink-muted">A1-02 / S2</span>
+<span class="w-3 h-3 rounded-full bg-gold-zellige shadow-sm"></span>
+</div>
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold truncate">Or Zellige Soyeux</span>
+<span class="font-label-md text-label-md text-ink-muted">Silk PLA • 410g</span>
+<div class="w-full bg-surface-sand-subtle h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-gold-zellige h-1.5 rounded-full" style="width: 41%"></div>
+</div>
+</div>
+<!-- Slot 5 (Alert) -->
+<div class="p-space-sm bg-surface-container-high rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-md text-label-md text-error font-semibold">A1-03 / S1</span>
+<span class="w-3 h-3 rounded-full bg-error shadow-sm"></span>
+</div>
+<span class="font-title-md text-title-md text-error font-semibold truncate">Rouge Atlas</span>
+<span class="font-label-md text-label-md text-ink-muted">PLA Basic • 320g (!)</span>
+<div class="w-full bg-surface-sand-subtle h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-error h-1.5 rounded-full" style="width: 32%"></div>
+</div>
+</div>
+<!-- Slot 6 -->
+<div class="p-space-sm bg-surface-sand/60 rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-md text-label-md text-ink-muted">A1-04 / S1</span>
+<span class="w-3 h-3 rounded-full bg-filament-terracotta shadow-sm"></span>
+</div>
+<span class="font-title-md text-title-md text-ink-anthracite font-semibold truncate">Terre d'Agafay</span>
+<span class="font-label-md text-label-md text-ink-muted">Matte Terracotta • 740g</span>
+<div class="w-full bg-surface-sand-subtle h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-filament-terracotta h-1.5 rounded-full" style="width: 74%"></div>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-sand-subtle py-space-sm px-space-xl flex flex-col md:flex-row items-center justify-between gap-space-xs text-ink-muted font-label-md text-label-md"><div class="flex items-center gap-space-md"><span>MustDesign3D OS • Bambu Farm Suite v2.4</span><span class="hidden sm:inline">•</span><span class="hidden sm:inline">Cluster MQTT Broker: En ligne (Casablanca DC)</span><span class="hidden sm:inline">•</span><span class="hidden sm:inline">Passerelle WhatsApp COD: Connectée</span></div><div class="flex items-center gap-space-xs"><span>Firmware Bambu A1 v01.03.01.00</span><span class="w-1.5 h-1.5 rounded-full bg-filament-majorelle"></span></div></footer></div></body></html>

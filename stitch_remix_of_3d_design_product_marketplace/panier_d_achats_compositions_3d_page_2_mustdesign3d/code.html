@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&family=Noto+Serif:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"accent-majorelle":"#1E40AF","on-tertiary-fixed-variant":"#5c4300","canvas-cream":"#FDFBF7","filament-black":"#1A1A1A","tertiary-container":"#2c1e00","surface-container-lowest":"#ffffff","secondary-fixed-dim":"#b8c4ff","surface-variant":"#e7e1dd","on-secondary":"#ffffff","background":"#fef8f4","ink-anthracite":"#1E2022","secondary-container":"#708cfd","on-primary-container":"#86878a","on-secondary-fixed":"#001453","surface-container-highest":"#e7e1dd","inverse-surface":"#32302e","on-primary-fixed-variant":"#454749","outline":"#75777a","surface-tint":"#5d5e61","on-surface":"#1d1b19","on-tertiary-fixed":"#261900","on-primary-fixed":"#1a1c1e","surface-container-low":"#f8f2ee","filament-majorelle":"#1E40AF","on-tertiary":"#ffffff","primary":"#06080a","error-container":"#ffdad6","surface-container":"#f3ede9","on-error":"#ffffff","inverse-primary":"#c6c6c9","gold-zellige":"#D9A93C","surface":"#fef8f4","on-secondary-fixed-variant":"#173bab","primary-fixed-dim":"#c6c6c9","filament-white":"#FDFBF7","tertiary-fixed-dim":"#f2bf50","on-primary":"#ffffff","on-secondary-container":"#00217a","accent-majorelle-soft":"#EEF2FF","ink-muted":"#686D76","error":"#ba1a1a","surface-sand-subtle":"#EFE8E0","primary-fixed":"#e2e2e5","on-background":"#1d1b19","on-error-container":"#93000a","surface-sand":"#F5EFEB","surface-dim":"#dfd9d5","surface-bright":"#fef8f4","primary-container":"#1e2022","tertiary-fixed":"#ffdea1","tertiary":"#0e0700","on-tertiary-container":"#ac8111","on-surface-variant":"#44474a","border-warm":"#E6DFD5","secondary-fixed":"#dde1ff","surface-container-high":"#ede7e3","inverse-on-surface":"#f6f0ec","secondary":"#3755c3","filament-terracotta":"#B85D3B","outline-variant":"#c5c6ca"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.5rem","space-md":"1rem","space-2xs":"0.25rem","margin":"2rem","gutter-mobile":"0.75rem","margin-mobile":"1rem","space-lg":"1.5rem","space-xl":"2.5rem","space-sm":"0.75rem","space-2xl":"4rem","gutter":"1.5rem"},fontFamily:{"headline-md":["Noto Serif"],"headline-lg":["Noto Serif"],"title-md":["Manrope"],"arabic-title":["Noto Serif"],"price-lg":["Manrope"],"headline-sm":["Noto Serif"],"label-lg":["Manrope"],"headline-lg-mobile":["Noto Serif"],"display-lg":["Noto Serif"],"body-md":["Manrope"],"display-lg-mobile":["Noto Serif"],"body-lg":["Manrope"],"label-md":["Manrope"]},fontSize:{"headline-md":["24px",{"lineHeight":"32px","fontWeight":"500"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"arabic-title":["18px",{"lineHeight":"28px","fontWeight":"400"}],"price-lg":["20px",{"lineHeight":"24px","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"500"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"0","fontWeight":"500"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"display-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-accent-majorelle-soft selection:text-accent-majorelle"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-primary-container text-on-primary font-label-md text-label-md py-1.5 px-margin-mobile lg:px-margin text-center tracking-wider flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[14px] text-gold-zellige">local_shipping</span><span>Livraison partout au Maroc • Paiement à la livraison COD • Fabrication artisanale 3D (Casablanca)</span></div><div class="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs" data-path="accueil" href="#"><div class="w-9 h-9 bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md rounded-lg shadow-sm">M</div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-semibold">MUST<span class="text-filament-majorelle">DESIGN</span>3D</span><span class="font-label-md text-label-md text-ink-muted uppercase tracking-widest -mt-1">Atelier Marocain</span></div></a></div><div class="hidden md:flex flex-1 max-w-md mx-space-md"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full pl-9 pr-space-md py-2 bg-surface-container-low rounded-full text-body-md font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Rechercher un vase, luminaire, lithophane..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs bg-surface-container-low px-space-xs py-1 rounded-full text-label-md font-label-md text-on-surface-variant"><span class="font-semibold text-primary">FR</span><span class="text-outline">|</span><span class="hover:text-primary transition-colors cursor-pointer">العربية</span><span class="text-outline ml-1">•</span><span class="font-semibold text-on-surface ml-1">MAD</span></div><a class="hidden lg:flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-surface-sand hover:bg-surface-container-high transition-colors text-ink-anthracite font-label-lg text-label-lg" data-path="support-whatsapp" href="#"><span class="material-symbols-outlined text-[18px] text-accent-majorelle">chat</span><span>WhatsApp</span></a><a class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" data-path="panier" href="#"><span class="material-symbols-outlined text-[20px]">shopping_bag</span><span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-filament-majorelle text-on-primary text-[10px] font-bold flex items-center justify-center leading-none shadow-sm">2</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="bg-surface-sand/80 backdrop-blur-sm"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin"><nav class="flex items-center space-x-space-lg overflow-x-auto py-2.5" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="accueil" href="#">Accueil</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="catalogue" href="#">Boutique Complète</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="personnalisation-arabe" href="#">Calligraphie & Prénoms</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="vases-sculpturaux" href="#">Vases & Déco Maison</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="lithophanes-lumineuses" href="#">Lithophanes Lumineuses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="bureau-organiseurs" href="#">Accessoires Bureau</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors py-1" data-path="atelier-sur-mesure" href="#">Service Sur-Mesure Pro</a></nav></div></div></header><main class="w-full pt-32 bg-surface"><div class="flex flex-col w-full">
+<!-- Progress & Cart Header Flow -->
+<section class="w-full bg-surface-container-low/70 py-space-md">
+<div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin">
+<!-- Breadcrumb + Flow Indicator -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs text-label-md font-label-md text-ink-muted">
+<a class="hover:text-primary transition-colors" href="#">Atelier Boutique</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" href="#">Panier & Personnalisations</a>
+<span class="text-outline-variant">/</span>
+<span class="text-ink-anthracite font-semibold">Révision 3D & BAT</span>
+</div>
+<!-- 3-Step Checkout Milestone Bar -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-accent-majorelle text-on-primary font-label-md text-label-md flex items-center justify-center font-bold shadow-sm">1</span>
+<span class="font-label-lg text-label-lg text-primary font-semibold">Panier & Compositions</span>
+</div>
+<span class="w-8 h-[2px] bg-accent-majorelle/30"></span>
+<div class="flex items-center gap-2 opacity-60">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex items-center justify-center font-bold">2</span>
+<span class="font-label-lg text-label-lg text-ink-muted">Coordonnées COD Maroc</span>
+</div>
+<span class="w-8 h-[2px] bg-outline-variant"></span>
+<div class="flex items-center gap-2 opacity-40">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex items-center justify-center font-bold">3</span>
+<span class="font-label-lg text-label-lg text-ink-muted">Slicing & Expédition</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Free Shipping Milestone Banner -->
+<section class="w-full bg-surface-sand-subtle py-space-sm">
+<div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin flex flex-col md:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-gold-zellige/20 text-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-gold-zellige text-[20px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-ink-anthracite font-semibold">
+            Félicitations ! Seuil de 200 MAD atteint.
+          </p>
+<p class="font-body-md text-body-md text-ink-muted">
+            Livraison Express Amana & Aramex offerte partout au Maroc (Casablanca, Rabat, Marrakech, Fès, Tanger...)
+          </p>
+</div>
+</div>
+<div class="w-full md:w-64 flex flex-col gap-1.5">
+<div class="flex justify-between font-label-md text-label-md text-ink-anthracite">
+<span class="font-semibold text-accent-majorelle">100% Offerte</span>
+<span class="text-ink-muted">535 MAD / 200 MAD</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-accent-majorelle rounded-full w-full transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Cart Layout: 12 Columns -->
+<section class="w-full py-space-xl">
+<div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin">
+<!-- Title & Live Counter -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm pb-space-lg">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-widest text-filament-majorelle font-bold">Atelier MustDesign3D • File d'extrusion A1</span>
+<h1 class="font-display-lg text-display-lg text-ink-anthracite tracking-tight mt-1">
+            Votre Panier d'Objets Sur-Mesure
+          </h1>
+</div>
+<div class="flex items-center gap-space-xs text-ink-muted font-label-lg text-label-lg">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+<span>Plateau d'impression prêt • 5 pièces sélectionnées</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Cart Items & Technical Slicing Dossier (8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Production Machine Health Card -->
+<div class="bg-surface-sand p-space-md rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-[22px]">precision_manufacturing</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-ink-anthracite font-semibold">Parc Bambu Lab A1 Series (Casablanca)</p>
+<p class="font-body-md text-body-md text-ink-muted">Changement de filament 4 couleurs AMS sans bavure • Buse acier trempé 0.4mm</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-space-xs py-1 rounded-full bg-surface-container-lowest text-accent-majorelle font-label-md text-label-md font-bold uppercase tracking-wider">
+                Tolérance ±0.08mm
+              </span>
+</div>
+</div>
+<!-- CART ITEMS LIST -->
+<div class="flex flex-col gap-space-md">
+<!-- Item 1: Porte-Clés Bilingue -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row gap-space-md group transition-shadow hover:shadow-md">
+<!-- Thumbnail 4:5 Aspect -->
+<div class="relative w-full md:w-36 h-44 shrink-0 rounded-lg overflow-hidden bg-surface-sand">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close up view of custom 3D printed blue keychain with embossed white letters spelling YOUSSEF laying on travertine stone slab, warm Moroccan ambient natural lighting, soft indoor studio tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPA5Kt9OhjqB4sxUEKr0A4ZW1rEdxVPfeIHGmolxxhxDlw0q060UO7ReQvKsmKsZB-hi_gzb_ErvZbz2_PFl4frQ7FjyuMFyaAytAddh2PckpBq3WnLt1CjM5o22UvfrEWY0uP3DDEXO-dBahXWdYRJ5BtebuHMBE6i-3I4dzQhPHNzQMWJswFX6NZC7aF7mpUpawOo5rFoq2nno0y4UehO_VlkLawHyXhz6sOSQ"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-ink-anthracite font-semibold shadow-xs">
+                  Bilingue FR/AR
+                </span>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">
+                        Porte-Clés Prénom Bilingue 3D (Relief Double Face)
+                      </h3>
+<p class="font-label-md text-label-md text-ink-muted mt-0.5">Réf: MD3D-KEY-ARFR-02</p>
+</div>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-ink-anthracite font-bold">98 MAD</span>
+<span class="block font-label-md text-label-md text-ink-muted">49 MAD / pièce</span>
+</div>
+</div>
+<!-- Filament & Infill Badges -->
+<div class="flex flex-wrap items-center gap-space-xs mt-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-sand text-ink-anthracite font-label-md text-label-md">
+<span class="w-3 h-3 rounded-full bg-accent-majorelle inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-surface-container-lowest inline-block"></span>
+                      AMS: Bleu Majorelle & Albâtre
+                    </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-sand text-ink-muted font-label-md text-label-md">
+                      Buse 0.4mm · Infill 100% Solide
+                    </span>
+</div>
+<!-- Personalization Specs Box -->
+<div class="mt-2.5 p-space-xs bg-surface-sand-subtle rounded-lg flex flex-col gap-1 text-body-md font-body-md">
+<div class="flex items-center justify-between">
+<span class="text-ink-muted font-label-md text-label-md uppercase">Gravure relief commandée :</span>
+<span class="text-accent-majorelle font-label-md text-label-md cursor-pointer hover:underline">Modifier la graphie</span>
+</div>
+<p class="text-ink-anthracite font-medium">
+                      Recto : <span class="font-bold tracking-wider">YOUSSEF</span> (Majuscules sans-serif)
+                    </p>
+<p class="text-ink-anthracite font-arabic-title text-arabic-title leading-tight">
+                      Verso : <span class="font-bold text-filament-majorelle">يوسف</span> (Calligraphie Diwani marocaine)
+                    </p>
+</div>
+</div>
+<!-- Footer / Stepper & Actions -->
+<div class="flex items-center justify-between pt-space-sm mt-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center bg-surface-sand rounded-lg px-2 py-1 gap-3">
+<button class="w-6 h-6 flex items-center justify-center text-ink-anthracite hover:text-accent-majorelle font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="font-title-md text-title-md text-ink-anthracite font-bold w-4 text-center">2</span>
+<button class="w-6 h-6 flex items-center justify-center text-ink-anthracite hover:text-accent-majorelle font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<span class="text-label-md font-label-md text-ink-muted">Unités</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 text-ink-muted hover:text-error transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Retirer</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2: Boîte à Bagues de Fiançailles 'حب' -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row gap-space-md group transition-shadow hover:shadow-md">
+<!-- Thumbnail 4:5 Aspect -->
+<div class="relative w-full md:w-36 h-44 shrink-0 rounded-lg overflow-hidden bg-surface-sand">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Luxury hexagonal 3D printed engagement ring box with Arabic calligraphy Hub in shiny gold on matte deep majorelle blue lid, diamond ring inside on midnight blue velvet cushion, warm ambient morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3RcQNQeZA4izOSOoFALqhjRSnzSTsf0N-b9gduzC7vrvrZvtvberQgxmhhfqbsMUnseJi2mGeGk5nwuksppypy2fc-FBxixLJJk3AHoqBrGQXFDvGYLLslMEXpAyVBgR2f7Eb-zP1rLCICEAoNh77KfzKDt4mBDytAZ_Nt2tz_x_hmSBAtq-AqYUzFVyxjhLP_SmoEU4YgtHYIuge80sjgDwQoGnB6rY2-99W7w"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-gold-zellige text-on-tertiary font-label-md text-label-md font-bold shadow-xs">
+                  Mariage & Halka
+                </span>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">
+                        Boîte à Bagues de Fiançailles « حب / Love » 3D
+                      </h3>
+<p class="font-label-md text-label-md text-ink-muted mt-0.5">Réf: MD3D-WED-BOX-09</p>
+</div>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-ink-anthracite font-bold">189 MAD</span>
+<span class="block font-label-md text-label-md text-ink-muted">Pièce unique d'atelier</span>
+</div>
+</div>
+<!-- Filament & Infill Badges -->
+<div class="flex flex-wrap items-center gap-space-xs mt-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-sand text-ink-anthracite font-label-md text-label-md">
+<span class="w-3 h-3 rounded-full bg-gold-zellige inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-filament-majorelle inline-block"></span>
+                      Or Soyeux Silk PEI & Bleu Nuit
+                    </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-sand text-ink-muted font-label-md text-label-md">
+                      Fermeture 4 Aimants Néodyme N52
+                    </span>
+</div>
+<!-- Personalization Specs Box -->
+<div class="mt-2.5 p-space-xs bg-surface-sand-subtle rounded-lg flex flex-col gap-1 text-body-md font-body-md">
+<div class="flex items-center justify-between">
+<span class="text-ink-muted font-label-md text-label-md uppercase">Finitions & Calligraphie :</span>
+<span class="text-accent-majorelle font-label-md text-label-md cursor-pointer hover:underline">Modifier détails</span>
+</div>
+<p class="text-ink-anthracite font-arabic-title text-arabic-title">
+                      Motif couvercle : <span class="font-bold text-gold-zellige text-[20px]">حب</span> (Amour éternel en relief 3D doré)
+                    </p>
+<p class="text-ink-muted font-body-md text-body-md">
+                      Garniture interne : Velours bleu nuit serti sur-mesure pour bague solitaire ou alliance.
+                    </p>
+</div>
+</div>
+<!-- Footer / Stepper & Actions -->
+<div class="flex items-center justify-between pt-space-sm mt-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center bg-surface-sand rounded-lg px-2 py-1 gap-3">
+<button class="w-6 h-6 flex items-center justify-center text-ink-anthracite hover:text-accent-majorelle font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="font-title-md text-title-md text-ink-anthracite font-bold w-4 text-center">1</span>
+<button class="w-6 h-6 flex items-center justify-center text-ink-anthracite hover:text-accent-majorelle font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<span class="text-label-md font-label-md text-ink-muted">Unité</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 text-ink-muted hover:text-error transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Retirer</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3: Présentoir QR Code Comptoir -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row gap-space-md group transition-shadow hover:shadow-md">
+<!-- Thumbnail 4:5 Aspect -->
+<div class="relative w-full md:w-36 h-44 shrink-0 rounded-lg overflow-hidden bg-surface-sand">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="High contrast 3D printed black and white angled tabletop QR code stand displaying Scannez le Menu sitting on Moroccan terrazzo coffee counter near ceramic espresso cup, artisan boutique background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG6B40vBNCL4OOkhQjd5Qf9BLrViv1YSiLGE9U4m5PW3ZpLn4Bgzn1veFvIHPDo8QnmTKTNORzOqmPVHwyMShZi3XPNfJR5Rd17SQWQqWFCWyx791p4ezk3X8kJ6yQcD7KAuqHGkIy8tmAAHWVDGei_z9oEy4qmTnNYFRmOP1pVPHETqDm2evdbvCsuE3NVZOBnwdzlT9BZ_wE01uiIdb_co6jyP4UZrvj6NQUMw"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-ink-anthracite font-semibold shadow-xs">
+                  Scan 100% Garanti
+                </span>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">
+                        Présentoir QR Code Comptoir Biseauté (Café & Riad)
+                      </h3>
+<p class="font-label-md text-label-md text-ink-muted mt-0.5">Réf: MD3D-BIZ-QR-14</p>
+</div>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-ink-anthracite font-bold">149 MAD</span>
+<span class="block font-label-md text-label-md text-ink-muted">Inclus conversion SVG</span>
+</div>
+</div>
+<!-- Filament & Infill Badges -->
+<div class="flex flex-wrap items-center gap-space-xs mt-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-sand text-ink-anthracite font-label-md text-label-md">
+<span class="w-3 h-3 rounded-full bg-filament-black inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-surface-container-lowest inline-block"></span>
+                      Noir Basalte Mat & Albâtre
+                    </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-sand text-ink-muted font-label-md text-label-md">
+                      Relief Tactile 1.2mm · Angle 72° Ergonomique
+                    </span>
+</div>
+<!-- Personalization Specs Box -->
+<div class="mt-2.5 p-space-xs bg-surface-sand-subtle rounded-lg flex flex-col gap-1 text-body-md font-body-md">
+<div class="flex items-center justify-between">
+<span class="text-ink-muted font-label-md text-label-md uppercase">Données encodées & Titrage :</span>
+<button class="text-accent-majorelle font-label-md text-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[14px]">qr_code_scanner</span>
+                        Tester le QR
+                      </button>
+</div>
+<p class="text-ink-anthracite">
+                      Lien encodé : <span class="font-mono text-xs text-accent-majorelle font-bold">https://menu.riad-andalous.ma</span>
+</p>
+<p class="text-ink-anthracite">
+                      En-tête & Sous-titre : « Riad Al Andalous » • « Scannez le Menu & Commande »
+                    </p>
+</div>
+</div>
+<!-- Footer / Stepper & Actions -->
+<div class="flex items-center justify-between pt-space-sm mt-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center bg-surface-sand rounded-lg px-2 py-1 gap-3">
+<button class="w-6 h-6 flex items-center justify-center text-ink-anthracite hover:text-accent-majorelle font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="font-title-md text-title-md text-ink-anthracite font-bold w-4 text-center">1</span>
+<button class="w-6 h-6 flex items-center justify-center text-ink-anthracite hover:text-accent-majorelle font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<span class="text-label-md font-label-md text-ink-muted">Unité</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 text-ink-muted hover:text-error transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Retirer</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 4: Plaque de Bureau ARCHITECTE -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row gap-space-md group transition-shadow hover:shadow-md">
+<!-- Thumbnail 4:5 Aspect -->
+<div class="relative w-full md:w-36 h-44 shrink-0 rounded-lg overflow-hidden bg-surface-sand">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Architect desk triangular 3D printed nameplate in terracotta and gold lettering spelling ARCHITECTE on a warm natural oak desk with architectural blueprints in background, studio warm photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9Ek5VeMS21UW9PFFDLXhnRGBx-QMix8SlV3RnXuZ3CYJ3csGR01hs16edAhFOv7oF1CAm3h0amrZIxYNx0udjsMNAS-BLzCjUmxwndb-O4JqfDztKEA_ot-ssnpkQJLkEW2fBPHtxdOX4gE--HmCH6YWCI0ZcYrh5iwnMkAF7INRcUBeiNa9738L81Z8WUB0ZVCg9YraaQPs-sFUebN-Ka7pqXqs9h-wN_whLvQ"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-ink-anthracite font-semibold shadow-xs">
+                  Format Bureau 220mm
+                </span>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">
+                        Plaque de Bureau Triangulaire Nom & Titre Pro
+                      </h3>
+<p class="font-label-md text-label-md text-ink-muted mt-0.5">Réf: MD3D-DSK-TR-05</p>
+</div>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-ink-anthracite font-bold">99 MAD</span>
+<span class="block font-label-md text-label-md text-ink-muted">Finition lissée au fer</span>
+</div>
+</div>
+<!-- Filament & Infill Badges -->
+<div class="flex flex-wrap items-center gap-space-xs mt-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-sand text-ink-anthracite font-label-md text-label-md">
+<span class="w-3 h-3 rounded-full bg-filament-terracotta inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-gold-zellige inline-block"></span>
+                      Terracotta Ocre & Typographie Or Soyeux
+                    </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-sand text-ink-muted font-label-md text-label-md">
+                      Profilé Rigide Anti-Gauchissement
+                    </span>
+</div>
+<!-- Personalization Specs Box -->
+<div class="mt-2.5 p-space-xs bg-surface-sand-subtle rounded-lg flex flex-col gap-1 text-body-md font-body-md">
+<div class="flex items-center justify-between">
+<span class="text-ink-muted font-label-md text-label-md uppercase">Texte extrudé sur 2 lignes :</span>
+<span class="text-accent-majorelle font-label-md text-label-md cursor-pointer hover:underline">Modifier texte</span>
+</div>
+<p class="text-ink-anthracite font-semibold">
+                      Ligne 1 : <span class="tracking-wide">YASMINE BENNANI</span>
+</p>
+<p class="text-ink-muted font-label-lg text-label-lg">
+                      Ligne 2 : ARCHITECTE D.P.L.G. (Typographie en relief franc)
+                    </p>
+</div>
+</div>
+<!-- Footer / Stepper & Actions -->
+<div class="flex items-center justify-between pt-space-sm mt-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center bg-surface-sand rounded-lg px-2 py-1 gap-3">
+<button class="w-6 h-6 flex items-center justify-center text-ink-anthracite hover:text-accent-majorelle font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="font-title-md text-title-md text-ink-anthracite font-bold w-4 text-center">1</span>
+<button class="w-6 h-6 flex items-center justify-center text-ink-anthracite hover:text-accent-majorelle font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<span class="text-label-md font-label-md text-ink-muted">Unité</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 text-ink-muted hover:text-error transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Retirer</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Production Diagnostics Slicing Box -->
+<div class="bg-surface-sand/80 p-space-lg rounded-xl flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<!-- Visual circular progress SVG -->
+<div class="relative w-14 h-14 shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-accent-majorelle" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="85, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="material-symbols-outlined text-ink-anthracite absolute text-[20px]">layers</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-ink-anthracite font-semibold">Télémétrie d'impression prévisionnelle</h4>
+<p class="font-body-md text-body-md text-ink-muted">
+                  Temps d'extrusion cumulé : <span class="text-ink-anthracite font-semibold">2h 45min</span> • Poids matière : <span class="text-ink-anthracite font-semibold">184g PLA Biosourcé</span>
+</p>
+<p class="font-label-md text-label-md text-ink-muted mt-0.5">Optimisation AMS : Zéro déchet de purge (Slicing 2.5D sans rétraction parasite)</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-700 text-[18px]">verified_user</span>
+<span class="font-label-md text-label-md text-ink-anthracite font-bold uppercase">G-Code Validé</span>
+</div>
+</div>
+<!-- Moroccan Artisan Safeguard Checklist -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs">
+<div class="bg-surface-container-lowest p-space-md rounded-xl flex items-start gap-space-xs shadow-xs">
+<span class="material-symbols-outlined text-accent-majorelle text-[22px]">spellcheck</span>
+<div>
+<h5 class="font-title-md text-title-md text-ink-anthracite font-semibold">Relecture Calligraphique</h5>
+<p class="font-body-md text-body-md text-ink-muted">Chaque prénom arabe est contrôlé par notre maître calligraphe avant extrusion.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl flex items-start gap-space-xs shadow-xs">
+<span class="material-symbols-outlined text-gold-zellige text-[22px]">workspace_premium</span>
+<div>
+<h5 class="font-title-md text-title-md text-ink-anthracite font-semibold">Finition Manuelle</h5>
+<p class="font-body-md text-body-md text-ink-muted">Ébavurage thermique, pose d'aimants et garniture velours assemblés à Casablanca.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl flex items-start gap-space-xs shadow-xs">
+<span class="material-symbols-outlined text-filament-terracotta text-[22px]">inventory_2</span>
+<div>
+<h5 class="font-title-md text-title-md text-ink-anthracite font-semibold">Paiement après Examen</h5>
+<p class="font-body-md text-body-md text-ink-muted">Inspectez la netteté du relief avec le livreur Amana avant de régler en espèces.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Order Summary & Instant COD Checkout (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg sticky top-36">
+<!-- Order Financial Recap Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">
+                Récapitulatif de Commande
+              </h2>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-full bg-accent-majorelle-soft text-accent-majorelle font-bold">
+                5 Articles
+              </span>
+</div>
+<!-- Price Breakdown Lines -->
+<div class="flex flex-col gap-3 font-body-md text-body-md">
+<div class="flex justify-between text-ink-muted">
+<span>Sous-total articles (4 créations)</span>
+<span class="text-ink-anthracite font-medium">535.00 MAD</span>
+</div>
+<div class="flex justify-between items-center text-emerald-700 bg-emerald-50 px-2.5 py-1.5 rounded-lg">
+<div class="flex items-center gap-1 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">sell</span>
+<span>Remise Volume Spéciale (-10%)</span>
+</div>
+<span class="font-bold">- 53.50 MAD</span>
+</div>
+<div class="flex justify-between items-center text-ink-muted">
+<div class="flex items-center gap-1">
+<span>Livraison Express Amana Maroc</span>
+<span class="material-symbols-outlined text-[16px] text-ink-muted cursor-help" title="Livraison à domicile en 24h à 48h selon votre ville">info</span>
+</div>
+<div class="text-right">
+<span class="line-through text-outline text-xs mr-1">35 MAD</span>
+<span class="text-emerald-700 font-bold uppercase font-label-md text-label-md">Gratuite</span>
+</div>
+</div>
+<div class="flex justify-between text-ink-muted">
+<span>Frais d'encaissement COD (Espèces)</span>
+<span class="text-ink-anthracite font-medium">0.00 MAD</span>
+</div>
+</div>
+<!-- Promo Code Accordion/Input -->
+<div class="pt-space-xs">
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-accent-majorelle text-[18px]">check_circle</span>
+<input class="w-full pl-9 pr-3 py-2 bg-surface-sand rounded-lg font-mono text-label-lg text-label-lg font-bold text-ink-anthracite uppercase tracking-wider focus:outline-none focus:ring-0" readonly="" type="text" value="MAROC3D"/>
+</div>
+<button class="px-3 py-2 bg-surface-sand text-ink-muted hover:text-ink-anthracite font-label-md text-label-md rounded-lg transition-colors">
+                  Modifier
+                </button>
+</div>
+<p class="font-label-md text-label-md text-emerald-700 mt-1 flex items-center gap-1">
+<span>Code promo « MAROC3D » appliqué : -10% sur toute la sélection 3D.</span>
+</p>
+</div>
+<!-- Total Block -->
+<div class="pt-space-sm bg-surface-sand-subtle p-space-md rounded-xl flex flex-col gap-1">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">Total à Régler</span>
+<div class="text-right">
+<span class="font-display-lg text-headline-lg text-accent-majorelle font-bold tracking-tight">481.50</span>
+<span class="font-title-md text-title-md text-accent-majorelle font-bold ml-1">MAD</span>
+</div>
+</div>
+<p class="font-label-md text-label-md text-ink-muted">TTC • Montant exact à remettre en espèces au livreur</p>
+</div>
+<!-- Direct WhatsApp BAT Validation CTA -->
+<a class="w-full py-3 px-space-md bg-surface-sand hover:bg-surface-container-high text-ink-anthracite rounded-lg flex items-center justify-center gap-2 font-label-lg text-label-lg transition-colors shadow-xs" href="https://wa.me/212661000000?text=Bonjour%20MustDesign3D,%20je%20souhaite%20valider%20le%20BAT%20visuel%20pour%20mon%20panier%20(Porte-cl%C3%A9s%20Youssef,%20Boite%20Hub,%20QR%20Riad,%20Plaque%20Architecte)" target="_blank">
+<span class="material-symbols-outlined text-[20px] text-emerald-600">chat</span>
+<span>Valider le BAT 3D sur WhatsApp</span>
+<span class="text-ink-muted text-xs">(Optionnel)</span>
+</a>
+<!-- Primary Checkout CTA (Cash on Delivery) -->
+<button class="w-full py-3.5 px-space-md bg-ink-anthracite hover:bg-accent-majorelle text-on-primary rounded-lg flex items-center justify-center gap-2 font-title-md text-title-md font-semibold transition-colors shadow-md group">
+<span>Confirmer la commande (Paiement COD)</span>
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<!-- Small reassurance badges -->
+<div class="flex flex-col gap-2 pt-space-xs text-label-md font-label-md text-ink-muted">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+<span>Paiement en espèces à la livraison (Zéro risque de carte)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+<span>Expédition suivie par SMS & appel du livreur Amana</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+<span>Emballage sécurisé antichoc & boîte cadeau kraft</span>
+</div>
+</div>
+</div>
+<!-- Customer Service Direct Card -->
+<div class="bg-surface-sand p-space-md rounded-xl flex items-center gap-space-sm shadow-xs">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-accent-majorelle shrink-0">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-ink-anthracite font-semibold">Une question sur vos fichiers ?</p>
+<p class="font-body-md text-body-md text-ink-muted">Notre atelier répond en direct de 9h à 19h sur WhatsApp.</p>
+<span class="font-label-lg text-label-lg text-accent-majorelle font-bold">+212 (0) 522-303030</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cross-Sell Upsell Carousel Section: "Complétez votre composition 3D" -->
+<section class="w-full bg-surface-container-low/50 py-space-2xl">
+<div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm pb-space-lg">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-widest text-gold-zellige font-bold">Complétez votre plateau d'impression</span>
+<h2 class="font-headline-lg text-headline-lg text-ink-anthracite tracking-tight mt-1">
+            Petits ajouts artisanaux à glisser dans votre colis
+          </h2>
+<p class="font-body-md text-body-md text-ink-muted max-w-xl mt-1">
+            Maximisez votre livraison gratuite avec nos créations compactes conçues pour s'imprimer en temps masqué.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest text-ink-anthracite hover:bg-surface-sand flex items-center justify-center shadow-xs transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest text-ink-anthracite hover:bg-surface-sand flex items-center justify-center shadow-xs transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Add-on Items Grid (4 items) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Upsell Card 1: Marque-Page Iqra -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div>
+<div class="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-sand mb-space-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Delicate ultra thin 3D printed bookmark with Arabic calligraphy Iqra in gold silk filament lying on an open vintage Moroccan book, soft warm shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjMAKXyB5XVlOIq5JhMKiw1QM5nM2HVqnhA8eZcN_7Fe01X4IG9kOwUCyJkoqCKbHSgp35lEMDzf-rbXOYWqBp0HHcAvPR31xSoOLU_Q5a_cnYatoprUnIoQFUQSw_e3VGKnotqXkpmMDHk2Be6qiAxPtaHZhd1Jv4ilHT-l9l3Jyf1-MuNpPl1Ub-EgUl5KsvUdTsmWyDbgnteFMhrviWs6t3Xvb7SdGO7LhxRw"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-ink-anthracite font-semibold">
+                Épaisseur 0.8mm
+              </span>
+</div>
+<h4 class="font-title-md text-title-md text-ink-anthracite font-semibold">
+              Marque-Page Calligraphié « Iqra »
+            </h4>
+<p class="font-body-md text-body-md text-ink-muted mt-1">
+              Finition Or Soyeux PEI souple et résistant aux plis.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm">
+<div>
+<span class="font-price-lg text-price-lg text-ink-anthracite font-bold">35 MAD</span>
+</div>
+<button class="px-3 py-1.5 bg-surface-sand hover:bg-accent-majorelle hover:text-on-primary text-ink-anthracite rounded-lg font-label-lg text-label-lg font-semibold transition-colors flex items-center gap-1 shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Ajouter</span>
+</button>
+</div>
+</div>
+<!-- Upsell Card 2: Vase Paramétrique Zellige -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div>
+<div class="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-sand mb-space-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern sculptural 3D printed parametric vase with Moroccan geometric zellige facets in terracotta clay color on a light sandstone surface with dried palm leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6S1z5M7L9sgtkFLHXpXr6MHZoIsYkuXtZS3MpvgMwlJkb1FyZGO4fby4Ftqd_EIIi-C4ebb2uydvuYoyYjcjzdtQW8HziWCb49AVh6effrySz--D9id5k5YYP1gjk2mYU8RCE3eNe7noVQqxLcrgqkU7G7GdS6DfGC-fuqsYmxEnK-1xErMJMcD8Gau5uKAb03QejZ_f19fqCP7pdUn6ReJEYBVD1QTATB8KxQQ"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-filament-terracotta text-on-primary font-label-md text-label-md font-bold">
+                Éco PLA Bois
+              </span>
+</div>
+<h4 class="font-title-md text-title-md text-ink-anthracite font-semibold">
+              Vase Paramétrique Zellige Mini (16cm)
+            </h4>
+<p class="font-body-md text-body-md text-ink-muted mt-1">
+              Étanche avec vernis bio, idéal pour fleurs séchées.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm">
+<div>
+<span class="font-price-lg text-price-lg text-ink-anthracite font-bold">160 MAD</span>
+</div>
+<button class="px-3 py-1.5 bg-surface-sand hover:bg-accent-majorelle hover:text-on-primary text-ink-anthracite rounded-lg font-label-lg text-label-lg font-semibold transition-colors flex items-center gap-1 shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Ajouter</span>
+</button>
+</div>
+</div>
+<!-- Upsell Card 3: Porte-Téléphone Moucharabieh -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div>
+<div class="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-sand mb-space-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="3D printed phone stand with traditional Moroccan Mashrabiya latticework in deep majorelle blue holding a smartphone on a clean wooden workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsBWcupOdvFxMN4QEP-HPLwljX-EhmllebYbfbs6aCq7BygTav0m_9GThBQVtLeypMjrh7jQTEgDH9bSki6LwIe7K2FajHOBUS2kPHVjdWyb8oXjqCMZrziaat3kW_CFFCA35zN_wlxLfcKD_HN7QSEseC5OYSUDijF8MYM8fjbgvf5X6naAztwT89H9vcmjMjW7710l65DCS_944VvC6E16BMENf-wNS3Agh2kQ"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-ink-anthracite font-semibold">
+                Pliable de voyage
+              </span>
+</div>
+<h4 class="font-title-md text-title-md text-ink-anthracite font-semibold">
+              Support Téléphone Motif Moucharabieh
+            </h4>
+<p class="font-body-md text-body-md text-ink-muted mt-1">
+              Découpe ajourée permettant la recharge par câble.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm">
+<div>
+<span class="font-price-lg text-price-lg text-ink-anthracite font-bold">59 MAD</span>
+</div>
+<button class="px-3 py-1.5 bg-surface-sand hover:bg-accent-majorelle hover:text-on-primary text-ink-anthracite rounded-lg font-label-lg text-label-lg font-semibold transition-colors flex items-center gap-1 shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Ajouter</span>
+</button>
+</div>
+</div>
+<!-- Upsell Card 4: Porte-Clés Mini Khamsa -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-xs flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div>
+<div class="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-sand mb-space-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Small Moroccan Hamsa Hand of Fatima 3D printed keychain with dual color white and majorelle blue inlay on rustic linen fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClaxo0huqfMiFNy2TnrDazGx9N-ulR0ViNwnlKu1yBOqBJfpDJ8mqSGjCdZ29kXR0WNwV_k2kXY7f1Vp56RO2a8QUfdGaNhyr4nxYWW14VS5-hgXQGYSa6t2YpAIsb0eFSlEb_93_yRUTMo8Ko_uaVYJkQLpF3gx8VZepNM2Lz9EnovVLiKDxy1rLvWbbyqVg-WWpklhz_0ihoVsfYF8wwvL8URTUxOE4Qd4Pj0Q"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-ink-anthracite font-semibold">
+                Porte-Bonheur
+              </span>
+</div>
+<h4 class="font-title-md text-title-md text-ink-anthracite font-semibold">
+              Porte-Clés Khamsa « Protection »
+            </h4>
+<p class="font-body-md text-body-md text-ink-muted mt-1">
+              Relief bicolore Majorelle et anneau laiton vieilli.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm">
+<div>
+<span class="font-price-lg text-price-lg text-ink-anthracite font-bold">39 MAD</span>
+</div>
+<button class="px-3 py-1.5 bg-surface-sand hover:bg-accent-majorelle hover:text-on-primary text-ink-anthracite rounded-lg font-label-lg text-label-lg font-semibold transition-colors flex items-center gap-1 shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Ajouter</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Client-side Script for Cart Steppers & WhatsApp Preview -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Stepper micro-interaction
+      const stepperButtons = document.querySelectorAll('button:has(.material-symbols-outlined)');
+      stepperButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const icon = btn.querySelector('.material-symbols-outlined');
+          if (!icon) return;
+          if (icon.textContent.trim() === 'add' || icon.textContent.trim() === 'remove') {
+            const container = btn.closest('.flex.items-center');
+            const countSpan = container.querySelector('span.w-4');
+            if (countSpan) {
+              let val = parseInt(countSpan.textContent, 10) || 1;
+              if (icon.textContent.trim() === 'add') {
+                val++;
+              } else if (icon.textContent.trim() === 'remove' && val > 1) {
+                val--;
+              }
+              countSpan.textContent = val;
+            }
+          }
+        });
+      });
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface pt-space-2xl pb-space-xl mt-space-2xl"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-3 gap-gutter pb-space-xl mb-space-xl bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-sm"><div class="w-12 h-12 rounded-full bg-surface-sand flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-filament-majorelle">verified</span></div><div><h4 class="font-title-md text-title-md text-ink-anthracite">Fabriqué au Maroc</h4><p class="font-body-md text-body-md text-ink-muted">Impression de précision Bambu Lab dans nos ateliers à Casablanca.</p></div></div><div class="flex items-center gap-space-sm"><div class="w-12 h-12 rounded-full bg-surface-sand flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-gold-zellige">eco</span></div><div><h4 class="font-title-md text-title-md text-ink-anthracite">PLA Écologique Premium</h4><p class="font-body-md text-body-md text-ink-muted">Bioplastique biosourcé à base d'amidon de maïs, robuste et soigné.</p></div></div><div class="flex items-center gap-space-sm"><div class="w-12 h-12 rounded-full bg-surface-sand flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-filament-terracotta">local_shipping</span></div><div><h4 class="font-title-md text-title-md text-ink-anthracite">Expédition Express Amana & Aramex</h4><p class="font-body-md text-body-md text-ink-muted">Livraison rapide 24h-48h à domicile avec paiement COD sécurisé.</p></div></div></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-space-2xl"><div class="lg:col-span-2 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-8 h-8 bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md rounded-lg">M</div><span class="font-headline-sm text-headline-sm text-ink-anthracite font-semibold">MUST<span class="text-filament-majorelle">DESIGN</span>3D</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">L'alliance de l'ébénisterie numérique et de la sensibilité marocaine. Créations personnalisables imprimées en 3D haute définition pour sublimer vos intérieurs et célébrer vos moments précieux.</p><div class="flex items-center gap-space-sm pt-space-xs"><span class="font-label-md text-label-md text-ink-muted">Atelier & Showroom: Casablanca, Maroc</span></div></div><div class="flex flex-col gap-space-xs"><span class="font-title-md text-title-md text-on-surface font-semibold mb-space-2xs">Collections</span><nav class="flex flex-col gap-2" data-active-classes="text-primary font-semibold"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="personnalisation-arabe" href="#">Calligraphie Personnalisée</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="vases-sculpturaux" href="#">Vases & Objets d'Art</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="lithophanes-lumineuses" href="#">Lithophanes Photo</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="bureau-organiseurs" href="#">Organiseurs Bureau</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="atelier-sur-mesure" href="#">Commandes Événements</a></nav></div><div class="flex flex-col gap-space-xs"><span class="font-title-md text-title-md text-on-surface font-semibold mb-space-2xs">Service Client</span><nav class="flex flex-col gap-2" data-active-classes="text-primary font-semibold"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="suivi-commande" href="#">Suivre ma commande</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="livraison-tarifs" href="#">Zones & Délais de Livraison</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">FAQ & Entretien PLA</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Atelier & WhatsApp Direct</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="cgv" href="#">Conditions Générales</a></nav></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface font-semibold">Rejoindre l'Atelier</span><p class="font-body-md text-body-md text-on-surface-variant">Recevez nos séries limitées et inspirations décoratives en avant-première.</p><div class="flex flex-col gap-space-xs"><input class="w-full px-space-sm py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none shadow-sm" placeholder="Votre adresse email..." type="email"/><button class="w-full py-2.5 bg-primary hover:bg-accent-majorelle text-on-primary font-label-lg text-label-lg rounded-lg transition-colors shadow-sm">S'inscrire</button></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-ink-muted"><p>© 2024 MustDesign3D Casablanca. Tous droits réservés. Conçu & fabriqué avec passion au Maroc.</p><div class="flex items-center gap-space-md"><span class="text-ink-anthracite font-semibold">Casablanca • Rabat • Marrakech • Tanger • Fès</span></div></div></div></footer></body></html>

@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_99 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_99" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_99');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  # 📦 CODE SOURCE COMPLET DES PAGES, COMPOSANTS & NAVIGATION (MUSTDESIGN3D)
+*Architecture de Production : Next.js 15+ (App Router), React 19, TypeScript strict, Tailwind CSS v4, Mode Sombre / Clair (Dark & Light Theme Switch), Three.js WebGL & Persistance Panier Locale*
+
+---
+
+## 📑 TABLE DES MATIÈRES & ARBORESCENCE D'INTÉGRATION
+
+1. [Fournisseur de Thème & Bascule Sombre/Clair (`components/theme-provider.tsx` & `components/theme-toggle.tsx`)](#1-fournisseur-de-thème--switch-mode-sombre--clair)
+2. [Styles CSS Globaux & Variables Sémantiques (`app/globals.css`)](#2-tokens-css-tailwindcss-v4--variables-mode-sombre--clair)
+3. [Layout Racine & En-tête Global avec Liens (`app/layout.tsx` & `app/navigation.tsx`)](#3-layout-racine--navigation-responsive-avec-tous-les-liens)
+4. [Tiroir Panier Persistant & Slide-Over Interactif (`app/cart-drawer.tsx`)](#4-panier-interactif-slide-over-cart-drawer--contexte)
+5. [Page d'Accueil Interactive avec Découverte & CTA (`app/page.tsx`)](#5-page-daccueil-complète--boutons-dactions)
+6. [Page Boutique & Catalogue avec Filtres Réactifs (`app/(shop)/shop/page.tsx`)](#6-page-boutique--catalogue-avec-filtres-dynamiques)
+7. [Fiche Produit avec Configurateur Live & Three.js (`app/(shop)/product/[slug]/page.tsx`)](#7-fiche-produit-dynamique--configurateur-bilingue)
+8. [Page Espace B2B & Devis Entreprises (`app/business/page.tsx`)](#8-espace-professionnels-b2b--devis-express)
+9. [Page Atelier Sur-Mesure & Prototypage (`app/custom/page.tsx`)](#9-atelier-sur-mesure--cahier-des-charges)
+10. [Page Suivi de Commande & Télémétrie 3D (`app/suivi-commande/page.tsx`)](#10-suivi-de-commande-en-direct--télémétrie-bambu-a1)
+11. [Page Finaliser ma Commande COD (`app/checkout/page.tsx`)](#11-tunnel-de-commande-checkout-cash-on-delivery)
+12. [Script d'Installation & Déploiement Étape par Étape (`setup-and-run.ps1` & `setup.sh`)](#12-scripts-dinstallation-étape-par-étape)
+
+---
+
+## 1. FOURNISSEUR DE THÈME & SWITCH MODE SOMBRE / CLAIR
+
+### `components/theme-provider.tsx`
+```tsx
+'use client';
+
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
+type Theme = 'light' | 'dark';
+
+interface ThemeContextType {
+  theme: Theme;
+  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
+}
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setThemeState] = useState<Theme>('light');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Restauration du thème depuis le localStorage ou détection du système OS
+    const saved = localStorage.getItem('mustdesign3d.theme') as Theme | null;
+    if (saved === 'dark' || saved === 'light') {
+      setThemeState(saved);
+      document.documentElement.classList.toggle('dark', saved === 'dark');
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setThemeState('dark');
+      document.documentElement.classList.add('dark');
+    }
+    setMounted(true);
+  }, []);
+
+  const setTheme = (next: Theme) => {
+    setThemeState(next);
+    localStorage.setItem('mustdesign3d.theme', next);
+    if (next === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
+  // Évite les flashs de SSR non hydraté
+  if (!mounted) {
+    return <div style={{ visibility: 'hidden' }}>{children}</div>;
+  }
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  if (!context) throw new Error('useTheme doit être utilisé au sein de ThemeProvider');
+  return context;
+}
+```
+
+### `components/theme-toggle.tsx`
+```tsx
+'use client';
+
+import React from 'react';
+import { useTheme } from './theme-provider';
+import { Sun, Moon } from 'lucide-react';
+
+export function ThemeToggle({ className = '' }: { className?: string }) {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label={theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair'}
+      className={`p-2 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#233D99] ${
+        theme === 'dark'
+          ? 'bg-[#2A2E39] text-[#FAFAFA] hover:bg-[#343A48]'
+          : 'bg-[#F2ECE7] text-[#1E2022] hover:bg-[#E6E0DB]'
+      } ${className}`}
+    >
+      {theme === 'light' ? (
+        <Moon className="w-4 h-4 text-[#1E2022]" />
+      ) : (
+        <Sun className="w-4 h-4 text-[#D49B42]" />
+      )}
+    </button>
+  );
+}
+```
+
+---
+
+## 2. TOKENS CSS TAILWIND CSS V4 & VARIABLES MODE SOMBRE / CLAIR
+
+### `app/globals.css`
+```css
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Mode Clair — Atelier Néo-Marocain & Ivoire Porcelaine */
+    --surface-bg: #FEF8F4;
+    --surface-card: #FFFFFF;
+    --surface-subtle: #F8F2EE;
+    --surface-border: #DBD1BF;
+    --text-primary: #1E2022;
+    --text-secondary: #6D6C65;
+    
+    /* Couleur Signature & Accents */
+    --brand-primary: #233D99;         /* Bleu Majorelle officiel */
+    --brand-primary-hover: #1B2F77;
+    --brand-accent-gold: #D49B42;     /* Or Soyeux d'Atelier */
+    --brand-accent-clay: #C25E3E;     /* Terracotta Ocre Fès */
+    --brand-accent-red: #B92B32;      /* Rouge Atlas */
+  }
+
+  /* Mode Sombre — Basalte Nocturne & Contraste Épuré */
+  html.dark {
+    --surface-bg: #0F1115;
+    --surface-card: #181B22;
+    --surface-subtle: #212530;
+    --surface-border: #2D3342;
+    --text-primary: #F4F5F7;
+    --text-secondary: #9DA4B5;
+    
+    --brand-primary: #385DF5;
+    --brand-primary-hover: #5273FC;
+    --brand-accent-gold: #E5AC4E;
+    --brand-accent-clay: #D97352;
+    --brand-accent-red: #D43840;
+  }
+
+  body {
+    background-color: var(--surface-bg);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: "Noto Serif", Georgia, serif;
+  }
+}
+
+/* Animations et Transitions Utilitaires */
+.transition-theme {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+```
+
+---
+
+## 3. LAYOUT RACINE & NAVIGATION RESPONSIVE AVEC TOUS LES LIENS
+
+### `app/layout.tsx`
+```tsx
+import type { Metadata } from 'next';
+import './globals.css';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Navigation } from '@/app/navigation';
+import { CartDrawerProvider } from '@/app/cart-drawer';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'MustDesign3D — Néo-Artisanat & Objets 3D Personnalisés',
+  description: 'Atelier de fabrication additive de précision Bambu Lab A1 / AMS Lite à Casablanca, Maroc.',
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="fr" suppressHydrationWarning>
+      <body>
+        <ThemeProvider>
+          <CartDrawerProvider>
+            {/* Barre de réassurance supérieure */}
+            <div className="bg-[#233D99] dark:bg-[#182664] text-white text-xs py-2 px-4">
+              <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+                <span className="flex items-center gap-1.5 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Atelier Casablanca Maârif · Production 4x Bambu Lab A1 en direct
+                </span>
+                <div className="flex items-center gap-4">
+                  <span>Paiement Cash on Delivery (COD) partout au Maroc</span>
+                  <a
+                    href="https://wa.me/212661458920"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline font-semibold"
+                  >
+                    WhatsApp Atelier : +212 661-458920
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation principale avec liens actifs */}
+            <Navigation />
+
+            {/* Contenu de la page */}
+            <main id="contenu">{children}</main>
+
+            {/* Pied de page global */}
+            <footer className="bg-[#F8F2EE] dark:bg-[#14161C] border-t border-[var(--surface-border)] mt-24 py-12 transition-theme">
+              <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                  <div className="flex items-center gap-2 font-serif text-xl font-bold text-[var(--brand-primary)]">
+                    MustDesign<span className="text-[var(--brand-accent-gold)]">3D</span>
+                  </div>
+                  <p className="mt-3 text-sm text-[var(--text-secondary)]">
+                    Néo-artisanat numérique, calligraphie arabe en relief 3D et solutions de signalétique sur mesure.
+                  </p>
+                  <p className="mt-4 text-xs font-mono text-[var(--text-secondary)]">
+                    Casablanca (Quartier Gauthier / Maârif), Maroc.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm mb-3">Boutique & Catalogues</h4>
+                  <ul className="space-y-2 text-sm text-[var(--text-secondary)]">
+                    <li><Link href="/shop?cat=cadeaux" className="hover:text-[var(--brand-primary)]">Cadeaux & Prénoms</Link></li>
+                    <li><Link href="/shop?cat=maison-bureau" className="hover:text-[var(--brand-primary)]">Maison & Bureau</Link></li>
+                    <li><Link href="/shop?cat=professionnels" className="hover:text-[var(--brand-primary)]">Présentoirs QR B2B</Link></li>
+                    <li><Link href="/shop?cat=art-de-vivre" className="hover:text-[var(--brand-primary)]">Art de Vivre Marocain</Link></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm mb-3">Atelier & Projets</h4>
+                  <ul className="space-y-2 text-sm text-[var(--text-secondary)]">
+                    <li><Link href="/custom" className="hover:text-[var(--brand-primary)]">Atelier Sur-Mesure</Link></li>
+                    <li><Link href="/business" className="hover:text-[var(--brand-primary)]">Solutions Entreprises (B2B)</Link></li>
+                    <li><Link href="/suivi-commande" className="hover:text-[var(--brand-primary)]">Suivi Télémétrique 3D</Link></li>
+                    <li><Link href="/admin/dashboard" className="hover:text-[var(--brand-primary)]">Portail Atelier Admin</Link></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm mb-3">Garanties & Confiance</h4>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                    100% Zero-Support · FDM haute précision 0.16mm · Bon à Tirer (BAT 3D) systématiquement validé sur WhatsApp avant impression.
+                  </p>
+                  <div className="mt-4 p-3 bg-white dark:bg-[#1E232E] rounded-xl border border-[var(--surface-border)] text-xs text-[var(--text-secondary)]">
+                    Expédition rapide sous 24/48h via Amana Messagerie Express.
+                  </div>
+                </div>
+              </div>
+              <div className="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-[var(--surface-border)] flex flex-col md:flex-row justify-between items-center text-xs text-[var(--text-secondary)]">
+                <span>© {new Date().getFullYear()} MustDesign3D. Fait avec passion à Casablanca.</span>
+                <div className="flex gap-6 mt-3 md:mt-0">
+                  <Link href="/contact" className="hover:underline">Contact & Horaires</Link>
+                  <Link href="/checkout" className="hover:underline">Paiement à la Livraison (COD)</Link>
+                </div>
+              </div>
+            </footer>
+          </CartDrawerProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+### `app/navigation.tsx`
+```tsx
+'use client';
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { useCartDrawer } from '@/app/cart-drawer';
+import { ShoppingBag, Menu, X, Sparkles, Layers, PhoneCall } from 'lucide-react';
+
+export function Navigation() {
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openCart, itemCount } = useCartDrawer();
+
+  const links = [
+    { href: '/', label: 'Accueil' },
+    { href: '/shop', label: 'Boutique & Catalogue' },
+    { href: '/custom', label: 'Sur Mesure' },
+    { href: '/business', label: 'Professionnels B2B' },
+    { href: '/suivi-commande', label: 'Suivi 3D' },
+    { href: '/contact', label: 'Contact' },
+  ];
+
+  return (
+    <header className="sticky top-0 z-40 bg-[var(--surface-bg)]/90 backdrop-blur-md border-b border-[var(--surface-border)] transition-theme">
+      <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        {/* Logo & Identité */}
+        <Link href="/" className="flex items-center gap-2 font-serif text-2xl font-bold tracking-tight">
+          <span className="text-[var(--brand-primary)]">MustDesign</span>
+          <span className="text-[var(--brand-accent-gold)]">3D</span>
+        </Link>
+
+        {/* Liens Desktop */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {links.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors ${
+                  isActive
+                    ? 'text-[var(--brand-primary)] font-semibold border-b-2 border-[var(--brand-primary)] pb-1'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Boutons d'Action Droite */}
+        <div className="flex items-center gap-3">
+          {/* Switch Sombre / Clair */}
+          <ThemeToggle />
+
+          {/* Lien Direct Studio IA */}
+          <Link
+            href="/custom"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full bg-[var(--surface-subtle)] text-[var(--brand-primary)] border border-[var(--surface-border)] hover:bg-[var(--brand-primary)] hover:text-white transition-all"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            Studio 3D
+          </Link>
+
+          {/* Bouton Panier (Cart Trigger) */}
+          <button
+            type="button"
+            onClick={openCart}
+            className="relative flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--brand-primary)] text-white text-sm font-medium hover:bg-[var(--brand-primary-hover)] transition-all shadow-sm"
+          >
+            <ShoppingBag className="w-4 h-4" />
+            <span className="hidden sm:inline">Panier</span>
+            <span className="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full font-bold">
+              {itemCount}
+            </span>
+          </button>
+
+          {/* Bouton Menu Mobile */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 rounded-lg text-[var(--text-primary)] hover:bg-[var(--surface-subtle)]"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Tiroir Navigation Mobile */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden border-t border-[var(--surface-border)] bg-[var(--surface-bg)] px-4 py-6 space-y-4">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-base font-medium text-[var(--text-primary)] hover:text-[var(--brand-primary)]"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div className="pt-4 border-t border-[var(--surface-border)] flex flex-col gap-2">
+            <Link
+              href="/admin/dashboard"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2 text-sm text-[var(--text-secondary)] py-2"
+            >
+              <Layers className="w-4 h-4" /> Espace Back-Office Atelier
+            </Link>
+            <a
+              href="https://wa.me/212661458920"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 text-sm text-emerald-600 font-medium py-2"
+            >
+              <PhoneCall className="w-4 h-4" /> WhatsApp Direct (+212 661-458920)
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+```
+
+---
+
+## 4. PANIER INTERACTIF SLIDE-OVER (CART DRAWER) & CONTEXTE
+
+### `app/cart-drawer.tsx`
+```tsx
+'use client';
+
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import Link from 'next/link';
+import { X, Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
+import { formatPrice } from '@/lib/products';
+import { CartLine } from '@/lib/contracts';
+import { restoreCart, CART_STORAGE_KEY } from '@/lib/cart-storage';
+import { catalogue } from '@/lib/catalogue.server';
+
+interface CartContextType {
+  lines: CartLine[];
+  isOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
+  addToCart: (item: CartLine) => void;
+  removeFromCart: (id: string) => void;
+  updateQuantity: (id: string, qty: number) => void;
+  itemCount: number;
+  subtotalCents: number;
+}
+
+const CartDrawerContext = createContext<CartContextType | undefined>(undefined);
+
+export function CartDrawerProvider({ children }: { children: React.ReactNode }) {
+  const [lines, setLines] = useState<CartLine[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Restauration initiale sûre
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(CART_STORAGE_KEY);
+      const res = restoreCart(raw, catalogue);
+      setLines(res.lines);
+    } catch {
+      setLines([]);
+    }
+  }, []);
+
+  // Synchronisation continue dans localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        CART_STORAGE_KEY,
+        JSON.stringify({ schemaVersion: 1, lines })
+      );
+    } catch {}
+  }, [lines]);
+
+  const openCart = () => setIsOpen(true);
+  const closeCart = () => setIsOpen(false);
+
+  const addToCart = (newItem: CartLine) => {
+    setLines((prev) => {
+      const existing = prev.find(
+        (l) => l.productId === newItem.productId && JSON.stringify(l.personalization) === JSON.stringify(newItem.personalization)
+      );
+      if (existing) {
+        return prev.map((l) =>
+          l.id === existing.id ? { ...l, quantity: Math.min(99, l.quantity + newItem.quantity) } : l
+        );
+      }
+      return [...prev, newItem];
+    });
+    setIsOpen(true);
+  };
+
+  const removeFromCart = (id: string) => {
+    setLines((prev) => prev.filter((l) => l.id !== id));
+  };
+
+  const updateQuantity = (id: string, quantity: number) => {
+    if (quantity < 1 || quantity > 99) return;
+    setLines((prev) => prev.map((l) => (l.id === id ? { ...l, quantity } : l)));
+  };
+
+  const itemCount = lines.reduce((acc, curr) => acc + curr.quantity, 0);
+  const subtotalCents = lines.reduce((acc, curr) => acc + curr.unitPriceCents * curr.quantity, 0);
+  const freeShippingThresholdCents = 20000; // 200 MAD
+  const progressToFreeShipping = Math.min(100, (subtotalCents / freeShippingThresholdCents) * 100);
+
+  return (
+    <CartDrawerContext.Provider
+      value={{
+        lines,
+        isOpen,
+        openCart,
+        closeCart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        itemCount,
+        subtotalCents,
+      }}
+    >
+      {children}
+
+      {/* Slide-over Drawer */}
+      {isOpen && (
+        <div className="fixed inset-0 z-50 overflow-hidden">
+          {/* Backdrop sombre */}
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
+            onClick={closeCart}
+          />
+
+          <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div className="w-screen max-w-md bg-[var(--surface-bg)] border-l border-[var(--surface-border)] shadow-2xl flex flex-col">
+              {/* Header Drawer */}
+              <div className="p-6 border-b border-[var(--surface-border)] flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ShoppingBag className="w-5 h-5 text-[var(--brand-primary)]" />
+                  <h3 className="font-serif text-lg font-bold">Votre Panier Démo ({itemCount})</h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={closeCart}
+                  className="p-2 rounded-lg hover:bg-[var(--surface-subtle)] text-[var(--text-secondary)]"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Jauge de livraison gratuite */}
+              <div className="px-6 py-3 bg-[var(--surface-subtle)] border-b border-[var(--surface-border)] text-xs">
+                {subtotalCents >= freeShippingThresholdCents ? (
+                  <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                    🎉 Félicitations ! Livraison Gratuite COD partout au Maroc !
+                  </span>
+                ) : (
+                  <span>
+                    Plus que{' '}
+                    <strong>{formatPrice(freeShippingThresholdCents - subtotalCents)}</strong> pour
+                    la livraison offerte !
+                  </span>
+                )}
+                <div className="w-full bg-[var(--surface-border)] h-1.5 rounded-full mt-2 overflow-hidden">
+                  <div
+                    className="bg-[var(--brand-primary)] h-full transition-all duration-300"
+                    style={{ width: `${progressToFreeShipping}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* Liste des articles */}
+              <div className="flex-1 overflow-y-auto p-6 space-y-4">
+                {lines.length === 0 ? (
+                  <div className="text-center py-16 text-[var(--text-secondary)]">
+                    <ShoppingBag className="w-12 h-12 mx-auto stroke-1 text-[var(--surface-border)] mb-4" />
+                    <p className="font-serif text-lg font-medium text-[var(--text-primary)]">
+                      Votre panier est encore vide
+                    </p>
+                    <p className="text-xs mt-1">Personnalisez un objet pour lui donner du relief.</p>
+                    <Link
+                      href="/shop"
+                      onClick={closeCart}
+                      className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--brand-primary)] text-white text-xs font-semibold"
+                    >
+                      Explorer le catalogue 3D
+                    </Link>
+                  </div>
+                ) : (
+                  lines.map((line) => {
+                    const product = catalogue.find((p) => p.id === line.productId);
+                    return (
+                      <div
+                        key={line.id}
+                        className="p-4 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-card)] flex gap-4 items-start"
+                      >
+                        <div className="w-16 h-16 rounded-lg bg-[var(--surface-subtle)] flex items-center justify-center font-bold text-xs text-[var(--brand-primary)]">
+                          3D
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-semibold text-sm truncate">
+                            {product?.name || 'Création 3D'}
+                          </h4>
+                          <p className="text-xs text-[var(--text-secondary)] mt-0.5">
+                            {line.personalization.kind === 'name' &&
+                              `Prénom : ${line.personalization.frenchName || line.personalization.arabicName}`}
+                            {line.personalization.kind === 'qr' &&
+                              `Établissement : ${line.personalization.businessName}`}
+                          </p>
+                          <div className="mt-3 flex items-center justify-between">
+                            <div className="flex items-center border border-[var(--surface-border)] rounded-lg">
+                              <button
+                                type="button"
+                                onClick={() => updateQuantity(line.id, line.quantity - 1)}
+                                className="px-2 py-0.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--surface-subtle)]"
+                              >
+                                -
+                              </button>
+                              <span className="px-2 text-xs font-mono font-medium">
+                                {line.quantity}
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => updateQuantity(line.id, line.quantity + 1)}
+                                className="px-2 py-0.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--surface-subtle)]"
+                              >
+                                +
+                              </button>
+                            </div>
+                            <span className="font-semibold text-sm">
+                              {formatPrice(line.unitPriceCents * line.quantity)}
+                            </span>
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => removeFromCart(line.id)}
+                          className="text-[var(--text-secondary)] hover:text-red-500 p-1"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    );
+                  })
+                )}
+              </div>
+
+              {/* Pied de page Drawer & Checkout */}
+              {lines.length > 0 && (
+                <div className="p-6 border-t border-[var(--surface-border)] bg-[var(--surface-card)]">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-sm text-[var(--text-secondary)]">Sous-total indicatif</span>
+                    <span className="font-serif text-xl font-bold">{formatPrice(subtotalCents)}</span>
+                  </div>
+                  <Link
+                    href="/checkout"
+                    onClick={closeCart}
+                    className="w-full py-3.5 px-4 rounded-xl bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white text-sm font-semibold flex items-center justify-center gap-2 shadow-lg shadow-[var(--brand-primary)]/20 transition-all"
+                  >
+                    Commander (Cash on Delivery)
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <a
+                    href="https://wa.me/212661458920"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 w-full py-2.5 px-4 rounded-xl border border-emerald-600/30 text-emerald-600 dark:text-emerald-400 text-xs font-medium flex items-center justify-center gap-2"
+                  >
+                    Valider le Bon à Tirer sur WhatsApp ↗
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </CartDrawerContext.Provider>
+  );
+}
+
+export function useCartDrawer() {
+  const context = useContext(CartDrawerContext);
+  if (!context) throw new Error('useCartDrawer must be used within CartDrawerProvider');
+  return context;
+}
+```
+
+---
+
+## 5. PAGE D'ACCUEIL COMPLÈTE & BOUTONS D'ACTIONS
+
+### `app/page.tsx`
+```tsx
+import React from 'react';
+import Link from 'next/link';
+import { Sparkles, Layers, ShieldCheck, Truck, ArrowRight, Printer } from 'lucide-react';
+import { catalogue } from '@/lib/catalogue.server';
+import { formatPrice } from '@/lib/products';
+import { Viewer3D } from '@/components/viewer-3d';
+
+export default function HomePage() {
+  const featured = catalogue.filter((p) => p.featured).slice(0, 4);
+
+  return (
+    <div className="space-y-24">
+      {/* Hero Section */}
+      <section className="relative px-4 pt-12 pb-20 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#233D99]/10 text-[#233D99] dark:bg-[#385DF5]/20 dark:text-[#385DF5]">
+            <Printer className="w-3.5 h-3.5" />
+            Impression 3D Bambu Lab A1 · 4 Couleurs AMS Lite
+          </div>
+          <h1 className="font-serif text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">
+            Un peu de vous.<br />
+            <em className="text-[var(--brand-primary)] not-italic">Beaucoup de relief.</em>
+          </h1>
+          <p className="text-lg text-[var(--text-secondary)] max-w-lg">
+            Marque marocaine d'objets personnalisés, calligraphie arabe sculptée et signalétique de comptoir. Imprimés à Casablanca sans aucun support.
+          </p>
+          <div className="flex flex-wrap gap-4 pt-2">
+            <Link
+              href="/product/porte-cles-prenom"
+              className="px-6 py-3.5 rounded-xl bg-[var(--brand-primary)] text-white text-sm font-semibold hover:bg-[var(--brand-primary-hover)] shadow-lg shadow-[var(--brand-primary)]/20 transition-all flex items-center gap-2"
+            >
+              Composer mon Porte-Clés (49 MAD)
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/shop"
+              className="px-6 py-3.5 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-card)] text-sm font-semibold hover:bg-[var(--surface-subtle)] transition-all"
+            >
+              Voir la Boutique
+            </Link>
+          </div>
+          <div className="pt-6 grid grid-cols-3 gap-4 border-t border-[var(--surface-border)] text-xs text-[var(--text-secondary)]">
+            <div>
+              <strong className="block text-sm text-[var(--text-primary)]">100% Zero-Support</strong>
+              Finitions nettes sans bavure
+            </div>
+            <div>
+              <strong className="block text-sm text-[var(--text-primary)]">Traction 12 kg</strong>
+              Œillet monobloc indéchirable
+            </div>
+            <div>
+              <strong className="block text-sm text-[var(--text-primary)]">Amana Express</strong>
+              Livraison 48h partout au Maroc
+            </div>
+          </div>
+        </div>
+
+        {/* Visualiseur 3D Three.js Interactif */}
+        <div className="relative">
+          <Viewer3D />
+        </div>
+      </section>
+
+      {/* Grille des Signatures Phares */}
+      <section className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-end mb-8">
+          <div>
+            <span className="text-xs uppercase tracking-widest text-[var(--brand-primary)] font-bold">
+              Collections d'Atelier
+            </span>
+            <h2 className="font-serif text-3xl font-bold mt-1">Les Signatures Phares</h2>
+          </div>
+          <Link href="/shop" className="text-sm font-semibold text-[var(--brand-primary)] hover:underline flex items-center gap-1">
+            Tout le catalogue ↗
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featured.map((product) => (
+            <div
+              key={product.id}
+              className="group rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-card)] overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col"
+            >
+              <div className="aspect-[4/3] bg-[var(--surface-subtle)] relative overflow-hidden flex items-center justify-center">
+                <span className="font-serif font-bold text-4xl text-[var(--brand-primary)] opacity-40">
+                  3D
+                </span>
+                <span className="absolute top-3 left-3 text-[10px] font-mono px-2 py-0.5 rounded-full bg-black/60 text-white backdrop-blur-md">
+                  {product.printTimeMinutes} min
+                </span>
+              </div>
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif font-bold text-base group-hover:text-[var(--brand-primary)] transition-colors">
+                    {product.name}
+                  </h3>
+                  <p className="text-xs text-[var(--text-secondary)] mt-1.5 line-clamp-2">
+                    {product.shortDescription}
+                  </p>
+                </div>
+                <div className="mt-5 pt-4 border-t border-[var(--surface-border)] flex items-center justify-between">
+                  <span className="font-serif font-bold text-base">
+                    {product.priceCents ? formatPrice(product.priceCents) : 'Sur devis'}
+                  </span>
+                  <Link
+                    href={`/product/${product.slug}`}
+                    className="px-3 py-1.5 rounded-lg bg-[var(--brand-primary)] text-white text-xs font-semibold hover:bg-[var(--brand-primary-hover)] transition-all"
+                  >
+                    Personnaliser
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4 Piliers de Réassurance Locale */}
+      <section className="bg-[var(--surface-subtle)] border-y border-[var(--surface-border)] py-16">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex gap-4">
+            <ShieldCheck className="w-8 h-8 text-[var(--brand-primary)] flex-shrink-0" />
+            <div>
+              <h4 className="font-bold text-sm">Bon à Tirer (BAT) WhatsApp</h4>
+              <p className="text-xs text-[var(--text-secondary)] mt-1">
+                Aperçu 3D validé par vos soins avant lancement de l'extrusion dans l'atelier.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <Truck className="w-8 h-8 text-[var(--brand-primary)] flex-shrink-0" />
+            <div>
+              <h4 className="font-bold text-sm">Paiement à la Livraison (COD)</h4>
+              <p className="text-xs text-[var(--text-secondary)] mt-1">
+                Payez en espèces à réception du colis avec Amana partout au Maroc.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <Layers className="w-8 h-8 text-[var(--brand-primary)] flex-shrink-0" />
+            <div>
+              <h4 className="font-bold text-sm">4 Couleurs Physiques A1</h4>
+              <p className="text-xs text-[var(--text-secondary)] mt-1">
+                Noir Basalte, Blanc Albâtre, Bleu Majorelle, Rouge Atlas & Terracotta Ocre.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <Sparkles className="w-8 h-8 text-[var(--brand-primary)] flex-shrink-0" />
+            <div>
+              <h4 className="font-bold text-sm">Zéro Retouche Manuelle</h4>
+              <p className="text-xs text-[var(--text-secondary)] mt-1">
+                Conception DFM sans supports : arêtes nettes, pas de ponçage ni solvant.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+```
+
+---
+
+## 6. PAGE BOUTIQUE & CATALOGUE AVEC FILTRES DYNAMIQUES
+
+### `app/(shop)/shop/page.tsx`
+```tsx
+'use client';
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { catalogue } from '@/lib/catalogue.server';
+import { formatPrice } from '@/lib/products';
+import { Filter, SlidersHorizontal } from 'lucide-react';
+
+export default function ShopPage() {
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedColor, setSelectedColor] = useState<string>('all');
+
+  const categories = [
+    { id: 'all', label: 'Toutes les créations' },
+    { id: 'cadeaux', label: 'Cadeaux & Prénoms' },
+    { id: 'maison-bureau', label: 'Maison & Bureau' },
+    { id: 'professionnels', label: 'B2B & Présentoirs' },
+    { id: 'art-de-vivre', label: 'Art de Vivre' },
+  ];
+
+  const filtered = catalogue.filter((item) => {
+    if (selectedCategory !== 'all' && item.categoryId !== selectedCategory) return false;
+    return true;
+  });
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      {/* En-tête */}
+      <div className="mb-10">
+        <span className="text-xs uppercase tracking-widest text-[var(--brand-primary)] font-bold">
+          Catalogue Prêt-à-Imprimer · Bambu Lab A1
+        </span>
+        <h1 className="font-serif text-4xl font-extrabold mt-1">Objets Personnalisés en Relief 3D</h1>
+        <p className="text-sm text-[var(--text-secondary)] mt-2 max-w-2xl">
+          Sélectionnez parmi nos créations d'atelier. Tous les modèles sont paramétrés pour le système 4 bobines AMS Lite et expédiés sous 48h au Maroc.
+        </p>
+      </div>
+
+      {/* Barre de filtres de catégories */}
+      <div className="flex flex-wrap gap-2 pb-6 border-b border-[var(--surface-border)]">
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            type="button"
+            onClick={() => setSelectedCategory(cat.id)}
+            className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+              selectedCategory === cat.id
+                ? 'bg-[var(--brand-primary)] text-white shadow-sm'
+                : 'bg-[var(--surface-card)] border border-[var(--surface-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Grille des Produits */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        {filtered.map((product) => (
+          <div
+            key={product.id}
+            className="group rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-card)] overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col"
+          >
+            <div className="aspect-[4/3] bg-[var(--surface-subtle)] relative overflow-hidden flex items-center justify-center">
+              <span className="font-serif font-bold text-4xl text-[var(--brand-primary)] opacity-40">
+                3D
+              </span>
+              <span className="absolute top-3 left-3 text-[10px] font-mono px-2 py-0.5 rounded-full bg-black/60 text-white backdrop-blur-md">
+                {product.printTimeMinutes} min
+              </span>
+            </div>
+            <div className="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] uppercase font-bold text-[var(--text-secondary)]">
+                  {product.categoryId}
+                </span>
+                <h3 className="font-serif font-bold text-base group-hover:text-[var(--brand-primary)] transition-colors mt-0.5">
+                  {product.name}
+                </h3>
+                <p className="text-xs text-[var(--text-secondary)] mt-1.5 line-clamp-2">
+                  {product.shortDescription}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-[var(--surface-border)] flex items-center justify-between">
+                <span className="font-serif font-bold text-base">
+                  {product.priceCents ? formatPrice(product.priceCents) : 'Sur devis'}
+                </span>
+                <Link
+                  href={`/product/${product.slug}`}
+                  className="px-3.5 py-1.5 rounded-lg bg-[var(--brand-primary)] text-white text-xs font-semibold hover:bg-[var(--brand-primary-hover)] transition-all"
+                >
+                  Personnaliser
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## 7. FICHE PRODUIT DYNAMIQUE & CONFIGURATEUR BILINGUE
+
+### `app/(shop)/product/[slug]/page.tsx`
+```tsx
+'use client';
+
+import React, { useState } from 'react';
+import { notFound, useParams } from 'next/navigation';
+import { getProductBySlug } from '@/lib/catalogue.server';
+import { formatPrice } from '@/lib/products';
+import { Viewer3D } from '@/components/viewer-3d';
+import { useCartDrawer } from '@/app/cart-drawer';
+import { ShieldCheck, Clock, Layers, Sparkles } from 'lucide-react';
+
+export default function ProductDetailPage() {
+  const params = useParams();
+  const slug = params?.slug as string;
+  const product = getProductBySlug(slug);
+
+  if (!product) notFound();
+
+  const { addToCart } = useCartDrawer();
+
+  // États du configurateur bilingue
+  const [language, setLanguage] = useState<'fr' | 'ar' | 'both'>('both');
+  const [frenchName, setFrenchName] = useState('YOUSSEF');
+  const [arabicName, setArabicName] = useState('يوسف');
+  const [selectedPalette, setSelectedPalette] = useState(product.palettes[0]?.id || 'bleu-blanc');
+  const [quantity, setQuantity] = useState(1);
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: crypto.randomUUID(),
+      productId: product.id,
+      personalization: {
+        version: 1,
+        kind: 'name',
+        language,
+        frenchName: language !== 'ar' ? frenchName : null,
+        arabicName: language !== 'fr' ? arabicName : null,
+        paletteId: selectedPalette,
+      },
+      quantity,
+      unitPriceCents: product.priceCents || 4900,
+    });
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        {/* Visualiseur 3D interactif Three.js */}
+        <div className="space-y-4">
+          <Viewer3D
+            nameText={frenchName}
+            arabicText={arabicName}
+            baseColor="#233D99"
+            textColor="#FAFAFA"
+          />
+          <div className="p-4 rounded-xl bg-[var(--surface-subtle)] border border-[var(--surface-border)] text-xs text-[var(--text-secondary)] flex items-center justify-between">
+            <span>Lit PEI or : 256 × 256 mm</span>
+            <span>Buse : 0.4 mm acier trempé</span>
+            <span>Épaisseur : 3.6 mm</span>
+          </div>
+        </div>
+
+        {/* Panneau de configuration */}
+        <div className="space-y-6">
+          <div>
+            <span className="text-xs uppercase tracking-widest text-[var(--brand-primary)] font-bold">
+              {product.categoryId}
+            </span>
+            <h1 className="font-serif text-3xl font-extrabold mt-1">{product.name}</h1>
+            <p className="font-serif text-2xl font-bold text-[var(--brand-primary)] mt-3">
+              {product.priceCents ? formatPrice(product.priceCents) : 'Sur devis'}
+            </p>
+            <p className="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">
+              {product.description}
+            </p>
+          </div>
+
+          {/* Formulaire de personnalisation bilingue */}
+          <div className="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-card)] space-y-5">
+            <h3 className="font-serif font-bold text-sm">1. Choisissez la langue & graphie</h3>
+            <div className="grid grid-cols-3 gap-2">
+              {(['fr', 'ar', 'both'] as const).map((lang) => (
+                <button
+                  key={lang}
+                  type="button"
+                  onClick={() => setLanguage(lang)}
+                  className={`py-2 text-xs font-semibold rounded-xl border transition-all ${
+                    language === lang
+                      ? 'bg-[var(--brand-primary)] text-white border-[var(--brand-primary)]'
+                      : 'border-[var(--surface-border)] text-[var(--text-secondary)]'
+                  }`}
+                >
+                  {lang === 'fr' ? 'Français' : lang === 'ar' ? 'Calligraphie Arabe' : 'Bilingue Recto/Verso'}
+                </button>
+              ))}
+            </div>
+
+            {/* Saisie Prénom Français */}
+            {language !== 'ar' && (
+              <div>
+                <label className="block text-xs font-semibold mb-1">Prénom en français (relief)</label>
+                <input
+                  type="text"
+                  value={frenchName}
+                  maxLength={24}
+                  onChange={(e) => setFrenchName(e.target.value.toUpperCase())}
+                  className="w-full px-4 py-2.5 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-bg)] text-sm font-semibold uppercase focus:ring-2 focus:ring-[var(--brand-primary)]"
+                />
+              </div>
+            )}
+
+            {/* Saisie Calligraphie Arabe */}
+            {language !== 'fr' && (
+              <div>
+                <label className="block text-xs font-semibold mb-1">Prénom en calligraphie arabe</label>
+                <input
+                  type="text"
+                  dir="rtl"
+                  value={arabicName}
+                  maxLength={24}
+                  onChange={(e) => setArabicName(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-bg)] text-sm font-semibold focus:ring-2 focus:ring-[var(--brand-primary)]"
+                />
+              </div>
+            )}
+
+            {/* Palette des filaments physiques */}
+            <div>
+              <h3 className="font-serif font-bold text-sm mb-2">2. Nuancier AMS Lite physique</h3>
+              <div className="grid grid-cols-2 gap-2">
+                {product.palettes.map((pal) => (
+                  <button
+                    key={pal.id}
+                    type="button"
+                    onClick={() => setSelectedPalette(pal.id)}
+                    className={`p-3 rounded-xl border text-xs text-left transition-all flex items-center gap-2 ${
+                      selectedPalette === pal.id
+                        ? 'border-[var(--brand-primary)] bg-[var(--surface-subtle)] font-bold'
+                        : 'border-[var(--surface-border)] text-[var(--text-secondary)]'
+                    }`}
+                  >
+                    <div className="flex gap-1">
+                      {pal.colors.map((c) => (
+                        <span key={c} className="w-3.5 h-3.5 rounded-full border border-black/10" style={{ background: c }} />
+                      ))}
+                    </div>
+                    <span className="truncate">{pal.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Sélecteur de Quantité & Bouton d'Ajout */}
+            <div className="pt-4 border-t border-[var(--surface-border)] flex items-center gap-4">
+              <div className="flex items-center border border-[var(--surface-border)] rounded-xl">
+                <button
+                  type="button"
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  className="px-3 py-2 text-sm text-[var(--text-secondary)]"
+                >
+                  -
+                </button>
+                <span className="px-3 text-sm font-mono font-bold">{quantity}</span>
+                <button
+                  type="button"
+                  onClick={() => setQuantity(Math.min(99, quantity + 1))}
+                  className="px-3 py-2 text-sm text-[var(--text-secondary)]"
+                >
+                  +
+                </button>
+              </div>
+              <button
+                type="button"
+                onClick={handleAddToCart}
+                className="flex-1 py-3 px-6 rounded-xl bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white text-sm font-semibold shadow-lg shadow-[var(--brand-primary)]/20 transition-all"
+              >
+                Ajouter au panier · {formatPrice((product.priceCents || 4900) * quantity)}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## 8. ESPACE PROFESSIONNELS (B2B) & DEVIS EXPRESS
+
+### `app/business/page.tsx`
+```tsx
+import React from 'react';
+import Link from 'next/link';
+import { QrCode, Building2, Store, Users, ArrowRight } from 'lucide-react';
+
+export default function BusinessPage() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-16 space-y-16">
+      <div className="text-center max-w-3xl mx-auto">
+        <span className="text-xs uppercase tracking-widest text-[var(--brand-primary)] font-bold">
+          Solutions Entreprises, Cafés & Riads
+        </span>
+        <h1 className="font-serif text-4xl sm:text-5xl font-extrabold mt-2">
+          Donnez du relief à votre comptoir et vos espaces
+        </h1>
+        <p className="text-sm text-[var(--text-secondary)] mt-4 leading-relaxed">
+          Présentoirs QR Code Google Avis 100% scannables, chevalets de menus lavables et plaques nominatives pour cabinets et établissements d'hôtellerie.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="p-8 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-card)]">
+          <QrCode className="w-10 h-10 text-[var(--brand-primary)] mb-4" />
+          <h3 className="font-serif font-bold text-lg">Présentoirs QR Google Avis</h3>
+          <p className="text-xs text-[var(--text-secondary)] mt-2">
+            Base lestée biseautée terracotta et panneau bicolore ultra-contrasté pour collecter 3x plus d'avis clients.
+          </p>
+          <Link href="/product/support-qr" className="mt-6 inline-flex items-center gap-1 text-xs font-semibold text-[var(--brand-primary)] hover:underline">
+            Configurer un présentoir ↗
+          </Link>
+        </div>
+
+        <div className="p-8 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-card)]">
+          <Building2 className="w-10 h-10 text-[var(--brand-accent-gold)] mb-4" />
+          <h3 className="font-serif font-bold text-lg">Plaques de Bureau d'Architecte</h3>
+          <p className="text-xs text-[var(--text-secondary)] mt-2">
+            Double relief bilingue arabe/français sur fond noir basalte mat pour bureaux d'avocats et médecins.
+          </p>
+          <Link href="/product/plaque-bureau" className="mt-6 inline-flex items-center gap-1 text-xs font-semibold text-[var(--brand-primary)] hover:underline">
+            Voir la plaque nominative ↗
+          </Link>
+        </div>
+
+        <div className="p-8 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-card)]">
+          <Users className="w-10 h-10 text-[var(--brand-accent-clay)] mb-4" />
+          <h3 className="font-serif font-bold text-lg">Lots Goodies & Événements</h3>
+          <p className="text-xs text-[var(--text-secondary)] mt-2">
+            Remises dégressives dès 20 unités (-15% à -45%) avec Bon à Tirer physique d'essai livré sous 48h.
+          </p>
+          <a href="https://wa.me/212661458920" target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 hover:underline">
+            Demander un devis WhatsApp ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## 9. ATELIER SUR-MESURE & CAHIER DES CHARGES
+
+### `app/custom/page.tsx`
+```tsx
+import React from 'react';
+import Link from 'next/link';
+import { UploadCloud, Layers, ShieldCheck, CheckCircle2 } from 'lucide-react';
+
+export default function CustomPage() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-16 space-y-16">
+      <div className="max-w-3xl">
+        <span className="text-xs uppercase tracking-widest text-[var(--brand-primary)] font-bold">
+          Prototypage & Fabrication Spécifique
+        </span>
+        <h1 className="font-serif text-4xl font-extrabold mt-2">
+          Atelier Sur-Mesure & Modélisation Paramétrique
+        </h1>
+        <p className="text-sm text-[var(--text-secondary)] mt-4 leading-relaxed">
+          Vous disposez d'un fichier 3D (.STL, .STEP, .3MF), d'un logo vectoriel ou d'un croquis ? Notre équipe d'ingénieurs à Casablanca valide la fabricabilité DFM pour Bambu Lab A1 sous 24h.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2 p-8 rounded-2xl border-2 border-dashed border-[var(--surface-border)] bg-[var(--surface-card)] text-center flex flex-col items-center justify-center py-16">
+          <UploadCloud className="w-12 h-12 text-[var(--brand-primary)] mb-4 stroke-1" />
+          <h3 className="font-serif font-bold text-lg">Transmettez vos fichiers ou votre cahier des charges</h3>
+          <p className="text-xs text-[var(--text-secondary)] mt-2 max-w-md">
+            Formats acceptés : STL, 3MF, STEP, SVG ou photos de référence.
+          </p>
+          <a
+            href="https://wa.me/212661458920"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 px-6 py-3 rounded-xl bg-[var(--brand-primary)] text-white text-xs font-semibold hover:bg-[var(--brand-primary-hover)] transition-all"
+          >
+            Envoyer mon projet sur WhatsApp Atelier (+212 661-458920)
+          </a>
+        </div>
+
+        <div className="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-subtle)] space-y-4">
+          <h4 className="font-bold text-sm">Le Protocole d'Atelier en 4 Étapes</h4>
+          <ul className="space-y-3 text-xs text-[var(--text-secondary)]">
+            <li className="flex gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+              <span>1. Analyse géométrique DFM (zéro-support & tolérances).</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+              <span>2. Attribution des 4 couleurs AMS Lite.</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+              <span>3. Bon à Tirer vidéo 3D transmis pour validation.</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+              <span>4. Production FDM 0.16mm et expédition express.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## 10. SUIVI DE COMMANDE EN DIRECT & TÉLÉMÉTRIE BAMBU A1
+
+### `app/suivi-commande/page.tsx`
+```tsx
+'use client';
+
+import React, { useState } from 'react';
+import { Search, Printer, CheckCircle, Clock } from 'lucide-react';
+
+export default function OrderTrackingPage() {
+  const [orderRef, setOrderRef] = useState('');
+  const [searched, setSearched] = useState(false);
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-16">
+      <div className="text-center mb-10">
+        <span className="text-xs uppercase tracking-widest text-[var(--brand-primary)] font-bold">
+          Télémétrie d'Impression en Temps Réel
+        </span>
+        <h1 className="font-serif text-4xl font-extrabold mt-1">Suivre la Fabrication de votre Commande</h1>
+        <p className="text-sm text-[var(--text-secondary)] mt-2">
+          Entrez votre référence de commande reçue par SMS/WhatsApp (ex: #MD-2026-892)
+        </p>
+      </div>
+
+      <div className="flex gap-2 max-w-md mx-auto">
+        <input
+          type="text"
+          placeholder="#MD-2026-892"
+          value={orderRef}
+          onChange={(e) => setOrderRef(e.target.value)}
+          className="flex-1 px-4 py-3 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-card)] text-sm font-mono"
+        />
+        <button
+          type="button"
+          onClick={() => setSearched(true)}
+          className="px-6 py-3 rounded-xl bg-[var(--brand-primary)] text-white text-sm font-semibold"
+        >
+          Rechercher
+        </button>
+      </div>
+
+      {searched && (
+        <div className="mt-12 p-8 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-card)] space-y-6">
+          <div className="flex justify-between items-center pb-4 border-b border-[var(--surface-border)]">
+            <div>
+              <span className="text-xs font-mono text-[var(--text-secondary)]">COMMANDE RECONNUE</span>
+              <h3 className="font-serif font-bold text-lg">Porte-Clés Bilingue 'Youssef / يوسف'</h3>
+            </div>
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600">
+              En Impression 3D (78%)
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+            <div className="p-3 bg-[var(--surface-subtle)] rounded-xl">
+              <span className="text-[var(--text-secondary)] block">Unité Machine</span>
+              <strong className="text-sm font-mono">Bambu Lab A1 #03</strong>
+            </div>
+            <div className="p-3 bg-[var(--surface-subtle)] rounded-xl">
+              <span className="text-[var(--text-secondary)] block">Buse & Couche</span>
+              <strong className="text-sm font-mono">215°C · 0.16mm</strong>
+            </div>
+            <div className="p-3 bg-[var(--surface-subtle)] rounded-xl">
+              <span className="text-[var(--text-secondary)] block">Plateau PEI</span>
+              <strong className="text-sm font-mono">60°C (Or Texturé)</strong>
+            </div>
+            <div className="p-3 bg-[var(--surface-subtle)] rounded-xl">
+              <span className="text-[var(--text-secondary)] block">Temps Restant</span>
+              <strong className="text-sm font-mono">~ 4 min</strong>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## 11. TUNNEL DE COMMANDE (CHECKOUT CASH ON DELIVERY)
+
+### `app/checkout/page.tsx`
+```tsx
+'use client';
+
+import React, { useState } from 'react';
+import { useCartDrawer } from '@/app/cart-drawer';
+import { formatPrice } from '@/lib/products';
+import { ShieldCheck, Truck, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+
+export default function CheckoutPage() {
+  const { lines, subtotalCents } = useCartDrawer();
+  const [fullName, setFullName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [city, setCity] = useState('Casablanca');
+  const [address, setAddress] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <div className="max-w-5xl mx-auto px-4 py-12">
+      <Link href="/shop" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] mb-8">
+        <ArrowLeft className="w-3.5 h-3.5" /> Continuer mes achats
+      </Link>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        {/* Formulaire de coordonnées COD */}
+        <div className="lg:col-span-2 space-y-6">
+          <div>
+            <h1 className="font-serif text-3xl font-extrabold">Finaliser ma Commande</h1>
+            <p className="text-xs text-[var(--text-secondary)] mt-1">
+              Paiement à la Livraison (Cash on Delivery) partout au Maroc. Bon à Tirer 3D envoyé sur WhatsApp avant production.
+            </p>
+          </div>
+
+          {submitted ? (
+            <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center space-y-4">
+              <ShieldCheck className="w-12 h-12 text-emerald-600 mx-auto" />
+              <h3 className="font-serif text-xl font-bold text-emerald-800 dark:text-emerald-300">
+                Commande Pré-Enregistrée avec Succès !
+              </h3>
+              <p className="text-xs text-[var(--text-secondary)] max-w-md mx-auto">
+                Notre atelier de Casablanca vous contacte sous 15 minutes sur WhatsApp au <strong>{phone}</strong> pour valider votre Bon à Tirer 3D avant d'extruder votre commande.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-card)] space-y-4">
+              <div>
+                <label className="block text-xs font-semibold mb-1">Nom & Prénom complet</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Youssef Amrani"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-bg)] text-sm"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold mb-1">Numéro WhatsApp (pour le Bon à Tirer 3D)</label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="+212 6XX-XXXXXX"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-bg)] text-sm font-mono"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold mb-1">Ville de livraison</label>
+                  <select
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="w-full px-4 py-2.5 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-bg)] text-sm"
+                  >
+                    <option value="Casablanca">Casablanca</option>
+                    <option value="Rabat">Rabat</option>
+                    <option value="Marrakech">Marrakech</option>
+                    <option value="Tanger">Tanger</option>
+                    <option value="Fès">Fès</option>
+                    <option value="Agadir">Agadir</option>
+                    <option value="Autre">Autre ville</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold mb-1">Mode de règlement</label>
+                  <div className="p-2.5 rounded-xl border border-[var(--brand-primary)] bg-[var(--surface-subtle)] text-xs font-semibold text-[var(--brand-primary)]">
+                    Paiement à la Livraison (COD)
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold mb-1">Adresse de livraison (Quartier, Rue, N°)</label>
+                <textarea
+                  required
+                  rows={2}
+                  placeholder="Quartier Gauthier, Rue 4, Immeuble..."
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  className="w-full px-4 py-2 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-bg)] text-sm"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-3.5 rounded-xl bg-[var(--brand-primary)] text-white text-sm font-semibold hover:bg-[var(--brand-primary-hover)] transition-all shadow-md mt-4"
+              >
+                Confirmer ma commande ({formatPrice(subtotalCents)})
+              </button>
+            </form>
+          )}
+        </div>
+
+        {/* Récapitulatif commande */}
+        <div className="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface-subtle)] space-y-4">
+          <h3 className="font-serif font-bold text-sm">Récapitulatif ({lines.length} articles)</h3>
+          <div className="divide-y divide-[var(--surface-border)] text-xs">
+            {lines.map((l) => (
+              <div key={l.id} className="py-2 flex justify-between">
+                <span>Qté {l.quantity}</span>
+                <span className="font-semibold">{formatPrice(l.unitPriceCents * l.quantity)}</span>
+              </div>
+            ))}
+          </div>
+          <div className="pt-4 border-t border-[var(--surface-border)] flex justify-between font-bold text-base">
+            <span>Total COD</span>
+            <span className="text-[var(--brand-primary)]">{formatPrice(subtotalCents)}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## 12. SCRIPTS D'INSTALLATION ÉTAPE PAR ÉTAPE
+
+### Pour Windows (`setup-and-run.ps1`)
+```powershell
+# 1. Vérification de la version de Node.js
+Write-Host "🔍 Vérification de Node.js..." -ForegroundColor Cyan
+node --version
+
+# 2. Installation propre des dépendances avec versions verrouillées
+Write-Host "📦 Installation des packages npm..." -ForegroundColor Cyan
+npm ci
+
+# 3. Validation de la compilation stricte TypeScript
+Write-Host "🛡️ Vérification des types TypeScript..." -ForegroundColor Cyan
+npm run typecheck
+
+# 4. Compilation de production Next.js
+Write-Host "🏗️ Compilation du build de production..." -ForegroundColor Cyan
+npm run build
+
+# 5. Démarrage du serveur web local
+Write-Host "🚀 Lancement de MustDesign3D sur http://localhost:3000..." -ForegroundColor Green
+npm run start
+```
+
+### Pour Linux / macOS / VPS (`setup.sh`)
+```bash
+#!/bin/bash
+set -e
+
+echo "🔍 Vérification de l'environnement..."
+node -v
+npm -v
+
+echo "📦 Installation propre des dépendances..."
+npm ci
+
+echo "🛡️ Validation TypeScript..."
+npm run typecheck
+
+echo "🏗️ Compilation Next.js..."
+npm run build
+
+echo "🚀 Démarrage du serveur de production..."
+npm run start -- --port 3000
+```
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_99 -->
+</body>
+</html>
